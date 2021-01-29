@@ -44,21 +44,10 @@
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h7 class="card-title">Buen hack para atravesar el header</h7>
-                            <h7 class="card-subtitle">QWERTYUIOP</h7>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
+        <div class="page-wrapper">
+            <div class="conteiner-fluid">
+            <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
+            <div class="container">
             <div class="row">
             <div class="col-sm-2 col-md-2 col-lg-2"></div>
                 <div class="col-sm-10 col-md-10 col-lg-10">
@@ -171,6 +160,14 @@
                 </div>
             </div>
         </div>
+
+
+
+            </div>
+        </div>
+       
+
+        
 
 
         <!--FIN CONTENEDOR -->

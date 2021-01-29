@@ -40,13 +40,18 @@
         ?>
         <!-- FON BARRA IZQUIERDA  -->
         <!-- ============================================================== -->
-        
 
+        
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
-        
+        <div class="page-wrapper">
+            <div class="conteiner-fluid">
+            <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
 
-        <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
+
+
+            </div>
+        </div>
 
 
         <!--FIN CONTENEDOR -->
