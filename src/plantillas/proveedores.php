@@ -61,20 +61,12 @@
                                     <label>Clave</label>
                                     <input type="text"  class="form-control">
                                     <label>Nombre</label>
-                                    <input type="text" disabled="true" class="form-control">
+                                    <input type="text" class="form-control">
                                     <label>Razón Social</label>
-                                    <input type="text" disabled="true" class="form-control">
-                                    <label>Dirección</label>
-                                    <input type="text" disabled="true" class="form-control">
-                                    <label>Telefono</label>
-                                    <input type="text" disabled="true" class="form-control">
-                                    <label>RFC</label>
-                                    <input type="text" disabled="true" class="form-control">
-                                    <label>Correo</label>
-                                    <input type="text" disabled="true" class="form-control">
+                                    <input type="text" class="form-control">
                                 </div>
                                 <div class="text-right">
-                                    <button type="submit" class="btn btn-info">Submit</button>
+                                    <button type="submit" class="btn btn-info">Buscar</button>
                                 </div>
                             </form>
                         </div>
@@ -102,10 +94,23 @@
                                     <input type="text" class="form-control">
                                     <label>Correo</label>
                                     <input type="text" class="form-control">
+                                    <label>País</label>
+                                    <input type="text" class="form-control">
+                                    <label>Estado</label>
+                                    <input type="text" class="form-control">
+                                    <label>Ciudad</label>
+                                    <input type="text" class="form-control">
+                                    <br>
+                                    <h4 class="card-title">Detalles</h4>
+                                    <form class="mt-3">
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="3" placeholder="Detalles de proveedor..."></textarea>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="text-right">
-                                    <button type="submit" class="btn btn-info">Submit</button>
-                                    <button type="reset" class="btn btn-dark">Reset</button>
+                                    <button type="submit" class="btn btn-info">Buscar</button>
+                                    <button type="reset" class="btn btn-dark">Reiniciar valores</button>
                                 </div>
                             </form>
                         </div>
@@ -130,9 +135,13 @@
                                             <th scope="col">Dirección</th>
                                             <th scope="col">Telefono</th>
                                             <th scope="col">RFC</th>
+                                            <th scope="col">Estado</th>
+                                            <th scope="col">Ver</th>
+                                            <th scope="col">Editar</th>
+                                            <th scope="col">Eliminar</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="text-center">
                                         <tr>
                                             <th scope="row">1</th>
                                             <td>Cell</td>
@@ -141,6 +150,10 @@
                                             <td>Cell</td>
                                             <td>Cell</td>
                                             <td>Cell</td>
+                                            <td><i class="fas fa-check-circle"></i></td>
+                                            <td><i class="fas fa-eye"></i></td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td><i class="fas fa-trash"></i></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">2</th>
@@ -150,6 +163,10 @@
                                             <td>Cell</td>
                                             <td>Cell</td>
                                             <td>Cell</td>
+                                            <td><i class="fas fa-check-circle"></i></i></td>
+                                            <td><i class="fas fa-eye"></i></td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td><i class="fas fa-trash"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
