@@ -84,19 +84,7 @@
                                 <div class="input-group mb-3">
                                     <textarea class="form-control" aria-label="With textarea" placeholder="notas"></textarea>
                                 </div>
-
-                        </div>
-                    </div>
-                    <!-- Fin Input de Busqueda de preveedores -->
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-2 col-md-2 col-lg-2"></div>
-                <div class="col-sm-10 col-md-10 col-lg-10">
-                    <div class="card text-center">
-                        <div class="card-header">
-                            <div class="input-group mb-3">
+                                <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <label class="input-group-text" for="inputGroupSelect01">Proveedor</label>
                                 </div>
@@ -114,8 +102,36 @@
                                 </div>
                                 <input type="text" class="form-control" placeholder="C10101010" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             </div>
+
+                            <div class="input-group mb-4">
+                                <ul class="list-group">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">metodo de pago</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option selected>opciones</option>
+                                        <option value="1">efectivo</option>
+                                        <option value="2"> credito</option>
+                                        <option value="3">tarjeta de regalo</option>
+                                    </select>
+                                </ul>
+                                <ul class="list-group">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="500$">
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                    <!-- Fin Input de Busqueda de preveedores -->
+                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2 col-md-2 col-lg-2"></div>
+                <div class="col-sm-10 col-md-10 col-lg-10">
                     <div class="card-body bg-white">
                         <h5 class="card-title">Productos comprados</h5>
                         <div class="card-text">
@@ -178,37 +194,13 @@
                     <div class="card-footer text-muted">
                         <div class="row">
                             <div class="col-md-4">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">metodo de pago</label>
-                                        </div>
-                                        <select class="custom-select" id="inputGroupSelect01">
-                                            <option selected>opciones</option>
-                                            <option value="1">efectivo</option>
-                                            <option value="2"> credito</option>
-                                            <option value="3">tarjeta de regalo</option>
-                                        </select>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>
-                                        </div>
-                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="500$">
-                                    </li>
-                                    </select>
-                                    </li>
+                                
                                     <li class="list-group-item">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text bg-red" for="inputGroupSelect01">monto pendiente</label>
                                         </div>
                                         <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="1500$">
                                     </li>
-                                </ul>
                             </div>
                             <div class="col-md-4">
                                 <button type="button" class="btn btn-success"> enviar<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
