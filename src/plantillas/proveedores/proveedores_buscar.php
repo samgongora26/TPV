@@ -3,7 +3,7 @@
 
 <head>
     <?php
-        include '../../componentes/head.php';
+        include '../../../componentes/head.php';
     ?>
 </head>
 
@@ -27,7 +27,7 @@
         <!-- ============================================================== -->
         <!-- HEADER -->
         <?php
-            include '../../componentes/header.php';
+            include '../../../componentes/header.php';
         ?>
         <!-- FIN HEADER -->
         <!-- ============================================================== -->
@@ -36,7 +36,7 @@
         <!-- ============================================================== -->
         <!-- BARRA IZQUIERDA  -->
         <?php
-            include '../../componentes/barra_izquierda.php';
+            include '../../../componentes/barra_izquierda.php';
         ?>
         <!-- FON BARRA IZQUIERDA  -->
         <!-- ============================================================== -->
@@ -73,50 +73,7 @@
                     </div>
                     <!-- Fin Input de Busqueda de preveedores -->
 
-                    <!-- Input de Crear Nuevo preveedor -->
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Agregar Nuevo Proveedor</h4>
-                            <h6 class="card-subtitle">Rellena los campos para agregar un nuevo proveedor</h6>
-                            <form class="mt-4">
-                                <div class="form-group">
-                                    <label>Clave</label>
-                                    <input type="text"  class="form-control">
-                                    <label>Nombre</label>
-                                    <input type="text" class="form-control">
-                                    <label>Razón Social</label>
-                                    <input type="text" class="form-control">
-                                    <label>Dirección</label>
-                                    <input type="text" class="form-control">
-                                    <label>Telefono</label>
-                                    <input type="text" class="form-control">
-                                    <label>RFC</label>
-                                    <input type="text" class="form-control">
-                                    <label>Correo</label>
-                                    <input type="text" class="form-control">
-                                    <label>País</label>
-                                    <input type="text" class="form-control">
-                                    <label>Estado</label>
-                                    <input type="text" class="form-control">
-                                    <label>Ciudad</label>
-                                    <input type="text" class="form-control">
-                                    <br>
-                                    <h4 class="card-title">Detalles</h4>
-                                    <form class="mt-3">
-                                        <div class="form-group">
-                                            <textarea class="form-control" rows="3" placeholder="Detalles de proveedor..."></textarea>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-info">Buscar</button>
-                                    <button type="reset" class="btn btn-dark">Reiniciar valores</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Fin Input de Crear Nuevo preveedor -->
-
+                    
                     <!--Tabla de proveedores-->
                     <div class="col-12">
                         <div class="card">
@@ -193,7 +150,7 @@
 
     <!-- TODOS LOS ENLACES DE SCRIPTS -->
     <?php
-        include '../../componentes/scripts.php';
+        include '../../../componentes/scripts.php';
     ?>
     <!-- FIN DE SCRIPTS -->
 </body>

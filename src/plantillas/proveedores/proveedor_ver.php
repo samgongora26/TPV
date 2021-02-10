@@ -3,7 +3,7 @@
 
 <head>
     <?php
-        include '../../componentes/head.php';
+        include '../../../componentes/head.php';
     ?>
 </head>
 
@@ -27,7 +27,7 @@
         <!-- ============================================================== -->
         <!-- HEADER -->
         <?php
-            include '../../componentes/header.php';
+            include '../../../componentes/header.php';
         ?>
         <!-- FIN HEADER -->
         <!-- ============================================================== -->
@@ -36,7 +36,7 @@
         <!-- ============================================================== -->
         <!-- BARRA IZQUIERDA  -->
         <?php
-            include '../../componentes/barra_izquierda.php';
+            include '../../../componentes/barra_izquierda.php';
         ?>
         <!-- FON BARRA IZQUIERDA  -->
         <!-- ============================================================== -->
@@ -60,7 +60,7 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-white">Razon Social</h5>
-                                <div align="center"><img style="border-radius: 50px; color: black;" src="../imagenes/proveedores/logosabritas.jpg" width="100" height="100" ></div><br>
+                                <div align="center"><img style="border-radius: 50px; color: black;" src="../../imagenes/proveedores/logosabritas.jpg" width="100" height="100" ></div><br>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <a href="javascript:void(0)" class="btn btn-primary">Facturas</a>
@@ -187,7 +187,7 @@
 
     <!-- TODOS LOS ENLACES DE SCRIPTS -->
     <?php
-        include '../../componentes/scripts.php';
+        include '../../../componentes/scripts.php';
     ?>
     <!-- FIN DE SCRIPTS -->
 </body>
