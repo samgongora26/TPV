@@ -32,23 +32,38 @@
                                     class="hide-menu">Clientes
                                 </span></a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php" aria-expanded="false">
-                                <i class="fas fa-donate">
-                                </i>
-                                <span
-                                    class="hide-menu">Compras
-                                </span>
-                            </a>
-                        </li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i class="fas fa-truck-moving"></i><span
-                                    class="hide-menu">Proveedores </span></a>
+                        <!-- Links a compras del menu -->
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fas fa-donate"></i><span class="hide-menu">Compras</span>
+                            </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item"><a href="../proveedores/proveedores_buscar.php" class="sidebar-link"><span
-                                            class="hide-menu"><i class="fas fa-users"></i> Ver Proveedores 
-                                        </span></a>
+                                <li class="sidebar-item">
+                                    <a href="../compras/compras_adquirir.php" class="sidebar-link">
+                                        <span class="hide-menu"><i class="fas fa-users"></i>Comprar Productos</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="../compras/compras_historial.php" class="sidebar-link">
+                                        <spanclass="hide-menu"><i class="fas fa-truck-loading"></i> Historial de Compras</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- fin de links a compras del menu -->
+
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fas fa-donate"></i>
+                                <span class="hide-menu">Proveedores</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="../proveedores/proveedores_buscar.php" class="sidebar-link">
+                                        <span class="hide-menu">
+                                        <i class="fas fa-users"></i>Ver Proveedores</span>
+                                    </a>
                                 </li>
                                 <li class="sidebar-item"><a href="../proveedores/proveedores_agregar.php" class="sidebar-link"><span
                                             class="hide-menu"><i class="fas fa-truck-loading"></i> Agregar Proveedor
