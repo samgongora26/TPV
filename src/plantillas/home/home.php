@@ -3,7 +3,7 @@
 
 <head>
     <?php
-        include '../../componentes/head.php';
+        include '../../../componentes/head.php';
     ?>
 </head>
 
@@ -27,7 +27,7 @@
         <!-- ============================================================== -->
         <!-- HEADER -->
         <?php
-            include '../../componentes/header.php';
+            include '../../../componentes/header.php';
         ?>
         <!-- FIN HEADER -->
         <!-- ============================================================== -->
@@ -36,7 +36,7 @@
         <!-- ============================================================== -->
         <!-- BARRA IZQUIERDA  -->
         <?php
-            include '../../componentes/barra_izquierda.php';
+            include '../../../componentes/barra_izquierda.php';
         ?>
         <!-- FON BARRA IZQUIERDA  -->
         <!-- ============================================================== -->
@@ -67,7 +67,7 @@
 
     <!-- TODOS LOS ENLACES DE SCRIPTS -->
     <?php
-        include '../../componentes/scripts.php';
+        include '../../../componentes/scripts.php';
     ?>
     <!-- FIN DE SCRIPTS -->
 </body>
