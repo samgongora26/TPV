@@ -114,7 +114,7 @@
                     </div>
                     <!--Fin Tarjeta de contacto-->
                 </div>
-                <!-- Row de tarjetas superiores -->
+                <!--Fin Row de tarjetas superiores -->
 
                 <!--Tarjeta de Balance-->
                 <div class="row">

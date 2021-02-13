@@ -18,9 +18,27 @@
                                 aria-expanded="false"><i class="fas fa-gift"></i><span
                                     class="hide-menu">Promociones</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
-                                aria-expanded="false"><i class="fas fa-pallet"></i><span
-                                    class="hide-menu">Inventario</span></a></li>
+                        
+
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fas fa-pallet"></i>
+                                <span class="hide-menu">Inventario</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="../inventario/inventario_lista.php" class="sidebar-link">
+                                        <span class="hide-menu">
+                                        <i class="fas fa-boxes"></i>Buscar Producto</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item"><a href="../inventario/inventario_agregar_producto.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-dolly"></i>Agregar Producto</span></a>
+                                </li>
+                            </ul>
+                        </li>
+
+
 					
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
                                 aria-expanded="false"><i class="fas fa-clipboard-list"></i><span
@@ -55,7 +73,7 @@
 
                         <li class="sidebar-item"> 
                             <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                                <i class="fas fa-donate"></i>
+                                <i class="fas fa-people-carry"></i>
                                 <span class="hide-menu">Proveedores</span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
