@@ -98,33 +98,8 @@
                                             <th scope="col">Eliminar</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="text-center">
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td><i class="fas fa-check-circle"></i></td>
-                                            <td><i class="fas fa-eye"></i></td>
-                                            <td><i class="fas fa-edit"></i></td>
-                                            <td><i class="fas fa-trash"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td><i class="fas fa-check-circle"></i></i></td>
-                                            <td><i class="fas fa-eye"></i></td>
-                                            <td><i class="fas fa-edit"></i></td>
-                                            <td><i class="fas fa-trash"></i></td>
-                                        </tr>
+                                    <tbody id="contenido_tabla" class="text-center">
+                                        <!-- aqui se inyecta el contenido de la tabla desde el backend-->
                                     </tbody>
                                 </table>
                             </div>
@@ -152,6 +127,7 @@
     <?php
         include '../../../componentes/scripts.php';
     ?>
+        <script src="../../../inc/funciones/proveedores/app.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 

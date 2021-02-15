@@ -56,7 +56,7 @@
                     <div class="col-md-6">
                         <div class="card text-white bg-dark">
                             <div align="center" class="card-header">
-                                <h4 class="mb-0 text-white">Nombre proveedor</h4>
+                                <h4 class="mb-0 text-white" id="nombre"><!-- se inyecta el nombre--></h4>
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-white">Razon Social</h5>
@@ -90,7 +90,7 @@
                                         <h3>Telefono: </h3>
                                     </div>
                                     <div class="col-md-4">
-                                        <p>018009998080</p>
+                                        <p id="telefono"><!--se inyecta el telefono --></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -98,7 +98,7 @@
                                         <h3>Correo: </h3>
                                     </div>
                                     <div class="col-md-4">
-                                        <p>mail@mail.com</p>
+                                        <p id="email"><!--se inyecta el correo--></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -106,7 +106,7 @@
                                         <h3>Dirección: </h3>
                                     </div>
                                     <div class="col-md-7">
-                                        <p>A un lado del cuv</p>
+                                        <p id="direccion"><!-- se inyecta la direccion--></p>
                                     </div>
                                 </div>
                             </div>
@@ -189,6 +189,7 @@
     <?php
         include '../../../componentes/scripts.php';
     ?>
+           <script src="../../../inc/funciones/proveedores/proveedor_ver.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 
