@@ -51,50 +51,33 @@
             <div class="row">
             <div class="col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-sm-11 col-md-11 col-lg-11">
-                    <!-- Input de Busqueda de productos -->
+                    <!-- Input de Busqueda con Codigo de Barras -->
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Buscar Producto</h4>
-                            <h6 class="card-subtitle">Ingresa Codigo de Barras o Nombre del Producto</h6>
+                            <h4 class="card-title">Buscar Producto con Codigo de Barras</h4>
+                            <h6 class="card-subtitle">Ingresa Codigo de Barras</h6>
                             <form class="mt-4">
                                 <div class="form-group">
                                     <label>Codigo de Barras</label>
                                     <input type="text"  class="form-control">
-                                    <label>Nombre</label>
-                                    <input type="text" class="form-control">
                                 </div>
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Buscar</button>
                                 </div>
                             </form>
                         </div>
-                    </div>
-                    <!-- Fin Input de Busqueda de productos -->
-
-                    
-                    <!--Tabla de productos-->
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Productos de Tienda</h4>
-                                <h6 class="card-subtitle">Resultado de Productos</h6>
-                            </div>
-                            <div class="table-responsive">
+                        <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Imagen</th>
-                                            <th scope="col">Codigo de Barras</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Proveedor</th>
+                                            <th scope="col">Producto</th>
                                             <th scope="col">Stock</th>
-                                            <th scope="col">Precio Compra</th>
-                                            <th scope="col">Precio Venta</th>
-                                            <th scope="col">Estado</th>
-                                            <th scope="col">Ver</th>
-                                            <th scope="col">Editar</th>
-                                            <th scope="col">Imprimir codigo de Barras</th>
-                                            <th scope="col">Eliminar</th>
+                                            <th scope="col">Cantidad a imprimir</th>
+                                            <th scope="col">Imagen</th>
+                                            <th scope="col">Proveedor</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Categoria</th>
+                                            <th scope="col">Descripción</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-center">
@@ -102,36 +85,57 @@
                                             <th scope="row">1</th>
                                             <td>Cell</td>
                                             <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
                                             <td><i class="fas fa-check-circle"></i></td>
-                                            <td><i class="fas fa-eye"></i></td>
-                                            <td><i class="fas fa-edit"></i></td>
-                                            <td><i class="fas fa-print"></i></td>
-                                            <td><i class="fas fa-trash"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td><i class="fas fa-check-circle"></i></i></td>
-                                            <td><i class="fas fa-eye"></i></td>
-                                            <td><i class="fas fa-edit"></i></td>
-                                            <td><i class="fas fa-print"></i></td>
-                                            <td><i class="fas fa-trash"></i></td>
+                                            <td><i class="fas fa-check-circle"></i></td>
+                                            <td><i class="fas fa-check-circle"></i></td>
+                                            <td><i class="fas fa-check-circle"></i></td>
+                                            <td><i class="fas fa-check-circle"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-info">Otro Producto</button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-info">Previsualizar  <i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <!-- Fin Input de Busqueda con Codigo de Barras -->
+
+
+                    <!--Inicio de card Visualizar Codigo de Barras-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-4">
+                                    <h4 class="card-title">Visualización de Codigo de Barras</h4>
+                                </div>
+
+                                <!--Aqui se programa lo de para ver los codigos de barras-->
+                                Codigos de barras chidos ;v
+                                <img src="../../imagenes/inventario/barrasejemplo.jpeg" alt="">
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-info">Imprimir</button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <!-- Fin Tabla de productos-->
+                </div>
+                <!--Fin de card Visualizar Codigo de Barras-->
+
+
                 </div>
             </div>
         </div>

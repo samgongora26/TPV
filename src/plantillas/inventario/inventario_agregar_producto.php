@@ -60,7 +60,7 @@
                                     <form id="formulario" class="mt-4">
                                         <div class="form-group">
                                             <label>Imagen</label>
-                                            <input id="clave" name="clave" type="text" class="form-control">
+                                            <input id="clave" name="clave" type="file" class="form-control">
                                             <label>Nombre</label>
                                             <input id="nombre" name="nombre" type="text" class="form-control">
                                             <label>Codigo de Barras</label>

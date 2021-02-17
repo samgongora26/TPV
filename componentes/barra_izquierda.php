@@ -35,6 +35,15 @@
                                 <li class="sidebar-item"><a href="../inventario/inventario_agregar_producto.php" class="sidebar-link"><span
                                             class="hide-menu"><i class="fas fa-dolly"></i>Agregar Producto</span></a>
                                 </li>
+                                <li class="sidebar-item"><a href="../inventario/inventario_cbarras.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-barcode"></i>Codigo de Barras</span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="../inventario/inventario_agregar_categoria.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-clone"></i>Agregar Categoria</span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="../inventario/inventario_lista_categoria.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-list-alt"></i>Lista de Categorias</span></a>
+                                </li>
                             </ul>
                         </li>
 
@@ -59,12 +68,12 @@
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
                                     <a href="../compras/compras_adquirir.php" class="sidebar-link">
-                                        <span class="hide-menu"><i class="fas fa-users"></i>Comprar Productos</span>
+                                        <span class="hide-menu"><i class="fas fa-dollar-sign"></i>Comprar Productos</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="../compras/compras_historial.php" class="sidebar-link">
-                                        <spanclass="hide-menu"><i class="fas fa-truck-loading"></i> Historial de Compras</span>
+                                        <spanclass="hide-menu"><i class="fas fa-tasks"></i> Historial de Compras</span>
                                     </a>
                                 </li>
                             </ul>
