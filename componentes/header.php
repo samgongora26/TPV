@@ -1,3 +1,16 @@
+<?php
+    //se hace llamado a la sesión
+    include("../../../inc/funciones/admin/sesion.php");
+    //Se obtienen los datos del usuario si existe la sesión
+    include("../../../inc/funciones/admin/datos_usuario.php")
+    //Ejemplos de como usar los datos:
+    //echo $usr["nombres"];
+    //echo $usr["apellidos"];
+    //echo $usr["usuario"];
+    //echo $usr["fotografia"]
+    //echo $usr["estado"]
+?>
+
 <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md">
                 <div class="navbar-header" data-logobg="skin6">
@@ -120,7 +133,7 @@
                                         class="svg-icon mr-2 ml-1"></i>
                                     Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
+                                <a class="dropdown-item" href="../../../inc/funciones/admin/logout.php"><i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Logout</a>
                                 <div class="dropdown-divider"></div>

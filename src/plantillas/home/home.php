@@ -48,6 +48,7 @@
             <div class="conteiner-fluid">
             <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
             <!-- Links de los botones-->
+            <h4 class=" pl-2 mt-3 ">Me alegra que estés aquí de nuevo <b><?php echo $usr["nombres"] .'  '.$usr["apellidos"]?></b> veamos que sucede por aquí...</h4>
             <a href="../ventas/ventas.php"><button type="button" class="btn btn-primary" style='width:280px; height:230px; margin:10px'><i class="fas fa-tag"></i><p></p>Ventas</button></a>
             <a href="../promociones/promociones.php"><button type="button" class="btn btn-secondary" style='width:200px; height:150px; margin:10px'><i class="fas fa-gift"></i><p></p>Promociones</button></a>
 			<a href="../inventario/inventario.php"><button type="button" class="btn btn-success" style='width:200px; height:150px; margin:10px'><i class="fas fa-pallet"></i><p></p>Inventario</button></a>

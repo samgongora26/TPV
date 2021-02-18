@@ -54,18 +54,18 @@
                         </div>
                         <h2 class="mt-3 text-center">Iniciar  sesión</h2>
                         <p class="text-center">Ingresa tu correo y contraseña para acceder</p>
-                        <form class="mt-4">
+                        <form class="mt-4" method="POST" action="inc/funciones/admin/login.php">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="text-dark" for="uname">Usuario o correo</label>
-                                        <input class="form-control" id="uname" type="text" placeholder="Usuario">
+                                        <input class="form-control" id="user" name="user" type="text" placeholder="Usuario">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="text-dark" for="pwd">contraseña</label>
-                                        <input class="form-control" id="pwd" type="password" placeholder="contraseña">
+                                        <input class="form-control" id="pass" name="pass" type="password" placeholder="contraseña">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 text-center">
