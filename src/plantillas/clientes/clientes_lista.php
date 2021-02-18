@@ -69,21 +69,8 @@
                                             <th scope="col">Telefono</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                        </tr>
+                                    <tbody id="contenido_tabla">
+                                        <!--inyeccion de los datos -->
                                     </tbody>
                                 </table>
                             </div>
@@ -131,6 +118,7 @@
     <?php
         include '../../../componentes/scripts.php';
     ?>
+        <script src="../../../inc/funciones/clientes/app.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 

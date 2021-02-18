@@ -55,28 +55,28 @@
                         <div class="card-body">
                             <h4 class="card-title">Agregar Nuevo Cliente</h4>
                             <h6 class="card-subtitle">Rellena los campos para agregar un nuevo cliente</h6>
-                            <form class="mt-4">
+                            <form id="formulario" class="mt-4">
                                 <div class="form-group">
                                     <label>Clave Cliente</label>
-                                    <input type="text" placeholder="Ingresa el numero clave del cliente" class="form-control">
+                                    <input id="clave" type="text" placeholder="Ingresa el numero clave del cliente" class="form-control">
                                     <label>Nombre</label>
-                                    <input type="text" placeholder="Ingresa nombre del cliente" class="form-control">
+                                    <input id="nombre" type="text" placeholder="Ingresa nombre del cliente" class="form-control">
                                     <label>Segundo Nombre</label>
-                                    <input type="text" placeholder="Ingresa segundo nombre del cliente (opcional)" class="form-control">
+                                    <input id="nombre_2" type="text" placeholder="Ingresa segundo nombre del cliente (opcional)" class="form-control">
                                     <label>Apellido Paterno</label>
-                                    <input type="text" placeholder="Ingresa apellido paterno del cliente" class="form-control">
+                                    <input id="apellido_p" type="text" placeholder="Ingresa apellido paterno del cliente" class="form-control">
                                     <label>Apellido Materno</label>
-                                    <input type="text" placeholder="Ingresa apellido materno del cliente" class="form-control">
+                                    <input id="apellido_m" type="text" placeholder="Ingresa apellido materno del cliente" class="form-control">
                                     <label>Dirección</label>
-                                    <input type="text" placeholder="Ingresa dirección del cliente (opcional)" class="form-control">
+                                    <input id="direccion" type="text" placeholder="Ingresa dirección del cliente (opcional)" class="form-control">
                                     <label>Telefono</label>
-                                    <input type="text" placeholder="Ingresa numero de telefono de cliente" class="form-control">
+                                    <input id="telefono" type="text" placeholder="Ingresa numero de telefono de cliente" class="form-control">
                                     <label>Correo</label>
-                                    <input type="text" placeholder="Ingresa correo del cliente" class="form-control">
-                                </div>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-info">Submit</button>
+                                    <input id="correo" type="text" placeholder="Ingresa correo del cliente" class="form-control">
+                                    <div class="text-right">
+                                    <button type="submit" class="btn btn-info">submit</button>
                                     <button type="reset" class="btn btn-dark">Reset</button>
+                                </div>
                                 </div>
                             </form>
                         </div>
@@ -97,6 +97,7 @@
         include '../../../componentes/scripts.php';
     ?>
     <!-- FIN DE SCRIPTS -->
+    <script src="../../../inc/funciones/clientes/clientes_agregar.js"></script>
 </body>
 
 </html>
