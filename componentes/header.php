@@ -1,3 +1,16 @@
+<?php
+    //se hace llamado a la sesión
+    include("../../../inc/funciones/admin/sesion.php");
+    //Se obtienen los datos del usuario si existe la sesión
+    include("../../../inc/funciones/admin/datos_usuario.php")
+    //Ejemplos de como usar los datos:
+    //echo $usr["nombres"];
+    //echo $usr["apellidos"];
+    //echo $usr["usuario"];
+    //echo $usr["fotografia"]
+    //echo $usr["estado"]
+?>
+
 <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md">
                 <div class="navbar-header" data-logobg="skin6">
@@ -9,7 +22,7 @@
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
                         <!-- Logo icon -->
-                        <a href="index.html">
+                        <a href="../home/home.php">
                             <b class="logo-icon">
                                 <!-- Dark Logo icon -->
                                 <img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
@@ -99,10 +112,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                <img src="../../assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle"
+                                <img src="../../assets/images/users/<?php echo $usr["fotografia"];?>" alt="user" class="rounded-circle"
                                     width="40">
-                                <span class="ml-2 d-none d-lg-inline-block"><span>Empleado:</span> <span
-                                        class="text-dark">Fulanito</span> <i data-feather="chevron-down"
+                                <span class="ml-2 d-none d-lg-inline-block"><span>Usuario:</span> <span
+                                        class="text-dark"><?php echo $usr["usuario"]; ?></span> <i data-feather="chevron-down"
                                         class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -120,7 +133,7 @@
                                         class="svg-icon mr-2 ml-1"></i>
                                     Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
+                                <a class="dropdown-item" href="../../../inc/funciones/admin/logout.php"><i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Logout</a>
                                 <div class="dropdown-divider"></div>

@@ -49,76 +49,73 @@
             <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
             <div class="container">
             <div class="row">
-            <div class="col-sm-1 col-md-1 col-lg-1"></div>
-                <div class="col-sm-11 col-md-11 col-lg-11">
-                    <!-- Input de Busqueda de preveedores -->
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Buscar Proveedores</h4>
-                            <h6 class="card-subtitle">Ingresa Codigo de proveedor</h6>
-                            <form class="mt-4">
-                                <div class="form-group">
-                                    <label>Clave</label>
-                                    <input type="text"  class="form-control">
-                                    <label>Nombre</label>
-                                    <input type="text" class="form-control">
-                                    <label>Razón Social</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-info">Buscar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Fin Input de Busqueda de preveedores -->
-
-                    
-                    <!--Tabla de proveedores-->
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <!--Tabla de Historial Clientes-->
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Tabla de Proveedores</h4>
-                                <h6 class="card-subtitle">Resultado de proveedores</h6>
+                                <h4 class="card-title">Historial de Compras</h4>
+                                <h6 class="card-subtitle">Historial...</h6>
                             </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <input type="text" placeholder="Codigo Ciiente" class="form-control">
+                                    <br>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-info">Buscar</button>
+                                </div>
+                            </div>
+                            
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Clave</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Razón Social</th>
-                                            <th scope="col">Dirección</th>
-                                            <th scope="col">Telefono</th>
-                                            <th scope="col">RFC</th>
-                                            <th scope="col">Estado</th>
-                                            <th scope="col">Ver</th>
-                                            <th scope="col">Editar</th>
-                                            <th scope="col">Eliminar</th>
+                                            <th scope="col">fecha</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Precio Unitario</th>
+                                            <th scope="col">Total</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="contenido_tabla" class="text-center">
-                                        <!-- aqui se inyecta el contenido de la tabla desde el backend-->
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <!-- Fin Tabla de proveedores-->
+                    <!-- Fin Tabla de Historial Clientes-->
                 </div>
             </div>
         </div>
 
-
-
             </div>
         </div>
-       
-
-        
-
-
         <!--FIN CONTENEDOR -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     </div>
@@ -127,7 +124,6 @@
     <?php
         include '../../../componentes/scripts.php';
     ?>
-        <script src="../../../inc/funciones/proveedores/app.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 

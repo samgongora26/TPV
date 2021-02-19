@@ -9,7 +9,7 @@
                                     class="hide-menu">PTV</span></a></li>
                         <li class="list-divider"></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link" href="../carpeta/plantilla.php"
+                        <li class="sidebar-item"> <a class="sidebar-link" href="../ventas/tpv.php"
                                 aria-expanded="false"><i class="fas fa-tag"></i><span
                                     class="hide-menu">Ventas
                                 </span></a>
@@ -18,20 +18,78 @@
                                 aria-expanded="false"><i class="fas fa-gift"></i><span
                                     class="hide-menu">Promociones</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
-                                aria-expanded="false"><i class="fas fa-pallet"></i><span
-                                    class="hide-menu">Inventario</span></a></li>
+                        
+
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fas fa-pallet"></i>
+                                <span class="hide-menu">Inventario</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="../inventario/inventario_lista.php" class="sidebar-link">
+                                        <span class="hide-menu">
+                                        <i class="fas fa-boxes"></i>Buscar Producto</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item"><a href="../inventario/inventario_agregar_producto.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-dolly"></i>Agregar Producto</span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="../inventario/inventario_cbarras.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-barcode"></i>Codigo de Barras</span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="../inventario/inventario_agregar_categoria.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-clone"></i>Agregar Categoria</span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="../inventario/inventario_lista_categoria.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-list-alt"></i>Lista de Categorias</span></a>
+                                </li>
+                            </ul>
+                        </li>
+
+
 					
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
                                 aria-expanded="false"><i class="fas fa-clipboard-list"></i><span
                                     class="hide-menu">Reportes
                                 </span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
-                                aria-expanded="false"><i class="fas fa-users"></i><span
-                                    class="hide-menu">Clientes
-                                </span></a>
+
+
+
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fas fa-users"></i>
+                                <span class="hide-menu">Clientes</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="../clientes/clientes_agregar.php" class="sidebar-link">
+                                        <span class="hide-menu">
+                                        <i class="fas fa-id-card-alt"></i>Agregar Cliente</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item"><a href="../clientes/clientes_lista.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-id-card"></i>Lista de Clientes</span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="../clientes/clientes_historial.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-id-badge"></i>Historial de Clientes</span></a>
+                                </li>
+                            </ul>
                         </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         <!-- Links a compras del menu -->
                         <li class="sidebar-item"> 
@@ -41,12 +99,12 @@
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
                                     <a href="../compras/compras_adquirir.php" class="sidebar-link">
-                                        <span class="hide-menu"><i class="fas fa-users"></i>Comprar Productos</span>
+                                        <span class="hide-menu"><i class="fas fa-dollar-sign"></i>Comprar Productos</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="../compras/compras_historial.php" class="sidebar-link">
-                                        <spanclass="hide-menu"><i class="fas fa-truck-loading"></i> Historial de Compras</span>
+                                        <spanclass="hide-menu"><i class="fas fa-tasks"></i> Historial de Compras</span>
                                     </a>
                                 </li>
                             </ul>
@@ -55,7 +113,7 @@
 
                         <li class="sidebar-item"> 
                             <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                                <i class="fas fa-donate"></i>
+                                <i class="fas fa-people-carry"></i>
                                 <span class="hide-menu">Proveedores</span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">

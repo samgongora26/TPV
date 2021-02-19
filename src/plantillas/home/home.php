@@ -48,14 +48,15 @@
             <div class="conteiner-fluid">
             <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
             <!-- Links de los botones-->
-            <a href="../plantillas/ventas.php"><button type="button" class="btn btn-primary" style='width:280px; height:230px; margin:10px'><i class="fas fa-tag"></i><p></p>Ventas</button></a>
-            <a href="../plantillas/promociones.php"><button type="button" class="btn btn-secondary" style='width:200px; height:150px; margin:10px'><i class="fas fa-gift"></i><p></p>Promociones</button></a>
-			<a href="../plantillas/inventario.php"><button type="button" class="btn btn-success" style='width:200px; height:150px; margin:10px'><i class="fas fa-pallet"></i><p></p>Inventario</button></a>
-			<a href="../plantillas/reportes.php"><button type="button" class="btn btn-info" style='width:200px; height:150px; margin:10px'><i class="fas fa-clipboard-list"></i><p></p>Reportes</button></a>
-			<a href="../plantillas/clientes.php"><button type="button" class="btn btn-warning" style='width:200px; height:150px; margin:10px'><i class="fas fa-users"></i><p></p>Clientes</button></a>
-			<a href="../plantillas/compras.php"><button type="button" class="btn btn-danger" style='width:200px; height:150px; margin:10px'><i class="fas fa-donate"></i><p></p>Compras</button></a>
-			<a href="../plantillas/proveedores.php"><button type="button" class="btn btn-light" style='width:200px; height:150px; margin:10px'><i class="fas fa-truck-moving"></i><p></p>Proveedores</button></a>
-			<a href="../plantillas/finanzas.php"><button type="button" class="btn btn-dark" style='width:200px; height:150px; margin:10px'><i class="fas fa-chart-line"></i><p></p>Finanzas</button></a>
+            <h4 class=" pl-2 mt-3 ">Me alegra que estés aquí de nuevo <b><?php echo $usr["nombres"] .'  '.$usr["apellidos"]?></b> veamos que sucede por aquí...</h4>
+            <a href="../ventas/ventas.php"><button type="button" class="btn btn-primary" style='width:280px; height:230px; margin:10px'><i class="fas fa-tag"></i><p></p>Ventas</button></a>
+            <a href="../promociones/promociones.php"><button type="button" class="btn btn-secondary" style='width:200px; height:150px; margin:10px'><i class="fas fa-gift"></i><p></p>Promociones</button></a>
+			<a href="../inventario/inventario.php"><button type="button" class="btn btn-success" style='width:200px; height:150px; margin:10px'><i class="fas fa-pallet"></i><p></p>Inventario</button></a>
+			<a href="../reportes/reportes.php"><button type="button" class="btn btn-info" style='width:200px; height:150px; margin:10px'><i class="fas fa-clipboard-list"></i><p></p>Reportes</button></a>
+			<a href="../clientes/clientes.php"><button type="button" class="btn btn-warning" style='width:200px; height:150px; margin:10px'><i class="fas fa-users"></i><p></p>Clientes</button></a>
+			<a href="../compras/compras_adquirir.php"><button type="button" class="btn btn-danger" style='width:200px; height:150px; margin:10px'><i class="fas fa-donate"></i><p></p>Compras</button></a>
+			<a href="../proveedores/proveedores_buscar.php"><button type="button" class="btn btn-light" style='width:200px; height:150px; margin:10px'><i class="fas fa-truck-moving"></i><p></p>Proveedores</button></a>
+			<a href="../finanzas.php"><button type="button" class="btn btn-dark" style='width:200px; height:150px; margin:10px'><i class="fas fa-chart-line"></i><p></p>Finanzas</button></a>
             <!-- Final de los -->
             </div>
         </div>

@@ -51,18 +51,16 @@
             <div class="row">
             <div class="col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-sm-11 col-md-11 col-lg-11">
-                    <!-- Input de Busqueda de preveedores -->
+                    <!-- Input de Busqueda de productos -->
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Buscar Proveedores</h4>
-                            <h6 class="card-subtitle">Ingresa Codigo de proveedor</h6>
+                            <h4 class="card-title">Buscar Producto</h4>
+                            <h6 class="card-subtitle">Ingresa Codigo de Barras o Nombre del Producto</h6>
                             <form class="mt-4">
                                 <div class="form-group">
-                                    <label>Clave</label>
+                                    <label>Codigo de Barras</label>
                                     <input type="text"  class="form-control">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control">
-                                    <label>Razón Social</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="text-right">
@@ -71,41 +69,69 @@
                             </form>
                         </div>
                     </div>
-                    <!-- Fin Input de Busqueda de preveedores -->
+                    <!-- Fin Input de Busqueda de productos -->
 
                     
-                    <!--Tabla de proveedores-->
-                    <div class="col-12">
+                    <!--Tabla de productos-->
+                    <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Tabla de Proveedores</h4>
-                                <h6 class="card-subtitle">Resultado de proveedores</h6>
+                                <h4 class="card-title">Productos de Tienda</h4>
+                                <h6 class="card-subtitle">Resultado de Productos</h6>
                             </div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Clave</th>
+                                            <th scope="col">Imagen</th>
+                                            <th scope="col">Codigo de Barras</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Razón Social</th>
-                                            <th scope="col">Dirección</th>
-                                            <th scope="col">Telefono</th>
-                                            <th scope="col">RFC</th>
+                                            <th scope="col">Proveedor</th>
+                                            <th scope="col">Stock</th>
+                                            <th scope="col">Precio Compra</th>
+                                            <th scope="col">Precio Venta</th>
                                             <th scope="col">Estado</th>
                                             <th scope="col">Ver</th>
                                             <th scope="col">Editar</th>
+                                            <th scope="col">Imprimir codigo de Barras</th>
                                             <th scope="col">Eliminar</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="contenido_tabla" class="text-center">
-                                        <!-- aqui se inyecta el contenido de la tabla desde el backend-->
+                                    <tbody class="text-center">
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td><i class="fas fa-check-circle"></i></td>
+                                            <td><i class="fas fa-eye"></i></td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td><i class="fas fa-print"></i></td>
+                                            <td><i class="fas fa-trash"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td>Cell</td>
+                                            <td><i class="fas fa-check-circle"></i></i></td>
+                                            <td><i class="fas fa-eye"></i></td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td><i class="fas fa-print"></i></td>
+                                            <td><i class="fas fa-trash"></i></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <!-- Fin Tabla de proveedores-->
+                    <!-- Fin Tabla de productos-->
                 </div>
             </div>
         </div>
@@ -127,7 +153,6 @@
     <?php
         include '../../../componentes/scripts.php';
     ?>
-        <script src="../../../inc/funciones/proveedores/app.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 

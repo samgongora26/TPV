@@ -3,7 +3,7 @@
 
 <head>
     <?php
-        include '../../componentes/head.php';
+        include '../../../componentes/head.php';
     ?>
 </head>
 
@@ -27,7 +27,7 @@
         <!-- ============================================================== -->
         <!-- HEADER -->
         <?php
-            include '../../componentes/header.php';
+            include '../../../componentes/header.php';
         ?>
         <!-- FIN HEADER -->
         <!-- ============================================================== -->
@@ -181,7 +181,7 @@
                     <div class="col-md-3">
                         <!-----------------TARJETA DE DESCRIPCION DEL PRODUCTO--------->
                             <div class="card">
-                                <img class="col-md-3 mx-auto mt-3" src="../assets/images/product/iwatch.png" alt="product">
+                                <img class="col-md-3 mx-auto mt-3" src="../../assets/images/product/iwatch.png" alt="product">
                                 <div class="card-body text-center">
                                     <h4 class="card-title">Titulo del producto</h4>
                                     <p class="card-text">$5000</p>
@@ -229,7 +229,7 @@
 
     <!-- TODOS LOS ENLACES DE SCRIPTS -->
     <?php
-        include '../../componentes/scripts.php';
+        include '../../../componentes/scripts.php';
     ?>
     <!-- FIN DE SCRIPTS -->
 </body>
