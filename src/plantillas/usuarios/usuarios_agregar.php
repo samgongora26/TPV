@@ -3,7 +3,7 @@
 
     <head>
         <?php
-            include '../../../componentes/head.php';
+        include '../../../componentes/head.php';
         ?>
     </head>
 
@@ -21,13 +21,12 @@
 
         <!-- DIV PRINCIPAL DE BODY -->
         <!-- ============================================================== -->
-        <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-            data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
             <!-- ============================================================== -->
             <!-- HEADER -->
             <?php
-                include '../../../componentes/header.php';
+            include '../../../componentes/header.php';
             ?>
             <!-- FIN HEADER -->
             <!-- ============================================================== -->
@@ -36,11 +35,11 @@
             <!-- ============================================================== -->
             <!-- BARRA IZQUIERDA  -->
             <?php
-                include '../../../componentes/barra_izquierda.php';
+            include '../../../componentes/barra_izquierda.php';
             ?>
             <!-- FON BARRA IZQUIERDA  -->
             <!-- ============================================================== -->
-            
+
 
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <!-- CONTENEDOR -->
@@ -50,27 +49,25 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
-                                <!-- Input de Crear Nuevo Cliente -->
+                                <!-- Input de Crear Nuevo Usuario -->
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Agregar Nuevo Cliente</h4>
+                                        <h4 class="card-title">Agregar Nuevo Usuario</h4>
                                         <h6 class="card-subtitle">Rellena los campos para agregar un nuevo cliente</h6>
                                         <form id="formulario" class="mt-4">
                                             <div class="form-group">
-                                                <label>Clave Cliente</label>
-                                                <input id="clave" type="text" placeholder="Ingresa el numero clave del cliente" class="form-control">
+                                                <label>Clave Usuario</label>
+                                                <input id="clave" type="text" placeholder="Ingresa el numero clave del usuario" class="form-control">
                                                 <label>Nombre</label>
-                                                <input id="nombre" type="text" placeholder="Ingresa nombre del cliente" class="form-control">
+                                                <input id="nombre" type="text" placeholder="Ingresa nombre del usuario" class="form-control">
                                                 <label>Segundo Nombre</label>
-                                                <input id="nombre_2" type="text" placeholder="Ingresa segundo nombre del cliente (opcional)" class="form-control">
+                                                <input id="nombre_2" type="text" placeholder="Ingresa segundo nombre del usuario (opcional)" class="form-control">
                                                 <label>Apellido Paterno</label>
-                                                <input id="apellido_p" type="text" placeholder="Ingresa apellido paterno del cliente" class="form-control">
+                                                <input id="apellido_p" type="text" placeholder="Ingresa apellido paterno del usuario" class="form-control">
                                                 <label>Apellido Materno</label>
-                                                <input id="apellido_m" type="text" placeholder="Ingresa apellido materno del cliente" class="form-control">
-                                                <label>Dirección</label>
-                                                <input id="direccion" type="text" placeholder="Ingresa dirección del cliente (opcional)" class="form-control">
+                                                <input id="apellido_m" type="text" placeholder="Ingresa apellido materno del usuario" class="form-control">
                                                 <label>Telefono</label>
-                                                <input id="telefono" type="text" placeholder="Ingresa numero de telefono de cliente" class="form-control">
+                                                <input id="telefono" type="text" placeholder="Ingresa numero de telefono de usuario" class="form-control">
                                                 <label>Correo</label>
                                                 <input id="correo" type="text" placeholder="Ingresa correo del cliente" class="form-control">
                                                 <div class="text-right">
@@ -87,15 +84,15 @@
                     </div>
                 </div>
             </div>
-        </div>
             <!--FIN CONTENEDOR -->
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        </div>
+
         <!-- TODOS LOS ENLACES DE SCRIPTS -->
         <?php
-            include '../../../componentes/scripts.php';
+        include '../../../componentes/scripts.php';
         ?>
         <!-- FIN DE SCRIPTS -->
-        <script src="../../../inc/funciones/clientes/clientes_agregar.js"></script>
     </body>
 
 </html>

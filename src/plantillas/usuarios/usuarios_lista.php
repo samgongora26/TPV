@@ -51,21 +51,20 @@
                 <div class="row">
                 <!-- <div class="col-sm-1 col-md-1 col-lg-1"></div>-->
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <!--Tabla de Clientes-->
+                        <!--Tabla de usuarios-->
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Tabla de Clientes</h4>
-                                    <h6 class="card-subtitle">Resultado de clientes...</h6>
+                                    <h4 class="card-title">Tabla de Usuarios</h4>
+                                    <h6 class="card-subtitle">Resultado de Usuarios...</h6>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Clave Cliente</th>
+                                                <th scope="col">Clave usuario</th>
                                                 <th scope="col">Nombre</th>
-                                                <th scope="col">Dirección</th>
                                                 <th scope="col">Telefono</th>
                                             </tr>
                                         </thead>
@@ -76,21 +75,19 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Fin Tabla de Clientes-->
-                        <!-- Input de Busqueda de Clientes -->
+                        <!-- Fin Tabla de Usuarios-->
+                        <!-- Input de Busqueda de Usuarios -->
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Busqueda de Clientes</h4>
-                                <h6 class="card-subtitle">Ingresa Codigo de Cliente</h6>
+                                <h4 class="card-title">Busqueda de Usuarios</h4>
+                                <h6 class="card-subtitle">Ingresa Codigo de Usuario</h6>
                                 <form class="mt-4">
                                     <div class="form-group">
-                                        <label>Clave Cliente</label>
+                                        <label>Clave Usuario</label>
                                         <input type="text"  class="form-control">
                                         <label>Nombres</label>
                                         <input type="text" disabled="true" class="form-control">
                                         <label>Apellidos</label>
-                                        <input type="text" disabled="true" class="form-control">
-                                        <label>Dirección</label>
                                         <input type="text" disabled="true" class="form-control">
                                         <label>Telefono</label>
                                         <input type="text" disabled="true" class="form-control">
