@@ -45,10 +45,9 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
         <div class="page-wrapper">
-            <div class="conteiner-fluid">
+            <div class="container-fluid">
             <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-            <div class="container">
-            <div class="row">
+            
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <!--Tabla de Historial Clientes-->
                     <div class="col-12">
@@ -111,8 +110,7 @@
                     </div>
                     <!-- Fin Tabla de Historial Clientes-->
                 </div>
-            </div>
-        </div>
+            
 
             </div>
         </div>

@@ -45,12 +45,10 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
         <div class="page-wrapper">
-            <div class="conteiner-fluid">
+            <div class="container-fluid">
             <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-            <div class="container">
-            <div class="row">
-            <div class="col-sm-1 col-md-1 col-lg-1"></div>
-                <div class="col-sm-11 col-md-11 col-lg-11">
+
+                <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
                     <!-- Input de Busqueda de productos -->
                     <div class="card">
                         <div class="card-body">
@@ -70,10 +68,9 @@
                         </div>
                     </div>
                     <!-- Fin Input de Busqueda de productos -->
-
-                    
-                    <!--Tabla de productos-->
-                    <div class="col-sm-12">
+                </div>
+                 <!--Tabla de productos-->
+                 <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Productos de Tienda</h4>
@@ -132,7 +129,6 @@
                         </div>
                     </div>
                     <!-- Fin Tabla de productos-->
-                </div>
             </div>
         </div>
 

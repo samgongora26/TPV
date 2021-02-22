@@ -45,12 +45,10 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
         <div class="page-wrapper">
-            <div class="conteiner-fluid">
+            <div class="container-fluid">
             <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-            <div class="container">
-            <div class="row">
-            <div class="col-sm-1 col-md-1 col-lg-1"></div>
-                <div class="col-sm-11 col-md-11 col-lg-11">
+           
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     <!-- Input de Busqueda con Codigo de Barras -->
                     <div class="card">
                         <div class="card-body">
@@ -112,34 +110,32 @@
 
 
                     <!--Inicio de card Visualizar Codigo de Barras-->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-4">
-                                    <h4 class="card-title">Visualización de Codigo de Barras</h4>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <h4 class="card-title">Visualización de Codigo de Barras</h4>
+                                    </div>
+
+                                    <!--Aqui se programa lo de para ver los codigos de barras-->
+                                    Codigos de barras chidos ;v
+                                    <img src="../../imagenes/inventario/barrasejemplo.jpeg" alt="">
+                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-info">Imprimir</button>
+                                    </div>
+
                                 </div>
-
-                                <!--Aqui se programa lo de para ver los codigos de barras-->
-                                Codigos de barras chidos ;v
-                                <img src="../../imagenes/inventario/barrasejemplo.jpeg" alt="">
-                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-info">Imprimir</button>
-                                </div>
-
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--Fin de card Visualizar Codigo de Barras-->
+                    <!--Fin de card Visualizar Codigo de Barras-->
 
 
                 </div>
-            </div>
-        </div>
-
+            
 
 
             </div>

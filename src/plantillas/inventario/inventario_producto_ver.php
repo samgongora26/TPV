@@ -45,11 +45,9 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         
         <div class="page-wrapper">
-            <div class="conteiner-fluid">
+            <div class="container-fluid">
             <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
 
-            <!-- CONTENEDOR -->
-            <div class="container">
                 <!-- Row de tarjetas superiores -->
                 <div class="row">
                     <!--Tarjeta de Producto-->
@@ -91,10 +89,6 @@
 
                 
 
-                
-
-            </div>
-            <!--FIN CONTENEDOR -->
 
             </div>
         </div>

@@ -43,24 +43,10 @@
 
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <!-- CONTENEDOR -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h7 class="card-title">Buen hack para atravesar el header</h7>
-                                <h7 class="card-subtitle">QWERTYUIOP</h7>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2 col-md-2 col-lg-2">
-                    </div>
-                    <div class="col-sm-10 col-md-10 col-lg-10">
+            <div class="page-wrapper">
+            <div class="container-fluid">
+                <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
+                    <div class="col-sm-12 col-md-12 col-lg-12">
                         <!-- Input de Busqueda de preveedores -->
                         <div class="card">
                             <div class="card-body">
@@ -114,7 +100,7 @@
                                             <option value="3">tarjeta de regalo</option>
                                         </select>
                                      </ul>
-                                    <ul class="list-group">
+                                    <ul class="list-group mx-auto">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>
                                         </div>
@@ -126,7 +112,7 @@
                                         </div>
                                         <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="1500$">
                                     </ul>
-                                    <button type="button" class="btn btn-success"> enviar<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                                    <button type="button" class="btn btn-success mx-auto"> enviar<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
                                         <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" /><path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" /></svg>
                                     </button>
                                 </div>
@@ -134,11 +120,9 @@
                         </div>
                         <!-- Fin Input de Busqueda de preveedores -->
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2 col-md-2 col-lg-2">
-                    </div>
-                    <div class="col-sm-10 col-md-10 col-lg-10">
+                
+                   
+                    <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card-body bg-white">
                             <h4 class="card-title">Productos comprados</h4>
                             <div class="card-text">
@@ -195,8 +179,10 @@
                             </div>
                         </div>
                     </div> 
-                </div>
+                
+
             </div>
+        </div>
         </div>
         <!--FIN CONTENEDOR -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

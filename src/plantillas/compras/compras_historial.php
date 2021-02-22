@@ -45,14 +45,14 @@
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <!-- CONTENEDOR -->
             <div class="page-wrapper">
-                <div class="conteiner-fluid">
+                <div class="container-fluid">
                     <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                    <div class="row">
+                    
                         <!-- Historial de compras-->
-                        <div class="col-sm-2 col-md-2 col-lg-2"></div>
-                        <div class="col-sm-10 col-md-10 col-lg-10">
                             <div class="card">
-                                <h4 class="card-title">historial de compras</h4>
+                                <div class="card-header bg-white">
+                                    <h3 class="card-tittle ">Historial de compras</h3>
+                                </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table id="zero_config" class="table table-striped table-bordered no-wrap">
@@ -186,8 +186,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <!--FIN CONTENEDOR -->
