@@ -103,28 +103,128 @@
                                             <td>Cell</td>
                                             <td>Cell</td>
                                             <td>Cell</td>
-                                            <td><i class="fas fa-check-circle"></i></td>
-                                            <td><i class="fas fa-eye"></i></td>
-                                            <td><i class="fas fa-edit"></i></td>
-                                            <td><i class="fas fa-print"></i></td>
-                                            <td><i class="fas fa-trash"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td><i class="fas fa-check-circle"></i></i></td>
-                                            <td><i class="fas fa-eye"></i></td>
-                                            <td><i class="fas fa-edit"></i></td>
-                                            <td><i class="fas fa-print"></i></td>
-                                            <td><i class="fas fa-trash"></i></td>
+                                            <td>
+                                             <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#estado-modal"><i class="icon-note"></i></button>    
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary boton_ver"><i class="icon-eye"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#edit-modal"><i class="icon-pencil"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary boton_imprimir"><i class="icon-printer"></i></button>    
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary"><i class="icon-trash"></i></button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
+
+                                <!-- MODALS -->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!-- Modal editar -->
+                                <div id="edit-modal" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                            <div class="modal-body">
+
+                                                <form class="pl-3 pr-3" action="#" id="form-modal-edit" name="for-modal-edit">
+
+                                                    <div class="form-group">
+                                                        <label>Codigo de Barras</label>
+                                                        <input class="form-control" type="text" id="edit_barras" name="edit_barras"
+                                                            required="" placeholder="Codigo de barras">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Nombre Producto</label>
+                                                        <input class="form-control" type="text" id="edit_nombre" name="edit_nombre"
+                                                            required="" placeholder="Nombre Producto">
+                                                    </div>
+
+                                                    <form id="submodal_proveedor" name="submodal_proveedor">
+                                                        <div class="form-group mb-4">
+                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Proveedor</label>
+                                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                                <option selected>Elegir...</option>
+                                                                <option value="1">Proveedor 1</option>
+                                                                <option value="2">Proveedor 2.. etc</option>
+                                                            </select>
+                                                        </div>
+                                                    </form>
+
+                                                    <div class="form-group">
+                                                        <label>Stock en Inventario</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_stock" name="edit_stock" placeholder="Stock">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Precio de Compra</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_precio_compra" name="edit_precio_compra" placeholder="Precio de Compra">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Precio de Venta</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_precio_venta" name="edit_precio_venta" placeholder="Precio de Venta">
+                                                    </div>
+
+                                                    <div class="form-group text-center">
+                                                        <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+                                <!-- Fin modal editar -->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!-- Modal de estado-->
+                                <div id="estado-modal" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                            <div class="modal-body">
+
+                                                <form class="pl-3 pr-3" action="#" id="form-modal-estado" name="for-modal-estado">
+
+                                                    <form id="submodal_estado" name="submodal_estado">
+                                                        <div class="form-group mb-4">
+                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Cambiar Estado</label>
+                                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                                <option selected>Elegir...</option>
+                                                                <option value="1">Activo</option>
+                                                                <option value="2">Inactivo</option>
+                                                            </select>
+                                                        </div>
+                                                    </form>
+
+                                                    <div class="form-group text-center">
+                                                        <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+                                <!-- Fin modal estado -->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!-- FIN MODALS -->
+
+
                             </div>
                         </div>
                     </div>
