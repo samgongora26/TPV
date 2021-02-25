@@ -99,9 +99,132 @@
                                         </tr>
                                     </thead>
                                     <tbody id="contenido_tabla" class="text-center">
-                                        <!-- aqui se inyecta el contenido de la tabla desde el backend-->
+                                        <tr>
+                                                <th scope="row">1</th>
+                                                <td>Cell</td>
+                                                <td>Cell</td>
+                                                <td>Cell</td>
+                                                <td>Cell</td>
+                                                <td>Cell</td>
+                                                <td>Cell</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#estado-modal"><i class="icon-note"></i></button>    
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary boton_ver"><i class="icon-eye"></i></button>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#edit-modal"><i class="icon-pencil"></i></button>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary"><i class="icon-trash"></i></button>
+                                                </td>
+                                        </tr>
                                     </tbody>
                                 </table>
+
+
+
+
+                                <!-- MODALS -->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!-- Modal editar -->
+                                <div id="edit-modal" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                            <div class="modal-body">
+
+                                                <form class="pl-3 pr-3" action="#" id="form-modal-edit" name="for-modal-edit">
+
+                                                    <div class="form-group">
+                                                        <label>Clave</label>
+                                                        <input class="form-control" type="text" id="edit_clave" name="edit_clave"
+                                                            required="" placeholder="Clave">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Nombre Proveedor</label>
+                                                        <input class="form-control" type="text" id="edit_nombre" name="edit_nombre"
+                                                            required="" placeholder="Nombre Proveedor">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Razón Social</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_razon" name="edit_razon" placeholder="Razon Social">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Dirección</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_direccion" name="edit_direccion" placeholder="Direccion">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Telefono</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_telefono" name="edit_telefono" placeholder="Telefono">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>RFC</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_rfc" name="edit_rfc" placeholder="RFC">
+                                                    </div>
+
+                                                    <div class="form-group text-center">
+                                                        <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+                                <!-- Fin modal editar -->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!-- Modal de estado-->
+                                <div id="estado-modal" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                            <div class="modal-body">
+
+                                                <form class="pl-3 pr-3" action="#" id="form-modal-estado" name="for-modal-estado">
+
+                                                    <form id="submodal_estado" name="submodal_estado">
+                                                        <div class="form-group mb-4">
+                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Cambiar Estado</label>
+                                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                                <option selected>Elegir...</option>
+                                                                <option value="1">Activo</option>
+                                                                <option value="2">Inactivo</option>
+                                                            </select>
+                                                        </div>
+                                                    </form>
+
+                                                    <div class="form-group text-center">
+                                                        <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+                                <!-- Fin modal estado -->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!-- FIN MODALS -->
+
+
+
                             </div>
                         </div>
                     </div>
