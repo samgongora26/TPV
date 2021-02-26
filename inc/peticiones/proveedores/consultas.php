@@ -95,3 +95,29 @@ function eliminar_proveedor(): array
     }
     mysqli_close($conexion);
 }
+
+
+function actualizar_proveedor(): array
+{
+    try {
+        require '../../../conexion.php';
+        $id = $_POST['id'];
+        $clave = $_POST['clave'];
+        $nombre = $_POST['nombre'];
+        $direccion = $_POST['direccion'];
+        $telefono = (int) $_POST['telefono'];
+
+              $sql = "UPDATE `proveedores` SET `folio` = '$clave', `nombre` = '$nombre', `direccion` = '$direccion', `telefono` = '$telefono' WHERE `proveedores`.`id_proveedor` = $id;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'correcto',
+            'id' => $id
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

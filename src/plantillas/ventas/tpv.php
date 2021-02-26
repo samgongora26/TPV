@@ -185,8 +185,8 @@
                                     <h4 class="mb-0 text-white">Venta</h4>
                                 </div>
                                 <div class="card-body text-center">
-                                    <h3 class="card-title text-white">$5000</h3>
-                                    <a href="javascript:void(0)" class="btn btn-block btn-rounded btn-dark">Cobrar</a>
+                                    <h3 id="total_compra" class="card-title text-white"></h3>
+                                    <a id="cobrar" href="javascript:void(0)" class="btn btn-block btn-rounded btn-dark">Cobrar</a>
                                     <hr>
                                     <div class="float-right">
                                         <a href="javascript:void(0)" class="btn btn-sm btn-rounded btn-danger">Eliminar</a>

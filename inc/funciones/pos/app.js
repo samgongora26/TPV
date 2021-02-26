@@ -1,15 +1,17 @@
 const listado_productos = document.querySelector("#contenido_tabla");
 let array_inicial = [];
+let suma = 0;
+let total_compra = document.querySelector("#total_compra");
+
 document.addEventListener("DOMContentLoaded", () => {
   mostrar_ticket();
     document.querySelector("#formulario").addEventListener("click", existente_codigo);
+    document.querySelector("#cobrar").addEventListener("click",cobrar_productos)
   listado_productos.addEventListener("click", opciones);
-  //cuando se de enter en el cuadro
   const enter = document.querySelector("#codigo_envio");
   enter.addEventListener('keyup', (e) => {
     if(e.keyCode === 13){
       e.preventDefault();
-    // existente_codigo(e.target.value);
     existente_codigo(e);
     }
   })
@@ -17,8 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function existente_codigo(e){
   const codigo = document.querySelector("#codigo_envio").value;
-  console.log(codigo);
-  console.log(array_inicial.length);
   let bandera = false;
   let id = 0;
   let codigo_ver =0;
@@ -33,10 +33,6 @@ function existente_codigo(e){
         }else{
         }
       });
-      console.log("antes de enviar los datos");
-      console.log(bandera);
-      console.log(codigo_ver);
-      console.log(id);
       if ( bandera === true){
         incrementar(id);
         console.log("se incrementa");
@@ -105,8 +101,10 @@ function pintar(data) {
       </td>
   </tr>
   `;
+  suma = suma + parseFloat(precio_venta);
+  total_compra.innerHTML = suma;
 }
-/// seccion de busqeda inicial
+
 async function mostrar_ticket() {
   console.log("desde mostrar los tickets");
   const datos = new FormData();
@@ -119,7 +117,7 @@ async function mostrar_ticket() {
 function pintar_inicio(data) {
   console.log(data);
   console.log("entro pintar inicio");
-  let cont = 0;
+  let valor_int = 0;
   data.forEach((datos) => {
     const {
       cantidad,
@@ -150,7 +148,13 @@ function pintar_inicio(data) {
         </td>
     </tr>
     `;
+     valor_int = parseFloat(importe);
+
+    suma = suma + valor_int;
   });
+
+  total_compra.innerHTML = suma;
+
 
 
 }
@@ -187,4 +191,10 @@ function disminuir(id){
   datos.append("accion", "disminuir");
   busqueda(datos)
   .then((res) => console.log(res))
+}
+
+function cobrar_productos(){
+  console.log( parseFloat(total_compra.innerHTML));
+  const datos = new FormData();
+ datos.append
 }

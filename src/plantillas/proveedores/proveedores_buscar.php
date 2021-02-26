@@ -144,39 +144,38 @@
                                                         <label>Clave</label>
                                                         <input class="form-control" type="text" id="edit_clave" name="edit_clave"
                                                             required="" placeholder="Clave">
-                                                    </div>
+                                                 
 
-                                                    <div class="form-group">
+                                                  
                                                         <label>Nombre Proveedor</label>
                                                         <input class="form-control" type="text" id="edit_nombre" name="edit_nombre"
                                                             required="" placeholder="Nombre Proveedor">
-                                                    </div>
+                                               
 
-                                                    <div class="form-group">
+                                                  
                                                         <label>Razón Social</label>
                                                         <input class="form-control" type="text" required=""
                                                             id="edit_razon" name="edit_razon" placeholder="Razon Social">
-                                                    </div>
+                                              
 
-                                                    <div class="form-group">
+                                                 
                                                         <label>Dirección</label>
                                                         <input class="form-control" type="text" required=""
                                                             id="edit_direccion" name="edit_direccion" placeholder="Direccion">
-                                                    </div>
-
-                                                    <div class="form-group">
+          
+                             
                                                         <label>Telefono</label>
                                                         <input class="form-control" type="text" required=""
                                                             id="edit_telefono" name="edit_telefono" placeholder="Telefono">
-                                                    </div>
+                                       
 
-                                                    <div class="form-group">
+                                          
                                                         <label>RFC</label>
                                                         <input class="form-control" type="text" required=""
                                                             id="edit_rfc" name="edit_rfc" placeholder="RFC">
-                                                    </div>
+                                           
 
-                                                    <div class="form-group text-center">
+                                                 
                                                         <button class="btn btn-primary" type="submit">Guardar Cambios</button>
                                                     </div>
 
