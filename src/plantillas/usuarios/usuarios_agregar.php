@@ -44,7 +44,7 @@
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <!-- CONTENEDOR -->
             <div class="page-wrapper">
-                <div class="conteiner-fluid">
+                <div class="container-fluid">
                     <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
                     <div class="container">
                         <div class="row">
@@ -53,26 +53,26 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Agregar Nuevo Usuario</h4>
-                                        <h6 class="card-subtitle">Rellena los campos para agregar un nuevo cliente</h6>
+                                        <h6 class="card-subtitle">Rellena los campos para agregar un nuevo usuario</h6>
                                         <form id="formulario" class="mt-4">
                                             <div class="form-group">
-                                                <label>Clave Usuario</label>
-                                                <input id="clave" type="text" placeholder="Ingresa el numero clave del usuario" class="form-control">
-                                                <label>Nombre</label>
-                                                <input id="nombre" type="text" placeholder="Ingresa nombre del usuario" class="form-control">
-                                                <label>Segundo Nombre</label>
-                                                <input id="nombre_2" type="text" placeholder="Ingresa segundo nombre del usuario (opcional)" class="form-control">
-                                                <label>Apellido Paterno</label>
-                                                <input id="apellido_p" type="text" placeholder="Ingresa apellido paterno del usuario" class="form-control">
-                                                <label>Apellido Materno</label>
-                                                <input id="apellido_m" type="text" placeholder="Ingresa apellido materno del usuario" class="form-control">
+                                                <!--label>Clave Usuario</label>
+                                                <input id="clave" type="text" placeholder="Ingresa el numero clave del usuario" class="form-control"-->
+                                                <label>Nombres</label>
+                                                <input id="nombres" type="text" placeholder="Ingresa nombre(s) del usuario" class="form-control">
+                                                <label>apellidos</label>
+                                                <input id="apellidos" type="text" placeholder="Ingresa apellidos del usuario" class="form-control">
                                                 <label>Telefono</label>
                                                 <input id="telefono" type="text" placeholder="Ingresa numero de telefono de usuario" class="form-control">
                                                 <label>Correo</label>
-                                                <input id="correo" type="text" placeholder="Ingresa correo del cliente" class="form-control">
-                                                <div class="text-right">
-                                                    <button type="submit" class="btn btn-info">submit</button>
-                                                    <button type="reset" class="btn btn-dark">Reset</button>
+                                                <input id="correo" type="email" placeholder="Ingresa correo del cliente" class="form-control">
+                                                <label>Usuario</label>
+                                                <input id="usuario" type="text" placeholder="Usuario" class="form-control">
+                                                <label>Contraseña</label>
+                                                <input id="contrasenia" type="password" placeholder="Contraseña" class="form-control">
+                                                <div class="text-right mt-3">
+                                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                                    <button type="reset" class="btn btn-dark">reiniciar formulario</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -90,8 +90,9 @@
 
         <!-- TODOS LOS ENLACES DE SCRIPTS -->
         <?php
-        include '../../../componentes/scripts.php';
+            include '../../../componentes/scripts.php';
         ?>
+            <script src="../../../inc/funciones/usuarios/usuarios_agregar.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>
 

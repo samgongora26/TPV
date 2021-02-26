@@ -137,6 +137,25 @@
                                 </span></a>
                         </li>
 
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon icon-people"></i>
+                                <span class="hide-menu">Usuarios</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="../usuarios/usuarios_lista.php" class="sidebar-link">
+                                        <span class="hide-menu">
+                                        <i class="icon icon-user-following"></i>Ver usuarios</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item"><a href="../usuarios/usuarios_agregar.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="icon icon-user-follow"></i> Agregar usuarios
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
+
 						
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
