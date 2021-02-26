@@ -1,10 +1,51 @@
 const listado_productos = document.querySelector("#contenido_tabla");
-
+let array_inicial = [];
 document.addEventListener("DOMContentLoaded", () => {
   mostrar_ticket();
-  document.querySelector("#formulario").addEventListener("click", buscar_producto);
+    document.querySelector("#formulario").addEventListener("click", existente_codigo);
   listado_productos.addEventListener("click", opciones);
+  //cuando se de enter en el cuadro
+  const enter = document.querySelector("#codigo_envio");
+  enter.addEventListener('keyup', (e) => {
+    if(e.keyCode === 13){
+      e.preventDefault();
+    // existente_codigo(e.target.value);
+    existente_codigo(e);
+    }
+  })
 });
+
+function existente_codigo(e){
+  const codigo = document.querySelector("#codigo_envio").value;
+  console.log(codigo);
+  console.log(array_inicial.length);
+  let bandera = false;
+  let id = 0;
+  let codigo_ver =0;
+  if(array_inicial.length === 0){
+    buscar_producto(e);
+  }else{
+    array_inicial.forEach(element => {
+        if(codigo == element.codigo){
+          id = element.id_detalle_venta;
+          codigo_ver =element.codigo;
+          bandera = true
+        }else{
+        }
+      });
+      console.log("antes de enviar los datos");
+      console.log(bandera);
+      console.log(codigo_ver);
+      console.log(id);
+      if ( bandera === true){
+        incrementar(id);
+        console.log("se incrementa");
+      }else{
+        console.log("se crea uno nuevo");
+        buscar_producto(e);
+      }
+  }
+}
 
 function buscar_producto(e) {
   e.preventDefault();
@@ -48,7 +89,7 @@ function pintar(data) {
     cantidad,
     id_insertado,
   } = data;
-  
+  array_inicial.push({codigo: codigo, id_detalle_venta: id_insertado});
   listado_productos.innerHTML += `  
   <tr>
       <th scope="row">${cantidad}</th>
@@ -69,7 +110,7 @@ function pintar(data) {
 async function mostrar_ticket() {
   console.log("desde mostrar los tickets");
   const datos = new FormData();
-  datos.append("id_venta", 2 );
+  datos.append("id_venta", 4 );
   datos.append("accion", "venta_actual");
   busqueda(datos)
   .then((res) => pintar_inicio(res))
@@ -78,6 +119,7 @@ async function mostrar_ticket() {
 function pintar_inicio(data) {
   console.log(data);
   console.log("entro pintar inicio");
+  let cont = 0;
   data.forEach((datos) => {
     const {
       cantidad,
@@ -90,6 +132,9 @@ function pintar_inicio(data) {
   
     } = datos;
 
+    array_inicial.push({codigo: codigo, id_detalle_venta: id_detalle_venta});
+
+    //cont = cont +1;
     listado_productos.innerHTML += `  
     <tr>
         <th scope="row">${cantidad}</th>
@@ -114,26 +159,32 @@ function opciones(e){
   if (e.target.classList.contains("aumentar")) {
    // console.log("entro a aumentar");
     id = Number(e.target.dataset.cliente);
-   
-    const datos = new FormData();
-    datos.append("id", id );
-    datos.append("accion", "aumentar");
-    busqueda(datos)
-    .then((res) => console.log(res))
-
+   incrementar(id);
 
 
   }if (e.target.classList.contains("disminuir")) {
    // console.log("entro a disminuir");
      id = Number(e.target.dataset.cliente);
-
-     const datos = new FormData();
-     datos.append("id", id );
-     datos.append("accion", "disminuir");
-     busqueda(datos)
-     .then((res) => console.log(res))
+disminuir(id);
 
     //let pruebaaa = document.querySelector('#codigo'+id).value;
    // console.log(pruebaaa);
   }
+}
+
+function incrementar(id){
+  const datos = new FormData();
+  datos.append("id", id );
+  datos.append("accion", "aumentar");
+  busqueda(datos)
+  .then((res) => console.log(res))
+
+
+}
+function disminuir(id){
+  const datos = new FormData();
+  datos.append("id", id );
+  datos.append("accion", "disminuir");
+  busqueda(datos)
+  .then((res) => console.log(res))
 }

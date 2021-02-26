@@ -6,7 +6,7 @@ function registrar_producto(): array
         require '../../../conexion.php';
 
         $codigo = $_POST['codigo'];
-        $id_venta = 2;
+        $id_venta = 4; //obtener el id de venta pra ingresar los registros ventas
 
         $sql = "select * from productos_inventario where codigo=$codigo;";
         $consulta = mysqli_query($conexion, $sql);

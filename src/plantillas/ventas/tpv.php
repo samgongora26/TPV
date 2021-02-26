@@ -44,12 +44,12 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <form class=""> 
-                                            <div class="form-group">
+                                     
+                                           
                                                 <input type="text" class="form-control" id="codigo_envio" aria-describedby="name" placeholder="Codigo">
                                                 <!--small id="name" class="form-text text-muted">Codigo</small-->
-                                            </div>
-                                        </form>
+                                        
+                                     
                                     </div>
                                     <div class="col-md-3 float-right">
                                         <button id="formulario" class="btn btn-info btn-rounded">Buscar producto
