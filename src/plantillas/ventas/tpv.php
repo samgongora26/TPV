@@ -44,16 +44,15 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <form class="">
+                                     
                                            
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="nametext" aria-describedby="name" placeholder="Codigo">
+                                                <input type="text" class="form-control" id="codigo_envio" aria-describedby="name" placeholder="Codigo">
                                                 <!--small id="name" class="form-text text-muted">Codigo</small-->
-                                            </div>
-                                        </form>
+                                        
+                                     
                                     </div>
                                     <div class="col-md-3 float-right">
-                                        <button class="btn btn-info btn-rounded">Buscar producto
+                                        <button id="formulario" class="btn btn-info btn-rounded">Buscar producto
                                             <i class="fa fa-search"></i> 
                                         </button>
                                     </div>
@@ -104,20 +103,9 @@
                                                         <th scope="col">acción</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Reloj</td>
-                                                        <td>0001</td>
-                                                        <td>5000</td>
-                                                        <td>-</td>
-                                                        <td>5000</td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-sm btn-light"><i class="fa fa-minus"></i></button>
-                                                            <button type="button" class="btn btn-sm btn-dark"><i class="fa fa-plus"></i></button>  
-                                                        </td>
-                                                    </tr>                
-                                                </tbody>
+                                                <tbody id="contenido_tabla" class="text-center">
+                                        <!-- aqui se inyecta el contenido de la tabla desde el backend-->
+                                    </tbody>
                                             </table>
                         
                                         </div>
@@ -231,6 +219,7 @@
     <?php
         include '../../../componentes/scripts.php';
     ?>
+     <script src="../../../inc/funciones/pos/app.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 
