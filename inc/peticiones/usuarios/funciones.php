@@ -7,7 +7,7 @@ switch ($accion) {
         $resultado = registrar_usuario();
         break;
     case "mostrar":
-        $resultado = todos_proveedores();
+        $resultado = mostrar_usuarios();
         break;
     case "buscar":
         $resultado =buscar_proveedor();

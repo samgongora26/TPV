@@ -80,6 +80,35 @@
                                 </div>
                             </div>
                             <!-- Fin Input de Crear Nuevo Cliente -->
+                            <!--Tabla de usuarios-->
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Tabla de Usuarios</h4>
+                                        <h6 class="card-subtitle">Resultado de Usuarios...</h6>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Nombres</th>
+                                                    <th scope="col">Apellidos</th>
+                                                    <th scope="col">Telefono</th>
+                                                    <th scope="col">Correo</th>
+                                                    <th scope="col">Usuario</th>
+                                                    <th scope="col">Estado</th>
+                                                    <th scope="col">Editar o eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="contenido_tabla">
+                                                <!--inyeccion de los datos -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fin Tabla de Usuarios-->
                         </div>
                     </div>
                 </div>
@@ -93,6 +122,7 @@
             include '../../../componentes/scripts.php';
         ?>
             <script src="../../../inc/funciones/usuarios/usuarios_agregar.js"></script>
+            <script src="../../../inc/funciones/usuarios/app.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>
 

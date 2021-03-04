@@ -3,7 +3,7 @@ async function mostrarServicios() {
   datos.append("accion", "mostrar");
 
   try {
-    const URL = "../../../inc/peticiones/proveedores/funciones.php";
+    const URL = "../../../inc/peticiones/usuarios/funciones.php";
     const resultado = await fetch(URL, {
       method: "POST",
       body: datos,
@@ -12,23 +12,24 @@ async function mostrarServicios() {
 
     db.forEach((servicio) => {
       console.log(servicio);
-      const { id, folio, nombre, direccion, telefono } = servicio;
+      const { id_usuario, nombres, apellidos, telefono, correo, usuario, estado } = servicio;
 
       const listado_clientes = document.querySelector("#contenido_tabla");
 
+     
       listado_clientes.innerHTML += `  
         <tr>
-            <th scope="row">${id}</th>
-            <td>${folio}</td>
-            <td>${nombre}</td>
-            <td>Cell</td>
-            <td>${direccion}</td>
+            <td scope="row">${id_usuario}</td>
+            <td>${nombres}</td>
+            <td>${apellidos}</td>
             <td>${telefono}</td>
-            <td>Cell</td>
-            <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
-            <td><a href="proveedor_ver.php?id=${id}"><i class="fas fa-eye"></i> </a></td>
-            <td><a href="proveedor_ver.php?id=${id}"><i class="fas fa-edit"></i> </a></td>
-            <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
+            <td>${correo}</td>
+            <td>${usuario}</td>
+            <td>${estado} <i class="fas fa-check-circle"></i></td>
+            <td>
+                <a href="usuario_editar.php?id="><i class="fas fa-edit"></i> </a>
+                <a href="usuario_eliminar.php?id="><i class="fas fa-trash"></i></a>
+            </td>
         </tr>
         `;
     });

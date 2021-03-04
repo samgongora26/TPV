@@ -31,22 +31,24 @@ function registrar_usuario(): array
     mysqli_close($conexion);
 }
 
-function todos_proveedores(): array
+function mostrar_usuarios(): array
 {
     try {
         require '../../../conexion.php';
 
-        $sql = "select * from proveedores;";
+        $sql = "SELECT `id_usuario`,`nombres`,`apellidos`,`telefono`,`correo`,`usuario`,`fotografia`,`estado` FROM `usuarios`;";
         $consulta = mysqli_query($conexion, $sql);
-
         $usuarios = [];
         $i = 0;
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
-            $usuarios[$i]['id'] = $row['id_proveedor'];
-            $usuarios[$i]['folio'] = $row['folio'];
-            $usuarios[$i]['nombre'] = $row['nombre'];
-            $usuarios[$i]['direccion'] = $row['direccion'];
+            $usuarios[$i]['id'] = $row['id_usuario'];
+            $usuarios[$i]['nombres'] = $row['nombres'];
+            $usuarios[$i]['apellidos'] = $row['apellidos'];
             $usuarios[$i]['telefono'] = $row['telefono'];
+            $usuarios[$i]['correo'] = $row['correo'];
+            $usuarios[$i]['usuario'] = $row['usuario'];
+            $usuarios[$i]['fotografia'] = $row['fotografia'];
+            $usuarios[$i]['estado'] = $row['estado'];
             $i++;
         }
         //var_dump($usuarios);
