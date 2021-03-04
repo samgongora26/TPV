@@ -60,7 +60,7 @@ function buscar_producto(e) {
   }
 }
 
-async function busqueda(datos) {
+async function busqueda(datos) { //enviar una petcion a php con un conjunto de datos
   try {
     const res = await fetch("../../../inc/peticiones/pos/funciones.php", {
       method: "POST",
@@ -68,7 +68,6 @@ async function busqueda(datos) {
     });
     const data = await res.json();
     return data;
-  // pintar(data);
   } catch (error) {
     console.log(error);
   }
@@ -165,14 +164,10 @@ function opciones(e){
     id = Number(e.target.dataset.cliente);
    incrementar(id);
 
-
   }if (e.target.classList.contains("disminuir")) {
    // console.log("entro a disminuir");
      id = Number(e.target.dataset.cliente);
 disminuir(id);
-
-    //let pruebaaa = document.querySelector('#codigo'+id).value;
-   // console.log(pruebaaa);
   }
 }
 
@@ -194,7 +189,12 @@ function disminuir(id){
 }
 
 function cobrar_productos(){
-  console.log( parseFloat(total_compra.innerHTML));
+  const total =  parseFloat(total_compra.innerHTML);
+  console.log(total);
   const datos = new FormData();
- datos.append
+  datos.append("total_venta", total);
+  datos.append("accion","cerrar_venta");
+  busqueda(datos)
+  .then((res) => console.log(res))
+  //datos.append
 }
