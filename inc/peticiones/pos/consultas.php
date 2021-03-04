@@ -1,5 +1,4 @@
 <?php
-//registrar_producto();
 function registrar_producto(): array
 {
     try {
@@ -151,6 +150,39 @@ function disminuir(): array
         mysqli_close($conexion);
     }
 }
+
+
+function cerrar_venta(): array
+{ {
+        try {
+            $total_venta = $_POST['total_venta'];
+            require '../../../conexion.php';
+            $sql = "SELECT * FROM ventas ORDER BY id_venta DESC LIMIT 1;";
+            $consulta = mysqli_query($conexion, $sql);
+
+            while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+                $id_venta = (int) $row['id_venta'];
+            }
+            $sql1 = "update ventas set importe = $total_venta where ventas.id_venta = $id_venta";
+            $consulta1 = mysqli_query($conexion, $sql1);
+
+            $sql = " INSERT INTO ventas (id_venta, id_cliente, id_empleado, importe) VALUES (NULL, '1', '1', '1');";
+            $consulta = mysqli_query($conexion, $sql);
+            $datos = array(
+                'id' => mysqli_insert_id($conexion),
+                'estado' => "correcto",
+                'mensaje' => "se ha actualizado el total de la venta"
+            );
+            return $datos;
+        } catch (\Throwable $th) {
+            var_dump($th);
+        }
+        mysqli_close($conexion);
+    }
+}
+
+
+
 
 function otro()
 {
