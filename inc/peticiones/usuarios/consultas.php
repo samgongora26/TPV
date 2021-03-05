@@ -11,20 +11,32 @@ function registrar_usuario(): array
         $usuario = $_POST['usuario'];
         $contrasenia = $_POST['contrasenia'];
 
+        //COMPROBACIÓN DE USUARIOS REPETIDOS
+
          
 
         $sql =  "INSERT INTO `usuarios`( `nombres`, `apellidos`, `telefono`, `correo`, `usuario`, `contrasenia`, `fotografia`, `estado`)
         VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',1)";
         $consulta = mysqli_query($conexion, $sql);
+        //Retorno del ultimo usuario agregado
+        $sql = "SELECT `id_usuario`,`nombres`,`apellidos`,`telefono`,`correo`,`usuario`,`fotografia`,`estado` FROM `usuarios` ORDER BY id_usuario DESC LIMIT 1";
+        $consulta = mysqli_query($conexion, $sql);
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id_usuario'] = $row['id_usuario'];
+            $usuarios[$i]['nombres'] = $row['nombres'];
+            $usuarios[$i]['apellidos'] = $row['apellidos'];
+            $usuarios[$i]['telefono'] = $row['telefono'];
+            $usuarios[$i]['correo'] = $row['correo'];
+            $usuarios[$i]['usuario'] = $row['usuario'];
+            $usuarios[$i]['fotografia'] = $row['fotografia'];
+            $usuarios[$i]['estado'] = $row['estado'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
 
-        $respuesta = array( //envia los datos correctamente
-            'respuesta' => 'correcto',
-            'id_ingresado' => mysqli_insert_id($conexion),
-            'folio_recibido' => $folio,
-            'nombre_recibido' => $nombre,
-            'email_recibido' => $email,
-        );
-        return $respuesta;
     } catch (\Throwable $th) {
         var_dump($th);
     }
@@ -41,7 +53,7 @@ function mostrar_usuarios(): array
         $usuarios = [];
         $i = 0;
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
-            $usuarios[$i]['id'] = $row['id_usuario'];
+            $usuarios[$i]['id_usuario'] = $row['id_usuario'];
             $usuarios[$i]['nombres'] = $row['nombres'];
             $usuarios[$i]['apellidos'] = $row['apellidos'];
             $usuarios[$i]['telefono'] = $row['telefono'];

@@ -51,6 +51,36 @@ async function enviar_async(cliente) {
     );
     const data = await res.json(); //esperando la respeta de res y guardarlo en una variable
 
+    //const db = await resultado.json();
+
+    data.forEach((servicio) => {
+      const { id_usuario, nombres, apellidos, telefono, correo, usuario, estado } = servicio;
+
+      const listado_clientes = document.querySelector("#contenido_tabla");
+      listado_clientes.innerHTML += `  
+        <tr>
+            <td scope="row">${id_usuario}</td>
+            <td>${nombres}</td>
+            <td>${apellidos}</td>
+            <td>${telefono}</td>
+            <td>${correo}</td>
+            <td>${usuario}</td>
+            <td>${estado} <i class="fas fa-check-circle"></i></td>
+            <td>
+                <a href="usuario_editar.php?id="><i class="fas fa-edit"></i> </a>
+                <a href="usuario_eliminar.php?id="><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+        `;
+    });
+    //Se vacian los input 
+    document.getElementById("nombres").value = ""; 
+    document.querySelector("#apellidos").value = "";
+    document.querySelector("#telefono").value = "";
+    document.querySelector("#correo").value = "";
+    document.querySelector("#usuario").value = "";
+    document.querySelector("#contrasenia").value = "";
+
     console.log("respuesta enviada con el metodo async");
     console.log(data);
     alert("Usuario agregado");
