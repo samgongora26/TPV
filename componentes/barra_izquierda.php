@@ -78,19 +78,6 @@
                             </ul>
                         </li>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <!-- Links a compras del menu -->
                         <li class="sidebar-item"> 
                             <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
@@ -143,15 +130,22 @@
                                 <span class="hide-menu">Usuarios</span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                
+                                <li class="sidebar-item"><a href="../usuarios/usuarios_ver.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="icon icon-user-follow"></i> Ver usuarios
+                                        </span></a>
+                                </li>
                                 <li class="sidebar-item">
                                     <a href="../usuarios/usuarios_lista.php" class="sidebar-link">
                                         <span class="hide-menu">
-                                        <i class="icon icon-user-following"></i>Ver usuarios</span>
+                                        <i class="icon icon-user-following"></i>Agregar puestos</span>
                                     </a>
                                 </li>
-                                <li class="sidebar-item"><a href="../usuarios/usuarios_agregar.php" class="sidebar-link"><span
-                                            class="hide-menu"><i class="icon icon-user-follow"></i> Agregar usuarios
-                                        </span></a>
+                                <li class="sidebar-item">
+                                    <a href="../usuarios/empleados_ver.php" class="sidebar-link">
+                                        <span class="hide-menu">
+                                        <i class="icon icon-user-following"></i>Agregar empleados </span>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
