@@ -136,7 +136,7 @@
                                         </span></a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="../usuarios/usuarios_lista.php" class="sidebar-link">
+                                    <a href="../usuarios/puestos_ver.php" class="sidebar-link">
                                         <span class="hide-menu">
                                         <i class="icon icon-user-following"></i>Agregar puestos</span>
                                     </a>

@@ -3,7 +3,7 @@
 
     <head>
         <?php
-            include '../../../componentes/head.php';
+        include '../../../componentes/head.php';
         ?>
     </head>
 
@@ -21,13 +21,12 @@
 
         <!-- DIV PRINCIPAL DE BODY -->
         <!-- ============================================================== -->
-        <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-            data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
             <!-- ============================================================== -->
             <!-- HEADER -->
             <?php
-                include '../../../componentes/header.php';
+            include '../../../componentes/header.php';
             ?>
             <!-- FIN HEADER -->
             <!-- ============================================================== -->
@@ -36,34 +35,58 @@
             <!-- ============================================================== -->
             <!-- BARRA IZQUIERDA  -->
             <?php
-                include '../../../componentes/barra_izquierda.php';
+            include '../../../componentes/barra_izquierda.php';
             ?>
             <!-- FON BARRA IZQUIERDA  -->
             <!-- ============================================================== -->
-            
+
 
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <!-- CONTENEDOR -->
             <div class="page-wrapper">
                 <div class="container-fluid">
-                <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12">
-                            <!--Tabla de usuarios-->
-                            <div class="col-12">
+                    <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <!-- Input de Crear Nuevo Usuario -->
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Tabla de Usuarios</h4>
-                                        <h6 class="card-subtitle">Resultado de Usuarios...</h6>
+                                        <h4 class="card-title">Agregar Nuevo puesto</h4>
+                                        <h6 class="card-subtitle">Rellena los campos para agregar un nuevo puesto</h6>
+                                        <div class="mensaje" id="mensaje"></div>
+                                        <form id="formulario" class="mt-4">
+                                            <div class="form-group">
+                                                <!--label>Clave Usuario</label>
+                                                <input id="clave" type="text" placeholder="Ingresa el numero clave del usuario" class="form-control"-->
+                                                <label>Nombres</label>
+                                                <input id="nombre" type="text" placeholder="Ingresa nombre(s) del usuario" minlength="2" class="form-control" required="">
+                                                
+                                                <div class="text-right mt-3">
+                                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                                    <!--button type="reset" class="btn btn-dark">reiniciar formulario</button-->
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Fin Input de Crear Nuevo Cliente -->
+                            <!--Tabla de usuarios-->
+                            <div class="col-6   ">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Puestos</h4>
+                                        <div id="mensaje2"></div>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Clave usuario</th>
-                                                    <th scope="col">Nombre</th>
-                                                    <th scope="col">Telefono</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Nombres</th>
+                                                    <th scope="col">Editar o eliminar</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="contenido_tabla">
@@ -74,31 +97,6 @@
                                 </div>
                             </div>
                             <!-- Fin Tabla de Usuarios-->
-                            <!-- Input de Busqueda de Usuarios -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Busqueda de Usuarios</h4>
-                                    <h6 class="card-subtitle">Ingresa Codigo de Usuario</h6>
-                                    <form class="mt-4">
-                                        <div class="form-group">
-                                            <label>Clave Usuario</label>
-                                            <input type="text"  class="form-control">
-                                            <label>Nombres</label>
-                                            <input type="text" disabled="true" class="form-control">
-                                            <label>Apellidos</label>
-                                            <input type="text" disabled="true" class="form-control">
-                                            <label>Telefono</label>
-                                            <input type="text" disabled="true" class="form-control">
-                                            <label>Correo</label>
-                                            <input type="text" disabled="true" class="form-control">
-                                        </div>
-                                        <div class="text-right">
-                                            <button type="submit" class="btn btn-info">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Fin Input de Busqueda de Clientes -->
                         </div>
                     </div>
                 </div>
@@ -111,7 +109,8 @@
         <?php
             include '../../../componentes/scripts.php';
         ?>
-            <script src="../../../inc/funciones/clientes/app.js"></script>
+            <script src="../../../inc/funciones/usuarios/puestos_agregar.js"></script>
+            <script src="../../../inc/funciones/usuarios/app_puestos.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>
 
