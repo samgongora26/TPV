@@ -15,14 +15,14 @@ function obtener_datos(e) {
   
   //Validación de campos vacios
   if(nombres != "" & apellidos != "" & telefono != "" & correo != "" & usuario != "" & contrasenia != ""){
-    console.log(
+    /*console.log(
       nombres,
       apellidos,
       telefono,
       correo,
       usuario,
       contrasenia
-    );
+    );*/
     const datos = new FormData(); //encapsulamiento de los datos para envio
     datos.append("nombres", nombres);
     datos.append("apellidos", apellidos);
@@ -59,29 +59,43 @@ async function enviar_async(cliente) {
         body: cliente,
       }
     );
-    //mesaje de exito
-    const mensajes = document.querySelector("#mensaje");
+    console.log(res);
+    if(res){
+      alert("usuario repetido")
+      //mesaje de exito
+      const mensajes = document.querySelector("#mensaje");
       mensajes.innerHTML += `  
-        <div class="alert alert-danger alert-dismissible bg-success text-white border-0 fade show" role="alert">
+        <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
-            <strong>El usuario ha sido agregado exitosamente </strong>
+            <strong>El usuario ya existe en la bd </strong>
         </div>
         `;
-    //Se vacia el contenido de la tabla
-    document.getElementById("contenido_tabla").innerHTML="";
-    //Llamada a la funcion para llenar la tabla 
-    mostrarServicios(); 
-    //Se vacian los input 
-    document.getElementById("nombres").value = ""; 
-    document.querySelector("#apellidos").value = "";
-    document.querySelector("#telefono").value = "";
-    document.querySelector("#correo").value = "";
-    document.querySelector("#usuario").value = "";
-    document.querySelector("#contrasenia").value = "";
-    
-    
+    }
+    else{
+      //mesaje de exito
+        const mensajes = document.querySelector("#mensaje");
+        mensajes.innerHTML += `  
+          <div class="alert alert-danger alert-dismissible bg-success text-white border-0 fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>El usuario ha sido agregado exitosamente </strong>
+          </div>
+          `;
+      //Se vacia el contenido de la tabla
+      document.getElementById("contenido_tabla").innerHTML="";
+      //Llamada a la funcion para llenar la tabla 
+      mostrarServicios(); 
+      //Se vacian los input 
+      document.getElementById("nombres").value = ""; 
+      document.querySelector("#apellidos").value = "";
+      document.querySelector("#telefono").value = "";
+      document.querySelector("#correo").value = "";
+      document.querySelector("#usuario").value = "";
+      document.querySelector("#contrasenia").value = "";
+    }    
   } catch (error) {
     console.log(error);
   }

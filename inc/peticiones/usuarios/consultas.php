@@ -1,5 +1,5 @@
 <?php
-function registrar_usuario(): array
+function registrar_usuario(): boolean
 {           //recibe los datos correctamente
     try {
         require '../../../conexion.php';
@@ -12,13 +12,25 @@ function registrar_usuario(): array
         $contrasenia = $_POST['contrasenia'];
 
         //COMPROBACIÓN DE USUARIOS REPETIDOS
-
-         
-
-        $sql =  "INSERT INTO `usuarios`( `nombres`, `apellidos`, `telefono`, `correo`, `usuario`, `contrasenia`, `fotografia`, `estado`)
-        VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',1)";
+        $sql = "SELECT * FROM `usuarios`;";
         $consulta = mysqli_query($conexion, $sql);
-        return $usuarios;
+        $usuarios = [];
+        $usuario_repetido = false;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            if($usuario ==  $row['usuario']){{
+                $usuario_repetido = true;
+            }}
+        }
+        
+        if(!$usuario_repetido){
+            $sql =  "INSERT INTO `usuarios`( `nombres`, `apellidos`, `telefono`, `correo`, `usuario`, `contrasenia`, `fotografia`, `estado`)
+            VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',1)";
+            $consulta = mysqli_query($conexion, $sql);
+            return false;
+        }
+        else{
+            return true;
+        }
 
     } catch (\Throwable $th) {
         var_dump($th);
