@@ -67,18 +67,29 @@ function mostrar_usuarios(): array
     mysqli_close($conexion);
 }
 
-function buscar_proveedor(): array
+
+function actualizar_usuario(): array
 {
     try {
         require '../../../conexion.php';
-
         $id = $_POST['id'];
-        $sql = " select * from proveedores where id_proveedor=$id;";
+        $nombres = $_POST['nombres'];
+        $apellidos = $_POST['apellidos'];
+        $telefono = $_POST['telefono'];
+        $correo =  $_POST['correo'];
+        $usuario = $_POST['usuario'];
+        $contrasenia = $_POST['contrasenia'];
+        $estado = $_POST['estado'];
+        
+        $sql = "UPDATE `usuarios` SET `nombres`= '$nombres',`apellidos`= '$apellidos',`telefono`=  '$telefono',`correo`= '$correo',`usuario`= '$usuario',`contrasenia`= '$contrasenia',`fotografia`= '1.jpg',`estado`= $estado WHERE `usuarios`.`id_usuario` = $id;";
         $consulta = mysqli_query($conexion, $sql);
 
-        $row = mysqli_fetch_assoc($consulta); //recibir el resultado de la consulta cuando solo es 1
+        $respuesta = array(
+            'respuesta' => 'correcto',
+            'id' => $id
+        );
 
-        return $row;
+        return $respuesta;
     } catch (\Throwable $th) {
         var_dump($th);
     }
