@@ -12,11 +12,9 @@ function obtener_datos(e) {
   const correo = document.querySelector("#correo").value;
   const usuario = document.querySelector("#usuario").value;
   const contrasenia = document.querySelector("#contrasenia").value;
-
-  //si recibe correctamente todos los datos
-  /*console.log(clave,nombre,razon_social,direccion,telefono,rfc,
-    correo,pais,estado,ciudad,datelle);*/
-
+  
+  //Validación de campos vacios
+  if(nombres != "" & apellidos != "" & telefono != "" & correo != "" & usuario != "" & contrasenia != ""){
     console.log(
       nombres,
       apellidos,
@@ -25,18 +23,30 @@ function obtener_datos(e) {
       usuario,
       contrasenia
     );
-  
+    const datos = new FormData(); //encapsulamiento de los datos para envio
+    datos.append("nombres", nombres);
+    datos.append("apellidos", apellidos);
+    datos.append("telefono", telefono);
+    datos.append("correo", correo);
+    datos.append("usuario", usuario);
+    datos.append("contrasenia", contrasenia);
+    datos.append("accion", "registrar");
 
-  const datos = new FormData(); //encapsulamiento de los datos para envio
-  datos.append("nombres", nombres);
-  datos.append("apellidos", apellidos);
-  datos.append("telefono", telefono);
-  datos.append("correo", correo);
-  datos.append("usuario", usuario);
-  datos.append("contrasenia", contrasenia);
-  datos.append("accion", "registrar");
+    enviar_async(datos); //enviar a una funcion
+  }
+  else{
+    //alert("Formulario vacio");
 
-  enviar_async(datos); //enviar a una funcion
+    const mensajes = document.querySelector("#mensaje");
+      mensajes.innerHTML += `  
+        <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <strong>Error - </strong> ¡ERROR! EL FORMULARIO ESTÁ VACIO
+        </div>
+        `;
+  }
 }
 
 async function enviar_async(cliente) {
@@ -49,30 +59,20 @@ async function enviar_async(cliente) {
         body: cliente,
       }
     );
-    const data = await res.json(); //esperando la respeta de res y guardarlo en una variable
-
-    //const db = await resultado.json();
-
-    data.forEach((servicio) => {
-      const { id_usuario, nombres, apellidos, telefono, correo, usuario, estado } = servicio;
-
-      const listado_clientes = document.querySelector("#contenido_tabla");
-      listado_clientes.innerHTML += `  
-        <tr>
-            <td scope="row">${id_usuario}</td>
-            <td>${nombres}</td>
-            <td>${apellidos}</td>
-            <td>${telefono}</td>
-            <td>${correo}</td>
-            <td>${usuario}</td>
-            <td>${estado} <i class="fas fa-check-circle"></i></td>
-            <td>
-                <a href="usuario_editar.php?id="><i class="fas fa-edit"></i> </a>
-                <a href="usuario_eliminar.php?id="><i class="fas fa-trash"></i></a>
-            </td>
-        </tr>
+    //mesaje de exito
+    const mensajes = document.querySelector("#mensaje");
+      mensajes.innerHTML += `  
+        <div class="alert alert-danger alert-dismissible bg-success text-white border-0 fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <strong>El usuario ha sido agregado exitosamente </strong>
+        </div>
         `;
-    });
+    //Se vacia el contenido de la tabla
+    document.getElementById("contenido_tabla").innerHTML="";
+    //Llamada a la funcion para llenar la tabla 
+    mostrarServicios(); 
     //Se vacian los input 
     document.getElementById("nombres").value = ""; 
     document.querySelector("#apellidos").value = "";
@@ -80,10 +80,8 @@ async function enviar_async(cliente) {
     document.querySelector("#correo").value = "";
     document.querySelector("#usuario").value = "";
     document.querySelector("#contrasenia").value = "";
-
-    console.log("respuesta enviada con el metodo async");
-    console.log(data);
-    alert("Usuario agregado");
+    
+    
   } catch (error) {
     console.log(error);
   }
