@@ -189,7 +189,7 @@
                                     <a id="cobrar" href="javascript:void(0)" class="btn btn-block btn-rounded btn-dark">Cobrar</a>
                                     <hr>
                                     <div class="float-right">
-                                        <a href="javascript:void(0)" class="btn btn-sm btn-rounded btn-danger">Eliminar</a>
+                                        <a id="eliminar" href="javascript:void(0)" class="btn btn-sm btn-rounded btn-danger">Eliminar</a>
                                     </div>
                                 </div>
                             </div>

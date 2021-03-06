@@ -5,7 +5,14 @@ function registrar_producto(): array
         require '../../../conexion.php';
 
         $codigo = $_POST['codigo'];
-        $id_venta = 4; //obtener el id de venta pra ingresar los registros ventas
+////////////////////////////////////////////////////
+        $sql1 = "SELECT * FROM ventas ORDER BY id_venta DESC LIMIT 1;";
+        $consulta1 = mysqli_query($conexion, $sql1);
+
+        while ($row = mysqli_fetch_assoc($consulta1)) { //usar cuando se espera varios resultadosS
+            $id_venta = (int) $row['id_venta'];
+        }
+        /////////////////////////////////////////////////////////////////
 
         $sql = "select * from productos_inventario where codigo=$codigo;";
         $consulta = mysqli_query($conexion, $sql);
@@ -50,9 +57,18 @@ function registrar_producto(): array
 function venta_actual(): array
 { {
         try {
-            $id_venta = $_POST['id_venta'];
+         //   $id_venta = $_POST['id_venta'];
+            
 
             require '../../../conexion.php';
+            //////////////////////
+            $sql1 = "SELECT * FROM ventas ORDER BY id_venta DESC LIMIT 1;";
+            $consulta1 = mysqli_query($conexion, $sql1);
+
+            while ($row = mysqli_fetch_assoc($consulta1)) { //usar cuando se espera varios resultadosS
+                $id_venta = (int) $row['id_venta'];
+            }
+            ////////////////////////
             $sql = "SELECT detalle_venta.cantidad,detalle_venta.id_detalle_venta,productos_inventario.codigo,productos_inventario.descripcion,detalle_venta.id_venta,productos_inventario.precio_venta,detalle_venta.importe from detalle_venta, productos_inventario, ventas WHERE detalle_venta.id_venta = ventas.id_venta AND detalle_venta.id_venta = $id_venta and productos_inventario.id_producto = detalle_venta.id_producto;";
             $consulta = mysqli_query($conexion, $sql);
             $datos = [];
