@@ -88,6 +88,7 @@
                                     <div class="card-body">
                                         <h4 class="card-title">Tabla de Usuarios</h4>
                                         <h6 class="card-subtitle">Resultado de Usuarios...</h6>
+                                        <div id="mensaje2"></div>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">

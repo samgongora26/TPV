@@ -27,8 +27,8 @@ async function mostrarServicios() {
           <td>${usuario}</td>
           <td>${estado} <i class="fas fa-check-circle"></i></td>
           <td>
-              <button type="button" class="btn " data-toggle="modal" data-target="#edit-modal${id_usuario}"> <i data-cliente="${id_usuario}" class="fas fa-edit"></i></button>
-              <a href="usuario_eliminar.php?id="><i class="fas fa-trash"></i></a>
+              <button type="button" class="btn " data-toggle="modal" data-target="#edit-modal${id_usuario}"> <i data-usuario="${id_usuario}" class="fas fa-edit"></i></button>
+              <button type="button" class="btn"><i class="fas fa-trash eliminar" data-usuario="${id_usuario}"></i></button>
           </td>
       </tr>
                         <!-- Modal editar -->
@@ -73,19 +73,18 @@ async function mostrarServicios() {
     console.log(error);
   }
 }
-const listado_clientes = document.querySelector("#contenido_tabla");
 
+const listado_usuario = document.querySelector("#contenido_tabla");
 document.addEventListener("DOMContentLoaded", () => {
   mostrarServicios();
-
-  listado_clientes.addEventListener("click", eliminar_registro);
+  listado_usuario.addEventListener("click", eliminar_registro);
 });
 
 async function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
-    idEliminar = Number(e.target.dataset.cliente);
-    const confirmar = confirm('Deseas eliminar este cliente?');
+    idEliminar = Number(e.target.dataset.usuario);
+    const confirmar = confirm('Deseas eliminar al usuario: '+idEliminar);
     if(confirmar){
       try {
         console.log(idEliminar);
@@ -93,14 +92,26 @@ async function eliminar_registro(e) {
         datos.append("id", idEliminar);
         datos.append("accion", "eliminar");
   
-        const res = await fetch("../../../inc/peticiones/proveedores/funciones.php", {
+        const res = await fetch("../../../inc/peticiones/usuarios/funciones.php", {
           method: "POST",
           body: datos,
         });
-  
-        const data = await res.json();
-        console.log(data);
-        e.target.parentElement.parentElement.remove();
+
+        //MENSAJE DE EXITO AL ELIMINAR
+        const mensajes = document.querySelector("#mensaje2");
+        mensajes.innerHTML += `  
+          <div class="alert alert-danger alert-dismissible bg-success text-white border-0 fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>El usuario ha sido eliminado exitosamente </strong>
+          </div>
+          `;
+        //Se vacia el contenido de la tabla
+        document.getElementById("contenido_tabla").innerHTML="";
+        //Llamada a la funcion para llenar la tabla 
+        mostrarServicios(); 
+        
       } catch (error) {
         console.log(error);
       }

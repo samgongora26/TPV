@@ -10,10 +10,10 @@ switch ($accion) {
         $resultado = mostrar_usuarios();
         break;
     case "buscar":
-        $resultado =buscar_proveedor();
+        $resultado =buscar_usuario();
         break;
     case "eliminar":
-        $resultado =eliminar_proveedor();
+        $resultado =eliminar_usuario();
         break;
 }
 
