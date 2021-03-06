@@ -54,22 +54,23 @@
                                     <div class="card-body">
                                         <h4 class="card-title">Agregar Nuevo Usuario</h4>
                                         <h6 class="card-subtitle">Rellena los campos para agregar un nuevo usuario</h6>
+                                        <div class="mensaje" id="mensaje"></div>
                                         <form id="formulario" class="mt-4">
                                             <div class="form-group">
                                                 <!--label>Clave Usuario</label>
                                                 <input id="clave" type="text" placeholder="Ingresa el numero clave del usuario" class="form-control"-->
                                                 <label>Nombres</label>
-                                                <input id="nombres" type="text" placeholder="Ingresa nombre(s) del usuario" class="form-control">
+                                                <input id="nombres" type="text" placeholder="Ingresa nombre(s) del usuario" minlength="2" class="form-control" required="">
                                                 <label>apellidos</label>
-                                                <input id="apellidos" type="text" placeholder="Ingresa apellidos del usuario" class="form-control">
+                                                <input id="apellidos" type="text" placeholder="Ingresa apellidos del usuario" minlength="2" class="form-control" required="">
                                                 <label>Telefono</label>
-                                                <input id="telefono" type="text" placeholder="Ingresa numero de telefono de usuario" class="form-control">
+                                                <input id="telefono" type="text" placeholder="Ingresa numero de telefono de usuario" minlength="10"  maxlength="12"  class="form-control" required="">
                                                 <label>Correo</label>
-                                                <input id="correo" type="email" placeholder="Ingresa correo del cliente" class="form-control">
+                                                <input id="correo" type="email" placeholder="Ingresa correo del cliente" minlength="5" class="form-control" required="">
                                                 <label>Usuario</label>
-                                                <input id="usuario" type="text" placeholder="Usuario" class="form-control">
+                                                <input id="usuario" type="text" placeholder="Usuario" minlength="5" class="form-control" required="">
                                                 <label>Contraseña</label>
-                                                <input id="contrasenia" type="password" placeholder="Contraseña" class="form-control">
+                                                <input id="contrasenia" type="password" placeholder="Contraseña" minlength="5" class="form-control" required="">
                                                 <div class="text-right mt-3">
                                                     <button type="submit" class="btn btn-success">Guardar</button>
                                                     <button type="reset" class="btn btn-dark">reiniciar formulario</button>
@@ -79,7 +80,37 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <!-- Fin Input de Crear Nuevo Cliente -->
+                            <!--Tabla de usuarios-->
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Tabla de Usuarios</h4>
+                                        <h6 class="card-subtitle">Resultado de Usuarios...</h6>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Nombres</th>
+                                                    <th scope="col">Apellidos</th>
+                                                    <th scope="col">Telefono</th>
+                                                    <th scope="col">Correo</th>
+                                                    <th scope="col">Usuario</th>
+                                                    <th scope="col">Estado</th>
+                                                    <th scope="col">Editar o eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="contenido_tabla">
+                                                <!--inyeccion de los datos -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fin Tabla de Usuarios-->
                         </div>
                     </div>
                 </div>
@@ -93,6 +124,7 @@
             include '../../../componentes/scripts.php';
         ?>
             <script src="../../../inc/funciones/usuarios/usuarios_agregar.js"></script>
+            <script src="../../../inc/funciones/usuarios/app.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>
 

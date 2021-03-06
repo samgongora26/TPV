@@ -1,5 +1,5 @@
 <?php
-function registrar_usuario(): array
+function registrar_usuario(): boolean
 {           //recibe los datos correctamente
     try {
         require '../../../conexion.php';
@@ -11,42 +11,52 @@ function registrar_usuario(): array
         $usuario = $_POST['usuario'];
         $contrasenia = $_POST['contrasenia'];
 
-         
-
-        $sql =  "INSERT INTO `usuarios`( `nombres`, `apellidos`, `telefono`, `correo`, `usuario`, `contrasenia`, `fotografia`, `estado`)
-        VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',1)";
+        //COMPROBACIÓN DE USUARIOS REPETIDOS
+        $sql = "SELECT * FROM `usuarios`;";
         $consulta = mysqli_query($conexion, $sql);
+        $usuarios = [];
+        $usuario_repetido = false;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            if($usuario ==  $row['usuario']){{
+                $usuario_repetido = true;
+            }}
+        }
+        
+        if(!$usuario_repetido){
+            $sql =  "INSERT INTO `usuarios`( `nombres`, `apellidos`, `telefono`, `correo`, `usuario`, `contrasenia`, `fotografia`, `estado`)
+            VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',1)";
+            $consulta = mysqli_query($conexion, $sql);
+            return false;
+        }
+        else{
+            return true;
+        }
 
-        $respuesta = array( //envia los datos correctamente
-            'respuesta' => 'correcto',
-            'id_ingresado' => mysqli_insert_id($conexion),
-            'folio_recibido' => $folio,
-            'nombre_recibido' => $nombre,
-            'email_recibido' => $email,
-        );
-        return $respuesta;
     } catch (\Throwable $th) {
         var_dump($th);
     }
     mysqli_close($conexion);
 }
 
-function todos_proveedores(): array
+function mostrar_usuarios(): array
 {
     try {
         require '../../../conexion.php';
 
-        $sql = "select * from proveedores;";
+        $sql = "SELECT * FROM `usuarios`;";
         $consulta = mysqli_query($conexion, $sql);
-
         $usuarios = [];
         $i = 0;
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
-            $usuarios[$i]['id'] = $row['id_proveedor'];
-            $usuarios[$i]['folio'] = $row['folio'];
-            $usuarios[$i]['nombre'] = $row['nombre'];
-            $usuarios[$i]['direccion'] = $row['direccion'];
+            $usuarios[$i]['id_usuario'] = $row['id_usuario'];
+            $usuarios[$i]['nombres'] = $row['nombres'];
+            $usuarios[$i]['apellidos'] = $row['apellidos'];
             $usuarios[$i]['telefono'] = $row['telefono'];
+            $usuarios[$i]['correo'] = $row['correo'];
+            $usuarios[$i]['usuario'] = $row['usuario'];
+            $usuarios[$i]['contrasenia'] = $row['contrasenia'];
+            $usuarios[$i]['fotografia'] = $row['fotografia'];
+            $usuarios[$i]['estado'] = $row['estado'];
             $i++;
         }
         //var_dump($usuarios);
