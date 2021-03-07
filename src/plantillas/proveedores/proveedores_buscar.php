@@ -99,7 +99,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="contenido_tabla" class="text-center">
-                                        <tr>
+                                    <!--   <tr>
                                                 <th scope="row">1</th>
                                                 <td>Cell</td>
                                                 <td>Cell</td>
@@ -121,7 +121,7 @@
                                                 <td>
                                                     <button type="button" class="btn btn-primary"><i class="icon-trash"></i></button>
                                                 </td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
                                 </table>
 

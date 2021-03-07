@@ -7,14 +7,16 @@ function registrar_usuarios(): array
         $folio = $_POST['folio'];
         $nombre = $_POST['nombre'];
         $email = $_POST['email'];
+        $estado = $_POST['estado'];
         $ciudad =  $_POST['ciudad'];
         $direccion = $_POST['direccion'];
         $telefono = $_POST['telefono'];
         $rfc = $_POST['rfc'];
+        $razon = $_POST['razon_social'];
         $fecha_registro = $_POST['fecha_registro'];
 
-        $sql =  "INSERT INTO proveedores (folio, nombre, localidad, direccion, telefono, fecha_registro, correo)
-        VALUES('$folio','$nombre','$ciudad','$direccion','$telefono','$fecha_registro','$email')";
+        $sql =  "INSERT INTO proveedores (folio, nombre, localidad, direccion, telefono, fecha_registro, correo, rfc, razon_social, estado, estado_proveedor )
+        VALUES('$folio','$nombre','$ciudad','$direccion','$telefono','$fecha_registro','$email','$rfc','$razon','$estado','1')";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array( //envia los datos correctamente
@@ -47,6 +49,8 @@ function todos_proveedores(): array
             $usuarios[$i]['nombre'] = $row['nombre'];
             $usuarios[$i]['direccion'] = $row['direccion'];
             $usuarios[$i]['telefono'] = $row['telefono'];
+            $usuarios[$i]['rfc'] = $row['rfc'];
+            $usuarios[$i]['razon'] = $row['razon_social'];
             $i++;
         }
         //var_dump($usuarios);
@@ -79,7 +83,7 @@ function eliminar_proveedor(): array
 {
     try {
         require '../../../conexion.php';
-        
+
         $id = $_POST['id'];
         $sql = " DELETE FROM `proveedores` WHERE `proveedores`.`id_proveedor`= $id";
         $consulta = mysqli_query($conexion, $sql);
@@ -106,13 +110,22 @@ function actualizar_proveedor(): array
         $nombre = $_POST['nombre'];
         $direccion = $_POST['direccion'];
         $telefono = (int) $_POST['telefono'];
+        $razon = $_POST['razon'];
+        $rfc = $_POST['rfc'];
 
-              $sql = "UPDATE `proveedores` SET `folio` = '$clave', `nombre` = '$nombre', `direccion` = '$direccion', `telefono` = '$telefono' WHERE `proveedores`.`id_proveedor` = $id;";
+        $sql = "UPDATE `proveedores` SET `folio` = '$clave', `nombre` = '$nombre', `direccion` = '$direccion', `telefono` = '$telefono', `rfc` = '$rfc', `razon_social` = '$razon' WHERE `proveedores`.`id_proveedor` = $id;";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
             'respuesta' => 'correcto',
-            'id' => $id
+            'descripcion' => 'actualizacion de los datos del proveedor',
+            'id' => $id,
+            'clave' => $clave,
+            'nombre' => $nombre,
+            'direccion' => $direccion,
+            'telefono' => $telefono,
+            'razon' => $razon,
+            'rfc' => $rfc
         );
 
         return $respuesta;

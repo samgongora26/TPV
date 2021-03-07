@@ -10,14 +10,14 @@ switch ($accion) {
         $resultado = todos_proveedores();
         break;
     case "buscar":
-        $resultado =buscar_proveedor();
+        $resultado = buscar_proveedor();
         break;
     case "eliminar":
-        $resultado =eliminar_proveedor();
+        $resultado = eliminar_proveedor();
         break;
-        case 'actualizar':
-            $resultado =actualizar_proveedor();
-            break;
+    case 'actualizar':
+        $resultado = actualizar_proveedor();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide
