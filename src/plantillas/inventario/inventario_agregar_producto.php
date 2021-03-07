@@ -57,14 +57,15 @@
                                     <h6 class="card-subtitle">Rellena los campos para agregar un nuevo producto</h6>
                                     <form id="formulario" class="mt-4">
                                         <div class="form-group">
-                                            <label>Imagen</label>
-                                            <input id="clave" name="clave" type="file" class="form-control">
-                                            <label>Nombre</label>
-                                            <input id="nombre" name="nombre" type="text" class="form-control">
-                                            <label>Codigo de Barras</label>
-                                            <input id="razon_social" name="razon_social" type="text" class="form-control">
 
-                                            <form>
+                                            <label>Imagen</label>
+                                            <input id="imagen" name="imagen" type="file" class="form-control">
+                                            <label>Nombre</label>
+                                            <input id="nombre" name="nombre" placeholder="Nombre de Producto" type="text" class="form-control">
+                                            <label>Codigo de Barras</label>
+                                            <input id="codigobarras" name="codigobarras" placeholder="Número de Codigo de Barras" type="text" class="form-control">
+
+                                            <form id="form_tipo_producto">
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Tipo producto</label>
                                                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
@@ -76,7 +77,7 @@
                                                 </div>
                                             </form>
 
-                                            <form>
+                                            <form id="form_categoria">
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
                                                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
@@ -88,7 +89,7 @@
                                                 </div>
                                             </form>
 
-                                            <form>
+                                            <form id="form_proveedor">
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Proveedor</label>
                                                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
@@ -100,7 +101,7 @@
                                                 </div>
                                             </form>
 
-                                            <form>
+                                            <form id="form_unidad">
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Unidad</label>
                                                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
@@ -112,11 +113,16 @@
                                                 </div>
                                             </form>
 
+                                            <label>Fecha de Caducidad</label>
+                                            <input id="caducidad" name="caducidad" placeholder="Fecha de Caducidad" type="text" class="form-control">
+                                            <br>
                                             <label>Precio Producto</label>
-                                            <input id="correo" name="correo" type="text" class="form-control">
-                                            <label>Impuesto Producto</label>
-                                            <input id="pais" name="pais" type="text" class="form-control">
-                                            <form>
+                                            <input id="precio" name="precio" placeholder="Precio del Producto" type="text" class="form-control">
+                                            <br>
+                                            <!--<label>Impuesto Producto</label>-->
+                                            <!--<input id="pais" name="pais" type="text" class="form-control">-->
+
+                                            <form id="form_estado">
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
                                                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
@@ -127,10 +133,10 @@
                                                 </div>
                                             </form>
                                             <br>
-                                            <h4 class="card-title">Detalles</h4>
+                                            <h4 class="card-title">Descripción</h4>
                                             <form class="mt-3">
                                                 <div class="form-group">
-                                                    <textarea id="detalle" name="detalle" class="form-control" rows="3" placeholder="Detalles del producto..."></textarea>
+                                                    <textarea id="descripcion" name="descripcion" class="form-control" rows="3" placeholder="Descripción del producto..."></textarea>
                                                 </div>
                                             </form>
                                             <div class="text-right">
@@ -164,7 +170,7 @@
     <?php
     include '../../../componentes/scripts.php';
     ?>
-    <script src="../../../inc/funciones/proveedores/proveedor_agregar.js"></script>
+    <script src="../../../inc/funciones/inventario/inventario_agregar.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 
