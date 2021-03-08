@@ -1,39 +1,40 @@
 <?php
-function registrar_usuarios(): array
+function registrar_producto(): array
 {           //recibe los datos correctamente
     try {
         require '../../../conexion.php';
 
-        $folio = $_POST['folio'];
+        $codigobarras = $_POST['codigobarras'];
         $nombre = $_POST['nombre'];
-        $email = $_POST['email'];
-        $estado = $_POST['estado'];
-        $ciudad =  $_POST['ciudad'];
-        $direccion = $_POST['direccion'];
-        $telefono = $_POST['telefono'];
-        $rfc = $_POST['rfc'];
-        $razon = $_POST['razon_social'];
-        $fecha_registro = $_POST['fecha_registro'];
+        //$caducidad = $_POST['caducidad'];
+        //$unidad =  $_POST['form_unidad'];
+        $precio = $_POST['precio'];
+        $descripcion = $_POST['descripcion'];
 
-        $sql =  "INSERT INTO proveedores (folio, nombre, localidad, direccion, telefono, fecha_registro, correo, rfc, razon_social, estado, estado_proveedor )
-        VALUES('$folio','$nombre','$ciudad','$direccion','$telefono','$fecha_registro','$email','$rfc','$razon','$estado','1')";
+        $sql =  "INSERT INTO productos_inventario (nombre_producto, descripcion, codigo, precio_venta)
+        VALUES('$nombre','$descripcion','$codigobarras','$precio')";
+
+
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array( //envia los datos correctamente
             'respuesta' => 'correcto',
-            'id_ingresado' => mysqli_insert_id($conexion),
-            'folio_recibido' => $folio,
-            'nombre_recibido' => $nombre,
-            'email_recibido' => $email,
+            //'id_ingresado' => mysqli_insert_id($conexion),
+            'nombre' => $nombre,
+            'codigo' => $codigobarras,
+            'descripcion' => $descripcion,
+            'precio' => $precio
+            //'unidad_recibido' => $unidad,
         );
+
         return $respuesta;
     } catch (\Throwable $th) {
         var_dump($th);
     }
     mysqli_close($conexion);
 }
-
-function todos_proveedores(): array
+/*
+function todo_inventario(): array
 {
     try {
         require '../../../conexion.php';
@@ -49,8 +50,6 @@ function todos_proveedores(): array
             $usuarios[$i]['nombre'] = $row['nombre'];
             $usuarios[$i]['direccion'] = $row['direccion'];
             $usuarios[$i]['telefono'] = $row['telefono'];
-            $usuarios[$i]['rfc'] = $row['rfc'];
-            $usuarios[$i]['razon'] = $row['razon_social'];
             $i++;
         }
         //var_dump($usuarios);
@@ -61,7 +60,7 @@ function todos_proveedores(): array
     mysqli_close($conexion);
 }
 
-function buscar_proveedor(): array
+function buscar_producto(): array
 {
     try {
         require '../../../conexion.php';
@@ -79,11 +78,11 @@ function buscar_proveedor(): array
     mysqli_close($conexion);
 }
 
-function eliminar_proveedor(): array
+function eliminar_producto(): array
 {
     try {
         require '../../../conexion.php';
-
+        
         $id = $_POST['id'];
         $sql = " DELETE FROM `proveedores` WHERE `proveedores`.`id_proveedor`= $id";
         $consulta = mysqli_query($conexion, $sql);
@@ -101,7 +100,7 @@ function eliminar_proveedor(): array
 }
 
 
-function actualizar_proveedor(): array
+function actualizar_producto(): array
 {
     try {
         require '../../../conexion.php';
@@ -110,22 +109,13 @@ function actualizar_proveedor(): array
         $nombre = $_POST['nombre'];
         $direccion = $_POST['direccion'];
         $telefono = (int) $_POST['telefono'];
-        $razon = $_POST['razon'];
-        $rfc = $_POST['rfc'];
 
-        $sql = "UPDATE `proveedores` SET `folio` = '$clave', `nombre` = '$nombre', `direccion` = '$direccion', `telefono` = '$telefono', `rfc` = '$rfc', `razon_social` = '$razon' WHERE `proveedores`.`id_proveedor` = $id;";
+              $sql = "UPDATE `proveedores` SET `folio` = '$clave', `nombre` = '$nombre', `direccion` = '$direccion', `telefono` = '$telefono' WHERE `proveedores`.`id_proveedor` = $id;";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
             'respuesta' => 'correcto',
-            'descripcion' => 'actualizacion de los datos del proveedor',
-            'id' => $id,
-            'clave' => $clave,
-            'nombre' => $nombre,
-            'direccion' => $direccion,
-            'telefono' => $telefono,
-            'razon' => $razon,
-            'rfc' => $rfc
+            'id' => $id
         );
 
         return $respuesta;
@@ -133,4 +123,4 @@ function actualizar_proveedor(): array
         var_dump($th);
     }
     mysqli_close($conexion);
-}
+}*/

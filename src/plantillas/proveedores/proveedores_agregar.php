@@ -73,8 +73,6 @@
                                             <input id="rfc" name="rfc" type="text" class="form-control">
                                             <label>Correo</label>
                                             <input id="correo" name="correo" type="text" class="form-control">
-                                            <label>País</label>
-                                            <input id="pais" name="pais" type="text" class="form-control">
                                             <label>Estado</label>
                                             <input id="estado" name="estado" type="text" class="form-control">
                                             <label>Ciudad</label>
