@@ -58,7 +58,7 @@
                                     <form id="formulario_agregar_categoria" class="mt-4">
                                         <div class="form-group">
                                             <label>Imagen</label>
-                                            <input id="imagen" name="imagen" type="file" class="form-control" required>
+                                            <input id="imagen" name="imagen" type="file" class="form-control">
                                             <label>Nombre Categoria:</label>
                                             <input id="nombre_categoria" name="nombre_categoria" type="text" class="form-control" required>
 

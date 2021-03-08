@@ -21,14 +21,9 @@ function obtener_datos(e) {
   const mayoreo = document.querySelector("#mayoreo").value;
   const caducidad = document.querySelector("#caducidad").value;
   const stock = document.querySelector("#stock").value;
-  //const form_tipo_producto = document.querySelector("#form_tipo_producto").value;
-  //const form_categoria = document.querySelector("#form_categoria").value;
-  //const form_proveedor = document.querySelector("#form_proveedor").value;
-  //const form_unidad = document.querySelector("#form_unidad").value;
-  //const form_estado = document.querySelector("#form_estado").value;
 
   //si recibe correctamente todos los datos
-  console.log(nombre,codigobarras,precio,descripcion,select_de_unidad,select_de_categoria,select_de_estado,costo,mayoreo,caducidad, stock);
+  //console.log(nombre,codigobarras,precio,descripcion,select_de_unidad,select_de_categoria,select_de_estado,costo,mayoreo,caducidad, stock);
 
   const datos = new FormData(); //encapsulamiento de los datos para envio
   datos.append("nombre", nombre);
@@ -127,7 +122,7 @@ function show_categoria()
     //La_obtencion_de_periodos();
 }
 
-//PROVEEDOR
+//MARCA
 function show_marca() 
 {
     /* Para obtener el valor */
