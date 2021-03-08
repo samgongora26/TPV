@@ -132,19 +132,25 @@
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 
                                 <li class="sidebar-item"><a href="../usuarios/usuarios_ver.php" class="sidebar-link"><span
-                                            class="hide-menu"><i class="icon icon-user-follow"></i> Ver usuarios
+                                            class="hide-menu"><i class="icon icon-user-follow"></i>Usuarios
                                         </span></a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="../usuarios/puestos_ver.php" class="sidebar-link">
                                         <span class="hide-menu">
-                                        <i class="icon icon-user-following"></i>Agregar puestos</span>
+                                        <i class="icon icon-user-following"></i>Puestos</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="../usuarios/horarios_ver.php" class="sidebar-link">
+                                        <span class="hide-menu">
+                                        <i class="icon icon-user-following"></i>Horarios</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="../usuarios/empleados_ver.php" class="sidebar-link">
                                         <span class="hide-menu">
-                                        <i class="icon icon-user-following"></i>Agregar empleados </span>
+                                        <i class="icon icon-user-following"></i>Empleados</span>
                                     </a>
                                 </li>
                             </ul>
