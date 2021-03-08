@@ -75,13 +75,13 @@ async function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
     idEliminar = Number(e.target.dataset.usuario);
-    const confirmar = confirm('Deseas eliminar al usuario: '+idEliminar);
+    const confirmar = confirm('Deseas eliminar el puesto: '+idEliminar);
     if(confirmar){
       try {
         console.log(idEliminar);
         const datos = new FormData();
         datos.append("id", idEliminar);
-        datos.append("accion", "eliminar");
+        datos.append("accion", "eliminar_puesto");
   
         const res = await fetch("../../../inc/peticiones/usuarios/funciones.php", {
           method: "POST",

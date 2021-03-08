@@ -163,3 +163,24 @@ function actualizar_puesto(): array
     }
     mysqli_close($conexion);
 }
+
+function eliminar_puesto(): array
+{
+    try {
+        require '../../../conexion.php';
+        
+        $id = $_POST['id'];
+        $sql = " DELETE FROM `puestos` WHERE `puestos`.`id_puesto`= $id";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'eliminado',
+            'id' => $id
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

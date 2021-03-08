@@ -25,6 +25,9 @@ switch ($accion) {
     case 'actualizar_puesto':
         $resultado =actualizar_puesto();
         break;
+    case "eliminar_puesto":
+        $resultado =eliminar_puesto();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide
