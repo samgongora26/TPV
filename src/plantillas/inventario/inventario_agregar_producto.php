@@ -61,77 +61,88 @@
                                             <label>Imagen</label>
                                             <input id="imagen" name="imagen" type="file" class="form-control">
                                             <label>Nombre</label>
-                                            <input id="nombre" name="nombre" placeholder="Nombre de Producto" type="text" class="form-control">
+                                            <input id="nombre" name="nombre" placeholder="Nombre de Producto" type="text" class="form-control" required>
                                             <label>Codigo de Barras</label>
-                                            <input id="codigobarras" name="codigobarras" placeholder="Número de Codigo de Barras" type="text" class="form-control">
-
-                                            <form id="form_tipo_producto">
-                                                <div class="form-group mb-4">
+                                            <input id="codigobarras" name="codigobarras" placeholder="Número de Codigo de Barras" type="text" class="form-control" required>
+                                            <br>
+                                            
+                                                <!--<div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Tipo producto</label>
-                                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                    <select class="custom-select mr-sm-2" id="select_tipo" onchange="show_tipo();">
                                                         <option selected>Elegir...</option>
                                                         <option value="1">One</option>
                                                         <option value="2">Two</option>
                                                         <option value="3">Three</option>
                                                     </select>
-                                                </div>
-                                            </form>
+                                                </div>-->
 
-                                            <form id="form_categoria">
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
-                                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                    <select class="custom-select mr-sm-2" id="select_categoria" onchange="show_categoria();" required>
                                                         <option selected>Elegir...</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                        <option value="1">Categoria 1</option>
+                                                        <option value="2">Categoria 2</option>
+                                                        <option value="3">Categoria 3</option>
                                                     </select>
                                                 </div>
-                                            </form>
 
-                                            <form id="form_proveedor">
                                                 <div class="form-group mb-4">
-                                                    <label class="mr-sm-2" for="inlineFormCustomSelect">Proveedor</label>
-                                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                    <label class="mr-sm-2" for="inlineFormCustomSelect">Marca</label>
+                                                    <select class="custom-select mr-sm-2" id="select_marca" onchange="show_marca();" required>
                                                         <option selected>Elegir...</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                        <option value="1">Marca1</option>
+                                                        <option value="2">Marca2</option>
+                                                        <option value="3">Marca3</option>
                                                     </select>
                                                 </div>
-                                            </form>
 
-                                            <form id="form_unidad">
-                                                <div class="form-group mb-4">
-                                                    <label class="mr-sm-2" for="inlineFormCustomSelect">Unidad</label>
-                                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                                        <option selected>Elegir...</option>
-                                                        <option value="1">Piezas</option>
-                                                        <option value="2">Kilogramos</option>
-                                                        <option value="3">nose</option>
-                                                    </select>
+                                                
+
+                                            <div class="form-group mb-4">
+                                                <label class="mr-sm-2" for="inlineFormCustomSelect">Unidad</label>
+                                                <select class="custom-select mr-sm-2" id="select_unidad" name="select_unidad" onchange="show_unidad();" required>
+                                                    <option selected>Elegir...</option>
+                                                    <option value="1">Piezas</option>
+                                                    <option value="2">Kilogramos</option>
+                                                    <option value="3">nose</option>
+                                                </select>
+                                            </div>
+
+
+                                            <!--<label>Fecha de Caducidad</label>
+                                            <input id="caducidad" name="caducidad" placeholder="aa-mm-dd   ó NF" type="text" class="form-control">
+                                            <br>-->
+
+                                            <div class="form-group row">
+                                                <label for="example-date-input" class="col-2 col-form-label">Fecha de Caducidad</label>
+                                                <div class="col-10">
+                                                    <input class="form-control" type="date"  id="caducidad" name="caducidad">
                                                 </div>
-                                            </form>
+                                            </div>
 
-                                            <label>Fecha de Caducidad</label>
-                                            <input id="caducidad" name="caducidad" placeholder="Fecha de Caducidad" type="text" class="form-control">
-                                            <br>
                                             <label>Precio Producto</label>
-                                            <input id="precio" name="precio" placeholder="Precio del Producto" type="text" class="form-control">
+                                            <input id="precio" name="precio" placeholder="Precio del Producto" type="text" class="form-control" required>
+                                            <br>
+                                            <label>Costo del Producto</label>
+                                            <input id="costo" name="costo" placeholder="Costo del Producto" type="text" class="form-control" required>
+                                            <br>
+                                            <label>Precio de Mayoreo</label>
+                                            <input id="mayoreo" name="mayoreo" placeholder="Precio a Mayoreo" type="text" class="form-control" required>
+                                            <br>
+                                            <label>Cantidad en stock</label>
+                                            <input id="stock" name="stock" placeholder="Cantidad de stock" type="text" class="form-control" required>
                                             <br>
                                             <!--<label>Impuesto Producto</label>-->
                                             <!--<input id="pais" name="pais" type="text" class="form-control">-->
 
-                                            <form id="form_estado">
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
-                                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                    <select class="custom-select mr-sm-2" id="select_estado" onchange="show_estado();" required>
                                                         <option selected>Elegir...</option>
                                                         <option value="1">Activo</option>
-                                                        <option value="2">Inactivo</option>
+                                                        <option value="0">Inactivo</option>
                                                     </select>
                                                 </div>
-                                            </form>
                                             <br>
                                             <h4 class="card-title">Descripción</h4>
                                             <form class="mt-3">

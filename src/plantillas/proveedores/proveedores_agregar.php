@@ -60,23 +60,23 @@
                                     <form id="formulario" class="mt-4">
                                         <div class="form-group">
                                             <label>Clave</label>
-                                            <input id="clave" name="clave" type="text" class="form-control">
+                                            <input id="clave" name="clave" type="text" class="form-control" required>
                                             <label>Nombre</label>
-                                            <input id="nombre" name="nombre" type="text" class="form-control">
+                                            <input id="nombre" name="nombre" type="text" class="form-control" required>
                                             <label>Razón Social</label>
-                                            <input id="razon_social" name="razon_social" type="text" class="form-control">
+                                            <input id="razon_social" name="razon_social" type="text" class="form-control" required>
                                             <label>Dirección</label>
-                                            <input id="direccion" name="direccion" type="text" class="form-control">
+                                            <input id="direccion" name="direccion" type="text" class="form-control" required>
                                             <label>Telefono</label>
-                                            <input id="telefono" name="telefono" type="text" class="form-control">
+                                            <input id="telefono" name="telefono" type="text" class="form-control" required>
                                             <label>RFC</label>
-                                            <input id="rfc" name="rfc" type="text" class="form-control">
+                                            <input id="rfc" name="rfc" type="text" class="form-control" required>
                                             <label>Correo</label>
-                                            <input id="correo" name="correo" type="text" class="form-control">
+                                            <input id="correo" name="correo" type="text" class="form-control" required>
                                             <label>Estado</label>
-                                            <input id="estado" name="estado" type="text" class="form-control">
+                                            <input id="estado" name="estado" type="text" class="form-control" required>
                                             <label>Ciudad</label>
-                                            <input id="ciudad" name="ciudad" type="text" class="form-control">
+                                            <input id="ciudad" name="ciudad" type="text" class="form-control" required>
                                             <br>
                                             <h4 class="card-title">Detalles</h4>
                                             <form class="mt-3">

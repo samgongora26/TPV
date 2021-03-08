@@ -40,14 +40,14 @@
             ?>
             <!-- FON BARRA IZQUIERDA  -->
             <!-- ============================================================== -->
-            
+
 
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <!-- CONTENEDOR -->
             <div class="page-wrapper">
                 <div class="container-fluid">
                     <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                    
+
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <!-- Input de Crear Nuevo Cliente -->
                                 <div class="card">
@@ -57,21 +57,21 @@
                                         <form id="formulario" class="mt-4">
                                             <div class="form-group">
                                                 <label>Clave Cliente</label>
-                                                <input id="clave" type="text" placeholder="Ingresa el numero clave del cliente" class="form-control">
+                                                <input id="clave" type="text" placeholder="Ingresa el numero clave del cliente" class="form-control" required>
                                                 <label>Nombre</label>
                                                 <input id="nombre" type="text" placeholder="Ingresa nombre del cliente" class="form-control">
                                                 <label>Segundo Nombre</label>
-                                                <input id="nombre_2" type="text" placeholder="Ingresa segundo nombre del cliente (opcional)" class="form-control">
+                                                <input id="nombre_2" type="text" placeholder="Ingresa segundo nombre del cliente (opcional)" class="form-control" required>
                                                 <label>Apellido Paterno</label>
-                                                <input id="apellido_p" type="text" placeholder="Ingresa apellido paterno del cliente" class="form-control">
+                                                <input id="apellido_p" type="text" placeholder="Ingresa apellido paterno del cliente" class="form-control" required>
                                                 <label>Apellido Materno</label>
-                                                <input id="apellido_m" type="text" placeholder="Ingresa apellido materno del cliente" class="form-control">
+                                                <input id="apellido_m" type="text" placeholder="Ingresa apellido materno del cliente" class="form-control" required>
                                                 <label>Dirección</label>
-                                                <input id="direccion" type="text" placeholder="Ingresa dirección del cliente (opcional)" class="form-control">
+                                                <input id="direccion" type="text" placeholder="Ingresa dirección del cliente (opcional)" class="form-control" required>
                                                 <label>Telefono</label>
-                                                <input id="telefono" type="text" placeholder="Ingresa numero de telefono de cliente" class="form-control">
+                                                <input id="telefono" type="text" placeholder="Ingresa numero de telefono de cliente" class="form-control" required>
                                                 <label>Correo</label>
-                                                <input id="correo" type="text" placeholder="Ingresa correo del cliente" class="form-control">
+                                                <input id="correo" type="text" placeholder="Ingresa correo del cliente" class="form-control" required>
                                                 <div class="text-right">
                                                     <button type="submit" class="btn btn-info">submit</button>
                                                     <button type="reset" class="btn btn-dark">Reset</button>
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                             <!-- Fin Input de Crear Nuevo Cliente -->
-                    
+
                 </div>
             </div>
         </div>
