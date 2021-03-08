@@ -6,13 +6,19 @@ function registrar_producto(): array
 
         $codigobarras = $_POST['codigobarras'];
         $nombre = $_POST['nombre'];
-        //$caducidad = $_POST['caducidad'];
-        //$unidad =  $_POST['form_unidad'];
+        $caducidad = $_POST['caducidad'];
+        $unidad =  $_POST['unidad'];
         $precio = $_POST['precio'];
         $descripcion = $_POST['descripcion'];
+        $estado = $_POST['estado'];
+        $categoria = $_POST['categoria'];
+        $costo = $_POST['costo'];
+        $mayoreo = $_POST['mayoreo'];
+        $stock = $_POST['stock'];
+        $marca = $_POST['marca'];
 
-        $sql =  "INSERT INTO productos_inventario (nombre_producto, descripcion, codigo, precio_venta)
-        VALUES('$nombre','$descripcion','$codigobarras','$precio')";
+        $sql =  "INSERT INTO productos_inventario (nombre_producto, descripcion, codigo, precio_costo, precio_venta, precio_mayoreo, unidad, cantidad_stock, fecha_caducidad,  id_categoria, id_marca, estado)
+        VALUES('$nombre','$descripcion','$codigobarras', '$costo','$precio','$mayoreo', '$unidad','$stock', '$caducidad', '$categoria', '$marca','$estado')";
 
 
         $consulta = mysqli_query($conexion, $sql);
@@ -23,8 +29,15 @@ function registrar_producto(): array
             'nombre' => $nombre,
             'codigo' => $codigobarras,
             'descripcion' => $descripcion,
-            'precio' => $precio
-            //'unidad_recibido' => $unidad,
+            'precio' => $precio,
+            'unidad' => $unidad,
+            'categoria' => $categoria,
+            'estado' => $estado,
+            'costo' => $costo,
+            'mayoreo' => $mayoreo,
+            'caducidad' => $categoria,
+            'stock' => $stock,
+            'marca' => $marca
         );
 
         return $respuesta;

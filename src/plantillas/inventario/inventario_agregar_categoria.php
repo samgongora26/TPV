@@ -60,13 +60,13 @@
                                             <label>Imagen</label>
                                             <input id="imagen" name="imagen" type="file" class="form-control">
                                             <label>Nombre Categoria:</label>
-                                            <input id="nombre_categoria" name="nombre_categoria" type="text" class="form-control">
+                                            <input id="nombre_categoria" name="nombre_categoria" type="text" class="form-control" required>
 
 
                                             <form>
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
-                                                    <select id="estado" name="estado" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                    <select id="estado" name="estado" class="custom-select mr-sm-2" id="inlineFormCustomSelect" required>
                                                         <option selected>Elegir...</option>
                                                         <option value="1">Activo</option>
                                                         <option value="2">Inactivo</option>
@@ -93,7 +93,7 @@
 
                         </div>
 
-                
+
 
 
 
