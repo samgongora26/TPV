@@ -34,7 +34,7 @@ async function mostrarServicios() {
                               aria-hidden="true">
                               <div class="modal-dialog">
                                   <div class="modal-content">
-                                      <h4 class="mt-3 mx-auto"> Editar usuario <strong>${nombre_puesto}/strong> </h4>
+                                      <h4 class="mt-3 mx-auto"> Editar usuario <strong>${nombre_puesto}</strong> </h4>
                                       
                                       <div class="modal-body">
                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
@@ -42,11 +42,11 @@ async function mostrarServicios() {
                                             
                                             <p>ID: ${id_puesto}</p>
                                             <label>Nombres</label>
-                                            <input id="edit_nombres${id_puesto}" type="text" value="${nombre_puesto}" placeholder="Ingresa nombre(s) del usuario" minlength="2" class="form-control" required="">
+                                            <input id="edit_nombre${id_puesto}" type="text" value="${nombre_puesto}" placeholder="Ingresa nombre(s) del usuario" minlength="2" class="form-control" required="">
                                             <label>Estado</label>
                                             <input id="edit_estado${id_puesto}" type="text" value="${estado}"  placeholder="Contraseña" class="form-control" required="">
                                             <div class="text-right mt-3">
-                                                <button type="submit" onclick="editar_usuario(${id_puesto})" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Guardar</button>
+                                                <button type="submit" onclick="editar_puesto(${id_puesto})" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Guardar</button>
                                                 <button type="reset" class="btn btn-dark" data-dismiss="modal" aria-hidden="true"> Cancelar</button>
                                             </div>
 
@@ -109,27 +109,17 @@ async function eliminar_registro(e) {
 
 
 
-async function editar_usuario(id_necesario){
+async function editar_puesto(id_necesario){
   var id_necesario;
-  const edit_nombres = document.getElementById("edit_nombres"+id_necesario).value; 
-  const edit_apellidos = document.querySelector("#edit_apellidos"+id_necesario).value;
-  const edit_telefono = document.querySelector("#edit_telefono"+id_necesario).value;
-  const edit_correo = document.querySelector("#edit_correo"+id_necesario).value;
-  const edit_usuario = document.querySelector("#edit_usuario"+id_necesario).value;
-  const edit_contrasenia = document.querySelector("#edit_contrasenia"+id_necesario).value;
+  const edit_nombres = document.getElementById("edit_nombre"+id_necesario).value; 
   const edit_estado = document.querySelector("#edit_estado"+id_necesario).value;
 
   try {
     const datos = new FormData();
     datos.append("id", id_necesario);
     datos.append("nombres", edit_nombres);
-    datos.append("apellidos", edit_apellidos);
-    datos.append("telefono", edit_telefono);
-    datos.append("correo", edit_correo);
-    datos.append("usuario", edit_usuario);
-    datos.append("contrasenia", edit_contrasenia);
     datos.append("estado", edit_estado);
-    datos.append("accion", "actualizar");
+    datos.append("accion", "actualizar_puesto");
 
     const res = await fetch("../../../inc/peticiones/usuarios/funciones.php", {
       method: "POST",

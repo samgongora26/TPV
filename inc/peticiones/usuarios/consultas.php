@@ -140,3 +140,26 @@ function mostrar_puestos(): array
     }
     mysqli_close($conexion);
 }
+
+function actualizar_puesto(): array
+{
+    try {
+        require '../../../conexion.php';
+        $id = $_POST['id'];
+        $nombres = $_POST['nombres'];
+        $estado = $_POST['estado'];
+        
+        $sql = "UPDATE `puestos` SET `nombre_puesto`='$nombres',`estado`='$estado' WHERE `puestos`.`id_puesto` = $id;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'correcto',
+            'id' => $id
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

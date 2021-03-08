@@ -22,6 +22,9 @@ switch ($accion) {
     case "puestosLista":
         $resultado = mostrar_puestos();
         break;
+    case 'actualizar_puesto':
+        $resultado =actualizar_puesto();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide
