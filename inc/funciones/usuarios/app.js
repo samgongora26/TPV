@@ -1,3 +1,4 @@
+  
 async function mostrarServicios() {
   const datos = new FormData();
   datos.append("accion", "mostrar");
@@ -61,9 +62,7 @@ async function mostrarServicios() {
                                                 <button type="submit" onclick="editar_usuario(${id_usuario})" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Guardar</button>
                                                 <button type="reset" class="btn btn-dark" data-dismiss="modal" aria-hidden="true"> Cancelar</button>
                                             </div>
-
                                           </form>
-
                                       </div>
                                   </div><!-- /.modal-content -->
                               </div><!-- /.modal-dialog -->
