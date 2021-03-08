@@ -67,7 +67,6 @@ function mostrar_usuarios(): array
     mysqli_close($conexion);
 }
 
-
 function actualizar_usuario(): array
 {
     try {
@@ -111,6 +110,31 @@ function eliminar_usuario(): array
         );
 
         return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+//-------------------PUESTOS-----------------
+
+function mostrar_puestos(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $sql = "SELECT * FROM `puestos`;";
+        $consulta = mysqli_query($conexion, $sql);
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id_puesto'] = $row['id_puesto'];
+            $usuarios[$i]['nombre_puesto'] = $row['nombre_puesto'];
+            $usuarios[$i]['estado'] = $row['estado'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
     } catch (\Throwable $th) {
         var_dump($th);
     }

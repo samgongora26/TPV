@@ -1,6 +1,7 @@
+  
 async function mostrarServicios() {
   const datos = new FormData();
-  datos.append("accion", "mostrar_puestos");
+  datos.append("accion", "puestosLista");
 
   try {
     const URL = "../../../inc/peticiones/usuarios/funciones.php";
@@ -12,26 +13,28 @@ async function mostrarServicios() {
 
     db.forEach((servicio) => {
       //console.log(servicio);
-      const { id_puesto, nombre, estado } = servicio;
+      const { id_puesto, nombre_puesto, estado} = servicio;
+
       const listado_clientes = document.querySelector("#contenido_tabla");
 
      
       listado_clientes.innerHTML += `  
       <tr>
           <td scope="row">${id_puesto}</td>
-          <td>${nombre}</td>
-          <td>${estado} <i class="fas fa-check-circle"></i></td>
+          <td scope="row">${nombre_puesto}</td>
+          <td>${estado} <i class="fas fa-check-circle"></i></td>  
           <td>
               <button type="button" class="btn editar" data-usuario="${id_puesto}" data-toggle="modal" data-target="#edit-modal${id_puesto}"> <i  class="fas fa-edit"></i></button>
               <button type="button" class="btn eliminar" data-usuario="${id_puesto}"><i class="fas fa-trash"></i></button>
-          </td>
+          </td>      
       </tr>
-                        <!-- Modal editar -->
+
+      <!-- Modal editar -->
                           <div id="edit-modal${id_puesto}" class="modal fade" tabindex="${id_puesto}" role="dialog"
                               aria-hidden="true">
                               <div class="modal-dialog">
                                   <div class="modal-content">
-                                      <h4 class="mt-3 mx-auto"> Editar usuario <strong>${nombre}/strong> </h4>
+                                      <h4 class="mt-3 mx-auto"> Editar usuario <strong>${nombre_puesto}/strong> </h4>
                                       
                                       <div class="modal-body">
                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
@@ -39,7 +42,7 @@ async function mostrarServicios() {
                                             
                                             <p>ID: ${id_puesto}</p>
                                             <label>Nombres</label>
-                                            <input id="edit_nombres${id_puesto}" type="text" value="${nombre}" placeholder="Ingresa nombre(s) del usuario" minlength="2" class="form-control" required="">
+                                            <input id="edit_nombres${id_puesto}" type="text" value="${nombre_puesto}" placeholder="Ingresa nombre(s) del usuario" minlength="2" class="form-control" required="">
                                             <label>Estado</label>
                                             <input id="edit_estado${id_puesto}" type="text" value="${estado}"  placeholder="Contraseña" class="form-control" required="">
                                             <div class="text-right mt-3">
@@ -54,6 +57,7 @@ async function mostrarServicios() {
                               </div><!-- /.modal-dialog -->
                           </div>
                           <!-- Fin modal editar -->
+                        
         `;
     });
   } catch (error) {

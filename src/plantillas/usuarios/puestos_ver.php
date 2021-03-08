@@ -86,6 +86,7 @@
                                                 <tr>
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Nombres</th>
+                                                    <th scope="col">Estado</th>
                                                     <th scope="col">Editar o eliminar</th>
                                                 </tr>
                                             </thead>
