@@ -48,19 +48,43 @@
                     <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div class="col-sm-12 col-md-4 col-lg-4">
                                 <!-- Input de Crear Nuevo Usuario -->
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Agregar Nuevo puesto</h4>
-                                        <h6 class="card-subtitle">Rellena los campos para agregar un nuevo puesto</h6>
+                                        <h4 class="card-title">Agregar Nuevo empleado</h4>
+                                        <h6 class="card-subtitle">Rellena los campos para crear un empleado</h6>
                                         <div class="mensaje" id="mensaje"></div>
                                         <form id="formulario" class="mt-4">
                                             <div class="form-group">
                                                 <!--label>Clave Usuario</label>
                                                 <input id="clave" type="text" placeholder="Ingresa el numero clave del usuario" class="form-control"-->
-                                                <label>Nombres</label>
-                                                <input id="nombre" type="text" placeholder="Ingresa nombre(s) del usuario" minlength="2" class="form-control" required="">
+                                                <div class="form-group mb-4">
+                                                    <label for="exampleFormControlSelect1">Usuario</label>
+                                                    <select class="form-control" id="exampleFormControlSelect1">
+                                                        <option>nombre apellido</option>
+                                                        <option>nombre apellido</option>
+                                                        <option>nombre apellido</option>
+                                                        <option>nombre apellido</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label for="exampleFormControlSelect1">Puesto</label>
+                                                    <select class="form-control" id="exampleFormControlSelect1">
+                                                        <option>Cajero</option>
+                                                        <option>Administrador</option>
+                                                        <option>Almacenista</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label for="exampleFormControlSelect1">Horario de trabajo</label>
+                                                    <select class="form-control" id="exampleFormControlSelect1">
+                                                        <option>matutino</option>
+                                                        <option>vespertino</option>
+                                                        <option>nocturno</option>
+                                                        
+                                                    </select>
+                                                </div>
                                                 
                                                 <div class="text-right mt-3">
                                                     <button type="submit" class="btn btn-success">Guardar</button>
@@ -74,10 +98,10 @@
                             
                             <!-- Fin Input de Crear Nuevo Cliente -->
                             <!--Tabla de usuarios-->
-                            <div class="col-6   ">
+                            <div class="col-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Puestos</h4>
+                                        <h4 class="card-title">Empleados</h4>
                                         <div id="mensaje2"></div>
                                     </div>
                                     <div class="table-responsive">
@@ -85,7 +109,9 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">ID</th>
-                                                    <th scope="col">Nombres</th>
+                                                    <th scope="col">Usuario</th>
+                                                    <th scope="col">Puesto</th>
+                                                    <th scope="col">Horario</th>
                                                     <th scope="col">Estado</th>
                                                     <th scope="col">Editar o eliminar</th>
                                                 </tr>

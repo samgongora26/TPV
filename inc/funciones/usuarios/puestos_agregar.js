@@ -8,25 +8,20 @@ function obtener_datos(e) {
   e.preventDefault();
   const nombre = document.getElementById("nombre").value; 
 
+  
   //Validación de campos vacios
   if(nombre != ""){
-    /*console.log(
-      nombres,
-      apellidos,
-      telefono,
-      correo,
-      usuario,
-      contrasenia
-    );*/
+    console.log(
+      nombre
+    );
     const datos = new FormData(); //encapsulamiento de los datos para envio
     datos.append("nombre", nombre);
-    datos.append("accion", "registrar_puesto");
+    datos.append("accion", "registraPuesto");
 
     enviar_async(datos); //enviar a una funcion
   }
   else{
-    //alert("Formulario vacio");
-
+    //Mensaje de Formulario vacio 
     const mensajes = document.querySelector("#mensaje");
       mensajes.innerHTML += `  
         <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
@@ -39,20 +34,22 @@ function obtener_datos(e) {
   }
 }
 
-async function enviar_async(cliente) {
+async function enviar_async(puesto) {
   try {
     const res = await fetch(
       "../../../inc/peticiones/usuarios/funciones.php",
       {
         //envio del fetch con los datos a php
         method: "POST",
-        body: cliente,
+        body: puesto,
       }
     );
-    console.log(res);
-    if(res){
-      alert("usuario repetido")
-      //mesaje de exito
+    const data = await res.json();
+    console.log(data);
+    console.log(data.repetido);
+    if(data.repetido){
+      //alert("usuario repetido")
+      //mesaje de fracaso
       const mensajes = document.querySelector("#mensaje");
       mensajes.innerHTML += `  
         <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
@@ -79,13 +76,8 @@ async function enviar_async(cliente) {
       //Llamada a la funcion para llenar la tabla 
       mostrarServicios(); 
       //Se vacian los input 
-      document.getElementById("nombres").value = ""; 
-      document.querySelector("#apellidos").value = "";
-      document.querySelector("#telefono").value = "";
-      document.querySelector("#correo").value = "";
-      document.querySelector("#usuario").value = "";
-      document.querySelector("#contrasenia").value = "";
-    }
+      document.getElementById("nombre").value = ""; 
+    }    
   } catch (error) {
     console.log(error);
   }

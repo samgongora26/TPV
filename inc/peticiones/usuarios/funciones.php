@@ -18,6 +18,19 @@ switch ($accion) {
     case 'actualizar':
         $resultado =actualizar_usuario();
         break;
+    //Puestos
+    case "registraPuesto":
+        $resultado = registrar_puesto();
+        break;
+    case "puestosLista":
+        $resultado = mostrar_puestos();
+        break;
+    case 'actualizar_puesto':
+        $resultado =actualizar_puesto();
+        break;
+    case "eliminar_puesto":
+        $resultado =eliminar_puesto();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide

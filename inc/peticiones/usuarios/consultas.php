@@ -1,5 +1,5 @@
 <?php
-function registrar_usuario(): boolean
+function registrar_usuario(): array
 {           //recibe los datos correctamente
     try {
         require '../../../conexion.php';
@@ -26,11 +26,13 @@ function registrar_usuario(): boolean
             $sql =  "INSERT INTO `usuarios`( `nombres`, `apellidos`, `telefono`, `correo`, `usuario`, `contrasenia`, `fotografia`, `estado`)
             VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',1)";
             $consulta = mysqli_query($conexion, $sql);
-            return false;
+            
         }
-        else{
-            return true;
-        }
+
+        $respuesta = array(
+            'repetido' => $usuario_repetido
+        );
+        return $respuesta;
 
     } catch (\Throwable $th) {
         var_dump($th);
@@ -67,7 +69,6 @@ function mostrar_usuarios(): array
     mysqli_close($conexion);
 }
 
-
 function actualizar_usuario(): array
 {
     try {
@@ -103,6 +104,107 @@ function eliminar_usuario(): array
         
         $id = $_POST['id'];
         $sql = " DELETE FROM `usuarios` WHERE `usuarios`.`id_usuario`= $id";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'eliminado',
+            'id' => $id
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+//-------------------PUESTOS-----------------
+
+function registrar_puesto(): array
+{           //recibe los datos correctamente
+    try {
+        require '../../../conexion.php';
+
+        $nombre = $_POST['nombre'];
+
+        //COMPROBACIÓN DE USUARIOS REPETIDOS
+        $sql = "SELECT * FROM `puestos`;";
+        $consulta = mysqli_query($conexion, $sql);
+        $puesto_repetido = false;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            if($nombre ==  $row['nombre_puesto']){{
+                $puesto_repetido = true;
+            }}
+        }
+        
+        if(!$puesto_repetido){
+            $sql =  "INSERT INTO `puestos`( `nombre_puesto`, `estado`) VALUES ('$nombre',1)";
+            $consulta = mysqli_query($conexion, $sql);
+        }
+        
+        $respuesta = array(
+            'repetido' => $puesto_repetido
+        );
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function mostrar_puestos(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $sql = "SELECT * FROM `puestos`;";
+        $consulta = mysqli_query($conexion, $sql);
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id_puesto'] = $row['id_puesto'];
+            $usuarios[$i]['nombre_puesto'] = $row['nombre_puesto'];
+            $usuarios[$i]['estado'] = $row['estado'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function actualizar_puesto(): array
+{
+    try {
+        require '../../../conexion.php';
+        $id = $_POST['id'];
+        $nombres = $_POST['nombres'];
+        $estado = $_POST['estado'];
+        
+        $sql = "UPDATE `puestos` SET `nombre_puesto`='$nombres',`estado`='$estado' WHERE `puestos`.`id_puesto` = $id;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'correcto',
+            'id' => $id
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function eliminar_puesto(): array
+{
+    try {
+        require '../../../conexion.php';
+        
+        $id = $_POST['id'];
+        $sql = " DELETE FROM `puestos` WHERE `puestos`.`id_puesto`= $id";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
