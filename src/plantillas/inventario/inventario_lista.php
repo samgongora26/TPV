@@ -70,7 +70,7 @@
                     <!-- Fin Input de Busqueda de productos -->
                 </div>
                  <!--Tabla de productos-->
-                 <div class="col-sm-12">
+                    <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Productos de Tienda</h4>
@@ -78,15 +78,15 @@
                             </div>
                             <div class="table-responsive">
                                 <table class="table">
-                                    <thead>
+                                    <thead class="text-center">
                                         <tr>
-                                            <th scope="col">Imagen</th>
-                                            <th scope="col">Codigo de Barras</th>
+                                            <th scope="col">#</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Proveedor</th>
-                                            <th scope="col">Stock</th>
-                                            <th scope="col">Precio Compra</th>
+                                            <th scope="col">Codigo de Barras</th>
+                                            <th scope="col">Precio Costo</th>
                                             <th scope="col">Precio Venta</th>
+                                            <th scope="col">Stock</th>
+                                            <th scope="col">Marca</th>
                                             <th scope="col">Estado</th>
                                             <th scope="col">Ver</th>
                                             <th scope="col">Editar</th>
@@ -94,8 +94,8 @@
                                             <th scope="col">Eliminar</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="text-center">
-                                        <tr>
+                                    <tbody id="contenido_tabla" class="text-center">
+                                        <!--<tr id="ver_productos_">
                                             <th scope="row">1</th>
                                             <td>Cell</td>
                                             <td>Cell</td>
@@ -120,7 +120,7 @@
                                             <td>
                                                 <button type="button" class="btn btn-primary"><i class="icon-trash"></i></button>
                                             </td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
                                 </table>
 
@@ -249,6 +249,7 @@
     <?php
         include '../../../componentes/scripts.php';
     ?>
+    <script src="../../../inc/funciones/inventario/app.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 

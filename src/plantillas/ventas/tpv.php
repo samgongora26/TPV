@@ -42,10 +42,9 @@
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-body">
+                            <h2 id="texto_venta_actual">id de la venta actual</h2>
                                 <div class="row">
                                     <div class="col-md-6">
-                                     
-                                           
                                                 <input type="text" class="form-control" id="codigo_envio" aria-describedby="name" placeholder="Codigo">
                                                 <!--small id="name" class="form-text text-muted">Codigo</small-->
                                         
@@ -171,10 +170,8 @@
                             <div class="card">
                                 <img class="col-md-3 mx-auto mt-3" src="../../assets/images/product/iwatch.png" alt="product">
                                 <div class="card-body text-center">
-                                    <h4 class="card-title">Titulo del producto</h4>
-                                    <p class="card-text">$5000</p>
-                                    <button type="button" class="btn btn-light btn-circle"><i class="fa fa-minus"></i></button>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-plus"></i></button>  
+                                    <h4 class="card-title" id="actual_foto"></h4>
+                                    <p class="card-text" id="actual_precio"></p>
                                     <!--p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p-->
                                 </div>
                             </div>

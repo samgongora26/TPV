@@ -71,14 +71,14 @@
                                             <input id="telefono" name="telefono" type="text" class="form-control" required>
                                             <br>
 
-                                            <!--<label>Telefono</label>
+                                            <label>Telefono</label>
                                             <br>
                                             <label>
                                                 (<input name="tel1" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit area code" size="2"/>)-
                                                 <input name="tel2" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit prefix" size="2"/> -
                                                 <input name="tel3" type="tel" pattern="[0-9]{4}" placeholder="####" aria-label="4-digit number" size="3"/>
                                             </label>
-                                            <br>-->
+                                            <br>
 
 
                                             <label>RFC</label>
