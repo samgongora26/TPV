@@ -1,14 +1,20 @@
 const listado_productos = document.querySelector("#contenido_tabla");
+const texto_venta_actual = document.querySelector("#texto_venta_actual");
+const foto = document.querySelector("#actual_foto");
+const precio =document.querySelector("#actual_precio");
 let array_inicial = [];
 let suma = 0;
-let total_compra = document.querySelector("#total_compra");
+let id_venta_actual = 0;
+let texto_total_compra = document.querySelector("#total_compra");
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrar_ticket();
-  document
-    .querySelector("#formulario")
-    .addEventListener("click", existente_codigo);
+
+  document.querySelector("#formulario").addEventListener("click", existente_codigo);
   document.querySelector("#cobrar").addEventListener("click", cobrar_productos);
+  document.querySelector("#eliminar").addEventListener("click", eliminar_ticket);
+
+
   listado_productos.addEventListener("click", opciones);
   const enter = document.querySelector("#codigo_envio");
   enter.addEventListener("keyup", (e) => {
@@ -51,7 +57,6 @@ function buscar_producto(e) {
   if (codigo != "") {
     const datos = new FormData();
     datos.append("codigo", codigo);
-    datos.append("id_venta", 1);
     datos.append("accion", "registar_producto");
     console.log("entro a buscar los productos");
     busqueda(datos).then((res) => pintar(res));
@@ -81,13 +86,21 @@ function pintar(data) {
     id_producto,
     nombre_producto,
     descripcion,
+    //foto,
     codigo,
     precio_venta,
     cantidad,
     id_insertado,
   } = data;
-  array_inicial.push({ codigo: codigo, id_detalle_venta: id_insertado });
-  console.log("pruebas");
+
+  array_inicial.push({
+    codigo: codigo,
+    id_detalle_venta: id_insertado,
+    cantidad: cantidad,
+  });
+  foto.innerHTML = `nombre del codigo :${codigo}`;
+  precio.innerHTML = precio_venta;
+
   listado_productos.innerHTML += `  
   <tr>
       <th scope="row">${cantidad}</th>
@@ -104,11 +117,10 @@ function pintar(data) {
   </tr>
   `;
   suma = suma + parseFloat(precio_venta);
-  total_compra.innerHTML = suma;
+  texto_total_compra.innerHTML = suma;
 }
-//funciones de inicio ------------
+///////////////////////////////////funciones de inicio ------------
 async function mostrar_ticket() {
-  console.log("desde mostrar los tickets");
   reinicio();
   const datos = new FormData();
   //datos.append("id_venta", 4 );
@@ -117,8 +129,6 @@ async function mostrar_ticket() {
 }
 
 function pintar_inicio(data) {
-  console.log(data);
-  console.log("entro pintar inicio");
   let valor_int = 0;
   data.forEach((datos) => {
     const {
@@ -131,7 +141,7 @@ function pintar_inicio(data) {
       precio_venta,
     } = datos;
 
-    array_inicial.push({ codigo: codigo, id_detalle_venta: id_detalle_venta });
+    array_inicial.push({ codigo: codigo, id_detalle_venta: id_detalle_venta, cantidad: cantidad });
     //cont = cont +1;
     listado_productos.innerHTML += `
     <tr>
@@ -149,13 +159,14 @@ function pintar_inicio(data) {
     </tr>
     `;
     valor_int = parseFloat(importe);
-
-    suma = suma + valor_int;
+    texto_venta_actual.innerHTML = `id de la venta actual ${id_venta}`;
+    id_venta_actual = id_venta;
+    
+    suma = suma + valor_int; //suma cada importe
   });
-
-  total_compra.innerHTML = suma;
+  texto_total_compra.innerHTML = suma; //muestra el total de la suma
 }
-//fin de seccion de busqueda inicial
+//fin de seccion de busqueda inicial /////////////////////////////////////
 
 function opciones(e) {
   if (e.target.classList.contains("aumentar")) {
@@ -175,7 +186,7 @@ function incrementar(id) {
   datos.append("id", id);
   datos.append("accion", "aumentar");
   busqueda(datos).then((res) => mostrar_ticket());
-  //total_compra.innerHTML = suma + res.precio_venta)
+  //texto_total_compra.innerHTML = suma + res.precio_venta)
 }
 function disminuir(id) {
   const datos = new FormData();
@@ -185,18 +196,35 @@ function disminuir(id) {
 }
 
 function cobrar_productos() {
-  const total = parseFloat(total_compra.innerHTML);
+  const total = parseFloat(texto_total_compra.innerHTML);
   console.log(total);
   const datos = new FormData();
   datos.append("total_venta", total);
   datos.append("accion", "cerrar_venta");
-  busqueda(datos).then(
-    (res) =>
-      (listado_productos.innerHTML = ` <input type="hidden" value="${res.id}" id="identificador_venta_actual">
-  `)
-  );
-  array_inicial = [];
-  suma = 0;
+  busqueda(datos).then((res) => {
+    texto_venta_actual.innerHTML = `id de la venta actual : ${res.id}`;
+    id_venta_actual = res.id;
+    texto_total_compra;
+    listado_productos.innerHTML = ` <input type="hidden" value="${res.id}" id="identificador_venta_actual">`;
+  });
+ reinicio();
+ alert("se ha registrado el cobro correctamente");
+}
+
+function eliminar_ticket() {
+  console.log("desde eliminar ticket");
+  console.log(id_venta_actual);
+  const datos = new FormData();
+  datos.append("id", id_venta_actual);
+    datos.append("accion","eliminar_venta");
+  busqueda(datos).then((res) =>{
+    texto_venta_actual.innerHTML = `id de la venta actual : ${res.id_nueva_venta}`;
+    id_venta_actual = res.id_nueva_venta;
+    texto_total_compra;
+    listado_productos.innerHTML = ` <input type="hidden" value="${res.id_nueva_venta}" id="identificador_venta_actual">`;
+  });
+  reinicio();
+  alert("se ha eliminado correctamente");
 }
 
 //funciones globales
@@ -204,6 +232,6 @@ function cobrar_productos() {
 function reinicio() {
   array_inicial = [];
   suma = 0;
-  total_compra.innerHTML = "";
+  texto_total_compra.innerHTML = "";
   listado_productos.innerHTML = "";
 }

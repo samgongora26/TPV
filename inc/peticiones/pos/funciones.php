@@ -14,8 +14,11 @@ switch ($accion) {
     case "disminuir":
         $resultado = disminuir();
         break;
-        case "cerrar_venta":
-            $resultado = cerrar_venta();
-            break;
+    case "cerrar_venta":
+        $resultado = cerrar_venta();
+        break;
+    case "eliminar_venta":
+        $resultado = eliminar_venta();
+        break;
 }
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide
