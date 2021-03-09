@@ -218,3 +218,29 @@ function eliminar_puesto(): array
     }
     mysqli_close($conexion);
 }
+
+//----------------HORARIOS
+
+function mostrar_horarios(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $sql = "SELECT * FROM `jornadas_trabajo`;";
+        $consulta = mysqli_query($conexion, $sql);
+        $horarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $horarios[$i]['id_jornada'] = $row['id_jornada'];
+            $horarios[$i]['nombre_horario'] = $row['nombre_horario'];
+            $horarios[$i]['h_entrada'] = $row['h_entrada'];
+            $horarios[$i]['h_salida'] = $row['h_salida'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $horarios;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

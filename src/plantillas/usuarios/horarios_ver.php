@@ -115,8 +115,8 @@
         <?php
             include '../../../componentes/scripts.php';
         ?>
-            <script src="../../../inc/funciones/usuarios/puestos_agregar.js"></script>
-            <script src="../../../inc/funciones/usuarios/app_puestos.js"></script>
+            <script src="../../../inc/funciones/usuarios/horarios_agregar.js"></script>
+            <script src="../../../inc/funciones/usuarios/app_horarios.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>
 

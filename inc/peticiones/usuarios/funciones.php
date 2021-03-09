@@ -31,6 +31,11 @@ switch ($accion) {
     case "eliminar_puesto":
         $resultado =eliminar_puesto();
         break;
+
+    //--------HORARIOS------------
+    case "horariosLista":
+        $resultado = mostrar_horarios();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide
