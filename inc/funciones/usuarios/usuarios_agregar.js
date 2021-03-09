@@ -36,7 +36,6 @@ function obtener_datos(e) {
   }
   else{
     //alert("Formulario vacio");
-
     const mensajes = document.querySelector("#mensaje");
       mensajes.innerHTML += `  
         <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
@@ -59,8 +58,10 @@ async function enviar_async(cliente) {
         body: cliente,
       }
     );
-    console.log(res);
-    if(res){
+    const data = await res.json();
+    //console.log(data);
+    //console.log(data.repetido);
+    if(data.repetido){
       alert("usuario repetido")
       //mesaje de exito
       const mensajes = document.querySelector("#mensaje");
@@ -100,5 +101,3 @@ async function enviar_async(cliente) {
     console.log(error);
   }
 }
-
-

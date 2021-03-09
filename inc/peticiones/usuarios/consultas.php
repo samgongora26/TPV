@@ -1,5 +1,5 @@
 <?php
-function registrar_usuario(): boolean
+function registrar_usuario(): array
 {           //recibe los datos correctamente
     try {
         require '../../../conexion.php';
@@ -26,11 +26,13 @@ function registrar_usuario(): boolean
             $sql =  "INSERT INTO `usuarios`( `nombres`, `apellidos`, `telefono`, `correo`, `usuario`, `contrasenia`, `fotografia`, `estado`)
             VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',1)";
             $consulta = mysqli_query($conexion, $sql);
-            return false;
+            
         }
-        else{
-            return true;
-        }
+
+        $respuesta = array(
+            'repetido' => $usuario_repetido
+        );
+        return $respuesta;
 
     } catch (\Throwable $th) {
         var_dump($th);
@@ -117,6 +119,38 @@ function eliminar_usuario(): array
 }
 
 //-------------------PUESTOS-----------------
+
+function registrar_puesto(): array
+{           //recibe los datos correctamente
+    try {
+        require '../../../conexion.php';
+
+        $nombre = $_POST['nombre'];
+
+        //COMPROBACIÓN DE USUARIOS REPETIDOS
+        $sql = "SELECT * FROM `puestos`;";
+        $consulta = mysqli_query($conexion, $sql);
+        $puesto_repetido = false;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            if($nombre ==  $row['nombre_puesto']){{
+                $puesto_repetido = true;
+            }}
+        }
+        
+        if(!$puesto_repetido){
+            $sql =  "INSERT INTO `puestos`( `nombre_puesto`, `estado`) VALUES ('$nombre',1)";
+            $consulta = mysqli_query($conexion, $sql);
+        }
+        
+        $respuesta = array(
+            'repetido' => $puesto_repetido
+        );
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
 
 function mostrar_puestos(): array
 {

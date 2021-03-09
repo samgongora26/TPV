@@ -19,6 +19,9 @@ switch ($accion) {
         $resultado =actualizar_usuario();
         break;
     //Puestos
+    case "registraPuesto":
+        $resultado = registrar_puesto();
+        break;
     case "puestosLista":
         $resultado = mostrar_puestos();
         break;
