@@ -221,6 +221,41 @@ function eliminar_puesto(): array
 
 //----------------HORARIOS
 
+function registrar_horario(): array
+{           //recibe los datos correctamente
+    try {
+        require '../../../conexion.php';
+
+        $nombre = $_POST['nombre'];
+        $entrada = $_POST['entrada'];
+        $salida = $_POST['salida'];
+
+        //COMPROBACIÓN DE USUARIOS REPETIDOS
+        $sql = "SELECT * FROM `jornadas_trabajo`;";
+        $consulta = mysqli_query($conexion, $sql);
+        $nombre_repetido = false;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            if($nombre ==  $row['nombre_horario']){{
+                $nombre_repetido = true;
+            }}
+        }
+        
+        if(!$nombre_repetido){
+            $sql =  "INSERT INTO `jornadas_trabajo`(`nombre_horario`, `h_entrada`, `h_salida`) 
+            VALUES ('$nombre','$entrada','$salida')";
+            $consulta = mysqli_query($conexion, $sql);
+        }
+        
+        $respuesta = array(
+            'repetido' => $nombre_repetido
+        );
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
 function mostrar_horarios(): array
 {
     try {

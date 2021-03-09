@@ -1,4 +1,4 @@
-/*eventListeners();
+eventListeners();
 function eventListeners() {
   document
     .querySelector("#formulario")
@@ -7,17 +7,22 @@ function eventListeners() {
 function obtener_datos(e) {
   e.preventDefault();
   const nombre = document.getElementById("nombre").value;
-  const nombre = document.getElementById("nombre").value; 
+  const entrada = document.getElementById("h_entrada").value; 
+  const salida = document.getElementById("h_salida").value; 
 
   
   //Validación de campos vacios
-  if(nombre != ""){
+  if(nombre != "" & entrada != "" & salida != ""){
     console.log(
-      nombre
+      nombre,
+      entrada,
+      salida
     );
     const datos = new FormData(); //encapsulamiento de los datos para envio
     datos.append("nombre", nombre);
-    datos.append("accion", "registraPuesto");
+    datos.append("entrada", entrada);
+    datos.append("salida", salida);
+    datos.append("accion", "regsitraHorario");
 
     enviar_async(datos); //enviar a una funcion
   }
@@ -35,14 +40,14 @@ function obtener_datos(e) {
   }
 }
 
-async function enviar_async(puesto) {
+async function enviar_async(horario) {
   try {
     const res = await fetch(
       "../../../inc/peticiones/usuarios/funciones.php",
       {
         //envio del fetch con los datos a php
         method: "POST",
-        body: puesto,
+        body: horario,
       }
     );
     const data = await res.json();
@@ -78,11 +83,10 @@ async function enviar_async(puesto) {
       mostrarServicios(); 
       //Se vacian los input 
       document.getElementById("nombre").value = ""; 
+      document.getElementById("h_entrada").value = ""; 
+      document.getElementById("h_salida").value = ""; 
     }    
   } catch (error) {
     console.log(error);
   }
 }
-
-
-*/
