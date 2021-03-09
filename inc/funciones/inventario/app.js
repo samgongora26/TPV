@@ -1,12 +1,12 @@
-const listado_clientes = document.querySelector("#contenido_tabla");
+const listado_productos = document.querySelector("#contenido_tabla");
 const modal = document.querySelector("#form-modal-edit");
 let id_necesario = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarServicios();
-  listado_clientes.addEventListener("click", eliminar_registro);
-  listado_clientes.addEventListener("click", obtener_datos_unitarios);
-  modal.addEventListener("submit", editar_registro);
+  //listado_productos.addEventListener("click", eliminar_registro);
+  //listado_productos.addEventListener("click", obtener_datos_unitarios);
+  //modal.addEventListener("submit", editar_registro);
 });
 
 async function llamado(datos) {
@@ -32,32 +32,44 @@ async function llamado(datos) {
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const { id, folio, nombre, direccion, telefono, rfc, razon } = datos;
+      const { id, nombre, codigo, precio_costo, precio_venta, stock, marca } = datos;
 
-      const listado_clientes = document.querySelector("#contenido_tabla");
+      const listado_productos = document.querySelector("#contenido_tabla");
 
-      listado_clientes.innerHTML += `  
-        <tr id="ver_registro_${id}">
-            <th scope="row">${id}</th>
-            <td>${folio}</td>
-            <td>${nombre}</td>
-            <td>${razon}</td>
-            <td>${direccion}</td>
-            <td>${telefono}</td>
-            <td>${rfc}</td>
-            <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
-            <td><a href="proveedor_ver.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
-            <td>
-            <button type="button" class="btn btn-primary" data-toggle="modal"
-            data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></button>
-            </td>
-            <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
-        </tr>
-        `;
+
+
+      listado_productos.innerHTML +=`
+          <tr id="ver_productos_${id}">
+          <th scope="row">${id}</th>
+          <td>${nombre}</td>
+          <td>${codigo}</td>
+          <td>${precio_costo}</td>
+          <td>${precio_venta}</td>
+          <td>${stock}</td>
+          <td>${marca}</td>
+          <td>
+          <button type="button" class="btn btn-primary" data-toggle="modal"
+              data-target="#estado-modal"><i data-cliente="${id}" class="icon-note"></i></button>    
+          </td>
+          <td>
+              <button type="button" class="btn btn-primary boton_ver"><i href="inventario_producto_ver.php?id==${id}" class="icon-eye"></i></button>
+          </td>
+          <td>
+              <button type="button" class="btn btn-primary" data-toggle="modal"
+              data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil"></i></button>
+          </td>
+          <td>
+              <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
+          </td>
+          <td>
+              <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash"></i></button>
+          </td>
+      </tr>
+      `;
     });
   });
 }
-
+/*
 function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
@@ -74,7 +86,8 @@ function eliminar_registro(e) {
     }
   }
 }
-
+*/
+/*
 function obtener_datos_unitarios(e) {
   let idEliminar = null;
   if (e.target.classList.contains("editar")) {
@@ -99,7 +112,7 @@ function obtener_datos_unitarios(e) {
     });
   }
 }
-
+*/
  function editar_registro(e) {
   e.preventDefault();
   const edit_clave = document.querySelector("#edit_clave").value;

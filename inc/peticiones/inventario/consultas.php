@@ -46,23 +46,25 @@ function registrar_producto(): array
     }
     mysqli_close($conexion);
 }
-/*
+
 function todo_inventario(): array
 {
     try {
         require '../../../conexion.php';
 
-        $sql = "select * from proveedores;";
+        $sql = "select * from productos_inventario;";
         $consulta = mysqli_query($conexion, $sql);
 
         $usuarios = [];
         $i = 0;
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
-            $usuarios[$i]['id'] = $row['id_proveedor'];
-            $usuarios[$i]['folio'] = $row['folio'];
-            $usuarios[$i]['nombre'] = $row['nombre'];
-            $usuarios[$i]['direccion'] = $row['direccion'];
-            $usuarios[$i]['telefono'] = $row['telefono'];
+            $usuarios[$i]['id'] = $row['id_producto'];
+            $usuarios[$i]['nombre'] = $row['nombre_producto'];
+            $usuarios[$i]['codigo'] = $row['codigo'];
+            $usuarios[$i]['precio_costo'] = $row['precio_costo'];
+            $usuarios[$i]['precio_venta'] = $row['precio_venta'];
+            $usuarios[$i]['stock'] = $row['cantidad_stock'];
+            $usuarios[$i]['marca'] = $row['id_marca'];
             $i++;
         }
         //var_dump($usuarios);
@@ -73,6 +75,8 @@ function todo_inventario(): array
     mysqli_close($conexion);
 }
 
+
+/*
 function buscar_producto(): array
 {
     try {

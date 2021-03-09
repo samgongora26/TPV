@@ -79,8 +79,7 @@
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
                                                     <select class="custom-select mr-sm-2" id="select_categoria" onchange="show_categoria();" required>
-                                                        <option selected>Elegir...</option>
-                                                        <option value="1">Categoria 1</option>
+                                                        <option selected value="1">Categoria 1</option>
                                                         <option value="2">Categoria 2</option>
                                                         <option value="3">Categoria 3</option>
                                                     </select>
@@ -89,8 +88,7 @@
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Marca</label>
                                                     <select class="custom-select mr-sm-2" id="select_marca" onchange="show_marca();" required>
-                                                        <option selected>Elegir...</option>
-                                                        <option value="1">Marca1</option>
+                                                        <option selected value="1">Marca1</option>
                                                         <option value="2">Marca2</option>
                                                         <option value="3">Marca3</option>
                                                     </select>
@@ -101,8 +99,7 @@
                                             <div class="form-group mb-4">
                                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Unidad</label>
                                                 <select class="custom-select mr-sm-2" id="select_unidad" name="select_unidad" onchange="show_unidad();" required>
-                                                    <option selected>Elegir...</option>
-                                                    <option value="1">Piezas</option>
+                                                    <option selected value="1">Piezas</option>
                                                     <option value="2">Kilogramos</option>
                                                     <option value="3">nose</option>
                                                 </select>
@@ -138,8 +135,7 @@
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
                                                     <select class="custom-select mr-sm-2" id="select_estado" onchange="show_estado();" required>
-                                                        <option selected>Elegir...</option>
-                                                        <option value="1">Activo</option>
+                                                        <option selected value="1">Activo</option>
                                                         <option value="0">Inactivo</option>
                                                     </select>
                                                 </div>
