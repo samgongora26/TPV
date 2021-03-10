@@ -150,11 +150,10 @@
 
                                                     <form id="submodal_proveedor" name="submodal_proveedor">
                                                         <div class="form-group mb-4">
-                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Proveedor</label>
+                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Marca</label>
                                                             <select class="custom-select mr-sm-2" id="select_proveedor">
-                                                                <option selected>Elegir...</option>
-                                                                <option value="1">Proveedor 1</option>
-                                                                <option value="2">Proveedor 2.. etc</option>
+                                                                <option selected value="1">Marca1</option>
+                                                                <option value="2">Marca2</option>
                                                             </select>
                                                         </div>
                                                     </form>
@@ -172,7 +171,7 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label>Precio de Venta</label>
+                                                        <label>Precio Costo</label>
                                                         <input class="form-control" type="text" required=""
                                                             id="edit_precio_venta" name="edit_precio_venta" placeholder="Precio de Venta">
                                                     </div>

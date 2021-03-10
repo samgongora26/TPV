@@ -119,7 +119,6 @@ function obtener_datos_unitarios(e) {
   const edit_stock = document.querySelector("#edit_stock").value;
   const edit_precio_compra = document.querySelector("#edit_precio_compra").value;
   const edit_precio_venta = document.querySelector("#edit_precio_venta").value;
-  const edit_telefono = document.querySelector("#edit_telefono").value;
 
   const datos = new FormData();
   datos.append("id", id_necesario);
@@ -137,20 +136,20 @@ function obtener_datos_unitarios(e) {
   llamado(datos).then((res) => {
     console.log(res);
     const registro_contenido = document.querySelector(
-      `#ver_registro_${id_necesario}`
+      `#ver_producto_${id_necesario}`
     );
 
-    const { id, clave, nombre, direccion, telefono, razon, rfc } = res;
+    const { id, nombre, codigo, precio_costo, precio_venta, stock, marca } = res;
     registro_contenido.innerHTML = `
     <th scope="row">${id}</th>
-    <td>${clave}</td>
     <td>${nombre}</td>
-    <td>${razon}</td>
-    <td>${direccion}</td>
-    <td>${telefono}</td>
-    <td>${rfc}</td>
+    <td>${codigo}</td>
+    <td>${precio_costo}</td>
+    <td>${precio_venta}</td>
+    <td>${stock}</td>
+    <td>${marca}</td>
     <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
-    <td><a href="proveedor_ver.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
+    <td><a href="inventario_lista.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
     <td>
     <button type="button" class="btn btn-primary" data-toggle="modal"
     data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></button>

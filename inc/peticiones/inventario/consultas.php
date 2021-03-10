@@ -103,12 +103,13 @@ function actualizar_producto(): array
     try {
         require '../../../conexion.php';
         $id = $_POST['id'];
-        $clave = $_POST['clave'];
+        $barra = $_POST['barra'];
         $nombre = $_POST['nombre'];
-        $direccion = $_POST['direccion'];
-        $telefono = (int) $_POST['telefono'];
+        $venta = $_POST['precio_venta'];
+        $stock = $_POST['stock'];
+        $costo = $_POST['precio_compra'];
 
-              $sql = "UPDATE `proveedores` SET `folio` = '$clave', `nombre` = '$nombre', `direccion` = '$direccion', `telefono` = '$telefono' WHERE `proveedores`.`id_proveedor` = $id;";
+              $sql = "UPDATE `productos_inventario` SET `nombre_producto` = '$nombre', `codigo` = '$barra', `precio_costo` = '$costo', `precio_venta` = '$venta', `cantidad_stock` = '$stock' WHERE `productos_inventario`.`id_producto` = $id;";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
@@ -130,7 +131,7 @@ function buscar_producto(): array
         require '../../../conexion.php';
 
         $id = $_POST['id'];
-        $sql = " select * from proveedores where id_proveedor=$id;";
+        $sql = " select * from productos_inventario where id_producto=$id;";
         $consulta = mysqli_query($conexion, $sql);
 
         $row = mysqli_fetch_assoc($consulta); //recibir el resultado de la consulta cuando solo es 1
