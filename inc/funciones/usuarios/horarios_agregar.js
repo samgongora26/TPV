@@ -62,7 +62,7 @@ async function enviar_async(horario) {
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
-            <strong>El usuario ya existe en la bd </strong>
+            <strong>El horario ya existe en la bd </strong>
         </div>
         `;
     }
@@ -74,7 +74,7 @@ async function enviar_async(horario) {
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">×</span>
               </button>
-              <strong>El usuario ha sido agregado exitosamente </strong>
+              <strong>El horario ha sido agregado exitosamente </strong>
           </div>
           `;
       //Se vacia el contenido de la tabla

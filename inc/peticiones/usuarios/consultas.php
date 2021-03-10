@@ -279,3 +279,24 @@ function mostrar_horarios(): array
     }
     mysqli_close($conexion);
 }
+
+function eliminar_horario(): array
+{
+    try {
+        require '../../../conexion.php';
+        
+        $id = $_POST['id'];
+        $sql = " DELETE FROM `jornadas_trabajo` WHERE `jornadas_trabajo`.`id_jornada`= $id";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'eliminado',
+            'id' => $id
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

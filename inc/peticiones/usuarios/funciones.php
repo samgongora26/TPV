@@ -40,6 +40,9 @@ switch ($accion) {
     case "regsitraHorario":
         $resultado = registrar_horario();
         break;
+     case "eliminar_horario":
+        $resultado =eliminar_horario();
+        break;
 
         
 }

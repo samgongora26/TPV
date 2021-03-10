@@ -34,7 +34,7 @@ async function mostrarServicios() {
           aria-hidden="true">
           <div class="modal-dialog">
               <div class="modal-content">
-                  <h4 class="mt-3 mx-auto"> Editar usuario <strong>${nombre_horario}</strong> </h4>
+                  <h4 class="mt-3 mx-auto"> Editar el horario <strong>${nombre_horario}</strong> </h4>
                   
                   <div class="modal-body">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
@@ -79,13 +79,13 @@ async function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
     idEliminar = Number(e.target.dataset.usuario);
-    const confirmar = confirm('Deseas eliminar el puesto: '+idEliminar);
+    const confirmar = confirm('Deseas eliminar el horario: '+idEliminar);
     if(confirmar){
       try {
         console.log(idEliminar);
         const datos = new FormData();
         datos.append("id", idEliminar);
-        datos.append("accion", "eliminar_puesto");
+        datos.append("accion", "eliminar_horario");
   
         const res = await fetch("../../../inc/peticiones/usuarios/funciones.php", {
           method: "POST",
@@ -99,7 +99,7 @@ async function eliminar_registro(e) {
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">×</span>
               </button>
-              <strong>El usuario ha sido eliminado exitosamente </strong>
+              <strong>El horario ha sido eliminado exitosamente </strong>
           </div>
           `;
           e.target.parentElement.parentElement.remove();
@@ -138,7 +138,7 @@ async function editar_puesto(id_necesario){
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">×</span>
           </button>
-          <strong>El usuario ha sido editado exitosamente </strong>
+          <strong>El horario ha sido editado exitosamente </strong>
       </div>
       `;
     //Se vacia el contenido de la tabla
