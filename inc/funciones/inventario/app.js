@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   mostrarServicios();
   listado_productos.addEventListener("click", eliminar_registro);
   listado_productos.addEventListener("click", obtener_datos_unitarios);
-  modal.addEventListener("submit", editar_registro);
+  modal.addEventListener("click", editar_registro);
 });
 
 async function llamado(datos) {
@@ -55,8 +55,8 @@ async function llamado(datos) {
               <button type="button" class="btn btn-primary boton_ver"><i href="inventario_producto_ver.php?id=${id}" class="icon-eye"></i></button>
           </td>
           <td>
-              <button type="button" class="btn btn-primary" data-toggle="modal"
-              data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil"></i></button>
+            <button type="button" class="btn btn-primary editar" data-toggle="modal"
+            data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
           </td>
           <td>
               <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
@@ -91,30 +91,33 @@ function eliminar_registro(e) {
 function obtener_datos_unitarios(e) {
   let idEliminar = null;
   if (e.target.classList.contains("editar")) {
+    console.log("Entro a editar");
     idEliminar = Number(e.target.dataset.cliente);
     id_necesario = idEliminar;
+    console.log(id_necesario);
     const datos = new FormData();
     datos.append("id", id_necesario);
     datos.append("accion", "buscar");
     llamado(datos).then((res) => {
       console.log(res);
-      const edit_barra = (document.querySelector("#edit_barra").value =
-        res.folio);
+      const edit_barras = (document.querySelector("#edit_barras").value =
+        res.codigo);
       const edit_nombre = (document.querySelector("#edit_nombre").value =
-        res.nombre);
+        res.nombre_producto);
       const edit_stock = (document.querySelector("#edit_stock").value =
-        res.razon_social);
+        res.cantidad_stock);
       const edit_precio_compra = (document.querySelector("#edit_precio_compra").value = 
-      res.rfc);
+      res.precio_costo);
       const edit_precio_venta = (document.querySelector("#edit_precio_venta").value =
-        res.direccion);
+        res.precio_venta);
     });
   }
 }
 
  function editar_registro(e) {
   e.preventDefault();
-  const edit_barra = document.querySelector("#edit_barra").value;
+  console.log("Haaaaaaaaaaaa");
+  const edit_barra = document.querySelector("#edit_barras").value;
   const edit_nombre = document.querySelector("#edit_nombre").value;
   const edit_stock = document.querySelector("#edit_stock").value;
   const edit_precio_compra = document.querySelector("#edit_precio_compra").value;
@@ -151,10 +154,12 @@ function obtener_datos_unitarios(e) {
     <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
     <td><a href="inventario_lista.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
     <td>
-    <button type="button" class="btn btn-primary" data-toggle="modal"
-    data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></button>
+      <button type="button" class="btn btn-primary editar" data-toggle="modal"
+      data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
     </td>
-    <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
+    <td>
+      <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
+    </td>
     `;
     // console.log(registro_contenido);
   });

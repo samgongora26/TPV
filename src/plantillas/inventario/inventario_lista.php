@@ -148,7 +148,6 @@
                                                             required="" placeholder="Nombre Producto">
                                                     </div>
 
-                                                    <form id="submodal_proveedor" name="submodal_proveedor">
                                                         <div class="form-group mb-4">
                                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Marca</label>
                                                             <select class="custom-select mr-sm-2" id="select_proveedor">
@@ -156,7 +155,6 @@
                                                                 <option value="2">Marca2</option>
                                                             </select>
                                                         </div>
-                                                    </form>
 
                                                     <div class="form-group">
                                                         <label>Stock en Inventario</label>
