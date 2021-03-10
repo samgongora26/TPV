@@ -18,6 +18,9 @@ switch ($accion) {
     case 'actualizar':
         $resultado = actualizar_proveedor();
         break;
+    case 'busqueda_filtro':
+        $resultado = filtrado_nombres();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide
