@@ -40,7 +40,7 @@
         ?>
         <!-- FON BARRA IZQUIERDA  -->
         <!-- ============================================================== -->
-        
+
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
@@ -49,8 +49,8 @@
             <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
             <div class="container">
             <div class="row">
-            <div class="col-sm-1 col-md-1 col-lg-1"></div>
-                <div class="col-sm-11 col-md-11 col-lg-11">
+            <div class="col-sm-12 col-md-12 col-lg-12"></div>
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     <!-- Input de Busqueda de preveedores -->
                     <div class="card">
                         <div class="card-body">
@@ -73,7 +73,7 @@
                     </div>
                     <!-- Fin Input de Busqueda de preveedores -->
 
-                    
+
                     <!--Tabla de proveedores-->
                     <div class="col-12">
                         <div class="card">
@@ -109,7 +109,7 @@
                                                 <td>Cell</td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#estado-modal"><i class="icon-note"></i></button>    
+                                                    data-target="#estado-modal"><i class="icon-note"></i></button>
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary boton_ver"><i class="icon-eye"></i></button>
@@ -144,38 +144,38 @@
                                                         <label>Clave</label>
                                                         <input class="form-control" type="text" id="edit_clave" name="edit_clave"
                                                             required="" placeholder="Clave">
-                                                 
 
-                                                  
+
+
                                                         <label>Nombre Proveedor</label>
                                                         <input class="form-control" type="text" id="edit_nombre" name="edit_nombre"
                                                             required="" placeholder="Nombre Proveedor">
-                                               
 
-                                                  
+
+
                                                         <label>Razón Social</label>
                                                         <input class="form-control" type="text" required=""
                                                             id="edit_razon" name="edit_razon" placeholder="Razon Social">
-                                              
 
-                                                 
+
+
                                                         <label>Dirección</label>
                                                         <input class="form-control" type="text" required=""
                                                             id="edit_direccion" name="edit_direccion" placeholder="Direccion">
-          
-                             
+
+
                                                         <label>Telefono</label>
                                                         <input class="form-control" type="text" required=""
                                                             id="edit_telefono" name="edit_telefono" placeholder="Telefono">
-                                       
 
-                                          
+
+
                                                         <label>RFC</label>
                                                         <input class="form-control" type="text" required=""
                                                             id="edit_rfc" name="edit_rfc" placeholder="RFC">
-                                           
 
-                                                 
+
+
                                                         <button class="btn btn-primary" type="submit">Guardar Cambios</button>
                                                     </div>
 
@@ -236,9 +236,9 @@
 
             </div>
         </div>
-       
 
-        
+
+
 
 
         <!--FIN CONTENEDOR -->
