@@ -3,6 +3,7 @@ $accion = $_POST['accion'];
 require 'consultas.php';
 
 switch ($accion) {
+    //--------------USUARIOS--------------
     case "registrar":
         $resultado = registrar_usuario();
         break;
@@ -18,7 +19,8 @@ switch ($accion) {
     case 'actualizar':
         $resultado =actualizar_usuario();
         break;
-    //Puestos
+
+    //---------------Puestos-------------------
     case "registraPuesto":
         $resultado = registrar_puesto();
         break;
@@ -32,7 +34,7 @@ switch ($accion) {
         $resultado =eliminar_puesto();
         break;
 
-    //--------HORARIOS------------
+    //---------------------HORARIOS------------
     case "horariosLista":
         $resultado = mostrar_horarios();
         break;
