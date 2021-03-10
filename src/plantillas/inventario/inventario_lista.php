@@ -151,7 +151,7 @@
                                                     <form id="submodal_proveedor" name="submodal_proveedor">
                                                         <div class="form-group mb-4">
                                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Proveedor</label>
-                                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                            <select class="custom-select mr-sm-2" id="select_proveedor">
                                                                 <option selected>Elegir...</option>
                                                                 <option value="1">Proveedor 1</option>
                                                                 <option value="2">Proveedor 2.. etc</option>

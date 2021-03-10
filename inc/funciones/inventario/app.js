@@ -52,7 +52,7 @@ async function llamado(datos) {
               data-target="#estado-modal"><i data-cliente="${id}" class="icon-note"></i></button>    
           </td>
           <td>
-              <button type="button" class="btn btn-primary boton_ver"><i href="inventario_producto_ver.php?id==${id}" class="icon-eye"></i></button>
+              <button type="button" class="btn btn-primary boton_ver"><i href="inventario_producto_ver.php?id=${id}" class="icon-eye"></i></button>
           </td>
           <td>
               <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -62,7 +62,7 @@ async function llamado(datos) {
               <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
           </td>
           <td>
-              <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash"></i></button>
+              <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
           </td>
       </tr>
       `;
@@ -102,13 +102,12 @@ function obtener_datos_unitarios(e) {
         res.folio);
       const edit_nombre = (document.querySelector("#edit_nombre").value =
         res.nombre);
-      const edit_razon = (document.querySelector("#edit_razon").value =
+      const edit_stock = (document.querySelector("#edit_stock").value =
         res.razon_social);
-      const edit_rfc = (document.querySelector("#edit_rfc").value = res.rfc);
-      const edit_direccion = (document.querySelector("#edit_direccion").value =
+      const edit_precio_compra = (document.querySelector("#edit_precio_compra").value = 
+      res.rfc);
+      const edit_precio_venta = (document.querySelector("#edit_precio_venta").value =
         res.direccion);
-      const edit_telefono = (document.querySelector("#edit_telefono").value =
-        res.telefono);
     });
   }
 }
@@ -117,19 +116,18 @@ function obtener_datos_unitarios(e) {
   e.preventDefault();
   const edit_barra = document.querySelector("#edit_barra").value;
   const edit_nombre = document.querySelector("#edit_nombre").value;
-  const edit_razon = document.querySelector("#edit_razon").value;
-  const edit_rfc = document.querySelector("#edit_rfc").value;
-  const edit_direccion = document.querySelector("#edit_direccion").value;
+  const edit_stock = document.querySelector("#edit_stock").value;
+  const edit_precio_compra = document.querySelector("#edit_precio_compra").value;
+  const edit_precio_venta = document.querySelector("#edit_precio_venta").value;
   const edit_telefono = document.querySelector("#edit_telefono").value;
 
   const datos = new FormData();
   datos.append("id", id_necesario);
   datos.append("barra", edit_barra);
   datos.append("nombre", edit_nombre);
-  datos.append("direccion", edit_direccion);
-  datos.append("telefono", edit_telefono);
-  datos.append("razon", edit_razon);
-  datos.append("rfc", edit_rfc);
+  datos.append("precio_venta", edit_precio_venta);
+  datos.append("stock", edit_stock);
+  datos.append("precio_compra", edit_precio_compra);
   datos.append("accion", "actualizar");
 
   /*const peticion = await llamado(datos);
