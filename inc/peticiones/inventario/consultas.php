@@ -76,32 +76,13 @@ function todo_inventario(): array
 }
 
 
-/*
-function buscar_producto(): array
-{
-    try {
-        require '../../../conexion.php';
-
-        $id = $_POST['id'];
-        $sql = " select * from proveedores where id_proveedor=$id;";
-        $consulta = mysqli_query($conexion, $sql);
-
-        $row = mysqli_fetch_assoc($consulta); //recibir el resultado de la consulta cuando solo es 1
-
-        return $row;
-    } catch (\Throwable $th) {
-        var_dump($th);
-    }
-    mysqli_close($conexion);
-}
-
 function eliminar_producto(): array
 {
     try {
         require '../../../conexion.php';
         
         $id = $_POST['id'];
-        $sql = " DELETE FROM `proveedores` WHERE `proveedores`.`id_proveedor`= $id";
+        $sql = " DELETE FROM `productos_inventario` WHERE `productos_inventario`.`id_producto`= $id";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
@@ -140,4 +121,23 @@ function actualizar_producto(): array
         var_dump($th);
     }
     mysqli_close($conexion);
-}*/
+}
+
+
+function buscar_producto(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $id = $_POST['id'];
+        $sql = " select * from proveedores where id_proveedor=$id;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $row = mysqli_fetch_assoc($consulta); //recibir el resultado de la consulta cuando solo es 1
+
+        return $row;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

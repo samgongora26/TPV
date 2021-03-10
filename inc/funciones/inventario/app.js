@@ -4,9 +4,9 @@ let id_necesario = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarServicios();
-  //listado_productos.addEventListener("click", eliminar_registro);
-  //listado_productos.addEventListener("click", obtener_datos_unitarios);
-  //modal.addEventListener("submit", editar_registro);
+  listado_productos.addEventListener("click", eliminar_registro);
+  listado_productos.addEventListener("click", obtener_datos_unitarios);
+  modal.addEventListener("submit", editar_registro);
 });
 
 async function llamado(datos) {
@@ -69,12 +69,12 @@ async function llamado(datos) {
     });
   });
 }
-/*
+
 function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
     idEliminar = Number(e.target.dataset.cliente);
-    const confirmar = confirm("Deseas eliminar este cliente?");
+    const confirmar = confirm("¿Deseas eliminar este cliente?");
     if (confirmar) {
       //  console.log(idEliminar);
       const datos = new FormData();
@@ -86,8 +86,8 @@ function eliminar_registro(e) {
     }
   }
 }
-*/
-/*
+
+
 function obtener_datos_unitarios(e) {
   let idEliminar = null;
   if (e.target.classList.contains("editar")) {
@@ -98,7 +98,7 @@ function obtener_datos_unitarios(e) {
     datos.append("accion", "buscar");
     llamado(datos).then((res) => {
       console.log(res);
-      const edit_clave = (document.querySelector("#edit_clave").value =
+      const edit_barra = (document.querySelector("#edit_barra").value =
         res.folio);
       const edit_nombre = (document.querySelector("#edit_nombre").value =
         res.nombre);
@@ -112,10 +112,10 @@ function obtener_datos_unitarios(e) {
     });
   }
 }
-*/
+
  function editar_registro(e) {
   e.preventDefault();
-  const edit_clave = document.querySelector("#edit_clave").value;
+  const edit_barra = document.querySelector("#edit_barra").value;
   const edit_nombre = document.querySelector("#edit_nombre").value;
   const edit_razon = document.querySelector("#edit_razon").value;
   const edit_rfc = document.querySelector("#edit_rfc").value;
@@ -124,7 +124,7 @@ function obtener_datos_unitarios(e) {
 
   const datos = new FormData();
   datos.append("id", id_necesario);
-  datos.append("clave", edit_clave);
+  datos.append("barra", edit_barra);
   datos.append("nombre", edit_nombre);
   datos.append("direccion", edit_direccion);
   datos.append("telefono", edit_telefono);
