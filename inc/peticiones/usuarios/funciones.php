@@ -36,15 +36,15 @@ switch ($accion) {
     case "horariosLista":
         $resultado = mostrar_horarios();
         break;
-
     case "regsitraHorario":
         $resultado = registrar_horario();
         break;
      case "eliminar_horario":
         $resultado =eliminar_horario();
         break;
-
-        
+    case 'actualizar_horario':
+        $resultado =actualizar_horario();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide

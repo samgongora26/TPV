@@ -280,6 +280,30 @@ function mostrar_horarios(): array
     mysqli_close($conexion);
 }
 
+function actualizar_horario(): array
+{
+    try {
+        require '../../../conexion.php';
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $entrada = $_POST['entrada'];
+        $salida = $_POST['salida'];
+        
+        $sql = "UPDATE `jornadas_trabajo` SET `nombre_horario`='$nombre',`h_entrada`='$entrada',`h_salida`='$salida' WHERE  `jornadas_trabajo`.`id_jornada` = $id;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'correcto',
+            'id' => $id
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
 function eliminar_horario(): array
 {
     try {

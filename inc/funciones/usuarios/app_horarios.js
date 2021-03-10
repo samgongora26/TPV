@@ -42,13 +42,13 @@ async function mostrarServicios() {
                         
                         <p>ID: ${id_jornada}</p>
                         <label>Titulo del horario</label>
-                        <input id="nombre" type="text" placeholder="ejemplo: matutino" minlength="2" class="form-control" value="${nombre_horario}" required="">
+                        <input id="edit_nombre${id_jornada}" type="text" placeholder="ejemplo: matutino" minlength="2" class="form-control" value="${nombre_horario}" required="">
                         <label>Hora de entrada (formato 24 horas)</label>
-                        <input id="h_entrada" type="time" value="${h_entrada}" placeholder="10:00" class="form-control" required="">
+                        <input id="edit_entrada${id_jornada}" type="time" value="${h_entrada}" placeholder="10:00" class="form-control" required="">
                         <label>Hora de salida (formato 24 horas)</label>
-                        <input id="h_salida" type="time" value="${h_salida}"  placeholder="13:00" class="form-control" required="">
+                        <input id="edit_salida${id_jornada}" type="time" value="${h_salida}"  placeholder="13:00" class="form-control" required="">
                         <div class="text-right mt-3">
-                            <button type="submit" onclick="editar_puesto(${id_jornada})" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Guardar</button>
+                            <button type="submit" onclick="editar_horario(${id_jornada})" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Guardar</button>
                             <button type="reset" class="btn btn-dark" data-dismiss="modal" aria-hidden="true"> Cancelar</button>
                         </div>
 
@@ -113,17 +113,19 @@ async function eliminar_registro(e) {
 
 
 
-async function editar_puesto(id_necesario){
+async function editar_horario(id_necesario){
   var id_necesario;
-  const edit_nombres = document.getElementById("edit_nombre"+id_necesario).value; 
-  const edit_estado = document.querySelector("#edit_estado"+id_necesario).value;
+  const edit_nombre = document.getElementById("edit_nombre"+id_necesario).value; 
+  const edit_entrada = document.querySelector("#edit_entrada"+id_necesario).value;
+  const edit_salida = document.querySelector("#edit_salida"+id_necesario).value;
 
   try {
     const datos = new FormData();
     datos.append("id", id_necesario);
-    datos.append("nombres", edit_nombres);
-    datos.append("estado", edit_estado);
-    datos.append("accion", "actualizar_puesto");
+    datos.append("nombre", edit_nombre);
+    datos.append("entrada", edit_entrada);
+    datos.append("salida", edit_salida);
+    datos.append("accion", "actualizar_horario");
 
     const res = await fetch("../../../inc/peticiones/usuarios/funciones.php", {
       method: "POST",
