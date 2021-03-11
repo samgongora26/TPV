@@ -130,19 +130,31 @@
                                 <span class="hide-menu">Usuarios</span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                
+                                <li class="sidebar-item"><a href="../usuarios/usuarios_ver.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-user"></i>Usuarios
+                                        </span></a>
+                                </li>
                                 <li class="sidebar-item">
-                                    <a href="../usuarios/usuarios_lista.php" class="sidebar-link">
+                                    <a href="../usuarios/puestos_ver.php" class="sidebar-link">
                                         <span class="hide-menu">
-                                        <i class="icon icon-user-following"></i>Ver usuarios</span>
+                                        <i class="fas fa-users"></i>Puestos</span>
                                     </a>
                                 </li>
-                                <li class="sidebar-item"><a href="../usuarios/usuarios_agregar.php" class="sidebar-link"><span
-                                            class="hide-menu"><i class="icon icon-user-follow"></i> Agregar usuarios
-                                        </span></a>
+                                <li class="sidebar-item">
+                                    <a href="../usuarios/horarios_ver.php" class="sidebar-link">
+                                        <span class="hide-menu">
+                                        <i class="fas fa-clock"></i>Horarios</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="../usuarios/empleados_ver.php" class="sidebar-link">
+                                        <span class="hide-menu">
+                                        <i class="fas fa-address-card"></i>Empleados</span>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
-
 						
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
