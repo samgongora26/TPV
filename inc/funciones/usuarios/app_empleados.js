@@ -12,7 +12,8 @@ function mostrarServicios(){
   select_usuarios();
   select_horarios();
   //llenado de la tabla
-  llenar_tabla();
+  mostrar_empleados();
+  
 }
 
 //---------SELECT DE USUARIOS----------
@@ -35,7 +36,7 @@ async function select_usuarios() {
       const listado_clientes = document.querySelector("#contenido_usuario");
 
       listado_clientes.innerHTML += `  
-      <option> ${usuario}</option>
+      <option value="${id_usuario}"> ${usuario}</option>
         `;
     });
   } catch (error) {
@@ -59,10 +60,10 @@ async function select_puestos() {
       //console.log(servicio);
       const { id_puesto, nombre_puesto} = servicio;
 
-      const listado_clientes = document.querySelector("#contenido_puestos");
+      const listado_clientes = document.querySelector("#contenido_puesto");
 
       listado_clientes.innerHTML += `  
-      <option> ${nombre_puesto}</option>
+      <option value="${id_puesto}"> ${nombre_puesto}</option>
         `;
     });
   } catch (error) {
@@ -84,12 +85,12 @@ async function select_horarios() {
     const db = await resultado.json();
     db.forEach((servicio) => {
       //console.log(servicio);
-      const { id_puesto, nombre_horario} = servicio;
+      const {id_jornada, nombre_horario} = servicio;
 
       const listado_clientes = document.querySelector("#contenido_horario");
 
       listado_clientes.innerHTML += `  
-      <option> ${nombre_horario}</option>
+      <option value="${id_jornada}"> ${nombre_horario}</option>
         `;
     });
   } catch (error) {
@@ -111,12 +112,61 @@ async function mostrar_empleados() {
     const db = await resultado.json();
     db.forEach((servicio) => {
       //console.log(servicio);
-      const { id_puesto, nombre_horario} = servicio;
+      const {id_empleado,fotografia, usuario, nombre_horario, nombre_puesto} = servicio;
 
-      const listado_clientes = document.querySelector("#contenido_horario");
+      const listado_clientes = document.querySelector("#contenido_tabla");
 
       listado_clientes.innerHTML += `  
-      <option> ${nombre_horario}</option>
+        <tr>
+            <td> <img src="../../assets/images/users/${fotografia}" alt="user" class="rounded-circle"
+            width="40"> </td>
+            <td scope="row">${id_empleado}</td>
+            <td scope="row">${usuario}</td>
+            <td>${nombre_puesto} </td>  
+            <td>${nombre_horario} </td>  
+            <td>
+                <button type="button" class="btn editar" data-usuario="${id_empleado}" data-toggle="modal" data-target="#edit-modal${id_empleado}"> <i  class="fas fa-edit"></i></button>
+                <button type="button" class="btn eliminar" data-usuario="${id_empleado}"><i class="fas fa-trash"></i></button>
+            </td>      
+        </tr>
+        <!-- Modal editar -->
+        <div id="edit-modal${id_empleado}" class="modal fade" tabindex="${id_empleado}" role="dialog"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <h4 class="mt-3 mx-auto"> Editar el empleado <strong>${usuario}</strong> </h4>
+                    
+                    <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                        <form class="pl-3 pr-3" action="#" id="form-modal-edit" name="for-modal-edit">
+                          
+                          <p>ID: ${id_empleado}</p>
+                          <label>Titulo del horario</label>
+                          <div class="form-group mb-4">
+                                                    <label for="exampleFormControlSelect1">Puesto</label>
+                                                    <select class="form-control" id="contenido_puesto">
+                                                        <!--AQUI SE INSERTAN LOS DATOS DEL SELECT DE PUESTOS-->
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label for="exampleFormControlSelect1">Horario de trabajo</label>
+                                                    <select class="form-control" id="contenido_horario">
+                                                        <!--AQUE SE INSERTAN LOS DATOS DEL SELECT DE HORARIOS-->
+                                                    </select>
+                                                </div>
+                          
+                          <div class="text-right mt-3">
+                              <button type="submit" onclick="editar_horario(${id_empleado})" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Guardar</button>
+                              <button type="reset" class="btn btn-dark" data-dismiss="modal" aria-hidden="true"> Cancelar</button>
+                          </div>
+
+                        </form>
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+        <!-- Fin modal editar -->
         `;
     });
   } catch (error) {
@@ -190,8 +240,13 @@ async function editar_puesto(id_necesario){
       `;
     //Se vacia el contenido de la tabla
     document.getElementById("contenido_tabla").innerHTML="";
+    //se vacian los selects
+    document.getElementById("contenido_horario").innerHTML="";
+    document.getElementById("contenido_usuario").innerHTML="";
+    document.getElementById("contenido_puesto").innerHTML="";
     //Llamada a la funcion para llenar la tabla 
     mostrarServicios(); 
+
   } catch (error) {
     console.log(error);
   }

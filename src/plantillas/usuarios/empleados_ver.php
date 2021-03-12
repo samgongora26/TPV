@@ -67,7 +67,7 @@
                                                 </div>
                                                 <div class="form-group mb-4">
                                                     <label for="exampleFormControlSelect1">Puesto</label>
-                                                    <select class="form-control" id="contenido_puestos">
+                                                    <select class="form-control" id="contenido_puesto">
                                                         <!--AQUI SE INSERTAN LOS DATOS DEL SELECT DE PUESTOS-->
                                                     </select>
                                                 </div>
@@ -100,11 +100,11 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
+                                                    <th scope="col">Foto</th>
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Usuario</th>
                                                     <th scope="col">Puesto</th>
                                                     <th scope="col">Horario</th>
-                                                    <th scope="col">Estado</th>
                                                     <th scope="col">Editar o eliminar</th>
                                                 </tr>
                                             </thead>
@@ -128,7 +128,7 @@
         <?php
             include '../../../componentes/scripts.php';
         ?>
-            <script src="../../../inc/funciones/usuarios/puestos_agregar.js"></script>
+            <script src="../../../inc/funciones/usuarios/empleados_agregar.js"></script>
             <script src="../../../inc/funciones/usuarios/app_empleados.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>

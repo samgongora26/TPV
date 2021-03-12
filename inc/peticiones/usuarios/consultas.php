@@ -326,6 +326,62 @@ function eliminar_horario(): array
 }
 
 //-----------EMPLEADOS-----------
+
+function registrarEmpleado(): array
+{           //recibe los datos correctamente
+    try {
+        require '../../../conexion.php';
+        $nombre = $_POST['nombre'];
+        $puesto = $_POST['puesto'];
+        $horario = $_POST['horario'];
+
+        //AL AGREGAR UN EMPLEADO....
+        //EL ESTADO DEL USUARIO CAMBIA A 1, ES DECIR QUE ESTA ACTIVO 
+        $sql =  "UPDATE `usuarios` SET `estado`= 1 WHERE `id_usuario` = $nombre";
+        //SE AGREGA EL EMPLEADO CON LOS VALORES DE USUARIO, PUESTO Y HORARIO
+        $sql1 =  "INSERT INTO `empleados`(`id_usuario`, `id_puesto`, `id_jornada`) 
+                    VALUES ($nombre, $puesto, $horario)";
+            $consulta = mysqli_query($conexion, $sql);
+            $consulta1 = mysqli_query($conexion, $sql1);
+        
+        $respuesta = array(
+            'repetido' => false
+        );
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function mostrar_empleados(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $sql = "SELECT empleados.`id_empleado`, concat(usuarios.nombres, ' ', usuarios.apellidos)as usuario, usuarios.fotografia,
+        jornadas_trabajo.nombre_horario, puestos.nombre_puesto FROM `empleados`,usuarios, jornadas_trabajo, puestos 
+        WHERE empleados.id_usuario = usuarios.id_usuario and empleados.id_puesto = puestos.id_puesto and jornadas_trabajo.id_jornada = empleados.id_jornada";
+
+        $consulta = mysqli_query($conexion, $sql);
+        $empleados = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $empleados[$i]['id_empleado'] = $row['id_empleado'];
+            $empleados[$i]['fotografia'] = $row['fotografia'];
+            $empleados[$i]['usuario'] = $row['usuario'];
+            $empleados[$i]['nombre_horario'] = $row['nombre_horario'];
+            $empleados[$i]['nombre_puesto'] = $row['nombre_puesto'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $empleados;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
 function select_usuarios(): array
 {
     try {

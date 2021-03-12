@@ -48,6 +48,9 @@ switch ($accion) {
         $resultado =actualizar_horario();
         break;
     //-------------------EMPLEADOS------------
+    case "mostrar_empleados":
+        $resultado = mostrar_empleados();
+        break;
     case "select_usuarios":
         $resultado = select_usuarios();
         break;
@@ -56,7 +59,10 @@ switch ($accion) {
         break;
     case "select_horarios":
         $resultado = select_horarios();
-        break;    
+        break; 
+    case "registrarEmpleado":
+        $resultado = registrarEmpleado();
+        break;   
     
     
 }
