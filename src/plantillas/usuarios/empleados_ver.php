@@ -61,28 +61,20 @@
                                                 <input id="clave" type="text" placeholder="Ingresa el numero clave del usuario" class="form-control"-->
                                                 <div class="form-group mb-4">
                                                     <label for="exampleFormControlSelect1">Usuario</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                        <option>nombre apellido</option>
-                                                        <option>nombre apellido</option>
-                                                        <option>nombre apellido</option>
-                                                        <option>nombre apellido</option>
+                                                    <select class="form-control" id="contenido_usuario" >
+                                                        <!--AQUI SE INSERTAN LOS DATOS DEL SELECT DE USUARIOS-->
                                                     </select>
                                                 </div>
                                                 <div class="form-group mb-4">
                                                     <label for="exampleFormControlSelect1">Puesto</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                        <option>Cajero</option>
-                                                        <option>Administrador</option>
-                                                        <option>Almacenista</option>
+                                                    <select class="form-control" id="contenido_puestos">
+                                                        <!--AQUI SE INSERTAN LOS DATOS DEL SELECT DE PUESTOS-->
                                                     </select>
                                                 </div>
                                                 <div class="form-group mb-4">
                                                     <label for="exampleFormControlSelect1">Horario de trabajo</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                        <option>matutino</option>
-                                                        <option>vespertino</option>
-                                                        <option>nocturno</option>
-                                                        
+                                                    <select class="form-control" id="contenido_horario">
+                                                        <!--AQUE SE INSERTAN LOS DATOS DEL SELECT DE HORARIOS-->
                                                     </select>
                                                 </div>
                                                 
@@ -137,7 +129,7 @@
             include '../../../componentes/scripts.php';
         ?>
             <script src="../../../inc/funciones/usuarios/puestos_agregar.js"></script>
-            <script src="../../../inc/funciones/usuarios/app_puestos.js"></script>
+            <script src="../../../inc/funciones/usuarios/app_empleados.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>
 

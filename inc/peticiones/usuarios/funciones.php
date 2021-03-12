@@ -47,6 +47,18 @@ switch ($accion) {
     case 'actualizar_horario':
         $resultado =actualizar_horario();
         break;
+    //-------------------EMPLEADOS------------
+    case "select_usuarios":
+        $resultado = select_usuarios();
+        break;
+    case "select_puestos":
+        $resultado = select_puestos();
+        break;
+    case "select_horarios":
+        $resultado = select_horarios();
+        break;    
+    
+    
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide

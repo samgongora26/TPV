@@ -324,3 +324,70 @@ function eliminar_horario(): array
     }
     mysqli_close($conexion);
 }
+
+//-----------EMPLEADOS-----------
+function select_usuarios(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $sql = "SELECT `id_usuario`, concat(`usuarios`.`nombres`,' ',`usuarios`.`apellidos`) as usuario ,`estado` FROM `usuarios` WHERE `estado` = 0 ";
+        $consulta = mysqli_query($conexion, $sql);
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id_usuario'] = $row['id_usuario'];
+            $usuarios[$i]['usuario'] = $row['usuario'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function select_puestos(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $sql = "SELECT * FROM `puestos` WHERE `estado` = 1";
+        $consulta = mysqli_query($conexion, $sql);
+        $puestos = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $puestos[$i]['id_puesto'] = $row['id_puesto'];
+            $puestos[$i]['nombre_puesto'] = $row['nombre_puesto'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $puestos;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function select_horarios(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $sql = "SELECT * FROM `jornadas_trabajo`";
+        $consulta = mysqli_query($conexion, $sql);
+        $horarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $horarios[$i]['id_jornada'] = $row['id_jornada'];
+            $horarios[$i]['nombre_horario'] = $row['nombre_horario'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $horarios;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
