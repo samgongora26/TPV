@@ -44,11 +44,11 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
         <div class="page-wrapper">
-            <div class="conteiner-fluid">
+            <div class="container-fluid">
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                <div class="container">
+                
                     <div class="row">
-                        <div class="col-sm-1 col-md-1 col-lg-1"></div>
+                     
                         <div class="col-sm-11 col-md-11 col-lg-11">
 
 
@@ -109,7 +109,7 @@
 
                         </div>
                     </div>
-                </div>
+                
 
 
 

@@ -24,7 +24,7 @@ function registrar_usuario(): array
         
         if(!$usuario_repetido){
             $sql =  "INSERT INTO `usuarios`( `nombres`, `apellidos`, `telefono`, `correo`, `usuario`, `contrasenia`, `fotografia`, `estado`)
-            VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',1)";
+            VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',0)";
             $consulta = mysqli_query($conexion, $sql);
             
         }
@@ -361,7 +361,7 @@ function mostrar_empleados(): array
 
         $sql = "SELECT empleados.`id_empleado`, concat(usuarios.nombres, ' ', usuarios.apellidos)as usuario, usuarios.fotografia,
         jornadas_trabajo.nombre_horario, puestos.nombre_puesto FROM `empleados`,usuarios, jornadas_trabajo, puestos 
-        WHERE empleados.id_usuario = usuarios.id_usuario and empleados.id_puesto = puestos.id_puesto and jornadas_trabajo.id_jornada = empleados.id_jornada";
+        WHERE empleados.id_usuario = usuarios.id_usuario and empleados.id_puesto = puestos.id_puesto and jornadas_trabajo.id_jornada = empleados.id_jornada and usuarios.estado = 1";
 
         $consulta = mysqli_query($conexion, $sql);
         $empleados = [];
