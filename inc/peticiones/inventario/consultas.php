@@ -142,3 +142,35 @@ function buscar_producto(): array
     }
     mysqli_close($conexion);
 }
+
+function registrar_categoria(): array
+{
+    
+    try {
+        require '../../../conexion.php';
+
+        $detalles = $_POST['detalles'];
+        $nombre = $_POST['nombre'];
+        $estado = $_POST['estado'];
+
+        $sql =  "INSERT INTO categorias (nombre_categoria, estado, detalles)
+        VALUES('$nombre','$estado','$detalles')";
+
+
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array( //envia los datos correctamente
+            'respuesta' => 'correcto',
+            //'id_ingresado' => mysqli_insert_id($conexion),
+            'nombre' => $nombre,
+            'estado' => $estado,
+            'detalles' => $detalles
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+    
+}

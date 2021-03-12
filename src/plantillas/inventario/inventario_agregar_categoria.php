@@ -63,23 +63,18 @@
                                             <input id="nombre_categoria" name="nombre_categoria" type="text" class="form-control" required>
 
 
-                                            <form>
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
-                                                    <select id="estado" name="estado" class="custom-select mr-sm-2" id="inlineFormCustomSelect" required>
-                                                        <option selected>Elegir...</option>
+                                                    <select id="select_estado_c"  class="custom-select mr-sm-2" onchange="show_estado_c();" required>
+                                                        <option selected value="0">Inactivo</option>
                                                         <option value="1">Activo</option>
-                                                        <option value="2">Inactivo</option>
                                                     </select>
                                                 </div>
-                                            </form>
                                             <br>
                                             <h4 class="card-title">Detalles</h4>
-                                            <form class="mt-3">
                                                 <div class="form-group">
-                                                    <textarea id="detalle" name="detalle" class="form-control" rows="3" placeholder="Detalles del producto..."></textarea>
+                                                    <textarea id="detalles" name="detalles" class="form-control" rows="3" placeholder="Detalles del producto..."></textarea>
                                                 </div>
-                                            </form>
                                             <div class="text-right">
                                                 <button type="submit" class="btn btn-info">Guardar</button>
                                                 <button type="reset" class="btn btn-dark">Reiniciar valores</button>
@@ -112,7 +107,7 @@
     <?php
     include '../../../componentes/scripts.php';
     ?>
-    <script src="../../../inc/funciones/proveedores/proveedor_agregar.js"></script>
+    <script src="../../../inc/funciones/inventario/categoria_agregar.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 

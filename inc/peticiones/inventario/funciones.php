@@ -6,6 +6,9 @@ switch ($accion) {
     case "registrar":
         $resultado = registrar_producto();
         break;
+    case "registrarc":
+        $resultado = registrar_categoria();
+        break;
     case "mostrar":
         $resultado = todo_inventario();
         break;
@@ -18,6 +21,7 @@ switch ($accion) {
     case 'actualizar':
         $resultado = actualizar_producto();
         break;
+    
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide 
