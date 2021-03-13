@@ -51,6 +51,24 @@
            
                 <div class="col-sm-11 col-md-11 col-lg-11">
 
+
+                    <!-- Input de Busqueda de categorias -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Buscar Categoria</h4>
+                            <h6 class="card-subtitle">Ingresa Nombre de la Categoria</h6>
+                            <form class="mt-4">
+                                <div class="form-group">
+                                    <label>Nombre Categoria</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-info">Buscar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Fin Input de Busqueda de categorias -->
                     
                     <!--Lista Categorias-->
                     <div class="col-sm-12">
@@ -63,7 +81,7 @@
                                 <table class="table">
                                     <thead class="text-center">
                                         <tr>
-                                            <th scope="col">Imagen</th>
+                                            <th scope="col">#</th>
                                             <th scope="col">Nombre Categoria</th>
                                             <th scope="col">Estado</th>
                                             <th scope="col">Detalles</th>
@@ -71,8 +89,8 @@
                                             <th scope="col">Eliminar</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="text-center">
-                                        <tr>
+                                    <tbody id="contenido_tabla" class="text-center">
+                                        <!--<tr>
                                             <th scope="row">1</th>
                                             <td>Cell</td>
                                             <td>Cell</td>
@@ -82,7 +100,7 @@
                                                 data-target="#edit-modal"><i class="icon-pencil"></i></button>
                                             </td>
                                             <td><button type="button" class="btn btn-primary boton_eliminar"><i class="icon-trash"></i></button></td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
                                 </table>
 
@@ -159,6 +177,7 @@
     <?php
         include '../../../componentes/scripts.php';
     ?>
+    <script src="../../../inc/funciones/inventario/appc.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 

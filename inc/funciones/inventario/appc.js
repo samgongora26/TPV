@@ -1,12 +1,12 @@
-const listado_productos = document.querySelector("#contenido_tabla");
+const listado_categoria = document.querySelector("#contenido_tabla");
 const modal = document.querySelector("#form-modal-edit");
 let id_necesario = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarServicios();
-  listado_productos.addEventListener("click", eliminar_registro);
-  listado_productos.addEventListener("click", obtener_datos_unitarios);
-  modal.addEventListener("click", editar_registro);
+  listado_categoria.addEventListener("click", eliminar_registro);
+  //listado_categoria.addEventListener("click", obtener_datos_unitarios);
+  //modal.addEventListener("click", editar_registro);
 });
 
 async function llamado(datos) {
@@ -27,44 +27,29 @@ async function llamado(datos) {
 
  function mostrarServicios() {
   const datos = new FormData();
-  datos.append("accion", "mostrar");
+  datos.append("accion", "mostrarc");
 
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const { id, nombre, codigo, precio_costo, precio_venta, stock, marca } = datos;
+      const { id, nombre_categoria, estado, detalles} = datos;
 
-      const listado_productos = document.querySelector("#contenido_tabla");
+      const listado_categoria = document.querySelector("#contenido_tabla");
 
 
 
-      listado_productos.innerHTML +=`
-          <tr id="ver_productos_${id}">
-          <th scope="row">${id}</th>
-          <td>${nombre}</td>
-          <td>${codigo}</td>
-          <td>${precio_costo}</td>
-          <td>${precio_venta}</td>
-          <td>${stock}</td>
-          <td>${marca}</td>
-          <td>
-          <button type="button" class="btn btn-primary" data-toggle="modal"
-              data-target="#estado-modal"><i data-cliente="${id}" class="icon-note"></i></button>    
+      listado_categoria.innerHTML +=`
+          <tr id="ver_categorias_${id}">
+            <th scope="row">${id}</th>
+            <td>${nombre_categoria}</td>
+            <td>${estado}</td>
+            <td>${detalles}</td>
+            <td>
+                <button type="button" class="btn btn-primary editar" data-toggle="modal"
+                data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
           </td>
-          <td>
-              <button type="button" class="btn btn-primary boton_ver"><i href="inventario_producto_ver.php?id=${id}" class="icon-eye"></i></button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-primary editar" data-toggle="modal"
-            data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
-          </td>
-          <td>
-              <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
-          </td>
-          <td>
-              <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
-          </td>
-      </tr>
+          <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
+        </tr>
       `;
     });
   });
@@ -79,7 +64,7 @@ function eliminar_registro(e) {
       //  console.log(idEliminar);
       const datos = new FormData();
       datos.append("id", idEliminar);
-      datos.append("accion", "eliminar");
+      datos.append("accion", "eliminarc");
       llamado(datos).then((res) =>
         e.target.parentElement.parentElement.remove()
       );

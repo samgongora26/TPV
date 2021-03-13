@@ -174,3 +174,42 @@ function registrar_categoria(): array
     mysqli_close($conexion);
     
 }
+
+function buscar_categoria(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $id = $_POST['id'];
+        $sql = "SELECT * FROM categorias WHERE id_categoria = $id;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $row = mysqli_fetch_assoc($consulta); //recibir el resultado de la consulta cuando solo es 1
+
+        return $row;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function eliminar_categoria(): array
+{
+    try {
+        require '../../../conexion.php';
+        
+        $id = $_POST['id'];
+        $sql = " DELETE FROM `categorias` WHERE `categorias`.`id_categoria`= $id";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'eliminado',
+            'id' => $id
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

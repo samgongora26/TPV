@@ -12,11 +12,17 @@ switch ($accion) {
     case "mostrar":
         $resultado = todo_inventario();
         break;
+    case "mostrarc":
+        $resultado = buscar_categoria();
+        break;
     case "buscar":
         $resultado = buscar_producto();
         break;
     case "eliminar":
         $resultado = eliminar_producto();
+        break;
+    case "eliminarc":
+        $resultado = eliminar_categoria();
         break;
     case 'actualizar':
         $resultado = actualizar_producto();
