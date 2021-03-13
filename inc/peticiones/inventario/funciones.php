@@ -18,14 +18,20 @@ switch ($accion) {
     case "buscar":
         $resultado = buscar_producto();
         break;
+    case "buscarc":
+        $resultado = buscar_categoria();
+        break;
     case "eliminar":
         $resultado = eliminar_producto();
         break;
     case "eliminarc":
         $resultado = eliminar_categoria();
         break;
-    case 'actualizar':
+    case "actualizar":
         $resultado = actualizar_producto();
+        break;
+    case 'actualizarc':
+        $resultado = actualizar_categoria();
         break;
     
 }

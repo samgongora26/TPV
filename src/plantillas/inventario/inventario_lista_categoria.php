@@ -119,25 +119,22 @@
                                                     <div class="form-group">
                                                         <label>Nombre Categoria</label>
                                                         <input class="form-control" type="text" id="edit_categoria" name="edit_categoria"
-                                                            required="" placeholder="Codigo de barras">
+                                                            required="" placeholder="Nombre de Categoria">
                                                     </div>
 
 
-                                                    <form id="submodal_estado" name="submodal_estado">
                                                         <div class="form-group mb-4">
                                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
-                                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                                                <option selected>Elegir...</option>
-                                                                <option value="1">Activo</option>
-                                                                <option value="2">Inactivo</option>
+                                                            <select class="custom-select mr-sm-2" id="edit_estado">
+                                                                <option selected value="1">Activo</option>
+                                                                <option value="0">Inactivo</option>
                                                             </select>
                                                         </div>
-                                                    </form>
 
                                                     <div class="form-group">
                                                         <label>Detalles</label>
                                                         <input class="form-control" type="text" required=""
-                                                            id="edit_detalles" name="edit_detalles" placeholder="Stock">
+                                                            id="edit_detalles" name="edit_detalles" placeholder="Detalles">
                                                     </div>
 
                                                     <div class="form-group text-center">

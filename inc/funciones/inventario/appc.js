@@ -84,40 +84,31 @@ function obtener_datos_unitarios(e) {
     console.log(id_necesario);
     const datos = new FormData();
     datos.append("id", id_necesario);
-    datos.append("accion", "buscar");
+    datos.append("accion", "buscarc");
     llamado(datos).then((res) => {
       console.log(res);
-      const edit_barras = (document.querySelector("#edit_barras").value =
-        res.codigo);
-      const edit_nombre = (document.querySelector("#edit_nombre").value =
-        res.nombre_producto);
-      const edit_stock = (document.querySelector("#edit_stock").value =
-        res.cantidad_stock);
-      const edit_precio_compra = (document.querySelector("#edit_precio_compra").value = 
-      res.precio_costo);
-      const edit_precio_venta = (document.querySelector("#edit_precio_venta").value =
-        res.precio_venta);
+      const edit_categoria = (document.querySelector("#edit_categoria").value =
+        res.nombre_categoria);
+      const edit_estado = (document.querySelector("#edit_estado").value =
+        res.estado);
+      const edit_detalles = (document.querySelector("#edit_detalles").value =
+        res.detalles);
     });
   }
 }
 
  function editar_registro(e) {
   e.preventDefault();
-  //console.log("Haaaaaaaaaaaa");
-  const edit_barra = document.querySelector("#edit_barras").value;
-  const edit_nombre = document.querySelector("#edit_nombre").value;
-  const edit_stock = document.querySelector("#edit_stock").value;
-  const edit_precio_compra = document.querySelector("#edit_precio_compra").value;
-  const edit_precio_venta = document.querySelector("#edit_precio_venta").value;
+  const edit_categoria = document.querySelector("#edit_categoria").value;
+  const edit_estado = document.querySelector("#edit_estado").value;
+  const edit_detalles = document.querySelector("#edit_detalles").value;
 
   const datos = new FormData();
   datos.append("id", id_necesario);
-  datos.append("barra", edit_barra);
-  datos.append("nombre", edit_nombre);
-  datos.append("precio_venta", edit_precio_venta);
-  datos.append("stock", edit_stock);
-  datos.append("precio_compra", edit_precio_compra);
-  datos.append("accion", "actualizar");
+  datos.append("nombre", edit_categoria);
+  datos.append("estado", edit_estado);
+  datos.append("detalles", edit_detalles);
+  datos.append("accion", "actualizarc");
 
   /*const peticion = await llamado(datos);
   console.log(peticion);
@@ -126,27 +117,22 @@ function obtener_datos_unitarios(e) {
   llamado(datos).then((res) => {
     console.log(res);
     const registro_contenido = document.querySelector(
-      `#ver_producto_${id_necesario}`
+      `#ver_categorias_${id_necesario}`
     );
 
-    const { id, nombre, codigo, precio_costo, precio_venta, stock, marca } = res;
+    const { id, nombre_categoria, estado, detalles } = res;
     registro_contenido.innerHTML = `
     <th scope="row">${id}</th>
-    <td>${nombre}</td>
-    <td>${codigo}</td>
-    <td>${precio_costo}</td>
-    <td>${precio_venta}</td>
-    <td>${stock}</td>
-    <td>${marca}</td>
-    <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
-    <td><a href="inventario_lista.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
-    <td>
-      <button type="button" class="btn btn-primary editar" data-toggle="modal"
-      data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
-    </td>
-    <td>
-      <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
-    </td>
+      <td>${nombre_categoria}</td>
+      <td>${estado}</td>
+      <td>${detalles}</td>
+      <td>
+          <button type="button" class="btn btn-primary editar" data-toggle="modal"
+          data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
+      </td>
     `;
     // console.log(registro_contenido);
   });

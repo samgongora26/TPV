@@ -98,18 +98,16 @@ function eliminar_producto(): array
 }
 
 
-function actualizar_producto(): array
+function actualizar_categoria(): array
 {
     try {
         require '../../../conexion.php';
         $id = $_POST['id'];
-        $barra = $_POST['barra'];
         $nombre = $_POST['nombre'];
-        $venta = $_POST['precio_venta'];
-        $stock = $_POST['stock'];
-        $costo = $_POST['precio_compra'];
+        $estado = $_POST['estado'];
+        $detalles = $_POST['detalles'];
 
-              $sql = "UPDATE `productos_inventario` SET `nombre_producto` = '$nombre', `codigo` = '$barra', `precio_costo` = '$costo', `precio_venta` = '$venta', `cantidad_stock` = '$stock' WHERE `productos_inventario`.`id_producto` = $id;";
+              $sql = "UPDATE `categorias` SET `nombre_categoria` = '$nombre', `estado` = '$estado', `detalles` = '$detalles' WHERE `categorias`.`id_categoria` = $id;";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
@@ -233,6 +231,32 @@ function todo_categorias(): array
         }
         //var_dump($usuarios);
         return $usuarios;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function actualizar_producto(): array
+{
+    try {
+        require '../../../conexion.php';
+        $id = $_POST['id'];
+        $barra = $_POST['barra'];
+        $nombre = $_POST['nombre'];
+        $venta = $_POST['precio_venta'];
+        $stock = $_POST['stock'];
+        $costo = $_POST['precio_compra'];
+
+              $sql = "UPDATE `productos_inventario` SET `nombre_producto` = '$nombre', `codigo` = '$barra', `precio_costo` = '$costo', `precio_venta` = '$venta', `cantidad_stock` = '$stock' WHERE `productos_inventario`.`id_producto` = $id;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'correcto',
+            'id' => $id
+        );
+
+        return $respuesta;
     } catch (\Throwable $th) {
         var_dump($th);
     }
