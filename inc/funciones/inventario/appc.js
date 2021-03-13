@@ -5,8 +5,8 @@ let id_necesario = 0;
 document.addEventListener("DOMContentLoaded", () => {
   mostrarServicios();
   listado_categoria.addEventListener("click", eliminar_registro);
-  //listado_categoria.addEventListener("click", obtener_datos_unitarios);
-  //modal.addEventListener("click", editar_registro);
+  listado_categoria.addEventListener("click", obtener_datos_unitarios);
+  modal.addEventListener("click", editar_registro);
 });
 
 async function llamado(datos) {
@@ -47,9 +47,11 @@ async function llamado(datos) {
             <td>
                 <button type="button" class="btn btn-primary editar" data-toggle="modal"
                 data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
-          </td>
-          <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
-        </tr>
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
+            </td>
+          </tr>
       `;
     });
   });

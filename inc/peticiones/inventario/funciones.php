@@ -13,7 +13,7 @@ switch ($accion) {
         $resultado = todo_inventario();
         break;
     case "mostrarc":
-        $resultado = buscar_categoria();
+        $resultado = todo_categorias();
         break;
     case "buscar":
         $resultado = buscar_producto();

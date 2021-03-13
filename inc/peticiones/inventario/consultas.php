@@ -213,3 +213,28 @@ function eliminar_categoria(): array
     }
     mysqli_close($conexion);
 }
+
+function todo_categorias(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $sql = "select * from categorias;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id'] = $row['id_categoria'];
+            $usuarios[$i]['nombre_categoria'] = $row['nombre_categoria'];
+            $usuarios[$i]['estado'] = $row['estado'];
+            $usuarios[$i]['detalles'] = $row['detalles'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
