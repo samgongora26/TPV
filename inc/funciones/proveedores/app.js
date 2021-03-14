@@ -1,34 +1,33 @@
-const listado_clientes = document.querySelector("#contenido_tabla");
+const listado_proveedores = document.querySelector("#contenido_tabla");
 const modal = document.querySelector("#form-modal-edit");
 const btn_buscar = document.querySelector("#buscar");
 let id_necesario = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarServicios();
-  listado_clientes.addEventListener("click", eliminar_registro);
-  listado_clientes.addEventListener("click", obtener_datos_unitarios);
+  listado_proveedores.addEventListener("click", eliminar_registro);
+  listado_proveedores.addEventListener("click", obtener_datos_unitarios);
   modal.addEventListener("submit", editar_registro);
   btn_buscar.addEventListener("click", busqueda_especifica);
-
 });
 
 function busqueda_especifica(e) {
-  listado_clientes.innerHTML = "";
+  listado_proveedores.innerHTML = "";
   e.preventDefault();
   const texto_buscar = document.querySelector("#valor_busqueda").value;
 
- const datos = new FormData;
- datos.append("nombre", texto_buscar);
- datos.append("accion", "busqueda_filtro")
-  
- llamado(datos).then((res) => {
-  res.forEach((datos) => {
-    console.log(datos);
-    const { id, folio, nombre, direccion, telefono, rfc, razon } = datos;
+  const datos = new FormData();
+  datos.append("nombre", texto_buscar);
+  datos.append("accion", "busqueda_filtro");
 
-    const listado_clientes = document.querySelector("#contenido_tabla");
+  llamado(datos).then((res) => {
+    res.forEach((datos) => {
+      console.log(datos);
+      const { id, folio, nombre, direccion, telefono, rfc, razon } = datos;
 
-    listado_clientes.innerHTML += `  
+      const listado_proveedores = document.querySelector("#contenido_tabla");
+
+      listado_proveedores.innerHTML += `  
       <tr id="ver_registro_${id}">
           <th scope="row">${id}</th>
           <td>${folio}</td>
@@ -46,8 +45,8 @@ function busqueda_especifica(e) {
           <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
       </tr>
       `;
+    });
   });
-});
 }
 
 async function llamado(datos) {
@@ -66,7 +65,7 @@ async function llamado(datos) {
   }
 }
 
- function mostrarServicios() {
+function mostrarServicios() {
   const datos = new FormData();
   datos.append("accion", "mostrar");
 
@@ -75,9 +74,9 @@ async function llamado(datos) {
       console.log(datos);
       const { id, folio, nombre, direccion, telefono, rfc, razon } = datos;
 
-      const listado_clientes = document.querySelector("#contenido_tabla");
+      const listado_proveedores = document.querySelector("#contenido_tabla");
 
-      listado_clientes.innerHTML += `  
+      listado_proveedores.innerHTML += `  
         <tr id="ver_registro_${id}">
             <th scope="row">${id}</th>
             <td>${folio}</td>
@@ -141,7 +140,7 @@ function obtener_datos_unitarios(e) {
   }
 }
 
- function editar_registro(e) {
+function editar_registro(e) {
   e.preventDefault();
   const edit_clave = document.querySelector("#edit_clave").value;
   const edit_nombre = document.querySelector("#edit_nombre").value;

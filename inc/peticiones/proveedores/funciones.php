@@ -4,7 +4,7 @@ require 'consultas.php';
 
 switch ($accion) {
     case "registrar":
-        $resultado = registrar_usuarios();
+        $resultado = registrar_proveedor();
         break;
     case "mostrar":
         $resultado = todos_proveedores();

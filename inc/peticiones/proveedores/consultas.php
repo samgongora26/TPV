@@ -1,5 +1,5 @@
 <?php
-function registrar_usuarios(): array
+function registrar_proveedor(): array
 {           //recibe los datos correctamente
     try {
         require '../../../conexion.php';
@@ -135,33 +135,34 @@ function actualizar_proveedor(): array
     mysqli_close($conexion);
 }
 
-function filtrado_nombres() :array{
- try {
-    require '../../../conexion.php';
+function filtrado_nombres(): array
+{
+    try {
+        require '../../../conexion.php';
 
-    $nombre = $_POST['nombre'];
+        $nombre = $_POST['nombre'];
 
-    $sql = "SELECT * FROM `proveedores` WHERE nombre LIKE '%$nombre%';";
-    $consulta = mysqli_query($conexion, $sql);
+        $sql = "SELECT * FROM `proveedores` WHERE nombre LIKE '%$nombre%';";
+        $consulta = mysqli_query($conexion, $sql);
 
-    $usuarios = [];
-    $i = 0;
-    while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
-        $usuarios[$i]['id'] = $row['id_proveedor'];
-        $usuarios[$i]['folio'] = $row['folio'];
-        $usuarios[$i]['nombre'] = $row['nombre'];
-        $usuarios[$i]['direccion'] = $row['direccion'];
-        $usuarios[$i]['telefono'] = $row['telefono'];
-        $usuarios[$i]['rfc'] = $row['rfc'];
-        $usuarios[$i]['razon'] = $row['razon_social'];
-        $i++;
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id'] = $row['id_proveedor'];
+            $usuarios[$i]['folio'] = $row['folio'];
+            $usuarios[$i]['nombre'] = $row['nombre'];
+            $usuarios[$i]['direccion'] = $row['direccion'];
+            $usuarios[$i]['telefono'] = $row['telefono'];
+            $usuarios[$i]['rfc'] = $row['rfc'];
+            $usuarios[$i]['razon'] = $row['razon_social'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+    } catch (\Throwable $th) {
+        $respuesta = array(
+            'error' => $th
+        );
+        return $respuesta;
     }
-    //var_dump($usuarios);
-    return $usuarios;
- } catch (\Throwable $th) {
-     $respuesta = array(
-        'error' => $th
-     );
-     return $respuesta;
- }
 }
