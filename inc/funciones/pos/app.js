@@ -2,6 +2,7 @@ const listado_productos = document.querySelector("#contenido_tabla");
 const texto_venta_actual = document.querySelector("#texto_venta_actual");
 const foto = document.querySelector("#actual_foto");
 const precio =document.querySelector("#actual_precio");
+const  r_total = document.querySelector("#monto_total");
 let array_inicial = [];
 let suma = 0;
 let id_venta_actual = 0;
@@ -21,6 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.keyCode === 13) {
       e.preventDefault();
       existente_codigo(e);
+    }
+  });
+  //sacar el cambio del cierre de venta
+  const r_recibo = document.querySelector("#monto_recibido").addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+   console.log("envio para el cambio");
+   const recibido = document.querySelector("#monto_recibido").value;
+   const monto = parseFloat(recibido);
+   const total = parseFloat(texto_total_compra.innerHTML);
+   const operacion = monto - total;
+   console.log(`total a pagar : ${total} y cantidad pagada ${recibido}, el resultado de esta operacion es ${operacion}`);
+   const r_cambio = document.querySelector("#monto_devuelto").value = operacion ;
+  console.log(operacion);
     }
   });
 });
@@ -118,6 +133,9 @@ function pintar(data) {
   `;
   suma = suma + parseFloat(precio_venta);
   texto_total_compra.innerHTML = suma;
+  //parte del modal
+  const r_id = document.querySelector("#modal_id").innerHTML =`Cobrar el ticket ${id_venta_actual}`;
+  const  r_total = document.querySelector("#monto_total").innerHTML =`Total : ${suma}`;
 }
 ///////////////////////////////////funciones de inicio ------------
 async function mostrar_ticket() {
@@ -167,6 +185,11 @@ function pintar_inicio(data) {
     texto_venta_actual.innerHTML = `id de la venta actual ${id_venta}`;
     id_venta_actual = id_venta;
   });
+
+  //escritura del modal
+  const r_id = document.querySelector("#modal_id").innerHTML =`Cobrar el ticket ${id_venta_actual}`;
+  const  r_total = document.querySelector("#monto_total").innerHTML =`Total : ${suma}`;
+
   texto_total_compra.innerHTML = suma; //muestra el total de la suma
 }
 //fin de seccion de busqueda inicial /////////////////////////////////////
@@ -197,7 +220,11 @@ function disminuir(id) {
   datos.append("accion", "disminuir");
   busqueda(datos).then((res) => mostrar_ticket());
 }
-
+function ver_cobro() {
+  const r_recibo = document.querySelector("#monto_recibido")
+  const r_cambio = document.querySelector("#monto_devuelto").value = "el cambio se muestra aqui";
+ // cobrar_productos();
+}
 function cobrar_productos() {
   const total = parseFloat(texto_total_compra.innerHTML);
   console.log(total);
@@ -211,6 +238,7 @@ function cobrar_productos() {
     listado_productos.innerHTML = ` <input type="hidden" value="${res.id}" id="identificador_venta_actual">`;
   });
  reinicio();
+ const r_id = document.querySelector("#modal_id").innerHTML =`Cobrar el ticket ${id_venta_actual}`;
  alert("se ha registrado el cobro correctamente");
 }
 
@@ -237,4 +265,6 @@ function reinicio() {
   suma = 0;
   texto_total_compra.innerHTML = "";
   listado_productos.innerHTML = "";
+  const  r_total = document.querySelector("#monto_total").innerHTML =` `;
+  const r_id = document.querySelector("#modal_id").innerHTML =``;
 }
