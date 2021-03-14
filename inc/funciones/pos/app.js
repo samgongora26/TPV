@@ -129,7 +129,11 @@ async function mostrar_ticket() {
 }
 
 function pintar_inicio(data) {
+  console.log("si entro");
+  console.log(data);
   let valor_int = 0;
+  texto_venta_actual.innerHTML = `id de la venta actual ${data[0].id_venta}`;
+  id_venta_actual = data[0].id_venta;
   data.forEach((datos) => {
     const {
       cantidad,
@@ -159,10 +163,9 @@ function pintar_inicio(data) {
     </tr>
     `;
     valor_int = parseFloat(importe);
+    suma = suma + valor_int; //suma cada importe
     texto_venta_actual.innerHTML = `id de la venta actual ${id_venta}`;
     id_venta_actual = id_venta;
-    
-    suma = suma + valor_int; //suma cada importe
   });
   texto_total_compra.innerHTML = suma; //muestra el total de la suma
 }
