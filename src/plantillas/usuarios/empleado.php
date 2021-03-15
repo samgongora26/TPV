@@ -46,8 +46,7 @@
             <div class="page-wrapper">
                 <div class="container-fluid">
                     <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                    <div class="container">
-                    <ol class="breadcrumb mb-2">
+                    <ol class="breadcrumb ">
                                     <li class="breadcrumb-item"><a href="empleados_ver.php">Empleados</a></li>
                                     <li class="breadcrumb-item active">Empleado...</li>
                                 </ol>
@@ -74,9 +73,6 @@
                                                
                                                 <p class="muted-text">Los usaurios no son modificables aqui. para cambiar los datos del usuario, <a href="usuarios_ver.php"> dar click aquí</a></p>
                                                 
-                                                
-                                                
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -89,8 +85,6 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Editar al empleado</h4>
-                                        <h6 class="card-subtitle">Rellena los campos para editar al empleado</h6>
-                                        <div class="mensaje" id="mensaje"></div>
                                         <form id="formulario" class="mt-4">
                                             <div class="form-group">
                                                 
@@ -108,7 +102,9 @@
                                                 </div>
                                                 
                                                 <div class="text-right mt-3">
-                                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                                    <button type="submit" class="btn btn-block btn-success">Guardar</button>
+                                                    <hr>
+                                                    <button type="submit" class="btn btn-block btn-danger"><label class="fa fa-trash"></label> Eliminar empleado</button>
                                                     <!--button type="reset" class="btn btn-dark">reiniciar formulario</button-->
                                                 </div>
                                             </div>
@@ -118,10 +114,6 @@
                             </div>
                             <!--Editar empleado /-->
                         </div>
-                                
-                            
-                        
-                    </div>
                 </div>
             </div>
             <!--FIN CONTENEDOR -->

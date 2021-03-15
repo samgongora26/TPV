@@ -47,31 +47,11 @@
             <div class="container-fluid">
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <!-- Input de Busqueda de preveedores -->
+                        <!-- TARJETA DE AGREGAR PRODUCTOS A LA COMPRA -->
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Datos de nueva compra</h4>
                                 <form class="mt-4" id="form_adquirir_compra">
-                                    <!--div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">Fecha</label>
-                                        </div>
-                                        <input id="fecha" name="fecha" type="date" class="form-control" value="2018-05-13">
-                                    </div-->
-
-                                    <!--div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">referencia</label>
-                                        </div>
-                                        <input id="referencia" name="referencia" type="text" class="form-control" placeholder="10101010101" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                        </div>
-                                    </div-->
-
-                                    <!--div class="input-group mb-3">
-                                        <textarea class="form-control" aria-label="With textarea" placeholder="notas"></textarea>
-                                    </div-->
-
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">Proveedor</label>
@@ -83,6 +63,20 @@
                                             <option value="3">apple</option>
                                         </select>
                                     </div>
+                                    <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Codigo del producto</label>
+                                                    <input type="text" class="form-control" placeholder="codigo">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Cantidad</label>
+                                                    <input type="number" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">Codigo Del Producto</label>
@@ -90,40 +84,7 @@
                                         <input id="codigo" name="codigo" type="text" class="form-control" placeholder="C10101010" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                     </div>
 
-                                    <div class="input-group mb-3">
-                                        <!--ul class="list-group">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">metodo de pago</label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect01">
-                                                <option selected>opciones</option>
-                                                <option value="1">efectivo</option>
-                                                <option value="2"> credito</option>
-                                                <option value="3">tarjeta de regalo</option>
-                                            </select>
-                                        </ul-->
-                                        <ul class="list-group mx-auto">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">cantidad</label>
-                                            </div>
-                                            <input id="cantidad" name="cantidad" type="text" class="form-control" aria-label="Username" placeholder="1" aria-describedby="basic-addon1">
-                                        </ul>
-                                        <ul class="list-group mx-auto">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>
-                                            </div>
-                                            <input id="monto" name="monto" type="text" class="form-control" aria-label="Username" placeholder="$" aria-describedby="basic-addon1">
-                                        </ul>
-                                        <ul class="list-group ">
-                                            <div class="input-group-prepend mx-auto ">
-                                                <label class="input-group-text bg-primary text-white" for="inputGroupSelect01">Por pagar:</label>
-                                            </div>
-                                            <input id="por_pagar" name="por_pagar" disabled type="text" class="form-control btn-rounded  bg-warning" aria-label="Username" aria-describedby="basic-addon1" value="$">
-                                        </ul>
-                                        <button type="submit" class="btn btn-success mx-auto"> Comprar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
-                                                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" /><path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" /></svg>
-                                        </button>
-                                    </div>
+                                    
                                     
                                 </form>
                             </div>
@@ -134,7 +95,7 @@
                    
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card-body bg-white">
-                            <h4 class="card-title">Productos comprados</h4>
+                            <h4 class="card-title">Detalle de la compra</h4>
                             <div class="card-text">
                                 <table class="table">
                                     <thead>
@@ -187,6 +148,26 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                        <div class="card-footer">
+                        <div class="input-group mb-3">
+                                        
+                                        <ul class="list-group mx-auto">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>
+                                            </div>
+                                            <input id="monto" name="monto" type="text" class="form-control" aria-label="Username" placeholder="$" aria-describedby="basic-addon1">
+                                        </ul>
+                                        <ul class="list-group ">
+                                            <div class="input-group-prepend mx-auto ">
+                                                <label class="input-group-text bg-primary text-white" for="inputGroupSelect01">Por pagar:</label>
+                                            </div>
+                                            <input id="por_pagar" name="por_pagar" disabled type="text" class="form-control btn-rounded  bg-warning" aria-label="Username" aria-describedby="basic-addon1" value="$">
+                                        </ul>
+                                        <button type="submit" class="btn btn-success mx-auto"> Comprar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                                                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" /><path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" /></svg>
+                                        </button>
+                                    </div>
                         </div>
                     </div> 
                 
