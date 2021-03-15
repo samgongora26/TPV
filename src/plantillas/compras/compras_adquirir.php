@@ -48,6 +48,7 @@
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <!-- TARJETA DE AGREGAR PRODUCTOS A LA COMPRA -->
+                        <!--prueba de github-->
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Agregar producto a la lista  </h4>
