@@ -1,4 +1,4 @@
-eventListeners();
+/*eventListeners();
 function eventListeners() {
   document
     .querySelector("#formulario")
@@ -13,7 +13,7 @@ function obtener_datos(e) {
 
   //si recibe correctamente todos los datos
   /*console.log(clave,nombre,razon_social,direccion,telefono,rfc,
-    correo,pais,estado,ciudad,datelle);*/
+    correo,pais,estado,ciudad,datelle);
 
   const datos = new FormData(); //encapsulamiento de los datos para envio
   datos.append("proveedor", proveedor);
@@ -43,5 +43,5 @@ async function enviar_async(cliente) {
     console.log(error);
   }
 }
-
+*/
 //obtener_datos();

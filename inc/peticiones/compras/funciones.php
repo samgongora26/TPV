@@ -9,8 +9,8 @@ switch ($accion) {
     case "mostrar":
         $resultado = todos_proveedores();
         break;
-    case "buscar":
-        $resultado =buscar_proveedor();
+    case "select_proveedores":
+        $resultado =select_proveedores();
         break;
     case "eliminar":
         $resultado =eliminar_proveedor();

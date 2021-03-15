@@ -57,23 +57,28 @@ function todos_proveedores(): array
     mysqli_close($conexion);
 }
 
-function buscar_proveedor(): array
+function select_proveedores(): array
 {
     try {
         require '../../../conexion.php';
 
-        $id = $_POST['id'];
-        $sql = " select * from proveedores where id_proveedor=$id;";
+        $sql = "SELECT `id_proveedor`,`nombre` FROM `proveedores` WHERE `estado_proveedor` = 1 ";
         $consulta = mysqli_query($conexion, $sql);
-
-        $row = mysqli_fetch_assoc($consulta); //recibir el resultado de la consulta cuando solo es 1
-
-        return $row;
+        $proveedores = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $proveedores[$i]['id_proveedor'] = $row['id_proveedor'];
+            $proveedores[$i]['nombre'] = $row['nombre'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $proveedores;
     } catch (\Throwable $th) {
         var_dump($th);
     }
     mysqli_close($conexion);
 }
+
 
 function eliminar_proveedor(): array
 {

@@ -50,40 +50,32 @@
                         <!-- TARJETA DE AGREGAR PRODUCTOS A LA COMPRA -->
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Datos de nueva compra</h4>
+                                <h4 class="card-title">Agregar producto a la lista  </h4>
                                 <form class="mt-4" id="form_adquirir_compra">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">Proveedor</label>
                                         </div>
-                                        <select class="custom-select" name="proveedor" id="proveedor">
-                                            <option selected>Choose...</option>
-                                            <option value="1">juan perez</option>
-                                            <option value="2"> pedrito</option>
-                                            <option value="3">apple</option>
+                                        <select class="custom-select" name="contenido_proveedores" id="contenido_proveedores">
+                                            <!--AQUI SON INSERTADOS LOS DATOS DE LOS PROVEEDORES-->
                                         </select>
                                     </div>
                                     <div class="row">
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label>Codigo del producto</label>
-                                                    <input type="text" class="form-control" placeholder="codigo">
+                                                    <input type="text" id="codigo" class="form-control" placeholder="codigo">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Cantidad</label>
-                                                    <input type="number" class="form-control" placeholder="">
+                                                    <input type="number" id="cantidad" class="form-control" placeholder="">
                                                 </div>
                                             </div>
-                                        </div>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">Codigo Del Producto</label>
-                                        </div>
-                                        <input id="codigo" name="codigo" type="text" class="form-control" placeholder="C10101010" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                     </div>
-
+                                    <button class="btn btn-success btn-block"> Agregar a la lista
+                                    </button>
                                     
                                     
                                 </form>
@@ -111,7 +103,7 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="contenido_tabla">
                                         <tr>
                                             <th scope="row">computadora</th>
                                             <td>10</td>
@@ -123,28 +115,7 @@
                                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" /></svg></button>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">computadora</th>
-                                            <td>10</td>
-                                            <td>2</td>
-                                            <td>1000</td>
-                                            <td>1500</td>
-                                            <td>2000</td>
-                                            <td><button type="button" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" /></svg></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">computadora</th>
-                                            <td>10</td>
-                                            <td>2</td>
-                                            <td>1000</td>
-                                            <td>1500</td>
-                                            <td>2000</td>
-                                            <td><button type="button" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" /></svg></button>
-                                            </td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -182,6 +153,7 @@
         <?php
             include '../../../componentes/scripts.php';
         ?>
+            <script src="../../../inc/funciones/compras/app.js"></script>
             <script src="../../../inc/funciones/compras/compras_adquirir.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>
