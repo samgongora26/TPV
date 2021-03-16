@@ -50,31 +50,28 @@
                         <div class="col-sm-11 col-md-11 col-lg-11">
 
 
-                            <!-- Input de Crear Nuevo producto -->
+                            <!-- Input de Crear Nueva marca -->
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Agregar Nueva Categoria</h4>
-                                    <h6 class="card-subtitle">Rellena los campos para agregar una nueva categoria</h6>
-                                    <form id="formulario_agregar_categoria" class="mt-4">
+                                    <h4 class="card-title">Agregar Nueva Marca</h4>
+                                    <h6 class="card-subtitle">Rellena los campos para agregar una nueva marca</h6>
+                                    <form id="formulario_agregar_marca" class="mt-4">
                                         <div class="form-group">
-                                            <!--<label>Imagen</label>
-                                            <input id="imagen" name="imagen" type="file" class="form-control">-->
-                                            <label>Nombre Categoria:</label>
-                                            <input id="nombre_categoria" name="nombre_categoria" type="text" class="form-control" required>
+                                            <label>Imagen</label>
+                                            <input id="imagen" name="imagen" type="file" class="form-control">
+                                            <label>Nombre Marca:</label>
+                                            <input id="nombre_marca" name="nombre_categoria" type="text" class="form-control" required>
 
 
                                                 <div class="form-group mb-4">
-                                                    <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
-                                                    <select id="select_estado_c"  class="custom-select mr-sm-2" onchange="show_estado_c();" required>
-                                                        <option selected value="0">Inactivo</option>
-                                                        <option value="1">Activo</option>
+                                                    <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
+                                                    <select id="select_categoria"  class="custom-select mr-sm-2" onchange="show_categoria();" required>
+                                                        <option selected value="1">Cat 1</option>
+                                                        <option value="2">Cat 2</option>
                                                     </select>
                                                 </div>
                                             <br>
-                                            <h4 class="card-title">Detalles</h4>
-                                                <div class="form-group">
-                                                    <textarea id="detalles" name="detalles" class="form-control" rows="3" placeholder="Detalles del producto..."></textarea>
-                                                </div>
+                                           
                                             <div class="text-right">
                                                 <button type="submit" class="btn btn-info">Guardar</button>
                                                 <button type="reset" class="btn btn-dark">Reiniciar valores</button>
@@ -83,7 +80,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <!-- Fin Input de Crear Nuevo producto -->
+                            <!-- Fin Input de Crear Nueva marca -->
 
 
                         </div>
@@ -107,7 +104,7 @@
     <?php
     include '../../../componentes/scripts.php';
     ?>
-    <script src="../../../inc/funciones/inventario/categoria_agregar.js"></script>
+    <script src="../../../inc/funciones/inventario/marca_agregar.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 
