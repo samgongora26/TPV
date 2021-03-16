@@ -11,16 +11,13 @@ function mostrarServicios(){
   select_proveedores();
 
   //llenado de la tabla
-  //mostrar_empleados();
+  mostrar_detalle();
   
 }
 
 //---------SELECT DE USUARIOS----------
 async function select_proveedores() {
   const datos = new FormData();
-  const usuario = document.querySelector("#usuario").value;
-
-  datos.append("usuario", usuario);
   datos.append("accion", "select_proveedores");
 
   try {
@@ -48,6 +45,9 @@ async function select_proveedores() {
 //------LLENADO DE LA TABLA
 async function mostrar_detalle() {
   const datos = new FormData();
+  const usuario = document.querySelector("#usuario").value;
+
+  datos.append("usuario", usuario);
   datos.append("accion", "mostrar_detalle");
 
   try {
@@ -59,22 +59,21 @@ async function mostrar_detalle() {
     const db = await resultado.json();
     db.forEach((servicio) => {
       //console.log(servicio);
-      const {id_producto, producto,stock, cantidad, precio_venta, importe, fotografia,total} = servicio;
+      const {foto, id_producto,nombre_producto, stock, cantidad, precio_venta, importe, id_detalle_pedido} = servicio;
 
       const listado_clientes = document.querySelector("#contenido_tabla");
       listado_clientes.innerHTML += `  
         <tr>
-            <td> <img src="../../assets/images/users/${fotografia}" alt="user" class="rounded-circle"
+            <td> <img src="../../assets/images/users/${foto}" alt="user" class="rounded-circle"
             width="40"> </td>
             <td scope="row">${id_producto}</td>
-            <td scope="row">${producto}</td>
+            <td scope="row">${nombre_producto}</td>
             <td scope="row">${stock}</td>
             <td>${cantidad} </td>  
             <td>${precio_venta} </td>  
             <td>${importe} </td>  
             <td>
-                <button type="button" class="btn editar" data-usuario="${id_empleado}" data-toggle="modal" data-target="#edit-modal${id_empleado}"> <i  class="fas fa-edit"></i></button>
-                <button type="button" class="btn eliminar" data-usuario="${id_empleado}"><i class="fas fa-trash"></i></button>
+                <button type="button" class="btn eliminar" data-usuario="${id_detalle_pedido}"><i class="fas fa-trash"></i></button>
             </td>      
         </tr>
         `;
@@ -88,13 +87,13 @@ async function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
     idEliminar = Number(e.target.dataset.usuario);
-    const confirmar = confirm('Deseas eliminar el puesto: '+idEliminar);
+    const confirmar = confirm('¿Deseas remover el producto?');
     if(confirmar){
       try {
         console.log(idEliminar);
         const datos = new FormData();
         datos.append("id", idEliminar);
-        datos.append("accion", "eliminar_puesto");
+        datos.append("accion", "remover_producto");
   
         const res = await fetch("../../../inc/peticiones/usuarios/funciones.php", {
           method: "POST",
@@ -108,7 +107,7 @@ async function eliminar_registro(e) {
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">×</span>
               </button>
-              <strong>El usuario ha sido eliminado exitosamente </strong>
+              <strong>El producto ha sido removido exitosamente </strong>
           </div>
           `;
           e.target.parentElement.parentElement.remove();
