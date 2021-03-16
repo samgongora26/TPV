@@ -27,7 +27,7 @@ async function obtener_cliente(id) {
   datos.append("accion", "buscar");
 
   try {
-    direccion = "../../../inc/peticiones/inventario/funciones.php";
+    direccion = "../../../inc/peticiones/proveedores/funciones.php";
     const peticion = await fetch(direccion, {
       method: "POST",
       body: datos,
