@@ -11,7 +11,7 @@ function mostrarServicios(){
   select_proveedores();
 
   //llenado de la tabla
-  //mostrar_empleados();
+  mostrar_detalle();
   
 }
 
@@ -33,7 +33,6 @@ async function select_proveedores() {
       const { id_proveedor, nombre} = servicio;
 
       const select_p = document.querySelector("#contenido_proveedores");
-
       select_p.innerHTML += `  
       <option value="${id_proveedor}"> ${nombre}</option>
         `;
@@ -44,12 +43,15 @@ async function select_proveedores() {
 }
 
 //------LLENADO DE LA TABLA
-async function mostrar_empleados() {
+async function mostrar_detalle() {
   const datos = new FormData();
-  datos.append("accion", "mostrar_empleados");
+  const usuario = document.querySelector("#usuario").value;
+
+  datos.append("usuario", usuario);
+  datos.append("accion", "mostrar_detalle");
 
   try {
-    const URL = "../../../inc/peticiones/usuarios/funciones.php";
+    const URL = "../../../inc/peticiones/compras/funciones.php";
     const resultado = await fetch(URL, {
       method: "POST",
       body: datos,
@@ -57,61 +59,23 @@ async function mostrar_empleados() {
     const db = await resultado.json();
     db.forEach((servicio) => {
       //console.log(servicio);
-      const {id_empleado,fotografia, usuario, nombre_horario, nombre_puesto} = servicio;
+      const {foto, id_producto,nombre_producto, stock, cantidad, precio_venta, importe, id_detalle_pedido} = servicio;
 
       const listado_clientes = document.querySelector("#contenido_tabla");
-
       listado_clientes.innerHTML += `  
         <tr>
-            <td> <img src="../../assets/images/users/${fotografia}" alt="user" class="rounded-circle"
+            <td> <img src="../../assets/images/users/${foto}" alt="user" class="rounded-circle"
             width="40"> </td>
-            <td scope="row">${id_empleado}</td>
-            <td scope="row">${usuario}</td>
-            <td>${nombre_puesto} </td>  
-            <td>${nombre_horario} </td>  
+            <td scope="row">${id_producto}</td>
+            <td scope="row">${nombre_producto}</td>
+            <td scope="row">${stock}</td>
+            <td>${cantidad} </td>  
+            <td>${precio_venta} </td>  
+            <td>${importe} </td>  
             <td>
-                <button type="button" class="btn editar" data-usuario="${id_empleado}" data-toggle="modal" data-target="#edit-modal${id_empleado}"> <i  class="fas fa-edit"></i></button>
-                <button type="button" class="btn eliminar" data-usuario="${id_empleado}"><i class="fas fa-trash"></i></button>
+                <button type="button" class="btn eliminar" data-usuario="${id_detalle_pedido}"><i class="fas fa-trash"></i></button>
             </td>      
         </tr>
-        <!-- Modal editar -->
-        <div id="edit-modal${id_empleado}" class="modal fade" tabindex="${id_empleado}" role="dialog"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <h4 class="mt-3 mx-auto"> Editar el empleado <strong>${usuario}</strong> </h4>
-                    
-                    <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                        <form class="pl-3 pr-3" action="#" id="form-modal-edit" name="for-modal-edit">
-                          
-                          <p>ID: ${id_empleado}</p>
-                          <label>Titulo del horario</label>
-                          <div class="form-group mb-4">
-                                                    <label for="exampleFormControlSelect1">Puesto</label>
-                                                    <select class="form-control" id="contenido_puesto">
-                                                        <!--AQUI SE INSERTAN LOS DATOS DEL SELECT DE PUESTOS-->
-                                                    </select>
-                                                </div>
-                                                <div class="form-group mb-4">
-                                                    <label for="exampleFormControlSelect1">Horario de trabajo</label>
-                                                    <select class="form-control" id="contenido_horario">
-                                                        <!--AQUE SE INSERTAN LOS DATOS DEL SELECT DE HORARIOS-->
-                                                    </select>
-                                                </div>
-                          
-                          <div class="text-right mt-3">
-                              <button type="submit" onclick="editar_horario(${id_empleado})" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Guardar</button>
-                              <button type="reset" class="btn btn-dark" data-dismiss="modal" aria-hidden="true"> Cancelar</button>
-                          </div>
-
-                        </form>
-
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div>
-        <!-- Fin modal editar -->
         `;
     });
   } catch (error) {
@@ -123,15 +87,15 @@ async function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
     idEliminar = Number(e.target.dataset.usuario);
-    const confirmar = confirm('Deseas eliminar el puesto: '+idEliminar);
+    const confirmar = confirm('¿Deseas remover el producto? ');
     if(confirmar){
       try {
         console.log(idEliminar);
         const datos = new FormData();
         datos.append("id", idEliminar);
-        datos.append("accion", "eliminar_puesto");
+        datos.append("accion", "remover_producto");
   
-        const res = await fetch("../../../inc/peticiones/usuarios/funciones.php", {
+        const res = await fetch("../../../inc/peticiones/compras/funciones.php", {
           method: "POST",
           body: datos,
         });
@@ -143,7 +107,7 @@ async function eliminar_registro(e) {
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">×</span>
               </button>
-              <strong>El usuario ha sido eliminado exitosamente </strong>
+              <strong>El producto ha sido removido exitosamente </strong>
           </div>
           `;
           e.target.parentElement.parentElement.remove();

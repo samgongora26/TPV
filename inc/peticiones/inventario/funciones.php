@@ -9,11 +9,17 @@ switch ($accion) {
     case "registrarc":
         $resultado = registrar_categoria();
         break;
+    case "registrarm":
+        $resultado = registrar_marca();
+        break;
     case "mostrar":
         $resultado = todo_inventario();
         break;
     case "mostrarc":
         $resultado = todo_categorias();
+        break;
+    case "mostrarm":
+        $resultado = todo_marcas();
         break;
     case "buscar":
         $resultado = buscar_producto();
@@ -21,11 +27,17 @@ switch ($accion) {
     case "buscarc":
         $resultado = buscar_categoria();
         break;
+    case "buscarm":
+        $resultado = buscar_marca();
+        break;
     case "eliminar":
         $resultado = eliminar_producto();
         break;
     case "eliminarc":
         $resultado = eliminar_categoria();
+        break;
+    case "eliminarm":
+        $resultado = eliminar_marca();
         break;
     case "actualizar":
         $resultado = actualizar_producto();
@@ -33,7 +45,18 @@ switch ($accion) {
     case 'actualizarc':
         $resultado = actualizar_categoria();
         break;
-    
+    case "actualizarm":
+        $resultado = actualizar_marca();
+        break;
+    case "filtro":
+        $resultado = filtro_productos();
+        break;
+    case "filtrom":
+        $resultado = filtro_marcas();
+        break;
+    case "filtroc":
+        $resultado = filtro_categorias();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide 

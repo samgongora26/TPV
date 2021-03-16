@@ -262,3 +262,210 @@ function actualizar_producto(): array
     }
     mysqli_close($conexion);
 }
+
+function registrar_marca(): array
+{
+    
+    try {
+        require '../../../conexion.php';
+
+        
+        $nombre = $_POST['nombre'];
+        $categoria = $_POST['categoria'];
+
+        $sql =  "INSERT INTO marcas (id_categoria, nombre)
+        VALUES('$categoria','$nombre')";
+
+
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array( //envia los datos correctamente
+            'respuesta' => 'correcto',
+            //'id_ingresado' => mysqli_insert_id($conexion),
+            'nombre' => $nombre,
+            'id de categoria' => $categoria
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+    
+}
+
+function todo_marcas(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $sql = "select * from marcas;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id'] = $row['id_marcas'];
+            $usuarios[$i]['id_categoria'] = $row['id_categoria'];
+            $usuarios[$i]['nombre'] = $row['nombre'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function eliminar_marca(): array
+{
+    try {
+        require '../../../conexion.php';
+        
+        $id = $_POST['id'];
+        $sql = " DELETE FROM `marcas` WHERE `marcas`.`id_marcas`= $id";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'eliminado',
+            'id' => $id
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+
+function buscar_marca(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $id = $_POST['id'];
+        $sql = "SELECT * FROM marcas WHERE id_marcas = $id;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $row = mysqli_fetch_assoc($consulta); //recibir el resultado de la consulta cuando solo es 1
+
+        return $row;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function actualizar_marca(): array
+{
+    try {
+        require '../../../conexion.php';
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $categoria = $_POST['categoria'];
+
+              $sql = "UPDATE `marcas` SET `id_categoria` = '$categoria', `nombre` = '$nombre' WHERE `marcas`.`id_marcas` = $id;";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => 'correcto',
+            'id' => $id
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function filtro_productos(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $nombre = $_POST['nombre'];
+
+        $sql = "SELECT * FROM `productos_inventario` WHERE nombre_producto LIKE '%$nombre%';";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id'] = $row['id_producto'];
+            $usuarios[$i]['nombre'] = $row['nombre_producto'];
+            $usuarios[$i]['codigo'] = $row['codigo'];
+            $usuarios[$i]['precio_costo'] = $row['precio_costo'];
+            $usuarios[$i]['precio_venta'] = $row['precio_venta'];
+            $usuarios[$i]['stock'] = $row['cantidad_stock'];
+            $usuarios[$i]['marca'] = $row['id_marca'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+    } catch (\Throwable $th) {
+        $respuesta = array(
+            'error' => $th
+        );
+        return $respuesta;
+    }
+}
+
+function filtro_marcas(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $nombre = $_POST['nombre'];
+
+        $sql = "SELECT * FROM `marcas` WHERE nombre LIKE '%$nombre%';";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id'] = $row['id_marcas'];
+            $usuarios[$i]['id_categoria'] = $row['id_categoria'];
+            $usuarios[$i]['nombre'] = $row['nombre'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+    } catch (\Throwable $th) {
+        $respuesta = array(
+            'error' => $th
+        );
+        return $respuesta;
+    }
+}
+
+function filtro_categorias(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $nombre = $_POST['nombre'];
+
+        $sql = "SELECT * FROM `categorias` WHERE nombre_categoria LIKE '%$nombre%';";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id'] = $row['id_categoria'];
+            $usuarios[$i]['nombre_categoria'] = $row['nombre_categoria'];
+            $usuarios[$i]['estado'] = $row['estado'];
+            $usuarios[$i]['detalles'] = $row['detalles'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+    } catch (\Throwable $th) {
+        $respuesta = array(
+            'error' => $th
+        );
+        return $respuesta;
+    }
+}

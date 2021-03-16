@@ -44,6 +44,12 @@
                                 <li class="sidebar-item"><a href="../inventario/inventario_lista_categoria.php" class="sidebar-link"><span
                                             class="hide-menu"><i class="fas fa-list-alt"></i>Lista de Categorias</span></a>
                                 </li>
+                                <li class="sidebar-item"><a href="../inventario/inventario_agregar_marcas.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-cart-plus"></i>Agregar Marca</span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="../inventario/inventario_lista_marcas.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-list"></i>Lista de Marcas</span></a>
+                                </li>
                             </ul>
                         </li>
 

@@ -48,10 +48,12 @@
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <!-- TARJETA DE AGREGAR PRODUCTOS A LA COMPRA -->
+                        <!--prueba de github-->
                         <div class="card">
+                            <div id="mensaje"></div>
                             <div class="card-body">
                                 <h4 class="card-title">Agregar producto a la lista  </h4>
-                                <form class="mt-4" id="form_adquirir_compra">
+                                <form class="mt-4" id="formulario">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">Proveedor</label>
@@ -74,10 +76,8 @@
                                                 </div>
                                             </div>
                                     </div>
-                                    <button class="btn btn-success btn-block"> Agregar a la lista
-                                    </button>
-                                    
-                                    
+                                    <input type="text" id="usuario" value="<?php echo $usr["id_usuario"] ?>" hidden>
+                                    <button type="submit" class="btn btn-success btn-block"> Agregar a la lista</button>
                                 </form>
                             </div>
                         </div>
@@ -86,16 +86,18 @@
                 
                    
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="card-body bg-white">
+                        <div class="card-body bg-withe">
                             <h4 class="card-title">Detalle de la compra</h4>
                             <div class="card-text">
                                 <table class="table">
                                     <thead>
+                                        <div id="mensaje2"></div>
                                         <tr>
+                                            <th scope="col">foto</th>
+                                            <th scope="col">id</th>
                                             <th scope="col">producto</th>
                                             <th scope="col">stock</th>
                                             <th scope="col">cantidad</th>
-                                            <th scope="col">precio compra</th>
                                             <th scope="col">precio venta</th>
                                             <th scope="col">total compra</th>
                                             <th scope="col"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash2-fill" viewBox="0 0 16 16">
@@ -104,42 +106,43 @@
                                         </tr>
                                     </thead>
                                     <tbody id="contenido_tabla">
-                                        <tr>
+                                        <!--tr>
+                                            <td> <img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="40"> </td>
+                                            <th scope="row">1</th>
                                             <th scope="row">computadora</th>
                                             <td>10</td>
                                             <td>2</td>
                                             <td>1000</td>
-                                            <td>1500</td>
                                             <td>2000</td>
                                             <td><button type="button" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" /></svg></button>
                                             </td>
-                                        </tr>
-                                        
+                                        </tr-->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="card-footer">
-                        <div class="input-group mb-3">
-                                        
-                                        <ul class="list-group mx-auto">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>
-                                            </div>
-                                            <input id="monto" name="monto" type="text" class="form-control" aria-label="Username" placeholder="$" aria-describedby="basic-addon1">
-                                        </ul>
-                                        <ul class="list-group ">
-                                            <div class="input-group-prepend mx-auto ">
-                                                <label class="input-group-text bg-primary text-white" for="inputGroupSelect01">Por pagar:</label>
-                                            </div>
-                                            <input id="por_pagar" name="por_pagar" disabled type="text" class="form-control btn-rounded  bg-warning" aria-label="Username" aria-describedby="basic-addon1" value="$">
-                                        </ul>
-                                        <button type="submit" class="btn btn-success mx-auto"> Comprar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
-                                                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" /><path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" /></svg>
-                                        </button>
-                                    </div>
-                        </div>
+                        <div class="card-footer bg-lighr">
+                            <h5>Completar la compra</h5>
+                            <div class="input-group mb-3">
+                                            
+                                            <ul class="list-group mx-auto">
+                                                <div class="input-group-prepend">
+                                                    <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>
+                                                    <input id="monto" name="monto" type="text" class="form-control text-white bg-dark" aria-label="Username" placeholder="$" aria-describedby="basic-addon1">
+                                                </div>
+                                                
+                                            </ul>
+                                            <ul class="list-group ">
+                                                <div class="input-group-prepend mx-auto ">
+                                                    <label class="input-group-text" for="inputGroupSelect01">Por pagar:</label>
+                                                    <input id="por_pagar" name="por_pagar" disabled type="text" class="form-control  bg-dark text-white" aria-label="Username" aria-describedby="basic-addon1" value="$">
+                                                </div>
+                                                
+                                            </ul>
+                                            <button class="btn btn-sm btn-success mx-auto"> Comprar <label class="fa fa-check"></label></button>
+                                        </div>
+                            </div>
                     </div> 
                 
 
@@ -157,5 +160,5 @@
             <script src="../../../inc/funciones/compras/compras_adquirir.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>
-
+    
 </html>

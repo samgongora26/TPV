@@ -1,38 +1,37 @@
-const listado_categoria = document.querySelector("#contenido_tabla");
+const listado_marcas = document.querySelector("#contenido_tabla");
 const modal = document.querySelector("#form-modal-edit");
 const btn_buscar = document.querySelector("#buscar");
 let id_necesario = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarServicios();
-  listado_categoria.addEventListener("click", eliminar_registro);
-  listado_categoria.addEventListener("click", obtener_datos_unitarios);
+  listado_marcas.addEventListener("click", eliminar_registro);
+  listado_marcas.addEventListener("click", obtener_datos_unitarios);
   modal.addEventListener("submit", editar_registro);
   btn_buscar.addEventListener("click", busqueda_especifica);
 });
 
 function busqueda_especifica(e) {
-  listado_categoria.innerHTML = "";
+  listado_marcas.innerHTML = "";
   e.preventDefault();
   const texto_buscar = document.querySelector("#valor_busqueda").value;
 
   const datos = new FormData();
   datos.append("nombre", texto_buscar);
-  datos.append("accion", "filtroc");
+  datos.append("accion", "filtrom");
 
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const { id, nombre_categoria, estado, detalles} = datos;
+      const { id, id_categoria, nombre} = datos;
 
-      const listado_categoria = document.querySelector("#contenido_tabla");
+      const listado_marcas = document.querySelector("#contenido_tabla");
 
-      listado_categoria.innerHTML +=`
-          <tr id="ver_categorias_${id}">
+      listado_marcas.innerHTML +=`
+          <tr id="ver_marcas_${id}">
             <th scope="row">${id}</th>
-            <td>${nombre_categoria}</td>
-            <td>${estado}</td>
-            <td>${detalles}</td>
+            <td>${id_categoria}</td>
+            <td>${nombre}</td>
             <td>
                 <button type="button" class="btn btn-primary editar" data-toggle="modal"
                 data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
@@ -64,21 +63,20 @@ async function llamado(datos) {
 
  function mostrarServicios() {
   const datos = new FormData();
-  datos.append("accion", "mostrarc");
+  datos.append("accion", "mostrarm");
 
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const { id, nombre_categoria, estado, detalles} = datos;
+      const { id, id_categoria, nombre} = datos;
 
-      const listado_categoria = document.querySelector("#contenido_tabla");
+      const listado_marcas = document.querySelector("#contenido_tabla");
 
-      listado_categoria.innerHTML +=`
-          <tr id="ver_categorias_${id}">
+      listado_marcas.innerHTML +=`
+          <tr id="ver_marcas_${id}">
             <th scope="row">${id}</th>
-            <td>${nombre_categoria}</td>
-            <td>${estado}</td>
-            <td>${detalles}</td>
+            <td>${id_categoria}</td>
+            <td>${nombre}</td>
             <td>
                 <button type="button" class="btn btn-primary editar" data-toggle="modal"
                 data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
@@ -101,7 +99,7 @@ function eliminar_registro(e) {
       //  console.log(idEliminar);
       const datos = new FormData();
       datos.append("id", idEliminar);
-      datos.append("accion", "eliminarc");
+      datos.append("accion", "eliminarm");
       llamado(datos).then((res) =>
         e.target.parentElement.parentElement.remove()
       );
@@ -119,31 +117,27 @@ function obtener_datos_unitarios(e) {
     console.log(id_necesario);
     const datos = new FormData();
     datos.append("id", id_necesario);
-    datos.append("accion", "buscarc");
+    datos.append("accion", "buscarm");
     llamado(datos).then((res) => {
       console.log(res);
-      const edit_categoria = (document.querySelector("#edit_categoria").value =
-        res.nombre_categoria);
-      const edit_estado = (document.querySelector("#edit_estado").value =
-        res.estado);
-      const edit_detalles = (document.querySelector("#edit_detalles").value =
-        res.detalles);
+      const edit_marca = (document.querySelector("#edit_marca").value =
+        res.nombre);
+      const edit_estado = (document.querySelector("#edit_categoria").value =
+        res.id_categoria);
     });
   }
 }
 
  function editar_registro(e) {
   e.preventDefault();
+  const edit_marca = document.querySelector("#edit_marca").value;
   const edit_categoria = document.querySelector("#edit_categoria").value;
-  const edit_estado = document.querySelector("#edit_estado").value;
-  const edit_detalles = document.querySelector("#edit_detalles").value;
 
   const datos = new FormData();
   datos.append("id", id_necesario);
-  datos.append("nombre", edit_categoria);
-  datos.append("estado", edit_estado);
-  datos.append("detalles", edit_detalles);
-  datos.append("accion", "actualizarc");
+  datos.append("nombre", edit_marca);
+  datos.append("categoria", edit_categoria);
+  datos.append("accion", "actualizarm");
 
   /*const peticion = await llamado(datos);
   console.log(peticion);
@@ -152,22 +146,21 @@ function obtener_datos_unitarios(e) {
   llamado(datos).then((res) => {
     console.log(res);
     const registro_contenido = document.querySelector(
-      `#ver_categorias_${id_necesario}`
+      `#ver_marcas_${id_necesario}`
     );
 
     const { id, nombre_categoria, estado, detalles } = res;
     registro_contenido.innerHTML = `
     <th scope="row">${id}</th>
-      <td>${nombre_categoria}</td>
-      <td>${estado}</td>
-      <td>${detalles}</td>
-      <td>
-          <button type="button" class="btn btn-primary editar" data-toggle="modal"
-          data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
-      </td>
+        <td>${id_categoria}</td>
+        <td>${nombre}</td>
+        <td>
+            <button type="button" class="btn btn-primary editar" data-toggle="modal"
+            data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
+        </td>
     `;
     // console.log(registro_contenido);
   });
