@@ -30,8 +30,8 @@ function busqueda_especifica(e) {
       listado_marcas.innerHTML +=`
           <tr id="ver_marcas_${id}">
             <th scope="row">${id}</th>
-            <td>${id_categoria}</td>
             <td>${nombre}</td>
+            <td>${id_categoria}</td>
             <td>
                 <button type="button" class="btn btn-primary editar" data-toggle="modal"
                 data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
@@ -75,8 +75,8 @@ async function llamado(datos) {
       listado_marcas.innerHTML +=`
           <tr id="ver_marcas_${id}">
             <th scope="row">${id}</th>
-            <td>${id_categoria}</td>
             <td>${nombre}</td>
+            <td>${id_categoria}</td>
             <td>
                 <button type="button" class="btn btn-primary editar" data-toggle="modal"
                 data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
@@ -149,11 +149,11 @@ function obtener_datos_unitarios(e) {
       `#ver_marcas_${id_necesario}`
     );
 
-    const { id, nombre_categoria, estado, detalles } = res;
+    const { id, id_categoria, nombre } = res;
     registro_contenido.innerHTML = `
     <th scope="row">${id}</th>
-        <td>${id_categoria}</td>
         <td>${nombre}</td>
+        <td>${id_categoria}</td>
         <td>
             <button type="button" class="btn btn-primary editar" data-toggle="modal"
             data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
