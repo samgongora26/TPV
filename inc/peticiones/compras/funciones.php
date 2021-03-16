@@ -12,8 +12,8 @@ switch ($accion) {
     case "select_proveedores":
         $resultado =select_proveedores();
         break;
-    case "eliminar":
-        $resultado =eliminar_proveedor();
+    case "remover_producto":
+        $resultado =remover_producto();
         break;
 }
 

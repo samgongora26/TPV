@@ -87,7 +87,7 @@ async function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
     idEliminar = Number(e.target.dataset.usuario);
-    const confirmar = confirm('¿Deseas remover el producto?');
+    const confirmar = confirm('¿Deseas remover el producto? ');
     if(confirmar){
       try {
         console.log(idEliminar);
@@ -95,7 +95,7 @@ async function eliminar_registro(e) {
         datos.append("id", idEliminar);
         datos.append("accion", "remover_producto");
   
-        const res = await fetch("../../../inc/peticiones/usuarios/funciones.php", {
+        const res = await fetch("../../../inc/peticiones/compras/funciones.php", {
           method: "POST",
           body: datos,
         });

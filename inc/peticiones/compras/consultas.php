@@ -118,13 +118,13 @@ function select_proveedores(): array
 }
 
 
-function eliminar_proveedor(): array
+function remover_producto(): array
 {
     try {
         require '../../../conexion.php';
         
         $id = $_POST['id'];
-        $sql = " DELETE FROM `proveedores` WHERE `proveedores`.`id_proveedor`= $id";
+        $sql = "DELETE FROM `detalle_pedido` WHERE `id_detalle_pedido` = $id";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(

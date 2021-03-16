@@ -91,6 +91,7 @@
                             <div class="card-text">
                                 <table class="table">
                                     <thead>
+                                        <div id="mensaje2"></div>
                                         <tr>
                                             <th scope="col">foto</th>
                                             <th scope="col">id</th>
