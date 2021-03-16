@@ -29,10 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.keyCode === 13) {
       e.preventDefault();
    console.log("envio para el cambio");
+  
    const recibido = document.querySelector("#monto_recibido").value;
    const monto = parseFloat(recibido);
    const total = parseFloat(texto_total_compra.innerHTML);
    const operacion = monto - total;
+   if (operacion < 0) {
+    document.getElementById('cobrar').disabled=true;
+   }else{
+    document.getElementById('cobrar').disabled=false;
+   }
    console.log(`total a pagar : ${total} y cantidad pagada ${recibido}, el resultado de esta operacion es ${operacion}`);
    const r_cambio = document.querySelector("#monto_devuelto").value = operacion ;
   console.log(operacion);
