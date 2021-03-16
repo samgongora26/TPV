@@ -6,8 +6,8 @@ switch ($accion) {
     case "registrar":
         $resultado = registrar_compra();
         break;
-    case "mostrar":
-        $resultado = todos_proveedores();
+    case "mostrar_detalle":
+        $resultado = mostrar_detalle();
         break;
     case "select_proveedores":
         $resultado =select_proveedores();
