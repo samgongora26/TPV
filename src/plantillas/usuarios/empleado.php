@@ -46,25 +46,48 @@
             <div class="page-wrapper">
                 <div class="container-fluid">
                     <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                    <div class="container">
+                    <ol class="breadcrumb ">
+                                    <li class="breadcrumb-item"><a href="empleados_ver.php">Empleados</a></li>
+                                    <li class="breadcrumb-item active">Empleado...</li>
+                                </ol>
                         <div class="row">
+                            <!--Acerca del usuario-->
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Acerca del usuario</h5>
+                                        <div class="media">
+                                            <img class="align-self-start w-40 mr-3" src="../../assets/images/users/<?php echo $usr["fotografia"];?> " alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="mt-0"><strong>Nombre apellido</strong></h5>
+                                                <ul>
+                                                    <li><p><label class="fa fa-phone"></label> 1234567890</p></li>
+                                                    <li><p><label class="fa fa-envelope"></label> email@email.com</p></li>
+                                                    <li><p><label class="fa fa-user"></label> Admin</p></li>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="customCheck4" disabled="" checked="">
+                                                        <label class="custom-control-label" for="customCheck4">Activo</label>
+                                                    </div>
+                                                </ul>
+                                                <hr>
+                                               
+                                                <p class="muted-text">Los usaurios no son modificables aqui. para cambiar los datos del usuario, <a href="usuarios_ver.php"> dar click aquí</a></p>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!---Acerca del usuario--/-->
+                            <!--Editar empleado -->
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <!-- Input de Crear Nuevo Usuario -->
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Agregar Nuevo empleado</h4>
-                                        <h6 class="card-subtitle">Rellena los campos para crear un empleado</h6>
-                                        <div class="mensaje" id="mensaje"></div>
+                                        <h4 class="card-title">Editar al empleado</h4>
                                         <form id="formulario" class="mt-4">
                                             <div class="form-group">
-                                                <!--label>Clave Usuario</label>
-                                                <input id="clave" type="text" placeholder="Ingresa el numero clave del usuario" class="form-control"-->
-                                                <div class="form-group mb-4">
-                                                    <label for="exampleFormControlSelect1">Usuario</label>
-                                                    <select class="form-control" id="contenido_usuario" >
-                                                        <!--AQUI SE INSERTAN LOS DATOS DEL SELECT DE USUARIOS-->
-                                                    </select>
-                                                </div>
+                                                
                                                 <div class="form-group mb-4">
                                                     <label for="exampleFormControlSelect1">Puesto</label>
                                                     <select class="form-control" id="contenido_puesto">
@@ -79,7 +102,9 @@
                                                 </div>
                                                 
                                                 <div class="text-right mt-3">
-                                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                                    <button type="submit" class="btn btn-block btn-success">Guardar</button>
+                                                    <hr>
+                                                    <button type="submit" class="btn btn-block btn-danger"><label class="fa fa-trash"></label> Eliminar empleado</button>
                                                     <!--button type="reset" class="btn btn-dark">reiniciar formulario</button-->
                                                 </div>
                                             </div>
@@ -87,37 +112,8 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- Fin Input de Crear Nuevo Cliente -->
-                            <!--Tabla de usuarios-->
-                            <div class="col-8">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Empleados</h4>
-                                        <div id="mensaje2"></div>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Foto</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Usuario</th>
-                                                    <th scope="col">Puesto</th>
-                                                    <th scope="col">Horario</th>
-                                                    <th scope="col">Editar o eliminar</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="contenido_tabla">
-                                                <!--inyeccion de los datos -->
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Fin Tabla de Usuarios-->
+                            <!--Editar empleado /-->
                         </div>
-                    </div>
                 </div>
             </div>
             <!--FIN CONTENEDOR -->

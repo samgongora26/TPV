@@ -182,9 +182,9 @@
                                     <h4 class="mb-0 text-white">Venta</h4>
                                 </div>
                                 <div class="card-body text-center">
-                                    <h3 id="total_compra" class="card-title text-white"></h3>
-                                    <a id="cobrar" href="javascript:void(0)" class="btn btn-block btn-rounded btn-dark" data-toggle="modal" data-target="#warning-header-modal">Cobrar</a>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#warning-header-modal">Warning Header</button>
+                                    <h3 id="total_compra" class="card-title text-white"></h3><!--
+                                    <a id="" href="javascript:void(0)" class="btn btn-block btn-rounded btn-dark" data-toggle="modal" data-target="#warning-header-modal">Cobrar</a> -->
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#warning-header-modal">cobrar</button>
                                     <hr>
                                     <div class="float-right">
                                         <a id="eliminar" href="javascript:void(0)" class="btn btn-sm btn-rounded btn-danger">Eliminar</a>
@@ -199,26 +199,26 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header modal-colored-header bg-success">
-                                                <h4 class="modal-title" id="warning-header-modalLabel">Cobrar el ticket 1
+                                                <h4 class="modal-title" id="modal_id">Cobrar el ticket 1
                                                 </h4>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-hidden="true">×</button>
                                             </div>
                                             <div class="modal-body">
-                                                <h3 class="mx-auto">TOTAL: $500</h3>
+                                                <h3 id="monto_total" class="mx-auto">TOTAL: $500</h3>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="nametext" aria-describedby="name" placeholder="Name" value="$500">
+                                                    <input type="text" class="form-control" id="monto_recibido" aria-describedby="name" placeholder="Name">
                                                     <small id="name" class="form-text text-muted">Monto</small>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="nametext" aria-describedby="name" placeholder="Name" disabled value="$100">
+                                                    <input type="text" class="form-control" id="monto_devuelto" aria-describedby="name" placeholder="Name" disabled>
                                                     <small id="name" class="form-text text-muted">Cambio</small>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
+                                            <div class="modal-footer"> 
                                                 <button type="button" class="btn btn-light"
                                                     data-dismiss="modal">Cancelar</button>
-                                                <button type="button" class="btn btn-success">Cobrar</button>
+                                                <button id="cobrar" type="button" class="btn btn-success" disabled>Cobrar</button>
                                             </div>
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->

@@ -56,13 +56,13 @@
                             <h6 class="card-subtitle">Ingresa Codigo de Barras o Nombre del Producto</h6>
                             <form class="mt-4">
                                 <div class="form-group">
-                                    <label>Codigo de Barras</label>
-                                    <input type="text"  class="form-control">
+                                    <!--<label>Codigo de Barras</label>
+                                    <input type="text"  class="form-control">-->
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control">
+                                    <input id="valor_busqueda" type="text" class="form-control">
                                 </div>
                                 <div class="text-right">
-                                    <button type="submit" class="btn btn-info">Buscar</button>
+                                    <button id="buscar" type="button" class="btn btn-info">Buscar</button>
                                 </div>
                             </form>
                         </div>
