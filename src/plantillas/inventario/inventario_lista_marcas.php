@@ -56,14 +56,14 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Buscar Marcas</h4>
-                            <h6 class="card-subtitle">Ingresa Nombre de la Marca</h6>
+                            <h6 class="card-subtitle">¿Qué marca buscas?</h6>
                             <form class="mt-4">
                                 <div class="form-group">
                                     <label>Nombre Marca</label>
-                                    <input type="text" class="form-control">
+                                    <input id="valor_busqueda" type="text" class="form-control">
                                 </div>
                                 <div class="text-right">
-                                    <button type="submit" class="btn btn-info">Buscar</button>
+                                    <button id="buscar" type="button" class="btn btn-info">Buscar</button>
                                 </div>
                             </form>
                         </div>

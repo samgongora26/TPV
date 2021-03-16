@@ -48,7 +48,15 @@ switch ($accion) {
     case "actualizarm":
         $resultado = actualizar_marca();
         break;
-    
+    case "filtro":
+        $resultado = filtro_productos();
+        break;
+    case "filtrom":
+        $resultado = filtro_marcas();
+        break;
+    case "filtroc":
+        $resultado = filtro_categorias();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide 

@@ -1,13 +1,49 @@
 const listado_marcas = document.querySelector("#contenido_tabla");
 const modal = document.querySelector("#form-modal-edit");
+const btn_buscar = document.querySelector("#buscar");
 let id_necesario = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarServicios();
   listado_marcas.addEventListener("click", eliminar_registro);
   listado_marcas.addEventListener("click", obtener_datos_unitarios);
-  modal.addEventListener("click", editar_registro);
+  modal.addEventListener("submit", editar_registro);
+  btn_buscar.addEventListener("click", busqueda_especifica);
 });
+
+function busqueda_especifica(e) {
+  listado_marcas.innerHTML = "";
+  e.preventDefault();
+  const texto_buscar = document.querySelector("#valor_busqueda").value;
+
+  const datos = new FormData();
+  datos.append("nombre", texto_buscar);
+  datos.append("accion", "filtrom");
+
+  llamado(datos).then((res) => {
+    res.forEach((datos) => {
+      console.log(datos);
+      const { id, id_categoria, nombre} = datos;
+
+      const listado_marcas = document.querySelector("#contenido_tabla");
+
+      listado_marcas.innerHTML +=`
+          <tr id="ver_marcas_${id}">
+            <th scope="row">${id}</th>
+            <td>${id_categoria}</td>
+            <td>${nombre}</td>
+            <td>
+                <button type="button" class="btn btn-primary editar" data-toggle="modal"
+                data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
+            </td>
+          </tr>
+      `;
+    });
+  });
+}
 
 async function llamado(datos) {
   try {
@@ -35,8 +71,6 @@ async function llamado(datos) {
       const { id, id_categoria, nombre} = datos;
 
       const listado_marcas = document.querySelector("#contenido_tabla");
-
-
 
       listado_marcas.innerHTML +=`
           <tr id="ver_marcas_${id}">

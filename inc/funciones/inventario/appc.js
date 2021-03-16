@@ -1,13 +1,50 @@
 const listado_categoria = document.querySelector("#contenido_tabla");
 const modal = document.querySelector("#form-modal-edit");
+const btn_buscar = document.querySelector("#buscar");
 let id_necesario = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarServicios();
   listado_categoria.addEventListener("click", eliminar_registro);
   listado_categoria.addEventListener("click", obtener_datos_unitarios);
-  modal.addEventListener("click", editar_registro);
+  modal.addEventListener("submit", editar_registro);
+  btn_buscar.addEventListener("click", busqueda_especifica);
 });
+
+function busqueda_especifica(e) {
+  listado_categoria.innerHTML = "";
+  e.preventDefault();
+  const texto_buscar = document.querySelector("#valor_busqueda").value;
+
+  const datos = new FormData();
+  datos.append("nombre", texto_buscar);
+  datos.append("accion", "filtroc");
+
+  llamado(datos).then((res) => {
+    res.forEach((datos) => {
+      console.log(datos);
+      const { id, nombre_categoria, estado, detalles} = datos;
+
+      const listado_categoria = document.querySelector("#contenido_tabla");
+
+      listado_categoria.innerHTML +=`
+          <tr id="ver_categorias_${id}">
+            <th scope="row">${id}</th>
+            <td>${nombre_categoria}</td>
+            <td>${estado}</td>
+            <td>${detalles}</td>
+            <td>
+                <button type="button" class="btn btn-primary editar" data-toggle="modal"
+                data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
+            </td>
+          </tr>
+      `;
+    });
+  });
+}
 
 async function llamado(datos) {
   try {
@@ -35,8 +72,6 @@ async function llamado(datos) {
       const { id, nombre_categoria, estado, detalles} = datos;
 
       const listado_categoria = document.querySelector("#contenido_tabla");
-
-
 
       listado_categoria.innerHTML +=`
           <tr id="ver_categorias_${id}">
