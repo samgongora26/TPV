@@ -190,22 +190,22 @@
                                 <div class="form-group col-sm-5 col-md-5 col-lg-5">
                                     <h3 class="card-subtitle">Activos</h3>
                                     <label>Caja</label>
-                                    <input placeholder="Producto" type="text" class="form-control"><p></p>
+                                    <input placeholder="Producto" type="text" id="" class="form-control"><p></p>
                                     <label>Inventario</label>
-                                    <input placeholder="Nombre" type="text" class="form-control"><p></p>
+                                    <input placeholder="Nombre" type="text" id="" class="form-control"><p></p>
                                     <label>Clientes</label>
-                                    <input placeholder="Nombre" type="text" class="form-control"><p></p>
+                                    <input placeholder="Nombre" type="text" id="" class="form-control"><p></p>
                                     <label>Adeudos</label>
-                                    <input placeholder="Nombre" type="text" class="form-control"><p></p>
+                                    <input placeholder="Nombre" type="text" id="" class="form-control"><p></p>
                                     
                                 </div>
 
                                 <div class="form-group col-sm-5 col-md-5 col-lg-5">
                                 <h3 class="card-subtitle">Pasivos</h3>
                                     <label>Proveedores</label>
-                                    <input placeholder="Nombre" type="text" class="form-control"><p></p>
+                                    <input placeholder="Nombre" type="text" id="" class="form-control"><p></p>
                                     <label>Impuestos por pagar</label>
-                                    <input placeholder="Nombre" type="text" class="form-control"><p></p>
+                                    <input placeholder="Nombre" type="text" id="" class="form-control"><p></p>
                                 </div>
                             </div>
 

@@ -107,9 +107,10 @@
                                     <select class="custom-select mr-sm-2">
                                         <option selected value="1">2x1</option>
                                         <option value="2">3x2</option>
+                                        <option value="2">5%</option>
+                                        <option value="2">10%</option>
+                                        <option value="2">15%</option>
                                     </select><p></p>
-                                    <label>Porcentaje de descuento</label>
-                                    <input placeholder="%" type="text" class="form-control"><p></p>
                                     <label>Producto en Promocion</label>
                                     <input placeholder="Producto" type="text" class="form-control"><p></p>
                                     <label>Nombre de la Promocion</label>
@@ -131,9 +132,10 @@
                                     <select class="custom-select mr-sm-2">
                                         <option selected value="1">2x1</option>
                                         <option value="2">3x2</option>
+                                        <option value="2">5%</option>
+                                        <option value="2">10%</option>
+                                        <option value="2">15%</option>
                                     </select><p></p>
-                                    <label>Porcentaje de descuento</label>
-                                    <input placeholder="%" type="text" class="form-control"><p></p>
                                     <label>Nombre de la Promocion</label>
                                     <input placeholder="Nombre" type="text" class="form-control"><p></p>
                                 </div>
