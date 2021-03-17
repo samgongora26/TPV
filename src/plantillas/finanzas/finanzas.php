@@ -61,7 +61,7 @@
                                             <h4 class="text-center text-white">Ingreso Del Dia</h4>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="text-center text-white"> 00.0</h4>
+                                            <h4 class="text-center text-white">00.0</h4>
                                         </div>
                                     </div>
 
@@ -74,7 +74,7 @@
                                             <h4 class="text-center text-white">Ingreso Del Mes</h4>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="text-center text-white"> 00.0</h4>
+                                            <h4 class="text-center text-white">00.0</h4>
                                         </div>
                                     </div>
 
@@ -87,7 +87,35 @@
                                             <h4 class="text-center text-white">Ingresos Totales</h4>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="text-center text-white"> 00.0</h4>
+                                            <h4 class="text-center text-white">00.0</h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+
+                                    <div class="card text-white bg-success">
+                                        <div clas="card-header">
+                                        <p></p>
+                                            <h4 class="text-center text-white">Empleado con mas ventas</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4 class="text-center text-white">EMPLEADO</h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+
+                                    <div class="card text-white bg-success">
+                                        <div clas="card-header">
+                                        <p></p>
+                                            <h4 class="text-center text-white">Producto Mas Vendido</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4 class="text-center text-white">PRODUCTO</h4>
                                         </div>
                                     </div>
 
@@ -114,7 +142,7 @@
                                             <h4 class="text-center text-white">Adeudos con Proveedores</h4>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="text-center text-white"> 00.0</h4>
+                                            <h4 class="text-center text-white">00.0</h4>
                                         </div>
                                     </div>
 
@@ -124,10 +152,10 @@
                                     <div class="card text-white bg-success">
                                         <div clas="card-header">
                                             <p></p>
-                                            <h4 class="text-center text-white">Ingreso Del Mes</h4>
+                                            <h4 class="text-center text-white">Sueldos Por Pagar</h4>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="text-center text-white"> 00.0</h4>
+                                            <h4 class="text-center text-white">00.0</h4>
                                         </div>
                                     </div>
 
@@ -140,7 +168,7 @@
                                             <h4 class="text-center text-white">Ingresos Totales</h4>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="text-center text-white"> 00.0</h4>
+                                            <h4 class="text-center text-white">00.0</h4>
                                         </div>
                                     </div>
 
@@ -177,8 +205,6 @@
                                     <label>Proveedores</label>
                                     <input placeholder="Nombre" type="text" class="form-control"><p></p>
                                     <label>Impuestos por pagar</label>
-                                    <input placeholder="Nombre" type="text" class="form-control"><p></p>
-                                    <label>Nombre de la Promocion</label>
                                     <input placeholder="Nombre" type="text" class="form-control"><p></p>
                                 </div>
                             </div>

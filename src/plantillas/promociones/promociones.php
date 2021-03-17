@@ -105,10 +105,11 @@
                                 <div class="form-group mb-4">
                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Tipo de Promocion</label>
                                     <select class="custom-select mr-sm-2">
-                                        <option selected value="1">Categoria 1</option>
-                                        <option value="2">Categoria 2</option>
-                                        <option value="3">Categoria 3</option>
+                                        <option selected value="1">2x1</option>
+                                        <option value="2">3x2</option>
                                     </select><p></p>
+                                    <label>Porcentaje de descuento</label>
+                                    <input placeholder="%" type="text" class="form-control"><p></p>
                                     <label>Producto en Promocion</label>
                                     <input placeholder="Producto" type="text" class="form-control"><p></p>
                                     <label>Nombre de la Promocion</label>
@@ -128,12 +129,11 @@
                                 <div class="form-group mb-4">
                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Tipo de Promocion</label>
                                     <select class="custom-select mr-sm-2">
-                                        <option selected value="1">Categoria 1</option>
-                                        <option value="2">Categoria 2</option>
-                                        <option value="3">Categoria 3</option>
+                                        <option selected value="1">2x1</option>
+                                        <option value="2">3x2</option>
                                     </select><p></p>
-                                    <label>Producto en Promocion</label>
-                                    <input placeholder="Producto" type="text" class="form-control"><p></p>
+                                    <label>Porcentaje de descuento</label>
+                                    <input placeholder="%" type="text" class="form-control"><p></p>
                                     <label>Nombre de la Promocion</label>
                                     <input placeholder="Nombre" type="text" class="form-control"><p></p>
                                 </div>

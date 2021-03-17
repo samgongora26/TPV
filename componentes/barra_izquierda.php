@@ -14,7 +14,7 @@
                                     class="hide-menu">Ventas
                                 </span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../promociones/promociones.php"
                                 aria-expanded="false"><i class="fas fa-gift"></i><span
                                     class="hide-menu">Promociones</span></a></li>
 
@@ -124,7 +124,7 @@
                         </li>
 
                         
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../finanzas/finanzas.php"
                                 aria-expanded="false"><i class="fas fa-chart-line"></i><span
                                     class="hide-menu">Finanzas
                                 </span></a>
