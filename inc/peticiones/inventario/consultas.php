@@ -11,14 +11,14 @@ function registrar_producto(): array
         $precio = $_POST['precio'];
         $descripcion = $_POST['descripcion'];
         $estado = $_POST['estado'];
-        $categoria = $_POST['categoria'];
+        //$categoria = $_POST['categoria'];
         $costo = $_POST['costo'];
         $mayoreo = $_POST['mayoreo'];
         $stock = $_POST['stock'];
         $marca = $_POST['marca'];
 
-        $sql =  "INSERT INTO productos_inventario (nombre_producto, descripcion, codigo, precio_costo, precio_venta, precio_mayoreo, unidad, cantidad_stock, fecha_caducidad,  id_categoria, id_marca, estado)
-        VALUES('$nombre','$descripcion','$codigobarras', '$costo','$precio','$mayoreo', '$unidad','$stock', '$caducidad', '$categoria', '$marca','$estado')";
+        $sql =  "INSERT INTO productos_inventario (nombre_producto, descripcion, codigo, precio_costo, precio_venta, precio_mayoreo, unidad, cantidad_stock, fecha_caducidad, id_marca, estado)
+        VALUES('$nombre','$descripcion','$codigobarras', '$costo','$precio','$mayoreo', '$unidad','$stock', '$caducidad', '$marca','$estado')";
 
 
         $consulta = mysqli_query($conexion, $sql);
@@ -31,7 +31,6 @@ function registrar_producto(): array
             'descripcion' => $descripcion,
             'precio' => $precio,
             'unidad' => $unidad,
-            'categoria' => $categoria,
             'estado' => $estado,
             'costo' => $costo,
             'mayoreo' => $mayoreo,
@@ -366,7 +365,7 @@ function actualizar_marca(): array
         $nombre = $_POST['nombre'];
         $categoria = $_POST['categoria'];
 
-              $sql = "UPDATE `marcas` SET `id_categoria` = '$categoria', `nombre` = '$nombre' WHERE `marcas`.`id_marcas` = $id;";
+        $sql = "UPDATE `marcas` SET `id_categoria` = '$categoria', `nombre` = '$nombre' WHERE `marcas`.`id_marcas` = $id;";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
@@ -468,4 +467,80 @@ function filtro_categorias(): array
         );
         return $respuesta;
     }
+}
+
+
+
+
+function select_marca_productos():array
+{
+    try{
+        require '../../../conexion.php';
+
+        $sql= "SELECT `id_marcas`, `nombre`  FROM `marcas`;";
+        $consulta = mysqli_query($conexion, $sql);
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id'] = $row['id_marcas'];
+            $usuarios[$i]['nombre'] = $row['nombre'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+        
+    }catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+
+}
+
+
+function select_unidad_productos():array
+{
+    try{
+        require '../../../conexion.php';
+
+        $sql= "SELECT `id_unidad`, `nombre`  FROM `unidades`;";
+        $consulta = mysqli_query($conexion, $sql);
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id'] = $row['id_unidad'];
+            $usuarios[$i]['nombre'] = $row['nombre'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+        
+    }catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+
+}
+
+function select_categoria_marcas():array
+{
+    try{
+        require '../../../conexion.php';
+
+        $sql= "SELECT `id_categoria`, `nombre_categoria`  FROM `categorias`;";
+        $consulta = mysqli_query($conexion, $sql);
+        $usuarios = [];
+        $i = 0;
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $usuarios[$i]['id'] = $row['id_categoria'];
+            $usuarios[$i]['nombre'] = $row['nombre_categoria'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $usuarios;
+        
+    }catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+
 }

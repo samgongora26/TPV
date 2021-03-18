@@ -66,8 +66,8 @@
                                                 <div class="form-group mb-4">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
                                                     <select id="select_categoria"  class="custom-select mr-sm-2" onchange="show_categoria();" required>
-                                                        <option selected value="1">Cat 1</option>
-                                                        <option value="2">Cat 2</option>
+                                                        <option selected>Selecciona la categoria de la marca</option>
+                                                        <!--<option value="2">Cat 2</option>-->
                                                     </select>
                                                 </div>
                                             <br>

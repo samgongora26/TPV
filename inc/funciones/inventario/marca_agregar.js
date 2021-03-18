@@ -7,6 +7,12 @@ function eventListeners() {
     .querySelector("#formulario_agregar_marca")
     .addEventListener("submit", obtener_datos);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  select_cat();
+});
+
+
 function obtener_datos(e) {
   e.preventDefault();
   //const imagen = document.querySelector("#imagen").value;
@@ -21,9 +27,34 @@ function obtener_datos(e) {
   datos.append("accion", "registrarm");
 
   enviar_async(datos); //enviar a una funcion
+  alert('LA MARCA SE REGISTRÓ EXITOSAMENTE');
 }
 
+async function select_cat() {
+  const datos = new FormData();
+  datos.append("accion", "select_categoria");
 
+  try {
+    const URL = "../../../inc/peticiones/inventario/funciones.php";
+    const resultado = await fetch(URL, {
+      method: "POST",
+      body: datos,
+    });
+    const db = await resultado.json();
+    db.forEach((servicio) => {
+      //console.log(servicio);
+      const { id, nombre} = servicio;
+
+      const select_categoria = document.querySelector("#select_categoria");
+
+      select_categoria.innerHTML += `  
+      <option value="${id}"> ${nombre}</option>
+        `;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 
 async function enviar_async(cliente) {

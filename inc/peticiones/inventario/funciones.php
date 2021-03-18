@@ -57,6 +57,14 @@ switch ($accion) {
     case "filtroc":
         $resultado = filtro_categorias();
         break;
+    case "select_marca":
+        $resultado = select_marca_productos();
+        break;
+    case "select_unidad":
+        $resultado = select_unidad_productos();
+        break;
+    case "select_categoria":
+        $resultado = select_categoria_marcas();
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide 

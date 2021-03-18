@@ -24,6 +24,7 @@ function obtener_datos(e) {
   datos.append("accion", "registrarc");
 
   enviar_async(datos); //enviar a una funcion
+  alert('LA CATEGORIA SE REGISTRÓ EXITOSAMENTE');
 }
 
 

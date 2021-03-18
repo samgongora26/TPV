@@ -1,8 +1,8 @@
 //Variables globales
 let select_de_estado;
-let select_de_categoria;
 let select_de_unidad;
 let select_de_marca;
+//alert('heeey');
 
 eventListeners();
 function eventListeners() {
@@ -10,6 +10,66 @@ function eventListeners() {
     .querySelector("#formulario")
     .addEventListener("submit", obtener_datos);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  select_marca();
+  select_unidad();
+});
+
+async function select_marca() {
+  const datos = new FormData();
+  datos.append("accion", "select_marca");
+
+  try {
+    const URL = "../../../inc/peticiones/inventario/funciones.php";
+    const resultado = await fetch(URL, {
+      method: "POST",
+      body: datos,
+    });
+    const db = await resultado.json();
+    db.forEach((servicio) => {
+      //console.log(servicio);
+      const { id, nombre} = servicio;
+
+      const select_marca = document.querySelector("#select_marca");
+
+      select_marca.innerHTML += `  
+      <option value="${id}"> ${nombre}</option>
+        `;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function select_unidad() {
+  const datos = new FormData();
+  datos.append("accion", "select_unidad");
+
+  try {
+    const URL = "../../../inc/peticiones/inventario/funciones.php";
+    const resultado = await fetch(URL, {
+      method: "POST",
+      body: datos,
+    });
+    const db = await resultado.json();
+    db.forEach((servicio) => {
+      //console.log(servicio);
+      const { id, nombre} = servicio;
+
+      const select_unidad = document.querySelector("#select_unidad");
+
+      select_unidad.innerHTML += `  
+      <option value="${id}"> ${nombre}</option>
+        `;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
 function obtener_datos(e) {
   e.preventDefault();
   //const imagen = document.querySelector("#imagen").value;
@@ -32,7 +92,7 @@ function obtener_datos(e) {
   datos.append("descripcion", descripcion);
   datos.append("unidad", select_de_unidad);
   datos.append("estado", select_de_estado);
-  datos.append("categoria", select_de_categoria);
+  //datos.append("categoria", select_de_categoria);
   datos.append("costo", costo);
   datos.append("mayoreo", mayoreo);
   datos.append("caducidad", caducidad);
@@ -41,6 +101,7 @@ function obtener_datos(e) {
   datos.append("accion", "registrar");
 
   enviar_async(datos); //enviar a una funcion
+  alert('EL PRODUCTO FUE GUARDADO EXITOSAMENTE');
 }
 
 
@@ -105,22 +166,6 @@ function show_estado()
     //La_obtencion_de_periodos();
 }
 
-//CATEGORIA
-function show_categoria() 
-{
-    /* Para obtener el valor */
-    var cod = document.getElementById("select_categoria").value; 
-    /* Para obtener el texto */
-    var combo = document.getElementById("select_categoria");
-    var selected = combo.options[combo.selectedIndex].text;
-    texto_check_cat = cod; //resivo value
-    texto_nombre_cat = selected; //resivo texto
-
-    select_de_categoria = texto_check_cat; //Variable global
-    console.log(texto_check_cat);
-    console.log(texto_nombre_cat);
-    //La_obtencion_de_periodos();
-}
 
 //MARCA
 function show_marca() 
@@ -138,3 +183,4 @@ function show_marca()
     console.log(texto_nombre_marca);
     //La_obtencion_de_periodos();
 }
+
