@@ -80,7 +80,12 @@ $(function () {
 				label: "Gastos",
 				borderColor: "#5f76e8",
 				fill: false
-			}
+			}, { 
+				data: [,1645,5664,1121,3353,1256,1737,2086,1596,4214,7532,1453,1000,],
+				label: "Gastos",
+				borderColor: "#768bf4",
+				fill: false
+			  }
 			]
 		},
 		options: {
