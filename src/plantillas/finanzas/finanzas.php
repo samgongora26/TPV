@@ -46,166 +46,182 @@
         <div class="page-wrapper">
             <div class="container-fluid">
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                <!-- EMPIEZA RESUMEN -->
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Reportes y Finanzas</h4>
-
-                            <div class="row">
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="card text-white bg-success">
-                                        <div clas="card-header">
-                                        <p></p>
-                                            <h4 class="text-center text-white">Ingreso Del Dia</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="text-center text-white">00.0</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="card text-white bg-success">
-                                        <div clas="card-header">
-                                            <p></p>
-                                            <h4 class="text-center text-white">Ingreso Del Mes</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="text-center text-white">00.0</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="card text-white bg-success">
-                                        <div clas="card-header">
-                                        <p></p>
-                                            <h4 class="text-center text-white">Ingresos Totales</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="text-center text-white">00.0</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="card text-white bg-success">
-                                        <div clas="card-header">
-                                        <p></p>
-                                            <h4 class="text-center text-white">Empleado con mas ventas</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="text-center text-white">EMPLEADO</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="card text-white bg-success">
-                                        <div clas="card-header">
-                                        <p></p>
-                                            <h4 class="text-center text-white">Producto Mas Vendido</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="text-center text-white">PRODUCTO</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="card text-white bg-success">
-                                        <div clas="card-header">
-                                        <p></p>
-                                            <h4 class="text-center text-white">Adeudos con Proveedores</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="text-center text-white">00.0</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="card text-white bg-success">
-                                        <div clas="card-header">
-                                            <p></p>
-                                            <h4 class="text-center text-white">Cliente con mas compras</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="text-center text-white">NOMBRE DEL CLIENTE</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="card text-white bg-success">
-                                        <div clas="card-header">
-                                        <p></p>
-                                            <h4 class="text-center text-white">Numero de clientes al dia</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="text-center text-white">00</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="card text-white bg-success">
-                                        <div clas="card-header">
-                                        <p></p>
-                                            <h4 class="text-center text-white">Numero de clientes al mes</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="text-center text-white">00</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- TERMINA RESUMEN DE compras -->
-
 
                 <!-- EMPIEZA -->
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Balance General</h4>
+                            <h4 class="card-title">Reportes y Finanzas</h4>
+                            
                             <div class="row">
-                                <div class="form-group col-sm-5 col-md-5 col-lg-5">
-                                    <h3 class="card-subtitle">Activos</h3>
-                                    <label>Caja</label>
-                                    <input placeholder="Producto" type="text" id="" class="form-control"><p></p>
-                                    <label>Inventario</label>
-                                    <input placeholder="Nombre" type="text" id="" class="form-control"><p></p>
-                                    <label>Clientes</label>
-                                    <input placeholder="Nombre" type="text" id="" class="form-control"><p></p>
-                                    <label>Adeudos</label>
-                                    <input placeholder="Nombre" type="text" id="" class="form-control"><p></p>
-                                    
+                                
+                                <!-- tabla -->
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Empleados con más Ventas</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-success">
+                                                    <thead class="bg-success text-white">
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>First Name</th>
+                                                            <th>Last Name</th>
+                                                            <th>Ventas</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Nigam</td>
+                                                            <td>Eichmann</td>
+                                                            <td>58</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Deshmukh</td>
+                                                            <td>Prohaska</td>
+                                                            <td>39</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>Roshan</td>
+                                                            <td>Rogahn</td>
+                                                            <td>19</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="form-group col-sm-5 col-md-5 col-lg-5">
-                                <h3 class="card-subtitle">Pasivos</h3>
-                                    <label>Proveedores</label>
-                                    <input placeholder="Nombre" type="text" id="" class="form-control"><p></p>
-                                    <label>Impuestos por pagar</label>
-                                    <input placeholder="Nombre" type="text" id="" class="form-control"><p></p>
+                                <!-- tabla -->
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Cliente con más Compras</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-success">
+                                                    <thead class="bg-success text-white">
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>First Name</th>
+                                                            <th>Last Name</th>
+                                                            <th>Compras</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Nigam</td>
+                                                            <td>Eichmann</td>
+                                                            <td>58</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Deshmukh</td>
+                                                            <td>Prohaska</td>
+                                                            <td>39</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>Roshan</td>
+                                                            <td>Rogahn</td>
+                                                            <td>19</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-info">Obtener Balance</button>
-
-                            <div class="row">
+                                <!-- tabla -->
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Producto más Vendido</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-success">
+                                                    <thead class="bg-success text-white">
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>First Name</th>
+                                                            <th>Last Name</th>
+                                                            <th>Ventas</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Nigam</td>
+                                                            <td>Eichmann</td>
+                                                            <td>58</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Deshmukh</td>
+                                                            <td>Prohaska</td>
+                                                            <td>39</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>Roshan</td>
+                                                            <td>Rogahn</td>
+                                                            <td>19</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- tabla -->
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Adeudos con Proveedores</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-success">
+                                                    <thead class="bg-success text-white">
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>First Name</th>
+                                                            <th>Last Name</th>
+                                                            <th>Compras</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Nigam</td>
+                                                            <td>Eichmann</td>
+                                                            <td>58</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Deshmukh</td>
+                                                            <td>Prohaska</td>
+                                                            <td>39</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>Roshan</td>
+                                                            <td>Rogahn</td>
+                                                            <td>19</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- column -->
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
                                             <h4 class="card-title">No. de Clientes al Dia</h4>
                                             <div>
-                                                <canvas id="bar-chart" height="150"></canvas>
+                                                <canvas id="bar-chart" height="250"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -214,17 +230,37 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title">No. de Clientes</h4>
+                                            <h4 class="card-title">No. de Clientes al Mes</h4>
                                             <div>
-                                                <canvas id="bar-chart" height="150"></canvas>
+                                                <canvas id="bar-chart-1" height="250"></canvas>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- column -->
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Ganancias de Ventas</h4>
+                                            <div>
+                                                <canvas id="line-chart-1" height="250"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- column -->
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Gastos de Compras</h4>
+                                            <div>
+                                                <canvas id="line-chart-2" height="250"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-
-
-
 
                         </div>
                     </div>
@@ -241,6 +277,9 @@
     include '../../../componentes/scripts.php';
     ?>
     <!-- FIN DE SCRIPTS -->
+    <script src="chartjs.init.js"></script>
+    <script src="Chart.min.js"></script>
+
 </body>
 
 </html>
