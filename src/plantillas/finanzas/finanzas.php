@@ -46,15 +46,14 @@
         <div class="page-wrapper">
             <div class="container-fluid">
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                <!-- EMPIEZA RESUMEN DE VENTAS-->
+                <!-- EMPIEZA RESUMEN -->
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Resumen de ventas</h4>
+                            <h4 class="card-title">Reportes y Finanzas</h4>
 
                             <div class="row">
                                 <div class="col-sm-4 col-md-4 col-lg-4">
-
                                     <div class="card text-white bg-success">
                                         <div clas="card-header">
                                         <p></p>
@@ -64,10 +63,9 @@
                                             <h4 class="text-center text-white">00.0</h4>
                                         </div>
                                     </div>
-
                                 </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4">
 
+                                <div class="col-sm-4 col-md-4 col-lg-4">
                                     <div class="card text-white bg-success">
                                         <div clas="card-header">
                                             <p></p>
@@ -77,10 +75,9 @@
                                             <h4 class="text-center text-white">00.0</h4>
                                         </div>
                                     </div>
-
                                 </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4">
 
+                                <div class="col-sm-4 col-md-4 col-lg-4">
                                     <div class="card text-white bg-success">
                                         <div clas="card-header">
                                         <p></p>
@@ -90,11 +87,9 @@
                                             <h4 class="text-center text-white">00.0</h4>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="col-sm-4 col-md-4 col-lg-4">
-
                                     <div class="card text-white bg-success">
                                         <div clas="card-header">
                                         <p></p>
@@ -104,11 +99,9 @@
                                             <h4 class="text-center text-white">EMPLEADO</h4>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="col-sm-4 col-md-4 col-lg-4">
-
                                     <div class="card text-white bg-success">
                                         <div clas="card-header">
                                         <p></p>
@@ -118,24 +111,9 @@
                                             <h4 class="text-center text-white">PRODUCTO</h4>
                                         </div>
                                     </div>
-
                                 </div>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
-                <!-- TERMINA RESUMEN DE VENTAS -->
-
-                <!-- EMPIEZA RESUMEN DE compras-->
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h4 class="card-title">Resumen de compras</h4>
-                            <div class="row">
                                 <div class="col-sm-4 col-md-4 col-lg-4">
-
                                     <div class="card text-white bg-success">
                                         <div clas="card-header">
                                         <p></p>
@@ -145,36 +123,45 @@
                                             <h4 class="text-center text-white">00.0</h4>
                                         </div>
                                     </div>
-
                                 </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4">
 
+                                <div class="col-sm-4 col-md-4 col-lg-4">
                                     <div class="card text-white bg-success">
                                         <div clas="card-header">
                                             <p></p>
-                                            <h4 class="text-center text-white">Sueldos Por Pagar</h4>
+                                            <h4 class="text-center text-white">Cliente con mas compras</h4>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="text-center text-white">00.0</h4>
+                                            <h4 class="text-center text-white">NOMBRE DEL CLIENTE</h4>
                                         </div>
                                     </div>
-
                                 </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4">
 
+                                <div class="col-sm-4 col-md-4 col-lg-4">
                                     <div class="card text-white bg-success">
                                         <div clas="card-header">
                                         <p></p>
-                                            <h4 class="text-center text-white">Ingresos Totales</h4>
+                                            <h4 class="text-center text-white">Numero de clientes al dia</h4>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="text-center text-white">00.0</h4>
+                                            <h4 class="text-center text-white">00</h4>
                                         </div>
                                     </div>
-
                                 </div>
-                            </div>
 
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="card text-white bg-success">
+                                        <div clas="card-header">
+                                        <p></p>
+                                            <h4 class="text-center text-white">Numero de clientes al mes</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4 class="text-center text-white">00</h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -210,19 +197,41 @@
                             </div>
 
                             <button type="submit" class="btn btn-info">Obtener Balance</button>
+
+                            <div class="row">
+                                <!-- column -->
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">No. de Clientes al Dia</h4>
+                                            <div>
+                                                <canvas id="bar-chart" height="150"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- column -->
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">No. de Clientes</h4>
+                                            <div>
+                                                <canvas id="bar-chart" height="150"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
                         </div>
                     </div>
                 </div>
                 <!-- TERMINA -->
-
-
-
-
-
             </div>
         </div>
-
-
         <!--FIN CONTENEDOR -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     </div>
