@@ -10,7 +10,7 @@
     //echo $usr["fotografia"]
     //echo $usr["estado"]
 ?>
-
+<input id="id_usuario" type="hidden" value="<?php echo $usr["id_usuario"];?>">
 <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md">
                 <div class="navbar-header" data-logobg="skin6">

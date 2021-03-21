@@ -6,11 +6,11 @@ const  r_total = document.querySelector("#monto_total");
 let array_inicial = [];
 let suma = 0;
 let id_venta_actual = 0;
+const id_usuario = document.querySelector("#id_usuario").value;
 let texto_total_compra = document.querySelector("#total_compra");
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrar_ticket();
-
   document.querySelector("#formulario").addEventListener("click", existente_codigo);
   document.querySelector("#cobrar").addEventListener("click", cobrar_productos);
   document.querySelector("#eliminar").addEventListener("click", eliminar_ticket);
@@ -78,6 +78,7 @@ function buscar_producto(e) {
   if (codigo != "") {
     const datos = new FormData();
     datos.append("codigo", codigo);
+    datos.append("id_usuario", id_usuario);
     datos.append("accion", "registar_producto");
     console.log("entro a buscar los productos");
     busqueda(datos).then((res) => pintar(res));
@@ -147,7 +148,7 @@ function pintar(data) {
 async function mostrar_ticket() {
   reinicio();
   const datos = new FormData();
-  //datos.append("id_venta", 4 );
+  datos.append("id_usuario", id_usuario );
   datos.append("accion", "venta_actual");
   busqueda(datos).then((res) => pintar_inicio(res));
 }
