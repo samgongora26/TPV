@@ -95,6 +95,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <!-- tabla -->
                                 <div class="col-lg-6">
                                     <div class="card">
@@ -135,6 +136,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <!-- tabla -->
                                 <div class="col-lg-6">
                                     <div class="card">
@@ -175,6 +177,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <!-- tabla -->
                                 <div class="col-lg-6">
                                     <div class="card">
@@ -215,6 +218,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <!-- column -->
                                 <div class="col-lg-6">
                                     <div class="card">
@@ -226,6 +230,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <!-- column -->
                                 <div class="col-lg-6">
                                     <div class="card">
@@ -237,24 +242,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <!-- column -->
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title">Ganancias de Ventas</h4>
+                                            <h4 class="card-title">Ganancias y Gastos</h4>
                                             <div>
                                                 <canvas id="line-chart-1" height="250"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- column -->
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Gastos de Compras</h4>
-                                            <div>
-                                                <canvas id="line-chart-2" height="250"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -277,9 +272,6 @@
     include '../../../componentes/scripts.php';
     ?>
     <!-- FIN DE SCRIPTS -->
-    <script src="chartjs.init.js"></script>
-    <script src="Chart.min.js"></script>
-
 </body>
 
 </html>

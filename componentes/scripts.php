@@ -9,6 +9,8 @@
     <script src="../../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../../dist/js/custom.min.js"></script>
+    <script src="../../dist/js/pages/chartjs/chartjs.init.js"></script>
+    <script src="../../assets/libs/chart.js/dist/Chart.min.js"></script>
     <!--This page JavaScript -->
     <script src="../../assets/extra-libs/c3/d3.min.js"></script>
     <script src="../../assets/extra-libs/c3/c3.min.js"></script>
