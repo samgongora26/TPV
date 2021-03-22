@@ -5,14 +5,6 @@ function buscar_producto(): array
         require '../../../conexion.php';
 
         $codigo = $_POST['codigo'];
-        ////////////////////////////////////////////////////
-        $sql1 = "SELECT * FROM ventas ORDER BY id_venta DESC LIMIT 1;";
-        $consulta1 = mysqli_query($conexion, $sql1);
-
-        while ($row = mysqli_fetch_assoc($consulta1)) { //usar cuando se espera varios resultadosS
-            $id_venta = (int) $row['id_venta'];
-        }
-        ///////////////////////////////////////////////////////////////
 
         $sql = "select * from productos_inventario where codigo=$codigo;";
         $consulta = mysqli_query($conexion, $sql);
@@ -180,7 +172,7 @@ function disminuir(): array
 
 
 function cerrar_venta(): array
-{ {
+{ { //pendiente de eliminar si funciona correctamente registrar_venta();
         try {
             $total_venta = $_POST['total_venta'];
             require '../../../conexion.php';
@@ -262,6 +254,10 @@ function registrar_venta(): array
         require '../../../conexion.php';
 
         $id_venta = $_POST['id_venta'];
+        $total = $_POST['total_venta'];
+
+
+
         $stmt = $conexion->prepare("INSERT INTO detalle_venta (id_venta, id_producto, cantidad, importe) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("iiii", $venta, $producto, $cantidad, $importe);
         $contador = 0;
@@ -277,13 +273,15 @@ function registrar_venta(): array
                 $stmt->execute();
             }
         }
-
+        $sql = "update ventas set importe = $total where ventas.id_venta = $id_venta";
+        $consulta = mysqli_query($conexion, $sql);
         
         $sql = " INSERT INTO ventas (id_venta, id_cliente, id_empleado, importe) VALUES (NULL, '1', '1', '1');";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
             'respuesta' => "correcto",
+            'id' => mysqli_insert_id($conexion),
             'contador' => $contador
         );
         return $respuesta;

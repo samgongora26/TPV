@@ -62,7 +62,6 @@ function existente_codigo(e) {
   const itemEnCarritoIndex = carrito.findIndex(
     (producto) => producto.codigo === codigo
   );
-
   if (itemEnCarritoIndex >= 0) {
     incrementar(codigo);
   } else {
@@ -87,7 +86,6 @@ function buscar_producto(e) {
 }
 
 async function busqueda(datos) {
-  //enviar una petcion a php con un conjunto de datos
   try {
     const res = await fetch("../../../inc/peticiones/pos/funciones.php", {
       method: "POST",
@@ -113,44 +111,32 @@ function pintar(data) {
     id_insertado,
   } = data;
 
-  let importe_producto = parseInt(cantidad) * precio_venta;
-  producto = {
-    id: id_producto,
-    nombre,
-    codigo: codigo,
-    precio: precio_venta,
-    cantidad: parseInt(cantidad),
-    importe: importe_producto,
-  };
-  console.log(`se agrego un nuevo producto al carrito${producto}`);
-  carrito.push(producto);
-  foto.innerHTML = `nombre del codigo :${codigo}`;
-  precio.innerHTML = precio_venta;
+  if (!(id_producto === null)) {
+    let importe_producto = parseInt(cantidad) * precio_venta;
+    producto = {
+      id: id_producto,
+      nombre,
+      codigo: codigo,
+      precio_v: precio_venta,
+      cantidad: parseInt(cantidad),
+      importe: importe_producto,
+    };
+    console.log(`se agrego un nuevo producto al carrito${producto}`);
+    carrito.push(producto);
+    foto.innerHTML = `nombre del codigo :${codigo}`;
+    precio.innerHTML = precio_venta;
+    articulos_html();
 
-  listado_productos.innerHTML += `  
-  <tr>
-      <th scope="row">${cantidad}</th>
-      <td id="codigo">${codigo}</td>
-      <input type="hidden" value="${codigo}" id="codigo${id_insertado}">
-      <td>${descripcion}</td>
-      <td>${precio_venta}</td>
-      <td>0</td>
-      <td>${precio_venta}</td>
-      <td>
-      <button data-cliente="${codigo}" type="button" class="btn btn-sm btn-light disminuir"><i data-cliente="${codigo}" class="fa fa-minus disminuir"></i></button>
-      <button data-cliente="${codigo}" type="button" class="btn btn-sm btn-dark aumentar">  <i data-cliente="${codigo}" class="fa fa-plus aumentar"></i></button>  
-      </td>
-  </tr>
-  `;
-  suma = suma + parseFloat(precio_venta);
-  texto_total_compra.innerHTML = suma;
-  //parte del modal
-  const r_id = (document.querySelector(
-    "#modal_id"
-  ).innerHTML = `Cobrar el ticket ${id_venta_actual}`);
-  const r_total = (document.querySelector(
-    "#monto_total"
-  ).innerHTML = `Total : ${suma}`);
+    //parte del modal
+    const r_id = (document.querySelector(
+      "#modal_id"
+    ).innerHTML = `Cobrar el ticket ${id_venta_actual}`);
+    const r_total = (document.querySelector(
+      "#monto_total"
+    ).innerHTML = `Total : ${suma}`);
+  }else{
+    alert("no existe el producto");
+  }
 }
 ///////////////////////////////////funciones de inicio ------------
 async function mostrar_ticket() {
@@ -167,7 +153,7 @@ function pintar_inicio(data) {
   let valor_int = 0;
   texto_venta_actual.innerHTML = `id de la venta actual ${data[0].id_venta}`;
   id_venta_actual = data[0].id_venta;
-  
+
   data.forEach((datos) => {
     const {
       cantidad,
@@ -185,15 +171,18 @@ function pintar_inicio(data) {
       id: id_producto,
       nombre,
       codigo: codigo,
-      precio: precio_venta,
+      precio_v: precio_venta,
       cantidad: parseInt(cantidad),
       importe: importe_producto,
     };
     if (!(carrito.length === 0)) {
       console.log(`el ingreso de un nuevo producto al carrito${producto}`);
-      carrito.push(producto); 
+      carrito.push(producto);
+      articulos_html();
     }
+    articulos_html();
     //cont = cont +1;
+    /*
     listado_productos.innerHTML += `
     <tr>
         <th scope="row">${cantidad}</th>
@@ -208,7 +197,7 @@ function pintar_inicio(data) {
         <button data-cliente="${codigo}" type="button" class="btn btn-sm btn-dark aumentar">  <i data-cliente="${codigo}" class="fa fa-plus aumentar"></i></button>  
         </td>
     </tr>
-    `;
+    `;*/
     valor_int = parseFloat(importe);
     suma = suma + valor_int; //suma cada importe
     texto_venta_actual.innerHTML = `id de la venta actual ${id_venta}`;
@@ -230,51 +219,46 @@ function pintar_inicio(data) {
 function opciones(e) {
   if (e.target.classList.contains("aumentar")) {
     // console.log("entro a aumentar");
-    id = Number(e.target.dataset.cliente);
-    incrementar(id);
+    codigo = (e.target.dataset.cliente);
+    incrementar(codigo);
   }
   if (e.target.classList.contains("disminuir")) {
     // console.log("entro a disminuir");
-    id = Number(e.target.dataset.cliente);
-    disminuir(id);
+    codigo = (e.target.dataset.cliente);
+    disminuir(codigo);
   }
 }
 
 function incrementar(codigo) {
-  const datos = new FormData();
+ /* const datos = new FormData();
   datos.append("id", codigo);
   datos.append("accion", "aumentar");
-  console.log("desde de incrementar");
-  console.log(codigo);
-  let index;
+  console.log("desde de incrementar");*/
+
+  let index = 0;
   index = carrito.findIndex((producto) => producto.codigo === codigo);
   carrito[index].cantidad = carrito[index].cantidad + 1;
-
   let cantidad = carrito[index].cantidad;
-  let precio = parseInt(carrito[index].precio);
+  let precio = parseInt(carrito[index].precio_v);
   let total = cantidad * precio;
-  console.log(
-    `el precio es de: ${precio} y la cantidad es de ${cantidad} por lo que el total es: ${total}`
-  );
   carrito[index].importe = total;
+    articulos_html();
 
   // busqueda(datos).then((res) => mostrar_ticket());
-  //texto_total_compra.innerHTML = suma + res.precio_venta)
+  //texto_total_compra.innerHTML = suma + res.precio_v_venta)
 }
 function disminuir(codigo) {
-  const datos = new FormData();
+  /*const datos = new FormData();
   datos.append("id", codigo);
-  datos.append("accion", "disminuir");
-
+  datos.append("accion", "disminuir");*/
+let index = 0;
   index = carrito.findIndex((producto) => producto.codigo === codigo);
   carrito[index].cantidad = carrito[index].cantidad - 1;
   let cantidad = carrito[index].cantidad;
-  let precio = parseInt(carrito[index].precio);
+  let precio = parseInt(carrito[index].precio_v);
   let total = cantidad * precio;
-  console.log(
-    `el precio es de: ${precio} y la cantidad es de ${cantidad} por lo que el total es: ${total}`
-  );
   carrito[index].importe = total;
+  articulos_html();
 
   // busqueda(datos).then((res) => mostrar_ticket());
 }
@@ -303,10 +287,13 @@ function cobrar_productos() {
 
   datos.append("someData", array);
   datos.append("id_venta", id_venta_actual);
+  datos.append("total_venta", total);
   datos.append("accion", "registrar_venta");
   envio_array(datos).then((res) => {
     console.log("resultados del res");
     console.log(res);
+    texto_venta_actual.innerHTML = `id de la venta actual : ${res.id}`;
+    id_venta_actual = res.id;
   });
 
   reinicio();
@@ -355,4 +342,36 @@ async function envio_array(datos) {
   } catch (error) {
     console.log(error);
   }
+}
+
+
+function articulos_html(){
+  limpiar_html();
+  let suma = 0;
+  carrito.forEach( (articulo)=>{
+ const {id,nombre,codigo,cantidad,precio_v,importe} = articulo;
+ 
+ listado_productos.innerHTML += `  
+    <tr>
+        <th scope="row">${cantidad}</th>
+        <td id="codigo">${codigo}</td>
+        <input type="hidden" value="${codigo}" id="codigo${id}">
+        <td>${nombre}</td>
+        <td>${precio_v}</td>
+        <td>0</td>
+        <td>${importe}</td>
+        <td>
+        <button data-cliente="${codigo}" type="button" class="btn btn-sm btn-light disminuir"><i data-cliente="${codigo}" class="fa fa-minus disminuir"></i></button>
+        <button data-cliente="${codigo}" type="button" class="btn btn-sm btn-dark aumentar">  <i data-cliente="${codigo}" class="fa fa-plus aumentar"></i></button>  
+        </td>
+    </tr>
+    `;
+
+   suma = suma + (importe);
+  });
+  texto_total_compra.innerHTML = suma;
+}
+
+function limpiar_html() {
+  listado_productos.innerHTML ="";
 }
