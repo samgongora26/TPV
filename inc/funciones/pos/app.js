@@ -63,7 +63,7 @@ function existente_codigo(e) {
     (producto) => producto.codigo === codigo
   );
   if (itemEnCarritoIndex >= 0) {
-    incrementar(codigo);
+    actualizar_carrito(codigo, +1);
   } else {
     buscar_producto(e);
   }
@@ -138,9 +138,12 @@ function pintar(data) {
     alert("no existe el producto");
   }
 }
+
 ///////////////////////////////////funciones de inicio ------------
 async function mostrar_ticket() {
   reinicio();
+  carrito = JSON.parse(localStorage.getItem("productos_carrito")) || [];
+
   const datos = new FormData();
   datos.append("id_usuario", id_usuario);
   datos.append("accion", "venta_actual");
@@ -175,29 +178,13 @@ function pintar_inicio(data) {
       cantidad: parseInt(cantidad),
       importe: importe_producto,
     };
-    if (!(carrito.length === 0)) {
+    if (id_producto === null) {
       console.log(`el ingreso de un nuevo producto al carrito${producto}`);
       carrito.push(producto);
       articulos_html();
     }
     articulos_html();
-    //cont = cont +1;
-    /*
-    listado_productos.innerHTML += `
-    <tr>
-        <th scope="row">${cantidad}</th>
-        <td id="codigo">${codigo}</td>
-        <input type="hidden" value="${codigo}" id="codigo${id_detalle_venta}">
-        <td>${descripcion}</td>
-        <td>${precio_venta}</td>
-        <td>0</td>
-        <td>${importe}</td>
-        <td>
-        <button data-cliente="${codigo}" type="button" class="btn btn-sm btn-light disminuir"><i data-cliente="${codigo}" class="fa fa-minus disminuir"></i></button>
-        <button data-cliente="${codigo}" type="button" class="btn btn-sm btn-dark aumentar">  <i data-cliente="${codigo}" class="fa fa-plus aumentar"></i></button>  
-        </td>
-    </tr>
-    `;*/
+
     valor_int = parseFloat(importe);
     suma = suma + valor_int; //suma cada importe
     texto_venta_actual.innerHTML = `id de la venta actual ${id_venta}`;
@@ -205,12 +192,8 @@ function pintar_inicio(data) {
   });
 
   //escritura del modal
-  const r_id = (document.querySelector(
-    "#modal_id"
-  ).innerHTML = `Cobrar el ticket ${id_venta_actual}`);
-  const r_total = (document.querySelector(
-    "#monto_total"
-  ).innerHTML = `Total : ${suma}`);
+  const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${id_venta_actual}`);
+  const r_total = (document.querySelector("#monto_total").innerHTML = `Total : ${suma}`);
 
   texto_total_compra.innerHTML = suma; //muestra el total de la suma
 }
@@ -346,8 +329,12 @@ function articulos_html() {
     suma = suma + importe;
   });
   texto_total_compra.innerHTML = suma;
+  sincronizar_storage();
 }
 
+function sincronizar_storage() {
+  localStorage.setItem("productos_carrito", JSON.stringify(carrito));
+}
 function limpiar_html() {
   listado_productos.innerHTML = "";
 }
