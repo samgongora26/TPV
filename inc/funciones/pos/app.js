@@ -134,7 +134,7 @@ function pintar(data) {
     const r_total = (document.querySelector(
       "#monto_total"
     ).innerHTML = `Total : ${suma}`);
-  }else{
+  } else {
     alert("no existe el producto");
   }
 }
@@ -218,50 +218,27 @@ function pintar_inicio(data) {
 
 function opciones(e) {
   if (e.target.classList.contains("aumentar")) {
-    // console.log("entro a aumentar");
-    codigo = (e.target.dataset.cliente);
-    incrementar(codigo);
+    let codigo = e.target.dataset.cliente;
+    const operador = +1;
+    actualizar_carrito(codigo, operador);
   }
   if (e.target.classList.contains("disminuir")) {
-    // console.log("entro a disminuir");
-    codigo = (e.target.dataset.cliente);
-    disminuir(codigo);
+    let codigo = e.target.dataset.cliente;
+    const operador = -1;
+    actualizar_carrito(codigo, operador);
   }
 }
-
-function incrementar(codigo) {
- /* const datos = new FormData();
-  datos.append("id", codigo);
-  datos.append("accion", "aumentar");
-  console.log("desde de incrementar");*/
-
+function actualizar_carrito(codigo, operador) {
   let index = 0;
   index = carrito.findIndex((producto) => producto.codigo === codigo);
-  carrito[index].cantidad = carrito[index].cantidad + 1;
-  let cantidad = carrito[index].cantidad;
-  let precio = parseInt(carrito[index].precio_v);
-  let total = cantidad * precio;
-  carrito[index].importe = total;
-    articulos_html();
-
-  // busqueda(datos).then((res) => mostrar_ticket());
-  //texto_total_compra.innerHTML = suma + res.precio_v_venta)
-}
-function disminuir(codigo) {
-  /*const datos = new FormData();
-  datos.append("id", codigo);
-  datos.append("accion", "disminuir");*/
-let index = 0;
-  index = carrito.findIndex((producto) => producto.codigo === codigo);
-  carrito[index].cantidad = carrito[index].cantidad - 1;
+  carrito[index].cantidad = carrito[index].cantidad + operador;
   let cantidad = carrito[index].cantidad;
   let precio = parseInt(carrito[index].precio_v);
   let total = cantidad * precio;
   carrito[index].importe = total;
   articulos_html();
-
-  // busqueda(datos).then((res) => mostrar_ticket());
 }
+
 function ver_cobro() {
   const r_recibo = document.querySelector("#monto_recibido");
   const r_cambio = (document.querySelector("#monto_devuelto").value =
@@ -344,14 +321,13 @@ async function envio_array(datos) {
   }
 }
 
-
-function articulos_html(){
+function articulos_html() {
   limpiar_html();
   let suma = 0;
-  carrito.forEach( (articulo)=>{
- const {id,nombre,codigo,cantidad,precio_v,importe} = articulo;
- 
- listado_productos.innerHTML += `  
+  carrito.forEach((articulo) => {
+    const { id, nombre, codigo, cantidad, precio_v, importe } = articulo;
+
+    listado_productos.innerHTML += `  
     <tr>
         <th scope="row">${cantidad}</th>
         <td id="codigo">${codigo}</td>
@@ -367,11 +343,11 @@ function articulos_html(){
     </tr>
     `;
 
-   suma = suma + (importe);
+    suma = suma + importe;
   });
   texto_total_compra.innerHTML = suma;
 }
 
 function limpiar_html() {
-  listado_productos.innerHTML ="";
+  listado_productos.innerHTML = "";
 }
