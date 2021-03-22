@@ -22,79 +22,8 @@ $(function () {
 		}
 	});
 
-	// Bar chart del mes
-	new Chart(document.getElementById("bar-chart-1"), {
-		type: 'bar',
-		data: {
-		  labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
-		  datasets: [
-			{
-			  label: "Clientes",
-			  backgroundColor: ["#6174d5", "#5f76e8", "#768bf4", "#7385df", "#b1bdfa", "#b1bdfa", "#6174d5", "#5f76e8", "#768bf4", "#7385df", "#b1bdfa", "#b1bdfa"],
-			  data: [135,156,267,99,321,231,344,122,444,123,412,231]
-			}
-		  ]
-		},
-		options: {
-		  legend: { display: false },
-		  title: {
-			display: true, 
-			text: ''
-		  }
-		}
-	});
-	
-
-	//Line Chart de ventas
-
-	new Chart(document.getElementById("line-chart-1"), {
-		type: 'line',
-		data: {
-			labels: ["","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre",""],
-			datasets: [{ 
-				data: [,3434,7564,2344,7653,2134,3423,3454,5645,1234,4543,3456,1450,],
-				label: "Ganancias de Ventas",
-				borderColor: "blue",
-				fill: false
-			}, { 
-				data: [,1645,5664,1121,3353,1256,1737,2086,1596,4214,7532,1453,1000,],
-				label: "Gastos de Compras",
-				borderColor: "red",
-				fill: false
-			  }
-			]
-		},
-		options: {
-			legend: { display: true }
-		}
-		});
-
-		//Line Chart de compras
-
-	new Chart(document.getElementById("line-chart-2"), {
-		type: 'line',
-		data: {
-			labels: ["","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre",""],
-			datasets: [{ 
-				data: [,3434,7564,2344,7653,2134,3423,3454,5645,1234,4543,3456,1450,],
-				label: "Gastos",
-				borderColor: "#5f76e8",
-				fill: false
-			}, { 
-				data: [,1645,5664,1121,3353,1256,1737,2086,1596,4214,7532,1453,1000,],
-				label: "Gastos",
-				borderColor: "#768bf4",
-				fill: false
-			  }
-			]
-		},
-		options: {
-			legend: { display: false }
-		}
-		});
-
 	// New chart
-/*	new Chart(document.getElementById("pie-chart"), {
+	new Chart(document.getElementById("pie-chart"), {
 		type: 'pie',
 		data: {
 		  labels: ["Africa", "Asia", "Europe", "Latin America"],
@@ -229,7 +158,7 @@ $(function () {
 		  text: 'World population per region (in millions)'
 		}
 	  }
-	}); */
+	});
 
 	// line second
 }); 
