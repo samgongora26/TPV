@@ -225,7 +225,7 @@
                                         <div class="card-body">
                                             <h4 class="card-title">No. de Clientes al Dia</h4>
                                             <div>
-                                                <canvas id="bar-chart" height="250"></canvas>
+                                                <canvas id="bar-chart-dia" height="250"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -237,7 +237,7 @@
                                         <div class="card-body">
                                             <h4 class="card-title">No. de Clientes al Mes</h4>
                                             <div>
-                                                <canvas id="bar-chart-1" height="250"></canvas>
+                                                <canvas id="bar-chart-mes" height="250"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -249,7 +249,7 @@
                                         <div class="card-body">
                                             <h4 class="card-title">Ganancias y Gastos</h4>
                                             <div>
-                                                <canvas id="line-chart-1" height="250"></canvas>
+                                                <canvas id="line-chart-gg" height="250"></canvas>
                                             </div>
                                         </div>
                                     </div>
