@@ -1,18 +1,18 @@
 <?php
-function registrar_producto(): array
+function buscar_producto(): array
 {
     try {
         require '../../../conexion.php';
 
         $codigo = $_POST['codigo'];
-////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
         $sql1 = "SELECT * FROM ventas ORDER BY id_venta DESC LIMIT 1;";
         $consulta1 = mysqli_query($conexion, $sql1);
 
         while ($row = mysqli_fetch_assoc($consulta1)) { //usar cuando se espera varios resultadosS
             $id_venta = (int) $row['id_venta'];
         }
-        /////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////
 
         $sql = "select * from productos_inventario where codigo=$codigo;";
         $consulta = mysqli_query($conexion, $sql);
@@ -21,27 +21,22 @@ function registrar_producto(): array
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $id_producto = $row['id_producto'];
             $codigo = $row['codigo'];
-            $foto =$row['foto'];
+            $foto = $row['foto'];
             $descripcion = $row['descripcion'];
             $precio_venta = $row['precio_venta'];
+            $nombre = $row['nombre_producto'];
             $estado = true;
         }
 
-        if ($estado === true) {
-            $sql_ingreso =  "INSERT INTO detalle_venta (id_venta, id_producto, cantidad, importe)
-        VALUES('$id_venta','$id_producto',1,' $precio_venta')";
-            $consulta_ingreso = mysqli_query($conexion, $sql_ingreso);
-
-            $respuesta = array(
-                'id_insertado' => mysqli_insert_id($conexion),
-                'id_producto' => 22,
-                'codigo' => $codigo,
-                'descripcion' => $descripcion,
-                'precio_venta' => $precio_venta,
-                'foto' => $foto,
-                'cantidad' => 1
-            );
-        }
+        $respuesta = array(
+            'id_producto' => $id_producto,
+            'codigo' => $codigo,
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
+            'precio_venta' => $precio_venta,
+            'foto' => $foto,
+            'cantidad' => 1
+        );
 
         return $respuesta;
 
@@ -59,8 +54,8 @@ function registrar_producto(): array
 function venta_actual(): array
 { {
         try {
-         //   $id_venta = $_POST['id_venta'];
-            
+            //   $id_venta = $_POST['id_venta'];
+
 
             require '../../../conexion.php';
             //////////////////////
@@ -71,7 +66,7 @@ function venta_actual(): array
                 $id_venta = (int) $row1['id_venta'];
             }
             ////////////////////////
-            $sql = "SELECT detalle_venta.cantidad,detalle_venta.id_detalle_venta,productos_inventario.codigo,productos_inventario.foto,productos_inventario.descripcion,detalle_venta.id_venta,productos_inventario.precio_venta,detalle_venta.importe from detalle_venta, productos_inventario, ventas WHERE detalle_venta.id_venta = ventas.id_venta AND detalle_venta.id_venta = $id_venta and productos_inventario.id_producto = detalle_venta.id_producto;";
+            $sql = "SELECT detalle_venta.cantidad,detalle_venta.id_detalle_venta,productos_inventario.nombre_producto,productos_inventario.codigo,productos_inventario.foto,productos_inventario.descripcion,detalle_venta.id_venta,productos_inventario.precio_venta,detalle_venta.importe from detalle_venta, productos_inventario, ventas WHERE detalle_venta.id_venta = ventas.id_venta AND detalle_venta.id_venta = $id_venta and productos_inventario.id_producto = detalle_venta.id_producto;";
             $consulta = mysqli_query($conexion, $sql);
             $sql = mysqli_num_rows($consulta);
             $datos = [];
@@ -80,6 +75,8 @@ function venta_actual(): array
             if (!($sql == 0)) {
                 while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
                     $datos[$i]['cantidad'] = $row['cantidad'];
+                    $datos[$i]['nombre'] = $row['nombre_producto'];
+                    $datos[$i]['id_producto'] = $row['id_producto'];
                     $datos[$i]['id_detalle_venta'] = $row['id_detalle_venta'];
                     $datos[$i]['codigo'] = $row['codigo'];
                     $datos[$i]['foto'] = $row['foto'];
@@ -90,11 +87,11 @@ function venta_actual(): array
                     $i++;
                 }
                 return $datos;
-            }else {
-                for ($i=0; $i < 1; $i=+1) { 
+            } else {
+                for ($i = 0; $i < 1; $i = +1) {
                     $datos[$i]['respuesta'] = 'no existe productos en este id';
                     $datos[$i]['id_venta'] = $id_venta;
-                                }
+                }
 
                 return $datos;
             }
@@ -221,21 +218,21 @@ function eliminar_venta(): array
         $consulta = mysqli_query($conexion, $sql);
 
         //eliminar la venta
-        $sql ="DELETE FROM `ventas` WHERE `ventas`.`id_venta` = $id";
+        $sql = "DELETE FROM `ventas` WHERE `ventas`.`id_venta` = $id";
         $consulta = mysqli_query($conexion, $sql);
 
         //crear nueva venta
         $sql = " INSERT INTO ventas (id_venta, id_cliente, id_empleado, importe) VALUES (NULL, '1', '1', '1');";
         $consulta = mysqli_query($conexion, $sql);
 
-        $resultado = array( 
+        $resultado = array(
             'respuesta' => 'desde eliminar venta',
             'id_recibido' => $id,
             'id_nueva_venta' => mysqli_insert_id($conexion)
         );
         return $resultado;
     } catch (\Throwable $th) {
-       return $th;
+        return $th;
     }
 }
 
@@ -255,4 +252,42 @@ function comprobar_registro($valor, $valor2)
     echo $valor2;
 
     echo "hola desde comprobar";
+}
+
+
+
+function registrar_venta(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $id_venta = $_POST['id_venta'];
+        $stmt = $conexion->prepare("INSERT INTO detalle_venta (id_venta, id_producto, cantidad, importe) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("iiii", $venta, $producto, $cantidad, $importe);
+        $contador = 0;
+
+        if (isset($_POST['someData'])) {
+            $array = json_decode($_POST['someData']);
+            foreach ($array as $key => $value) {
+                $venta = $id_venta;
+                $producto = (int) $value->id;
+                $cantidad = $value->cantidad;
+                $importe = $value->importe;
+                $contador++;
+                $stmt->execute();
+            }
+        }
+
+        
+        $sql = " INSERT INTO ventas (id_venta, id_cliente, id_empleado, importe) VALUES (NULL, '1', '1', '1');";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $respuesta = array(
+            'respuesta' => "correcto",
+            'contador' => $contador
+        );
+        return $respuesta;
+    } catch (\Throwable $th) {
+        return $th;
+    }
 }
