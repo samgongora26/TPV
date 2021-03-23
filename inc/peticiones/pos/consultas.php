@@ -37,8 +37,11 @@ function buscar_producto(): array
 
     } catch (\Throwable $th) {
         if (var_dump($th)) {
-            $row = "error, no se encontro";
-            return $row;
+            $respuesta = array(
+                'error' => $th,
+                'motivo' =>"buscar producto"
+            );
+            return $respuesta;
         }
     }
     mysqli_close($conexion);
@@ -51,151 +54,63 @@ function venta_actual(): array
             require '../../../conexion.php';
             //////////////////////
             $id_empleado = (int) $_POST['id_usuario'];
-            $sql1 = "SELECT * FROM ventas WHERE `id_empleado`=$id_empleado ORDER BY id_venta DESC LIMIT 1;";
+            $sql1 = " SELECT * FROM `ventas` WHERE `id_empleado`= $id_empleado AND `estado`= 0 ORDER BY id_venta DESC LIMIT 1;";
             $consulta1 = mysqli_query($conexion, $sql1);
 
-            while ($row1 = mysqli_fetch_assoc($consulta1)) { //usar cuando se espera varios resultadosS
-                $id_venta = (int) $row1['id_venta'];
-            }
-            ////////////////////////
-            $sql = "SELECT detalle_venta.cantidad,detalle_venta.id_detalle_venta,productos_inventario.nombre_producto,productos_inventario.codigo,productos_inventario.foto,productos_inventario.descripcion,detalle_venta.id_venta,productos_inventario.precio_venta,detalle_venta.importe from detalle_venta, productos_inventario, ventas WHERE detalle_venta.id_venta = ventas.id_venta AND detalle_venta.id_venta = $id_venta and productos_inventario.id_producto = detalle_venta.id_producto;";
-            $consulta = mysqli_query($conexion, $sql);
-            $sql = mysqli_num_rows($consulta);
+            $si_existe  = mysqli_num_rows($consulta1);
+
             $datos = [];
             $i = 0;
 
-            if (!($sql == 0)) {
-                while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
-                    $datos[$i]['cantidad'] = $row['cantidad'];
-                    $datos[$i]['nombre'] = $row['nombre_producto'];
-                    $datos[$i]['id_producto'] = $row['id_producto'];
-                    $datos[$i]['id_detalle_venta'] = $row['id_detalle_venta'];
-                    $datos[$i]['codigo'] = $row['codigo'];
-                    $datos[$i]['foto'] = $row['foto'];
-                    $datos[$i]['descripcion'] = $row['descripcion'];
-                    $datos[$i]['id_venta'] = $id_venta;
-                    $datos[$i]['precio_venta'] = $row['precio_venta'];
-                    $datos[$i]['importe'] = $row['importe'];
-                    $i++;
+            if (!($si_existe == 0)) {
+
+                while ($row1 = mysqli_fetch_assoc($consulta1)) { //usar cuando se espera varios resultadosS
+                    $id_venta = (int) $row1['id_venta'];
                 }
-                return $datos;
+
+                $sql = "SELECT detalle_venta.cantidad,detalle_venta.id_detalle_venta,productos_inventario.nombre_producto,productos_inventario.codigo,productos_inventario.foto,productos_inventario.descripcion,detalle_venta.id_venta,productos_inventario.precio_venta,detalle_venta.importe from detalle_venta, productos_inventario, ventas WHERE detalle_venta.id_venta = ventas.id_venta AND detalle_venta.id_venta = $id_venta and productos_inventario.id_producto = detalle_venta.id_producto;";
+                $consulta = mysqli_query($conexion, $sql);
+                $sql = mysqli_num_rows($consulta);
+
+                if (!($sql == 0)) {
+                    while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+                        $datos[$i]['cantidad'] = $row['cantidad'];
+                        $datos[$i]['nombre'] = $row['nombre_producto'];
+                        $datos[$i]['id_producto'] = $row['id_producto'];
+                        $datos[$i]['id_detalle_venta'] = $row['id_detalle_venta'];
+                        $datos[$i]['codigo'] = $row['codigo'];
+                        $datos[$i]['foto'] = $row['foto'];
+                        $datos[$i]['descripcion'] = $row['descripcion'];
+                        $datos[$i]['id_venta'] = $id_venta;
+                        $datos[$i]['precio_venta'] = $row['precio_venta'];
+                        $datos[$i]['importe'] = $row['importe'];
+                        $i++;
+                    }
+                } else {
+                    for ($i = 0; $i < 1; $i = +1) {
+                        $datos[$i]['respuesta'] = 'no existe productos en este id';
+                        $datos[$i]['id_venta'] = $id_venta;
+                    }
+                }
             } else {
+
+                $sql = " INSERT INTO ventas (id_venta, id_cliente, id_empleado, importe,estado) VALUES (NULL, '1', '$id_empleado', '0',0);";
+                $consulta = mysqli_query($conexion, $sql);
+                $id_venta = mysqli_insert_id($conexion);
+
                 for ($i = 0; $i < 1; $i = +1) {
-                    $datos[$i]['respuesta'] = 'no existe productos en este id';
+                    $datos[$i]['respuesta'] = 'se creo una nueva venta';
                     $datos[$i]['id_venta'] = $id_venta;
                 }
-
-                return $datos;
-            }
-        } catch (\Throwable $th) {
-            var_dump($th);
-        }
-        mysqli_close($conexion);
-    }
-}
-
-function aumentar(): array
-{ {
-        try {
-
-            $id = $_POST['id'];
-            require '../../../conexion.php';
-            $sql = "SELECT productos_inventario.precio_venta, detalle_venta.cantidad from productos_inventario, detalle_venta WHERE detalle_venta.id_detalle_venta = $id AND productos_inventario.id_producto = detalle_venta.id_producto ;";
-            $consulta = mysqli_query($conexion, $sql);
-
-            while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
-                $cantidad_var = (int) $row['cantidad'];
-                $precio_venta = (int) $row['precio_venta'];
             }
 
-
-            $id = $_POST['id'];
-            $cantidad = (int)$cantidad_var;
-            $cantidad = $cantidad + 1;
-            $importe = $precio_venta * $cantidad;
-            $sql1 = "update detalle_venta set cantidad = $cantidad, importe = $importe where detalle_venta.id_detalle_venta = $id";
-            $consulta1 = mysqli_query($conexion, $sql1);
-            $datos = [];
-
-            $datos = array(
-                'estado' => "correcto",
-                'valor' => "si cambio",
-                'nueva_cantidad' => $cantidad,
-                'nuevo_importe' => $importe,
-                'precio_venta' => $precio_venta
-            );
             return $datos;
         } catch (\Throwable $th) {
-            var_dump($th);
-        }
-        mysqli_close($conexion);
-    }
-}
-
-function disminuir(): array
-{ {
-        try {
-
-            $id = $_POST['id'];
-            require '../../../conexion.php';
-            $sql = "SELECT productos_inventario.precio_venta, detalle_venta.cantidad from productos_inventario, detalle_venta WHERE detalle_venta.id_detalle_venta = $id AND productos_inventario.id_producto = detalle_venta.id_producto ;";
-            $consulta = mysqli_query($conexion, $sql);
-
-            while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
-                $cantidad_var = (int) $row['cantidad'];
-                $precio_venta = (int) $row['precio_venta'];
-            }
-
-
-            $id = $_POST['id'];
-            $cantidad = (int)$cantidad_var;
-            $cantidad = $cantidad - 1;
-            $importe = $precio_venta * $cantidad;
-            $sql1 = "update detalle_venta set cantidad = $cantidad, importe = $importe where detalle_venta.id_detalle_venta = $id";
-            $consulta1 = mysqli_query($conexion, $sql1);
-            $datos = [];
-
-            $datos = array(
-                'estado' => "correcto",
-                'valor' => "si cambio",
-                'nueva_cantidad' => $cantidad,
-                'nuevo_importe' => $importe,
-                'precio_venta' => $precio_venta
+            $respuesta = array(
+                'error' => $th,
+                'motivo' => "venta actual"
             );
-            return $datos;
-        } catch (\Throwable $th) {
-            var_dump($th);
-        }
-        mysqli_close($conexion);
-    }
-}
-
-
-function cerrar_venta(): array
-{ { //pendiente de eliminar si funciona correctamente registrar_venta();
-        try {
-            $total_venta = $_POST['total_venta'];
-            require '../../../conexion.php';
-
-            $sql = "SELECT * FROM ventas ORDER BY id_venta DESC LIMIT 1;";
-            $consulta = mysqli_query($conexion, $sql);
-
-            while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
-                $id_venta = (int) $row['id_venta'];
-            }
-            $sql1 = "update ventas set importe = $total_venta where ventas.id_venta = $id_venta";
-            $consulta1 = mysqli_query($conexion, $sql1);
-
-            $sql = " INSERT INTO ventas (id_venta, id_cliente, id_empleado, importe) VALUES (NULL, '1', '1', '1');";
-            $consulta = mysqli_query($conexion, $sql);
-            $datos = array(
-                'id' => mysqli_insert_id($conexion),
-                'estado' => "correcto",
-                'mensaje' => "se ha actualizado el total de la venta"
-            );
-            return $datos;
-        } catch (\Throwable $th) {
-            var_dump($th);
+            return $respuesta;
         }
         mysqli_close($conexion);
     }
@@ -225,7 +140,10 @@ function eliminar_venta(): array
         );
         return $resultado;
     } catch (\Throwable $th) {
-        return $th;
+        $respuesta = array(
+            'error' => $th
+        );
+        return $respuesta;
     }
 }
 
@@ -234,17 +152,15 @@ function registrar_venta(): array
     try {
         require '../../../conexion.php';
 
-        //$id_venta = $_POST['id_venta'];
+        $id_venta = $_POST['id_venta'];
         $total = $_POST['total_venta'];
-        $id_usuario = $_POST['id_usuario'];
+        $id_empleado = $_POST['id_usuario'];
 
+        $sql1 = "update ventas set importe = $total, id_cliente = 1, id_empleado = $id_empleado,estado = 1 where ventas.id_venta = $id_venta";
+        $consulta1 = mysqli_query($conexion, $sql1);
 
-        $sql = " INSERT INTO ventas (id_venta, id_cliente, id_empleado, importe,estado) VALUES (NULL, '1', '$id_usuario', '$total',1);";
-        $consulta = mysqli_query($conexion, $sql);
-        $id_venta = mysqli_insert_id($conexion);
-
-        $stmt = $conexion->prepare("INSERT INTO detalle_venta (id_venta, id_producto, precio_venta, cantidad, importe) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("iiii", $venta, $producto, $precio, $cantidad, $importe);
+        $stmt = $conexion->prepare("INSERT INTO detalle_venta (id_venta, id_producto, precio_venta, cantidad, importe) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("iiiii", $venta, $producto, $precio, $cantidad, $importe);
         $contador = 0;
 
         if (isset($_POST['someData'])) {
@@ -259,6 +175,9 @@ function registrar_venta(): array
                 $stmt->execute();
             }
         }
+        $sql = " INSERT INTO ventas (id_venta, id_cliente, id_empleado, importe,estado) VALUES (NULL, '1', '$id_empleado', '0',0);";
+        $consulta = mysqli_query($conexion, $sql);
+        $id_venta = mysqli_insert_id($conexion);
 
         $respuesta = array(
             'respuesta' => "correcto",
@@ -267,6 +186,9 @@ function registrar_venta(): array
         );
         return $respuesta;
     } catch (\Throwable $th) {
-        return $th;
+       $respuesta = array(
+           'error' => $th
+       );
+       return $respuesta;
     }
 }
