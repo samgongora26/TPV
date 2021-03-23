@@ -11,13 +11,9 @@ let texto_total_compra = document.querySelector("#total_compra");
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrar_ticket();
-  document
-    .querySelector("#formulario")
-    .addEventListener("click", existente_codigo);
+  document.querySelector("#formulario").addEventListener("click", existente_codigo);
   document.querySelector("#cobrar").addEventListener("click", cobrar_productos);
-  document
-    .querySelector("#eliminar")
-    .addEventListener("click", eliminar_ticket);
+  document.querySelector("#eliminar").addEventListener("click", eliminar_ticket);
 
   listado_productos.addEventListener("click", opciones);
   const enter = document.querySelector("#codigo_envio");
@@ -127,13 +123,6 @@ function pintar(data) {
     precio.innerHTML = precio_venta;
     articulos_html();
 
-    //parte del modal
-    const r_id = (document.querySelector(
-      "#modal_id"
-    ).innerHTML = `Cobrar el ticket ${id_venta_actual}`);
-    const r_total = (document.querySelector(
-      "#monto_total"
-    ).innerHTML = `Total : ${suma}`);
   } else {
     alert("no existe el producto");
   }
@@ -141,7 +130,6 @@ function pintar(data) {
 
 ///////////////////////////////////funciones de inicio ------------
 async function mostrar_ticket() {
-  reinicio();
   carrito = JSON.parse(localStorage.getItem("productos_carrito")) || [];
 
   const datos = new FormData();
@@ -184,18 +172,11 @@ function pintar_inicio(data) {
       articulos_html();
     }
     articulos_html();
-
     valor_int = parseFloat(importe);
     suma = suma + valor_int; //suma cada importe
     texto_venta_actual.innerHTML = `id de la venta actual ${id_venta}`;
     id_venta_actual = id_venta;
   });
-
-  //escritura del modal
-  const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${id_venta_actual}`);
-  const r_total = (document.querySelector("#monto_total").innerHTML = `Total : ${suma}`);
-
-  texto_total_compra.innerHTML = suma; //muestra el total de la suma
 }
 //fin de seccion de busqueda inicial /////////////////////////////////////
 
@@ -231,22 +212,14 @@ function ver_cobro() {
 function cobrar_productos() {
   const total = parseFloat(texto_total_compra.innerHTML);
   console.log(total);
-  /*const datos = new FormData();
-  datos.append("total_venta", total);
-  datos.append("accion", "cerrar_venta");*/
-  /*
-  busqueda(datos).then((res) => {
-    texto_venta_actual.innerHTML = `id de la venta actual : ${res.id}`;
-    id_venta_actual = res.id;
-    texto_total_compra;
-    listado_productos.innerHTML = ` <input type="hidden" value="${res.id}" id="identificador_venta_actual">`;
-  });*/
+
   console.log("entro a enviar el array");
   const datos = new FormData();
   const array = JSON.stringify(carrito);
 
   datos.append("someData", array);
   datos.append("id_venta", id_venta_actual);
+  datos.append("id_usuario", id_usuario);
   datos.append("total_venta", total);
   datos.append("accion", "registrar_venta");
   envio_array(datos).then((res) => {
@@ -254,12 +227,11 @@ function cobrar_productos() {
     console.log(res);
     texto_venta_actual.innerHTML = `id de la venta actual : ${res.id}`;
     id_venta_actual = res.id;
+    const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${res.id}`);
   });
 
   reinicio();
-  const r_id = (document.querySelector(
-    "#modal_id"
-  ).innerHTML = `Cobrar el ticket ${id_venta_actual}`);
+
   alert("se ha registrado el cobro correctamente");
 }
 
@@ -272,8 +244,6 @@ function eliminar_ticket() {
   busqueda(datos).then((res) => {
     texto_venta_actual.innerHTML = `id de la venta actual : ${res.id_nueva_venta}`;
     id_venta_actual = res.id_nueva_venta;
-    texto_total_compra;
-    listado_productos.innerHTML = ` <input type="hidden" value="${res.id_nueva_venta}" id="identificador_venta_actual">`;
   });
   reinicio();
   alert("se ha eliminado correctamente");
@@ -288,6 +258,8 @@ function reinicio() {
   listado_productos.innerHTML = "";
   const r_total = (document.querySelector("#monto_total").innerHTML = ` `);
   const r_id = (document.querySelector("#modal_id").innerHTML = ``);
+  sincronizar_storage();
+
 }
 
 async function envio_array(datos) {
@@ -309,7 +281,6 @@ function articulos_html() {
   let suma = 0;
   carrito.forEach((articulo) => {
     const { id, nombre, codigo, cantidad, precio_v, importe } = articulo;
-
     listado_productos.innerHTML += `  
     <tr>
         <th scope="row">${cantidad}</th>
@@ -328,7 +299,17 @@ function articulos_html() {
 
     suma = suma + importe;
   });
-  texto_total_compra.innerHTML = suma;
+    //parte del modal
+    if(suma => 0){
+      const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${id_venta_actual}`);
+      const r_total = (document.querySelector("#monto_total").innerHTML = `Total : ${suma}`);
+    texto_total_compra.innerHTML = suma;
+    }else{
+      const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${id_venta_actual}`);
+      const r_total = (document.querySelector("#monto_total").innerHTML = `Total : 0`);
+    texto_total_compra.innerHTML = 0;
+    }
+
   sincronizar_storage();
 }
 
