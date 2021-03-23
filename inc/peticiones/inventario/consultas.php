@@ -148,10 +148,10 @@ function registrar_categoria(): array
 
         $detalles = $_POST['detalles'];
         $nombre = $_POST['nombre'];
-        $estado = $_POST['estado'];
+        $marca = $_POST['marca'];
 
-        $sql =  "INSERT INTO categorias (nombre_categoria, estado, detalles)
-        VALUES('$nombre','$estado','$detalles')";
+        $sql =  "INSERT INTO categorias (nombre_categoria, detalles, id_marca)
+        VALUES('$nombre', '$detalles', '$marca')";
 
 
         $consulta = mysqli_query($conexion, $sql);
@@ -270,10 +270,10 @@ function registrar_marca(): array
 
         
         $nombre = $_POST['nombre'];
-        $categoria = $_POST['categoria'];
+        $estado = $_POST['estado'];
 
-        $sql =  "INSERT INTO marcas (id_categoria, nombre)
-        VALUES('$categoria','$nombre')";
+        $sql =  "INSERT INTO marcas (nombre, estado)
+        VALUES('$nombre','$estado')";
 
 
         $consulta = mysqli_query($conexion, $sql);
@@ -282,7 +282,7 @@ function registrar_marca(): array
             'respuesta' => 'correcto',
             //'id_ingresado' => mysqli_insert_id($conexion),
             'nombre' => $nombre,
-            'id de categoria' => $categoria
+            'estado' => $estado
         );
 
         return $respuesta;
