@@ -148,10 +148,10 @@ function registrar_categoria(): array
 
         $detalles = $_POST['detalles'];
         $nombre = $_POST['nombre'];
-        $estado = $_POST['estado'];
+        $marca = $_POST['marca'];
 
-        $sql =  "INSERT INTO categorias (nombre_categoria, estado, detalles)
-        VALUES('$nombre','$estado','$detalles')";
+        $sql =  "INSERT INTO categorias (nombre_categoria, detalles, id_marca)
+        VALUES('$nombre', '$detalles', '$marca')";
 
 
         $consulta = mysqli_query($conexion, $sql);
@@ -270,10 +270,10 @@ function registrar_marca(): array
 
         
         $nombre = $_POST['nombre'];
-        $categoria = $_POST['categoria'];
+        $estado = $_POST['estado'];
 
-        $sql =  "INSERT INTO marcas (id_categoria, nombre)
-        VALUES('$categoria','$nombre')";
+        $sql =  "INSERT INTO marcas (nombre, estado)
+        VALUES('$nombre','$estado')";
 
 
         $consulta = mysqli_query($conexion, $sql);
@@ -282,7 +282,7 @@ function registrar_marca(): array
             'respuesta' => 'correcto',
             //'id_ingresado' => mysqli_insert_id($conexion),
             'nombre' => $nombre,
-            'id de categoria' => $categoria
+            'estado' => $estado
         );
 
         return $respuesta;
@@ -521,18 +521,18 @@ function select_unidad_productos():array
 
 }
 
-function select_categoria_marcas():array
+function select_marca_categorias():array
 {
     try{
         require '../../../conexion.php';
 
-        $sql= "SELECT `id_categoria`, `nombre_categoria`  FROM `categorias`;";
+        $sql= "SELECT `id_marcas`, `nombre`  FROM `marcas`;";
         $consulta = mysqli_query($conexion, $sql);
         $usuarios = [];
         $i = 0;
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
-            $usuarios[$i]['id'] = $row['id_categoria'];
-            $usuarios[$i]['nombre'] = $row['nombre_categoria'];
+            $usuarios[$i]['id'] = $row['id_marcas'];
+            $usuarios[$i]['nombre'] = $row['nombre'];
             $i++;
         }
         //var_dump($usuarios);

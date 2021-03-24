@@ -63,8 +63,9 @@ switch ($accion) {
     case "select_unidad":
         $resultado = select_unidad_productos();
         break;
-    case "select_categoria":
-        $resultado = select_categoria_marcas();
+    case "select_marca_cat":
+        $resultado = select_marca_categorias();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide 

@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function select_marca() {
   const datos = new FormData();
-  datos.append("accion", "select_marca");
+  datos.append("accion", "select_marca_cat");
 
   try {
     const URL = "../../../inc/peticiones/inventario/funciones.php";

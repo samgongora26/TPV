@@ -62,14 +62,13 @@
                                             <label>Nombre Categoria:</label>
                                             <input id="nombre_categoria" name="nombre_categoria" type="text" class="form-control" required>
 
-
-                                                <div class="form-group mb-4">
-                                                    <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
-                                                    <select id="select_estado_c"  class="custom-select mr-sm-2" onchange="show_estado_c();" required>
-                                                        <option selected value="0">Inactivo</option>
-                                                        <option value="1">Activo</option>
-                                                    </select>
-                                                </div>
+                                            <div class="form-group mb-4">
+                                                <label class="mr-sm-2" for="inlineFormCustomSelect">Marca</label>
+                                                <select id="select_marca_c"  class="custom-select mr-sm-2" onchange="show_marca_c();" required>
+                                                    <option selected >Selecciona una Marca...</option>
+                                                    <!--<option value="0">Marca 1</option>-->
+                                                </select>
+                                            </div>
                                             <br>
                                             <h4 class="card-title">Detalles</h4>
                                                 <div class="form-group">

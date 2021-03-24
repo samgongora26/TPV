@@ -64,9 +64,11 @@
 
 
                                                 <div class="form-group mb-4">
-                                                    <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
-                                                    <select id="select_categoria"  class="custom-select mr-sm-2" onchange="show_categoria();" required>
-                                                        <option selected>Selecciona la categoria de la marca</option>
+                                                    <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
+                                                    <select id="select_estado"  class="custom-select mr-sm-2" onchange="show_estado();" required>
+                                                        <option selected>Selecciona el estado de la marca</option>
+                                                        <option value="1">Activo</option>
+                                                        <option value="0">Inactivo</option>
                                                         <!--<option value="2">Cat 2</option>-->
                                                     </select>
                                                 </div>
