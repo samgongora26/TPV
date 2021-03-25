@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
 //FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
 function mostrarServicios(){
   //llenado de los select
-  select_proveedores();
+  //select_proveedores();
 
   //llenado de la tabla
   mostrar_detalle();
   
 }
 
-//---------SELECT DE USUARIOS----------
+/*---------SELECT DE PROVEDORES----------
 async function select_proveedores() {
   const datos = new FormData();
   datos.append("accion", "select_proveedores");
@@ -41,6 +41,7 @@ async function select_proveedores() {
     console.log(error);
   }
 }
+*/
 
 //------LLENADO DE LA TABLA
 async function mostrar_detalle() {
@@ -57,11 +58,13 @@ async function mostrar_detalle() {
       body: datos,
     });
     const db = await resultado.json();
+    let suma = 0;
     db.forEach((servicio) => {
       //console.log(servicio);
       const {foto, id_producto,nombre_producto, stock, cantidad, precio_venta, importe, id_detalle_pedido} = servicio;
-
+      suma += parseInt(importe);
       const listado_clientes = document.querySelector("#contenido_tabla");
+      
       listado_clientes.innerHTML += `  
         <tr>
             <td> <img src="../../assets/images/users/${foto}" alt="user" class="rounded-circle"
@@ -78,6 +81,11 @@ async function mostrar_detalle() {
         </tr>
         `;
     });
+
+    //imprime el total
+    console.log(suma);
+    document.getElementById("por_pagar").value="$" + suma;
+
   } catch (error) {
     console.log(error);
   }
@@ -110,7 +118,9 @@ async function eliminar_registro(e) {
               <strong>El producto ha sido removido exitosamente </strong>
           </div>
           `;
-          e.target.parentElement.parentElement.remove();
+          //e.target.parentElement.parentElement.remove();
+          document.getElementById("contenido_tabla").innerHTML="";
+          mostrarServicios();
         
       } catch (error) {
         console.log(error);

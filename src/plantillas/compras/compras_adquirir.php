@@ -54,14 +54,14 @@
                             <div class="card-body">
                                 <h4 class="card-title">Agregar producto a la lista  </h4>
                                 <form class="mt-4" id="formulario">
-                                    <div class="input-group mb-3">
+                                    <!--div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">Proveedor</label>
                                         </div>
                                         <select class="custom-select" name="contenido_proveedores" id="contenido_proveedores">
-                                            <!--AQUI SON INSERTADOS LOS DATOS DE LOS PROVEEDORES-->
+                                            <!AQUI SON INSERTADOS LOS DATOS DE LOS PROVEEDORES>
                                         </select>
-                                    </div>
+                                    </div-->
                                     <div class="row">
                                             <div class="col-md-8">
                                                 <div class="form-group">
@@ -72,7 +72,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Cantidad</label>
-                                                    <input type="number" id="cantidad" class="form-control" placeholder="">
+                                                    <input type="text" id="cantidad" class="form-control" placeholder="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                                                 </div>
                                             </div>
                                     </div>
@@ -86,7 +86,7 @@
                 
                    
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="card-body bg-withe">
+                        <div class="card-body bg-lighr">
                             <h4 class="card-title">Detalle de la compra</h4>
                             <div class="card-text">
                                 <table class="table">
@@ -129,7 +129,8 @@
                                             <ul class="list-group mx-auto">
                                                 <div class="input-group-prepend">
                                                     <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>
-                                                    <input id="monto" name="monto" type="text" class="form-control text-white bg-dark" aria-label="Username" placeholder="$" aria-describedby="basic-addon1">
+                                                    <input id="monto" name="monto" type="text"  class="form-control text-white bg-dark" aria-label="Username" placeholder="$" aria-describedby="basic-addon1" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                    
                                                 </div>
                                                 
                                             </ul>

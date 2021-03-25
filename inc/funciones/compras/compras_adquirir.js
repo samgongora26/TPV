@@ -7,13 +7,13 @@ function eventListeners() {
 function obtener_datos(e) {
   e.preventDefault();
   //Se obtienen los datos de los input de la interfaz
-  const proveedor = document.getElementById("contenido_proveedores").value; 
+  //const proveedor = document.getElementById("contenido_proveedores").value; 
   const codigo = document.querySelector("#codigo").value;
   const cantidad = document.querySelector("#cantidad").value;
   const usuario = document.querySelector("#usuario").value;
   
  //Validación de campos vacios
- if(proveedor != "" & codigo != "" & cantidad != "" & usuario != ""){
+ if(codigo != "" & cantidad != "" & usuario != ""){
   /*console.log(
     proveedor,
     codigo,
@@ -21,7 +21,7 @@ function obtener_datos(e) {
   )*/
   //encapsulamiento de los datos para envio
   const datos = new FormData(); 
-  datos.append("proveedor", proveedor);
+  //datos.append("proveedor", proveedor);
   datos.append("codigo", codigo);
   datos.append("cantidad", cantidad);
   datos.append("usuario", usuario);
