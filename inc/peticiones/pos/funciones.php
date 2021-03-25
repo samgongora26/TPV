@@ -1,6 +1,6 @@
 <?php
 $accion = $_POST['accion'];
-require 'prueba.php';
+require 'consultas.php';
 switch ($accion) {
     case "buscar_producto":
         $resultado = buscar_producto();

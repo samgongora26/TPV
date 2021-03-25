@@ -50,11 +50,10 @@ function venta_actual(): array
 { {
         try {
             //   $id_venta = $_POST['id_venta'];
-
             require '../../../conexion.php';
             //////////////////////
             $id_empleado = (int) $_POST['id_usuario'];
-            $sql1 = " SELECT * FROM `ventas` WHERE `id_empleado`= $id_empleado AND `estado`= 0 ORDER BY id_venta DESC LIMIT 1;";
+            $sql1 = "SELECT * FROM ventas WHERE id_empleado= $id_empleado AND estado= 0 ORDER BY id_venta DESC LIMIT 1;";
             $consulta1 = mysqli_query($conexion, $sql1);
 
             $si_existe  = mysqli_num_rows($consulta1);
@@ -62,7 +61,7 @@ function venta_actual(): array
             $datos = [];
             $i = 0;
 
-            if (!($si_existe == 0)) {
+            if ($si_existe> 0) { //comprueba que exista una venta libre con ese id
 
                 while ($row1 = mysqli_fetch_assoc($consulta1)) { //usar cuando se espera varios resultadosS
                     $id_venta = (int) $row1['id_venta'];
@@ -72,7 +71,7 @@ function venta_actual(): array
                 $consulta = mysqli_query($conexion, $sql);
                 $sql = mysqli_num_rows($consulta);
 
-                if (!($sql == 0)) {
+                if ($sql > 0) { //comprueba si existe articulo en ese id
                     while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
                         $datos[$i]['cantidad'] = $row['cantidad'];
                         $datos[$i]['nombre'] = $row['nombre_producto'];
