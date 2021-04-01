@@ -1,33 +1,35 @@
 const nombre_text = document.querySelector("#nombre");
-const email_text = document.querySelector("#email");
 const telefono_text = document.querySelector("#telefono");
-const direccion_text = document.querySelector("#direccion");
+const email_text = document.querySelector("#email");
+const usr = document.querySelector("#usuario");
+const foto = document.querySelector("#fotografia");
+const est = document.querySelector("#est");
+
 
 const formulario = document.querySelector("#formulario");
 
 document.addEventListener("DOMContentLoaded", () => {
   const parametrosURL = new URLSearchParams(window.location.search);
-  idCliente = parametrosURL.get("id");
-  if (idCliente) {
-    obtener_cliente(idCliente);
+  id_empleado = parametrosURL.get("id");
+  if (id_empleado) {
+    obtener_empleado(id_empleado);
   }
 });
 eventListeners();
 
-function eventListeners() {
+/*function eventListeners() {
   document
     .querySelector("#formulario")
-    .addEventListener("submit", actualizarCliente);
-}
+    .addEventListener("submit", actualizar_empleado);
+}*/
 
-async function obtener_cliente(id) {
+async function obtener_empleado(id) {
   const datos = new FormData();
-
   datos.append("id", id);
-  datos.append("accion", "buscar");
+  datos.append("accion", "buscar_empleado");
 
   try {
-    direccion = "../../../inc/peticiones/proveedores/funciones.php";
+    direccion = "../../../inc/peticiones/usuarios/funciones.php";
     const peticion = await fetch(direccion, {
       method: "POST",
       body: datos,
@@ -40,10 +42,18 @@ async function obtener_cliente(id) {
   }
 }
 
-function llenar_formulario(cliente) {
-  const { nombre, correo, direccion, telefono } = cliente;
+function llenar_formulario(empleado) {
+  const { nombre, telefono, correo, usuario, fotografia, estado } = empleado;
   nombre_text.innerHTML = nombre;
   telefono_text.innerHTML = telefono; //asignar los valores del id correspondiente
   email_text.innerHTML = correo;
-  direccion_text.innerHTML = direccion;
+  usr.innerHTML = usuario;
+  console.log(usuario);
+  //agrega el atributo de direccion a la foto 
+  foto.setAttribute("src", "../../assets/images/users/" + fotografia);
+  //si el estado es activo entonces mostrará 
+  if(estado  == 1){
+    est.innerHTML = ` <input type="checkbox" class="custom-control-input" id="customCheck4" disabled="" checked="">
+                      <label class="custom-control-label" for="customCheck4">Activo</label> `;
+  }
 }

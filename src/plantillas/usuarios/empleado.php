@@ -57,17 +57,18 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Acerca del usuario</h5>
                                         <div class="media">
-                                            <img class="align-self-start w-40 mr-3" src="../../assets/images/users/<?php echo $usr["fotografia"];?> " alt="Generic placeholder image">
+                                            
+                                            <img id="fotografia" class="align-self-start w-40 mr-3"  alt="Generic placeholder image">
                                             <div class="media-body">
-                                                <h5 class="mt-0"><strong>Nombre apellido</strong></h5>
+                                                <h5 class="mt-0"><strong id="nombre"></strong></h5>
                                                 <ul>
-                                                    <li><p><label class="fa fa-phone"></label> 1234567890</p></li>
-                                                    <li><p><label class="fa fa-envelope"></label> email@email.com</p></li>
-                                                    <li><p><label class="fa fa-user"></label> Admin</p></li>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheck4" disabled="" checked="">
-                                                        <label class="custom-control-label" for="customCheck4">Activo</label>
+                                                    <li><label class="fa fa-phone"></label> <label id="telefono"></label></li>
+                                                    <li><label class="fa fa-envelope"></label> <label id="email"></label></li>
+                                                    <li><label class="fa fa-user"></label> <label id="usuario"></label></li>
+                                                    <div class="custom-control custom-checkbox" id="est">
+                                                        
                                                     </div>
+                                                    
                                                 </ul>
                                                 <hr>
                                                
@@ -124,8 +125,7 @@
         <?php
             include '../../../componentes/scripts.php';
         ?>
-            <script src="../../../inc/funciones/usuarios/empleados_agregar.js"></script>
-            <script src="../../../inc/funciones/usuarios/app_empleados.js"></script>
+            <script src="../../../inc/funciones/usuarios/empleado_ver.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>
 

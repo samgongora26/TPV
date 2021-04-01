@@ -139,3 +139,24 @@ function remover_producto(): array
     }
     mysqli_close($conexion);
 }
+
+function completar_compra(): array
+{
+    try {
+        require '../../../conexion.php';
+        
+        $id = $_POST['id'];
+        //$sql = "DELETE FROM `detalle_pedido` WHERE `id_detalle_pedido` = $id";
+        //$consulta = mysqli_query($conexion, $sql);
+
+        /*$respuesta = array(
+            'respuesta' => 'eliminado',
+            'id' => $id
+        );*/
+
+        //return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

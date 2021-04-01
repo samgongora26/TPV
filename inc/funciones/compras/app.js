@@ -67,7 +67,7 @@ async function mostrar_detalle() {
       
       listado_clientes.innerHTML += `  
         <tr>
-            <td> <img src="../../assets/images/users/${foto}" alt="user" class="rounded-circle"
+            <td> <img src="../../imagenes/productos/${foto}" alt="user" class="rounded-circle"
             width="40"> </td>
             <td scope="row">${id_producto}</td>
             <td scope="row">${nombre_producto}</td>

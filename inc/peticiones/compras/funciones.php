@@ -15,6 +15,10 @@ switch ($accion) {
     case "remover_producto":
         $resultado =remover_producto();
         break;
+
+    case "completar_compra":
+        $resultado =completar_compra();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide

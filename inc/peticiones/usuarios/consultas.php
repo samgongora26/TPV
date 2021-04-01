@@ -103,8 +103,12 @@ function eliminar_usuario(): array
         require '../../../conexion.php';
         
         $id = $_POST['id'];
-        $sql = " DELETE FROM `usuarios` WHERE `usuarios`.`id_usuario`= $id";
+        //Se elimina el empleado si existe
+        $sql = "DELETE FROM `empleados` WHERE `empleados`.`id_usuario`= $id";
+        //Se elimina el usuario
+        $sql1 = " DELETE FROM `usuarios` WHERE `usuarios`.`id_usuario`= $id";
         $consulta = mysqli_query($conexion, $sql);
+        $consulta1 = mysqli_query($conexion, $sql1);
 
         $respuesta = array(
             'respuesta' => 'eliminado',
@@ -442,6 +446,24 @@ function select_horarios(): array
         }
         //var_dump($usuarios);
         return $horarios;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function buscar_empleado(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $id = $_POST['id'];
+        $sql = "SELECT `empleados`.`id_empleado`, `empleados`.`id_usuario`, `empleados`.`id_puesto`, `empleados`.`id_jornada`, CONCAT(`usuarios`.`nombres`, ' ' , `usuarios`.`apellidos`) as nombre, `usuarios`.`telefono`, `usuarios`.`correo` , `usuarios`.`usuario`, `usuarios`.`fotografia`, `usuarios`.`estado` FROM `usuarios` , `empleados` WHERE `usuarios`.`id_usuario` = `empleados`.`id_usuario` and `empleados`.`id_empleado` = $id";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $row = mysqli_fetch_assoc($consulta); //recibir el resultado de la consulta cuando solo es 1
+
+        return $row;
     } catch (\Throwable $th) {
         var_dump($th);
     }

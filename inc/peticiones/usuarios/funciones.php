@@ -64,6 +64,10 @@ switch ($accion) {
         $resultado = registrarEmpleado();
         break;   
     
+    case "buscar_empleado":
+        $resultado = buscar_empleado();
+        break;   
+    
     
 }
 

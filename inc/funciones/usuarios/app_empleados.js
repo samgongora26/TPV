@@ -125,48 +125,10 @@ async function mostrar_empleados() {
             <td>${nombre_puesto} </td>  
             <td>${nombre_horario} </td>  
             <td>
-                <button type="button" class="btn editar" data-usuario="${id_empleado}" data-toggle="modal" data-target="#edit-modal${id_empleado}"> <i  class="fas fa-edit"></i></button>
+                <a type="button" href="empleado.php?id=${id_empleado}" class="btn editar" data-usuario="${id_empleado}"> <i  class="fas fa-edit"></i></a>
                 <button type="button" class="btn eliminar" data-usuario="${id_empleado}"><i class="fas fa-trash"></i></button>
             </td>      
         </tr>
-        <!-- Modal editar -->
-        <div id="edit-modal${id_empleado}" class="modal fade" tabindex="${id_empleado}" role="dialog"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <h4 class="mt-3 mx-auto"> Editar el empleado <strong>${usuario}</strong> </h4>
-                    
-                    <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                        <form class="pl-3 pr-3" action="#" id="form-modal-edit" name="for-modal-edit">
-                          
-                          <p>ID: ${id_empleado}</p>
-                          <label>Titulo del horario</label>
-                          <div class="form-group mb-4">
-                                                    <label for="exampleFormControlSelect1">Puesto</label>
-                                                    <select class="form-control" id="contenido_puesto">
-                                                        <!--AQUI SE INSERTAN LOS DATOS DEL SELECT DE PUESTOS-->
-                                                    </select>
-                                                </div>
-                                                <div class="form-group mb-4">
-                                                    <label for="exampleFormControlSelect1">Horario de trabajo</label>
-                                                    <select class="form-control" id="contenido_horario">
-                                                        <!--AQUE SE INSERTAN LOS DATOS DEL SELECT DE HORARIOS-->
-                                                    </select>
-                                                </div>
-                          
-                          <div class="text-right mt-3">
-                              <button type="submit" onclick="editar_horario(${id_empleado})" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Guardar</button>
-                              <button type="reset" class="btn btn-dark" data-dismiss="modal" aria-hidden="true"> Cancelar</button>
-                          </div>
-
-                        </form>
-
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div>
-        <!-- Fin modal editar -->
         `;
     });
   } catch (error) {

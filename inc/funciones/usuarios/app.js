@@ -85,7 +85,7 @@ async function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
     idEliminar = Number(e.target.dataset.usuario);
-    const confirmar = confirm('Deseas eliminar al usuario: '+idEliminar);
+    const confirmar = confirm('¡PRECAUCIÓN! ESTA ACCIÓN PUEDE AFECTAR LOS DEMÁS MODULOS DONDE ESTE USAURIO HA SIDO INVOLUCRADO. Se recomienda solo cambiar el estado a inactivo');
     if(confirmar){
       try {
         console.log(idEliminar);
