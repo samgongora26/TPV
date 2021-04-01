@@ -458,12 +458,33 @@ function buscar_empleado(): array
         require '../../../conexion.php';
 
         $id = $_POST['id'];
-        $sql = "SELECT `empleados`.`id_empleado`, `empleados`.`id_usuario`, `empleados`.`id_puesto`, `empleados`.`id_jornada`, CONCAT(`usuarios`.`nombres`, ' ' , `usuarios`.`apellidos`) as nombre, `usuarios`.`telefono`, `usuarios`.`correo` , `usuarios`.`usuario`, `usuarios`.`fotografia`, `usuarios`.`estado` FROM `usuarios` , `empleados` WHERE `usuarios`.`id_usuario` = `empleados`.`id_usuario` and `empleados`.`id_empleado` = $id";
+        $sql = "SELECT `empleados`.`id_empleado`, `empleados`.`id_usuario`, `empleados`.`id_puesto`, `empleados`.`id_jornada`, CONCAT(`usuarios`.`nombres`, ' ' , `usuarios`.`apellidos`) as nombre, `usuarios`.`telefono`, `usuarios`.`correo` , `usuarios`.`usuario`, `usuarios`.`fotografia`, `usuarios`.`estado`, `puestos`.`nombre_puesto` as puesto, `jornadas_trabajo`.`nombre_horario` as turno FROM `usuarios` , `empleados`, `jornadas_trabajo`, `puestos` WHERE `usuarios`.`id_usuario` = `empleados`.`id_usuario` and `empleados`.`id_puesto` = `puestos`.`id_puesto` and `jornadas_trabajo`.`id_jornada` = `empleados`.`id_jornada` and `empleados`.`id_empleado` = $id";
         $consulta = mysqli_query($conexion, $sql);
 
         $row = mysqli_fetch_assoc($consulta); //recibir el resultado de la consulta cuando solo es 1
 
         return $row;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function actualizar_empleado(): array
+{           //recibe los datos correctamente
+    try {
+        require '../../../conexion.php';
+        $id = $_POST['id'];
+        $puesto = $_POST['puesto'];
+        $horario = $_POST['horario'];
+
+        $sql1 =  "UPDATE `empleados` SET `id_puesto`='$puesto',`id_jornada`='$horario' WHERE `id_empleado`='$id'";
+            $consulta1 = mysqli_query($conexion, $sql1);
+        
+        $respuesta = array(
+            'repetido' => false
+        );
+        return $respuesta;
     } catch (\Throwable $th) {
         var_dump($th);
     }

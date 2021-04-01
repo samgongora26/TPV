@@ -65,17 +65,22 @@
                                                     <li><label class="fa fa-phone"></label> <label id="telefono"></label></li>
                                                     <li><label class="fa fa-envelope"></label> <label id="email"></label></li>
                                                     <li><label class="fa fa-user"></label> <label id="usuario"></label></li>
-                                                    <div class="custom-control custom-checkbox" id="est">
-                                                        
-                                                    </div>
-                                                    
+                                                    <div class="custom-control custom-checkbox" id="est"></div>
+                                                </ul>
+                                                <hr>
+                                                <h5 class="mt-0">Datos empleado</h5>
+                                                <ul>
+                                                    <li><label> Puesto actual: </label> <label id="puesto"></label></li>
+                                                    <li><label> Turno actual: </label> <label id="turno"></label></li>
                                                 </ul>
                                                 <hr>
                                                
-                                                <p class="muted-text">Los usaurios no son modificables aqui. para cambiar los datos del usuario, <a href="usuarios_ver.php"> dar click aquí</a></p>
                                                 
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="card-footer">
+                                    <p class="muted-text">Los usaurios no son modificables aqui. para cambiar los datos del usuario, <a href="usuarios_ver.php"> dar click aquí</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -86,6 +91,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Editar al empleado</h4>
+                                        <div id="mensaje"></div>
                                         <form id="formulario" class="mt-4">
                                             <div class="form-group">
                                                 
@@ -93,6 +99,7 @@
                                                     <label for="exampleFormControlSelect1">Puesto</label>
                                                     <select class="form-control" id="contenido_puesto">
                                                         <!--AQUI SE INSERTAN LOS DATOS DEL SELECT DE PUESTOS-->
+                                                        
                                                     </select>
                                                 </div>
                                                 <div class="form-group mb-4">
@@ -104,10 +111,11 @@
                                                 
                                                 <div class="text-right mt-3">
                                                     <button type="submit" class="btn btn-block btn-success">Guardar</button>
-                                                    <hr>
-                                                    <button type="submit" class="btn btn-block btn-danger"><label class="fa fa-trash"></label> Eliminar empleado</button>
-                                                    <!--button type="reset" class="btn btn-dark">reiniciar formulario</button-->
+                                                    <!--hr>
+                                                    <button type="submit" class="btn btn-block btn-danger"><label class="fa fa-trash"></label> Eliminar empleado</button-->
+                                                    
                                                 </div>
+                                                <input type="text" hidden id="id_empleado" value="">
                                             </div>
                                         </form>
                                     </div>
@@ -126,6 +134,7 @@
             include '../../../componentes/scripts.php';
         ?>
             <script src="../../../inc/funciones/usuarios/empleado_ver.js"></script>
+            <script src="../../../inc/funciones/usuarios/empleado_actualizar.js"></script>
         <!-- FIN DE SCRIPTS -->
     </body>
 

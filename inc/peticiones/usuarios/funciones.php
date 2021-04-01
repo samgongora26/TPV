@@ -67,6 +67,9 @@ switch ($accion) {
     case "buscar_empleado":
         $resultado = buscar_empleado();
         break;   
+    case "actualizar_empleado":
+        $resultado = actualizar_empleado();
+        break; 
     
     
 }
