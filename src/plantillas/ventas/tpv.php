@@ -60,26 +60,26 @@
                                 <hr>
                                 <div class="col-md-12">
                                     <h4>Detalle de la venta venta</h4>
-                                    <ul class="nav nav-tabs mb-3">
-                                        <li class="nav-item">
-                                            <a href="#home" data-toggle="tab" aria-expanded="false" class="nav-link active">
-                                                <i class="mdi mdi-home-variant d-lg-none d-block mr-1"></i>
+                                    <ul class="nav nav-tabs mb-3" id="contenedor_tickets">
+                                        <li class="nav-item ticket" id="1">
+                                            <a href="#pre_ticket1" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                                                <i class="mdi mdi-pre_ticket1-variant d-lg-none d-block mr-1"></i>
                                                 <span class="d-none d-lg-block">Ticket 1</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a href="#profile" data-toggle="tab" aria-expanded="true" class="nav-link">
+                                        <li class="nav-item ticket" id="2">
+                                            <a href="#pre_ticket2" data-toggle="tab" aria-expanded="true" class="nav-link">
                                                 <i class="mdi mdi-account-circle d-lg-none d-block mr-1"></i>
                                                 <span class="d-none d-lg-block">Ticket 2</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a href="#settings" data-toggle="tab" aria-expanded="false" class="nav-link">
+                                        <li class="nav-item ticket" id="3">
+                                            <a href="#pre_ticket3" data-toggle="tab" aria-expanded="false" class="nav-link">
                                                 <i class="mdi mdi-settings-outline d-lg-none d-block mr-1"></i>
                                                 <span class="d-none d-lg-block">ticket 3</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item ticket" id="btn_crear_ticket">
                                             <a href="#settings" data-toggle="tab" aria-expanded="false" class="nav-link">
                                                 <i class="mdi mdi-settings-outline d-lg-none d-block mr-1"></i>
                                                 <span class="fa fa-plus"></span>
@@ -88,7 +88,7 @@
                                     </ul>
 
                                     <div class="tab-content">
-                                        <div class="tab-pane active" id="home">
+                                        <div class="tab-pane active" id="pre_ticket1">
 
                                             <table class="table table-sm mb-0">
                                                 <thead>
@@ -108,7 +108,7 @@
                                             </table>
                         
                                         </div>
-                                        <div class="tab-pane show" id="profile">
+                                        <div class="tab-pane show" id="pre_ticket2">
                                             
                                             <table class="table table-sm mb-0">
                                                 <thead>
@@ -124,7 +124,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td>Reloj</td>
+                                                        <td>zzzzzzzzzzzz</td>
                                                         <td>0001</td>
                                                         <td>5000</td>
                                                         <td>-</td>
@@ -133,7 +133,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="tab-pane" id="settings">
+                                        <div class="tab-pane" id="pre_ticket3">
                                             
                                             <table class="table table-sm mb-0">
                                                 <thead>
@@ -149,7 +149,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td>Reloj</td>
+                                                        <td>wewewe</td>
                                                         <td>0001</td>
                                                         <td>5000</td>
                                                         <td>-</td>

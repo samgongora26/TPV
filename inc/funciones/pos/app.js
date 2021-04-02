@@ -5,7 +5,6 @@ const precio = document.querySelector("#actual_precio");
 const r_total = document.querySelector("#monto_total");
 const id_usuario = document.querySelector("#id_usuario").value;
 let texto_total_compra = document.querySelector("#total_compra");
-const btn_Salir = document.querySelector
 
 let carrito = [];
 //let suma = 0;
@@ -16,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#formulario").addEventListener("click", existente_codigo);
   document.querySelector("#cobrar").addEventListener("click", cobrar_productos);
   document.querySelector("#eliminar").addEventListener("click", eliminar_ticket);
-
+  document.querySelector("#btn_crear_ticket").addEventListener("click", crear_nuevo_ticket);
   listado_productos.addEventListener("click", opciones);
   const enter = document.querySelector("#codigo_envio");
   enter.addEventListener("keyup", (e) => {
@@ -193,15 +192,11 @@ function actualizar_carrito(codigo, operador) {
 
 function ver_cobro() {
   const r_recibo = document.querySelector("#monto_recibido");
-  const r_cambio = (document.querySelector("#monto_devuelto").value =
-    "el cambio se muestra aqui");
+  const r_cambio = (document.querySelector("#monto_devuelto").value ="el cambio se muestra aqui");
   // cobrar_productos();
 }
 function cobrar_productos() {
   const total = parseFloat(texto_total_compra.innerHTML);
-  console.log(total);
-
-  console.log("entro a enviar el array");
   const datos = new FormData();
   const array = JSON.stringify(carrito);
 
@@ -211,8 +206,6 @@ function cobrar_productos() {
   datos.append("total_venta", total);
   datos.append("accion", "registrar_venta");
   envio_array(datos).then((res) => {
-    console.log("resultados del res");
-    console.log(res);
     texto_venta_actual.innerHTML = `id de la venta actual : ${res.id}`;
     id_venta_actual = res.id;
     const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${res.id}`);
@@ -318,4 +311,12 @@ function sincronizar_storage() {
 }
 function limpiar_html() {
   listado_productos.innerHTML = "";
+}
+
+/////////////////////generacio de tickets dentro de un mismmo dom
+
+function crear_nuevo_ticket() {
+  console.log("estas en nuevo ticket");
+  const ids = [...document.querySelectorAll('.ticket')].map(el => el.id);
+  console.log(ids)
 }
