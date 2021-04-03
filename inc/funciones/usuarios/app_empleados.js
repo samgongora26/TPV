@@ -126,7 +126,7 @@ async function mostrar_empleados() {
             <td>${nombre_horario} </td>  
             <td>
                 <a type="button" href="empleado.php?id=${id_empleado}" class="btn editar" data-usuario="${id_empleado}"> <i  class="fas fa-edit"></i></a>
-                <button type="button" class="btn eliminar" data-usuario="${id_empleado}"><i class="fas fa-trash"></i></button>
+                <!--button type="button" class="btn eliminar" data-usuario="${id_empleado}"><i class="fas fa-trash"></i></button-->
             </td>      
         </tr>
         `;
@@ -136,7 +136,7 @@ async function mostrar_empleados() {
   }
 }
 
-async function eliminar_registro(e) {
+/*async function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
     idEliminar = Number(e.target.dataset.usuario);
@@ -170,7 +170,7 @@ async function eliminar_registro(e) {
       }
     }
   }
-}
+}*/
 
 async function editar_puesto(id_necesario){
   var id_necesario;

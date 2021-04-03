@@ -17,7 +17,10 @@ async function mostrarServicios() {
 
       const listado_clientes = document.querySelector("#contenido_tabla");
 
-     
+      if(estado == 1 ){
+        estado_imprimir = `<td class="bg-success"> Activo <i class="fas fa-check-circle "></i></td>`;
+      }
+      
       listado_clientes.innerHTML += `  
       <tr>
           <td scope="row">${id_usuario}</td>
@@ -26,7 +29,7 @@ async function mostrarServicios() {
           <td>${telefono}</td>
           <td>${correo}</td>
           <td>${usuario}</td>
-          <td>${estado} <i class="fas fa-check-circle"></i></td>
+          <td class="" id="estado${id_usuario}"></td>
           <td>
               <button type="button" class="btn editar" data-usuario="${id_usuario}" data-toggle="modal" data-target="#edit-modal${id_usuario}"> <i  class="fas fa-edit"></i></button>
               <button type="button" class="btn eliminar" data-usuario="${id_usuario}"><i class="fas fa-trash"></i></button>
@@ -57,7 +60,18 @@ async function mostrarServicios() {
                                             <label>Contraseña</label>
                                             <input id="edit_contrasenia${id_usuario}" type="password" value="${contrasenia}"  placeholder="Contraseña" minlength="5" class="form-control" required="">
                                             <label>Estado</label>
-                                            <input id="edit_estado${id_usuario}" type="text" value="${estado}"  placeholder="Contraseña" class="form-control" required="">
+                                            
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <label class="input-group-text" for="inputGroupSelect01">Estados</label>
+                                                </div>
+                                                <select class="custom-select" id="edit_estado${id_usuario}">
+                                                    <option value="0">Inactivo</option>
+                                                    <option value="1">Activo</option>
+                                                    <option value="2">De baja</option>
+                                                </select>
+                                            </div>
+                                
                                             <div class="text-right mt-3">
                                                 <button type="submit" onclick="editar_usuario(${id_usuario})" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Guardar</button>
                                                 <button type="reset" class="btn btn-dark" data-dismiss="modal" aria-hidden="true"> Cancelar</button>
@@ -69,6 +83,29 @@ async function mostrarServicios() {
                           </div>
                           <!-- Fin modal editar -->
         `;
+        let casilla_estado =  document.querySelector("#estado"+id_usuario);
+
+        if(estado == 0 ){
+          casilla_estado.setAttribute("class", "bg-warning text-white");
+          casilla_estado.innerHTML = "Inactivo"
+          
+          //estado_imprimir = `<td class="bg-success"> Activo <i class="fas fa-check-circle "></i></td>`;
+        }
+        if(estado == 1 ){
+          casilla_estado.setAttribute("class", "bg-success text-white");
+          casilla_estado.innerHTML = "Activo"
+          
+          //estado_imprimir = `<td class="bg-success"> Activo <i class="fas fa-check-circle "></i></td>`;
+        }
+        if(estado == 2 ){
+          casilla_estado.setAttribute("class", "bg-danger text-white");
+          casilla_estado.innerHTML = "De baja"
+          
+          //estado_imprimir = `<td class="bg-success"> Activo <i class="fas fa-check-circle "></i></td>`;
+        }
+        
+        
+
     });
   } catch (error) {
     console.log(error);

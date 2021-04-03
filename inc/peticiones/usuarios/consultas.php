@@ -142,7 +142,7 @@ function registrar_puesto(): array
         }
         
         if(!$puesto_repetido){
-            $sql =  "INSERT INTO `puestos`( `nombre_puesto`, `estado`) VALUES ('$nombre',1)";
+            $sql =  "INSERT INTO `puestos`( `nombre_puesto`) VALUES ('$nombre')";
             $consulta = mysqli_query($conexion, $sql);
         }
         
@@ -168,7 +168,6 @@ function mostrar_puestos(): array
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $usuarios[$i]['id_puesto'] = $row['id_puesto'];
             $usuarios[$i]['nombre_puesto'] = $row['nombre_puesto'];
-            $usuarios[$i]['estado'] = $row['estado'];
             $i++;
         }
         //var_dump($usuarios);
@@ -185,9 +184,8 @@ function actualizar_puesto(): array
         require '../../../conexion.php';
         $id = $_POST['id'];
         $nombres = $_POST['nombres'];
-        $estado = $_POST['estado'];
         
-        $sql = "UPDATE `puestos` SET `nombre_puesto`='$nombres',`estado`='$estado' WHERE `puestos`.`id_puesto` = $id;";
+        $sql = "UPDATE `puestos` SET `nombre_puesto`='$nombres' WHERE `puestos`.`id_puesto` = $id;";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
@@ -413,7 +411,7 @@ function select_puestos(): array
     try {
         require '../../../conexion.php';
 
-        $sql = "SELECT * FROM `puestos` WHERE `estado` = 1";
+        $sql = "SELECT * FROM `puestos`";
         $consulta = mysqli_query($conexion, $sql);
         $puestos = [];
         $i = 0;

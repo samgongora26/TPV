@@ -13,7 +13,7 @@ async function mostrarServicios() {
 
     db.forEach((servicio) => {
       //console.log(servicio);
-      const { id_puesto, nombre_puesto, estado} = servicio;
+      const { id_puesto, nombre_puesto} = servicio;
 
       const listado_clientes = document.querySelector("#contenido_tabla");
 
@@ -22,7 +22,6 @@ async function mostrarServicios() {
       <tr>
           <td scope="row">${id_puesto}</td>
           <td scope="row">${nombre_puesto}</td>
-          <td>${estado} <i class="fas fa-check-circle"></i></td>  
           <td>
               <button type="button" class="btn editar" data-usuario="${id_puesto}" data-toggle="modal" data-target="#edit-modal${id_puesto}"> <i  class="fas fa-edit"></i></button>
               <button type="button" class="btn eliminar" data-usuario="${id_puesto}"><i class="fas fa-trash"></i></button>
@@ -43,8 +42,7 @@ async function mostrarServicios() {
                                             <p>ID: ${id_puesto}</p>
                                             <label>Nombres</label>
                                             <input id="edit_nombre${id_puesto}" type="text" value="${nombre_puesto}" placeholder="Ingresa nombre(s) del usuario" minlength="2" class="form-control" required="">
-                                            <label>Estado</label>
-                                            <input id="edit_estado${id_puesto}" type="text" value="${estado}"  placeholder="Contraseña" class="form-control" required="">
+                                            
                                             <div class="text-right mt-3">
                                                 <button type="submit" onclick="editar_puesto(${id_puesto})" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Guardar</button>
                                                 <button type="reset" class="btn btn-dark" data-dismiss="modal" aria-hidden="true"> Cancelar</button>
@@ -112,13 +110,11 @@ async function eliminar_registro(e) {
 async function editar_puesto(id_necesario){
   var id_necesario;
   const edit_nombres = document.getElementById("edit_nombre"+id_necesario).value; 
-  const edit_estado = document.querySelector("#edit_estado"+id_necesario).value;
 
   try {
     const datos = new FormData();
     datos.append("id", id_necesario);
     datos.append("nombres", edit_nombres);
-    datos.append("estado", edit_estado);
     datos.append("accion", "actualizar_puesto");
 
     const res = await fetch("../../../inc/peticiones/usuarios/funciones.php", {

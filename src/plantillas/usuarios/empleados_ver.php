@@ -105,7 +105,7 @@
                                                     <th scope="col">Usuario</th>
                                                     <th scope="col">Puesto</th>
                                                     <th scope="col">Horario</th>
-                                                    <th scope="col">Editar o eliminar</th>
+                                                    <th scope="col">Editar</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="contenido_tabla">
