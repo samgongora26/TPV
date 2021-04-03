@@ -13,7 +13,7 @@ async function mostrarServicios() {
 
     db.forEach((servicio) => {
       //console.log(servicio);
-      const { id_usuario, nombres, apellidos, telefono, correo, usuario, contrasenia, estado } = servicio;
+      const { id_usuario, nombres, apellidos, telefono, correo, usuario, contrasenia, estado, fotografia } = servicio;
 
       const listado_clientes = document.querySelector("#contenido_tabla");
 
@@ -24,8 +24,9 @@ async function mostrarServicios() {
       listado_clientes.innerHTML += `  
       <tr>
           <td scope="row">${id_usuario}</td>
-          <td>${nombres}</td>
-          <td>${apellidos}</td>
+          <td> <img src="../../assets/images/users/${fotografia}" alt="user" class="rounded-circle"
+            width="40"> </td>
+          <td>${nombres} ${apellidos}</td>
           <td>${telefono}</td>
           <td>${correo}</td>
           <td>${usuario}</td>

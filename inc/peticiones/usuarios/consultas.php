@@ -10,6 +10,18 @@ function registrar_usuario(): array
         $correo =  $_POST['correo'];
         $usuario = $_POST['usuario'];
         $contrasenia = $_POST['contrasenia'];
+        
+        //Nombre de la imagen
+        $nombre_imagen = $_FILES['fotografia']['name'];
+
+        //El archivo, es decir, la imagen
+        $archivo = $_FILES['fotografia']['tmp_name'];
+
+        $ruta = '';
+        $ruta = $ruta."/".$nombre_imagen;
+
+        move_uploaded_file($archivo,$ruta);
+
 
         //COMPROBACIÓN DE USUARIOS REPETIDOS
         $sql = "SELECT * FROM `usuarios`;";
@@ -24,13 +36,15 @@ function registrar_usuario(): array
         
         if(!$usuario_repetido){
             $sql =  "INSERT INTO `usuarios`( `nombres`, `apellidos`, `telefono`, `correo`, `usuario`, `contrasenia`, `fotografia`, `estado`)
-            VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',0)";
+            VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','$nombre_imagen',0)";
             $consulta = mysqli_query($conexion, $sql);
             
         }
 
         $respuesta = array(
-            'repetido' => $usuario_repetido
+            'repetido' => $usuario_repetido,
+            'ruta' => $ruta,
+            'nombre_imagen' => $nombre_imagen
         );
         return $respuesta;
 

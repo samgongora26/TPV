@@ -71,6 +71,8 @@
                                                 <input id="usuario" type="text" placeholder="Usuario" minlength="5" class="form-control" required="">
                                                 <label>Contraseña</label>
                                                 <input id="contrasenia" type="password" placeholder="Contraseña" minlength="5" class="form-control" required="">
+                                                <label>Fotografia</label>
+                                                <input type="file" class="form-control-file" name="fotografia" id="fotografia" required="">
                                                 <div class="text-right mt-3">
                                                     <button type="submit" class="btn btn-success">Guardar</button>
                                                     <button type="reset" class="btn btn-dark">reiniciar formulario</button>
@@ -95,8 +97,8 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">ID</th>
+                                                    <th scope="col">Foto</th>
                                                     <th scope="col">Nombres</th>
-                                                    <th scope="col">Apellidos</th>
                                                     <th scope="col">Telefono</th>
                                                     <th scope="col">Correo</th>
                                                     <th scope="col">Usuario</th>

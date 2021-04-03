@@ -12,17 +12,19 @@ function obtener_datos(e) {
   const correo = document.querySelector("#correo").value;
   const usuario = document.querySelector("#usuario").value;
   const contrasenia = document.querySelector("#contrasenia").value;
+  const fotografia = document.querySelector("#fotografia").value;
   
   //Validación de campos vacios
-  if(nombres != "" & apellidos != "" & telefono != "" & correo != "" & usuario != "" & contrasenia != ""){
-    /*console.log(
+  if(nombres != "" & apellidos != "" & telefono != "" & correo != "" & usuario != "" & contrasenia != "" & fotografia != ""){
+    console.log(
       nombres,
       apellidos,
       telefono,
       correo,
       usuario,
-      contrasenia
-    );*/
+      contrasenia,
+      fotografia
+    );
     const datos = new FormData(); //encapsulamiento de los datos para envio
     datos.append("nombres", nombres);
     datos.append("apellidos", apellidos);
@@ -30,6 +32,7 @@ function obtener_datos(e) {
     datos.append("correo", correo);
     datos.append("usuario", usuario);
     datos.append("contrasenia", contrasenia);
+    datos.append("fotografia", fotografia);
     datos.append("accion", "registrar");
 
     enviar_async(datos); //enviar a una funcion
@@ -59,7 +62,7 @@ async function enviar_async(cliente) {
       }
     );
     const data = await res.json();
-    //console.log(data);
+    console.log(data);
     //console.log(data.repetido);
     if(data.repetido){
       alert("usuario repetido")
