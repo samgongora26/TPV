@@ -117,6 +117,12 @@
                                 <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Account Setting</a>
+                                
+                                <button id="boton_instalar" name="boton_instalar" hidden class="dropdown-item" aria-expanded="false">
+                                    <i class="fas fa-download"></i>
+                                    <span class="hide-menu">Instalar</span>
+                                </button>
+                      
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../../../inc/funciones/admin/logout.php"><i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>

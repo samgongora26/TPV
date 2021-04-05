@@ -1,4 +1,7 @@
-<script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+    <!--SCRIPT DE INSTALACION-->
+    <script src="../../../inc/funciones/admin/install.js"></script>
+
+    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- apps -->
