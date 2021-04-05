@@ -125,7 +125,7 @@
                         <div class="card-footer bg-lighr">
                             <h5>Completar la compra</h5>
                             <div class="input-group mb-3">
-                                            
+                            <div id="mensaje2"></div>
                                             <ul class="list-group mx-auto">
                                                 <div class="input-group-prepend">
                                                     <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>
@@ -141,7 +141,8 @@
                                                 </div>
                                                 
                                             </ul>
-                                            <button class="btn btn-sm btn-success mx-auto"> Comprar <label class="fa fa-check"></label></button>
+                                            <input type="text" id="por_pagar2" value="" hidden>
+                                            <button class="btn btn-sm btn-success mx-auto" onclick="obtener_monto()"> Comprar <label class="fa fa-check"></label></button>
                                         </div>
                             </div>
                     </div> 

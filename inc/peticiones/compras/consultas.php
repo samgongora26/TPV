@@ -154,7 +154,7 @@ function completar_compra(): array
             'id' => $id
         );*/
 
-        //return $respuesta;
+        return $id;
     } catch (\Throwable $th) {
         var_dump($th);
     }

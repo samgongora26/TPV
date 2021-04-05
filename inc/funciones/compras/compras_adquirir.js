@@ -60,7 +60,6 @@ async function enviar_async(cliente) {
 
     //EN CASO DE QUE NO SE ENCUENTRE EL PROODUCTO
     if(data.mensaje == 1){
-      //alert("usuario repetido")
       //mesaje de fracaso
       const mensajes = document.querySelector("#mensaje");
       mensajes.innerHTML += `  
@@ -72,6 +71,7 @@ async function enviar_async(cliente) {
         </div>
         `;
     }
+    //EN CASO DE QUE SE ENCUENTRE EL PRODUCTO
     else{
       //mesaje de exito
         const mensajes = document.querySelector("#mensaje");
@@ -94,44 +94,69 @@ async function enviar_async(cliente) {
   }
 }
 
-eventListeners();
-function eventListeners() {
-  document
-    .querySelector("#formulario2")
-    .addEventListener("submit", obtener_datos);
-}
 
-function obtener_monto(e) {
-  e.preventDefault();
+function obtener_monto() {
+
   //Se obtienen los datos de los input de la interfaz
   const monto = document.querySelector("#monto").value;
   const usuario = document.querySelector("#usuario").value;
-
- //Validación de campos vacios
- if(monto != "" ){
-
-  //encapsulamiento de los datos para envio
-  const datos = new FormData(); 
-  //datos.append("proveedor", proveedor);
-  datos.append("monto", monto);
-  datos.append("usuario", usuario);
-  datos.append("accion", "completar_compra");
-
-  completar_compra(datos); //enviar a una funcion
-}
-else{
-  //En caso de que el formulario este vacio
-  //Mensaje de Formulario vacio 
-  const mensajes = document.querySelector("#mensaje");
+  const por_pagar = document.getElementById("por_pagar2").value;
+  console.log(
+    monto,
+    usuario,
+    por_pagar
+  );
+  //Validación de campos vacios
+  if(monto != "" ){
+    //encapsulamiento de los datos para envio
+    const datos = new FormData(); 
+    //datos.append("proveedor", proveedor);
+    datos.append("monto", monto);
+    datos.append("usuario", usuario);
+    datos.append("accion", "completar_compra");
+    
+    //SI EL MONTO ES MENOR A LO DEBIDO
+    if(monto < por_pagar){
+      console.log("monto menor a lo debido");
+      //Mensaje de adeudo
+      const mensajes = document.querySelector("#mensaje2");
+      mensajes.innerHTML += `  
+        <div class="alert alert-warning alert-dismissible bg-warning text-white border-0 fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <strong>¡Alerta! </strong> El monto es menor a lo debido, se generará un adeudo.
+        </div>
+        `;
+    }
+    
+    completar_compra(datos); //enviar a una funcion
+  }
+  else if(monto <= 0){
+    //Mensaje de el monto es menor o igual a 0
+    const mensajes = document.querySelector("#mensaje2");
     mensajes.innerHTML += `  
       <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">×</span>
           </button>
-          <strong>¡ERROR! </strong> Está intentando guardar un registro vacio
+          <strong>¡ERROR! </strong> El monto es menor o igual a 0.
       </div>
       `;
-}
+  }
+  else{
+      //En caso de que el formulario este vacio
+      //Mensaje de Formulario vacio 
+      const mensajes = document.querySelector("#mensaje2");
+        mensajes.innerHTML += `  
+          <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>¡ERROR! </strong> Está intentando guardar un registro vacio
+          </div>
+          `;
+  }
 }
 
 //Respuesta del servidor

@@ -1,6 +1,6 @@
 
 navigator.serviceWorker.register("../../../sw.js");
-console.log("entro en instalar");
+//console.log("entro en instalar");
 //document.getElementById('boton_instalar').hidden = false;
 
 var boton_instalar = document.querySelector('#boton_instalar');

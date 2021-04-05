@@ -85,6 +85,7 @@ async function mostrar_detalle() {
     //imprime el total
     console.log(suma);
     document.getElementById("por_pagar").value="$" + suma;
+    document.getElementById("por_pagar2").value= suma;
 
   } catch (error) {
     console.log(error);
