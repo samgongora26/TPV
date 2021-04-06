@@ -7,7 +7,6 @@ const id_usuario = document.querySelector("#id_usuario").value;
 let texto_total_compra = document.querySelector("#total_compra");
 
 let carrito = [];
-//let suma = 0;
 let id_venta_actual = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,21 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("envio para el cambio");
 
         const recibido = document.querySelector("#monto_recibido").value;
+        const btn_cobrar = document.getElementById("cobrar").disabled;
         const monto = parseFloat(recibido);
         const total = parseFloat(texto_total_compra.innerHTML);
         const operacion = monto - total;
-        if (operacion < 0) {
-          document.getElementById("cobrar").disabled = true;
-        } else {
-          document.getElementById("cobrar").disabled = false;
-        }
-        console.log(
-          `total a pagar : ${total} y cantidad pagada ${recibido}, el resultado de esta operacion es ${operacion}`
-        );
-        const r_cambio = (document.querySelector(
-          "#monto_devuelto"
-        ).value = operacion);
-        console.log(operacion);
+        const se_puede_pagar = operacion > 0;
+        document.getElementById("cobrar").disabled = !(se_puede_pagar);
+       // btn_cobrar.disabled = se_puede_pagar; // indica si se bloquea o no el boton
+
+        const r_cambio = (document.querySelector("#monto_devuelto").value = operacion);
       }
     });
 });
@@ -61,8 +54,6 @@ async function mostrar_ticket() {
 }
 
 function pintar_inicio(data) {
-  let valor_int = 0;
-  console.log(data);
   texto_venta_actual.innerHTML = `id de la venta actual ${data[0].id_venta}`;
   id_venta_actual = data[0].id_venta;
 
@@ -91,10 +82,9 @@ function pintar_inicio(data) {
     if (id_producto === null) {
       console.log(`el ingreso de un nuevo producto al carrito${producto}`);
       carrito.push(producto);
-      articulos_html();
+      mostrar_articulos_del_carrito();
     }
-    articulos_html();
-   // suma = suma + valor_int; //suma cada importe
+    mostrar_articulos_del_carrito();
     texto_venta_actual.innerHTML = `id de la venta actual ${id_venta}`;
     id_venta_actual = id_venta;
   });
@@ -103,16 +93,8 @@ function pintar_inicio(data) {
 
 function existente_codigo(e) {
   const codigo = document.querySelector("#codigo_envio").value;
-  let id = 0;
-
-  const itemEnCarritoIndex = carrito.findIndex(
-    (producto) => producto.codigo === codigo
-  );
-  if (itemEnCarritoIndex >= 0) {
-    actualizar_carrito(codigo, +1);
-  } else {
-    buscar_producto(e);
-  }
+  const itemEnCarritoIndex = carrito.findIndex((producto) => producto.codigo === codigo);
+  itemEnCarritoIndex >= 0 ? actualizar_carrito(codigo, +1) : buscar_producto(e);
 }
 
 function buscar_producto(e) {
@@ -157,15 +139,11 @@ function pintar(data) {
     carrito.push(producto);
     foto.innerHTML = `nombre del codigo :${codigo}`;
     precio.innerHTML = precio_venta;
-    articulos_html();
-
+    mostrar_articulos_del_carrito();
   } else {
     alert("no existe el producto");
   }
 }
-
-///////////////////////////////////funciones de inicio ------------
-
 
 function opciones(e) {
   if (e.target.classList.contains("aumentar")) {
@@ -187,14 +165,9 @@ function actualizar_carrito(codigo, operador) {
   let precio = parseInt(carrito[index].precio_v);
   let total = cantidad * precio;
   carrito[index].importe = total;
-  articulos_html();
+  mostrar_articulos_del_carrito();
 }
 
-function ver_cobro() {
-  const r_recibo = document.querySelector("#monto_recibido");
-  const r_cambio = (document.querySelector("#monto_devuelto").value ="el cambio se muestra aqui");
-  // cobrar_productos();
-}
 function cobrar_productos() {
   const total = parseFloat(texto_total_compra.innerHTML);
   const datos = new FormData();
@@ -211,7 +184,7 @@ function cobrar_productos() {
     const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${res.id}`);
   });
 
-  reinicio();
+  limpiar_campos_html();
 
   alert("se ha registrado el cobro correctamente");
 }
@@ -226,7 +199,7 @@ function eliminar_ticket() {
     texto_venta_actual.innerHTML = `id de la venta actual : ${res.id_nueva_venta}`;
     id_venta_actual = res.id_nueva_venta;
   });
-  reinicio();
+  limpiar_campos_html();
   alert("se ha eliminado correctamente");
 }
 
@@ -244,7 +217,7 @@ async function enviar_datos(datos) {
   }
 }
 
-function reinicio() {
+function limpiar_campos_html() {
   carrito = [];
   //suma = 0;
   texto_total_compra.innerHTML = "";
@@ -256,7 +229,6 @@ function reinicio() {
 }
 
 async function envio_array(datos) {
-  //enviar una petcion a php con un conjunto de datos
   try {
     const res = await fetch("../../../inc/peticiones/pos/funciones.php", {
       method: "POST",
@@ -269,8 +241,8 @@ async function envio_array(datos) {
   }
 }
 
-function articulos_html() {
-  limpiar_html();
+function mostrar_articulos_del_carrito() {
+  limpiar_lista_productos();
   let suma = 0;
   carrito.forEach((articulo) => {
     const { id, nombre, codigo, cantidad, precio_v, importe } = articulo;
@@ -292,24 +264,22 @@ function articulos_html() {
 
     suma = suma + importe;
   });
-    //parte del modal
-    if(suma => 0){
-      const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${id_venta_actual}`);
-      const r_total = (document.querySelector("#monto_total").innerHTML = `Total : ${suma}`);
-    texto_total_compra.innerHTML = suma;
-    }else{
-      const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${id_venta_actual}`);
-      const r_total = (document.querySelector("#monto_total").innerHTML = `Total : 0`);
-    texto_total_compra.innerHTML = 0;
-    }
 
+  mostrar_total_modal(suma, id_venta_actual);
   sincronizar_storage();
+}
+
+function mostrar_total_modal(suma, id) {
+  // la cantidad monetaria actual en el modal
+  document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${id}`;
+  document.querySelector("#monto_total").innerHTML = `Total : ${suma}`;
+  texto_total_compra.innerHTML = suma;
 }
 
 function sincronizar_storage() {
   localStorage.setItem("productos_carrito", JSON.stringify(carrito));
 }
-function limpiar_html() {
+function limpiar_lista_productos() {
   listado_productos.innerHTML = "";
 }
 
