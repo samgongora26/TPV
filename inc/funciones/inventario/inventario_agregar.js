@@ -81,7 +81,8 @@ function obtener_datos(e) {
   const mayoreo = document.querySelector("#mayoreo").value;
   const caducidad = document.querySelector("#caducidad").value;
   const stock = document.querySelector("#stock").value;
-
+  const stock_min = document.querySelector("#stockmin").value;
+  const stock_max = document.querySelector("#stockmax").value;
   //si recibe correctamente todos los datos
   //console.log(nombre,codigobarras,precio,descripcion,select_de_unidad,select_de_categoria,select_de_estado,costo,mayoreo,caducidad, stock);
 
@@ -97,11 +98,14 @@ function obtener_datos(e) {
   datos.append("mayoreo", mayoreo);
   datos.append("caducidad", caducidad);
   datos.append("stock", stock);
+  datos.append("stock_min",stock_min);
+  datos.append("stock_max",stock_max);
   datos.append("marca", select_de_marca);
   datos.append("accion", "registrar");
 
   enviar_async(datos); //enviar a una funcion
   alert('EL PRODUCTO FUE GUARDADO EXITOSAMENTE');
+  //echo ('<META HTTP-EQUIV="Refresh" Content="0; URL=#">');
 }
 
 

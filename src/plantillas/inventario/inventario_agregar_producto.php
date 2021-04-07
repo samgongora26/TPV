@@ -59,7 +59,15 @@
                                         <div class="form-group">
 
                                             <label>Imagen</label>
-                                            <input id="imagen" name="imagen" type="file" class="form-control">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                        <button class="btn btn-outline-secondary" type="button">Seleccionar Imagen</button>
+                                                </div>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="inputGroupFile03">
+                                                    <label class="custom-file-label" for="inputGroupFile03">Imagen a seleccionar para el producto</label>
+                                                </div>
+                                            </div>
                                             <label>Nombre</label>
                                             <input id="nombre" name="nombre" placeholder="Nombre de Producto" type="text" class="form-control" required>
                                             <label>Codigo de Barras</label>
@@ -130,6 +138,15 @@
                                             <label>Cantidad en stock</label>
                                             <input id="stock" name="stock" placeholder="Cantidad de stock" type="text" class="form-control" required>
                                             <br>
+                                            <label>Stock Mínimo</label>
+                                            <div class="form-group">
+                                                <input id="stockmin" name="stockmin" placeholder="Cantidad de stock mínima" type="number" class="form-control">
+                                            </div>
+                                            <label>Stock Máximo</label>
+                                            <div class="form-group">
+                                                <input id="stockmax" name="stockmax" placeholder="Cantidad de stock máxima" type="number" class="form-control">
+                                            </div>
+
                                             <!--<label>Impuesto Producto</label>-->
                                             <!--<input id="pais" name="pais" type="text" class="form-control">-->
 
