@@ -15,10 +15,12 @@ function registrar_producto(): array
         $costo = $_POST['costo'];
         $mayoreo = $_POST['mayoreo'];
         $stock = $_POST['stock'];
+        $stock_min =$_POST['stock_min'];
+        $stock_max =$_POST['stock_max'];
         $marca = $_POST['marca'];
 
-        $sql =  "INSERT INTO productos_inventario (nombre_producto, descripcion, codigo, precio_costo, precio_venta, precio_mayoreo, unidad, cantidad_stock, fecha_caducidad, id_marca, estado)
-        VALUES('$nombre','$descripcion','$codigobarras', '$costo','$precio','$mayoreo', '$unidad','$stock', '$caducidad', '$marca','$estado')";
+        $sql =  "INSERT INTO productos_inventario (nombre_producto, descripcion, codigo, precio_costo, precio_venta, precio_mayoreo, unidad, cantidad_stock, stock_min, stock_max, fecha_caducidad, id_marca, estado)
+        VALUES('$nombre','$descripcion','$codigobarras', '$costo','$precio','$mayoreo', '$unidad','$stock', '$stock_min', '$stock_max', '$caducidad', '$marca','$estado')";
 
 
         $consulta = mysqli_query($conexion, $sql);
@@ -36,6 +38,8 @@ function registrar_producto(): array
             'mayoreo' => $mayoreo,
             'caducidad' => $categoria,
             'stock' => $stock,
+            'stock_min' => $stock_min,
+            'stock_max' => $stock_max,
             'marca' => $marca
         );
 
