@@ -1,7 +1,16 @@
 const nombre_text = document.querySelector("#nombre");
-const email_text = document.querySelector("#email");
-const telefono_text = document.querySelector("#telefono");
-const direccion_text = document.querySelector("#direccion");
+const descripcion_text = document.querySelector("#descripcion");
+const codigo_text = document.querySelector("#codigo");
+const preciocosto_text = document.querySelector("#preciocosto");
+const precioventa_text = document.querySelector("#precioventa");
+const preciomayoreo_text = document.querySelector("#preciomayoreo");
+const unidad_text = document.querySelector("#unidad");
+const caducidad_text = document.querySelector("#caducidad");
+const stockactual_text = document.querySelector("#stockactual");
+const stockmax_text = document.querySelector("#stockmax");
+const stockmin_text = document.querySelector("#stockmin");
+const marca_text = document.querySelector("#marca");
+const estado_text = document.querySelector("#estado");
 
 const formulario = document.querySelector("#formulario");
 
@@ -27,7 +36,7 @@ async function obtener_cliente(id) {
   datos.append("accion", "buscar");
 
   try {
-    direccion = "../../../inc/peticiones/proveedores/funciones.php";
+    direccion = "../../../inc/peticiones/inventario/funciones.php";
     const peticion = await fetch(direccion, {
       method: "POST",
       body: datos,
@@ -41,9 +50,19 @@ async function obtener_cliente(id) {
 }
 
 function llenar_formulario(cliente) {
-  const { nombre, correo, direccion, telefono } = cliente;
-  nombre_text.innerHTML = nombre;
-  telefono_text.innerHTML = telefono; //asignar los valores del id correspondiente
-  email_text.innerHTML = correo;
-  direccion_text.innerHTML = direccion;
-}
+  const { nombre_producto, descripcion,codigo ,precio_costo, precio_venta, precio_mayoreo, unidad, cantidad_stock, stock_min, stock_max, fecha_caducidad, id_marca, estado} = cliente;
+
+  nombre_text.innerHTML = nombre_producto;
+  descripcion_text.innerHTML = descripcion;
+  codigo_text.innerHTML = codigo;
+  preciocosto_text.innerHTML = precio_costo;
+  precioventa_text.innerHTML = precio_venta;
+  preciomayoreo_text.innerHTML = precio_mayoreo;
+  unidad_text.innerHTML = unidad;
+  stockactual_text.innerHTML = cantidad_stock;
+  stockmin_text.innerHTML = stock_min;
+  stockmax_text.innerHTML = stock_max;
+  caducidad_text.innerHTML = fecha_caducidad;
+  marca_text.innerHTML = id_marca;
+  estado_text.innerHTML = estado;
+} 

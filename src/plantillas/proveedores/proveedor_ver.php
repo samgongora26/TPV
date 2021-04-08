@@ -41,9 +41,9 @@
         <!-- FON BARRA IZQUIERDA  -->
         <!-- ============================================================== -->
 
-        
+
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        
+
         <div class="page-wrapper">
             <div class="container-fluid">
             <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
@@ -57,7 +57,6 @@
                                 <h4 class="mb-0 text-white" id="nombre"><!-- se inyecta el nombre--></h4>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title text-white">Razon Social</h5>
                                 <div align="center"><img style="border-radius: 50px; color: black;" src="../../imagenes/proveedores/logosabritas.jpg" width="100" height="100" ></div><br>
                                 <div class="row">
                                     <div class="col-md-3">
@@ -68,9 +67,9 @@
                                     </div>
                                     <div class="col-md-5">
                                         <a href="javascript:void(0)" class="btn btn-primary">Editar Proveedor <i class="fas fa-edit"></i></a>
-                                    </div>                         
+                                    </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -172,7 +171,7 @@
 
                 <!--Fin Tabla de facturas de compra-->
 
-            
+
 
             </div>
         </div>

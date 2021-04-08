@@ -247,6 +247,7 @@
         include '../../../componentes/scripts.php';
     ?>
     <script src="../../../inc/funciones/inventario/app.js"></script>
+    <script>src="../../../inc/funciones/inventario/inventario_ver.js"</script>
     <!-- FIN DE SCRIPTS -->
 </body>
 

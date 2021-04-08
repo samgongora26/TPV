@@ -41,7 +41,7 @@ function busqueda_especifica(e) {
               data-target="#estado-modal"><i data-cliente="${id}" class="icon-note"></i></button>    
           </td>
           <td>
-              <button type="button" class="btn btn-primary boton_ver"><i href="inventario_producto_ver.php?id=${id}" class="icon-eye"></i></button>
+            <a href="inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
           </td>
           <td>
             <button type="button" class="btn btn-primary editar" data-toggle="modal"
@@ -102,7 +102,7 @@ async function llamado(datos) {
               data-target="#estado-modal"><i data-cliente="${id}" class="icon-note"></i></button>    
           </td>
           <td>
-              <button type="button" class="btn btn-primary boton_ver"><i href="inventario_producto_ver.php?id=${id}" class="icon-eye"></i></button>
+            <a href="inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
           </td>
           <td>
             <button type="button" class="btn btn-primary editar" data-toggle="modal"
@@ -163,7 +163,7 @@ function obtener_datos_unitarios(e) {
     });
   }
 }
-
+/*<button type="button" class="btn btn-primary boton_ver"><i href="inventario_ver.php?id=${id}" class="icon-eye"></i></button>*/
  function editar_registro(e) {
   e.preventDefault();
   //console.log("Haaaaaaaaaaaa");
