@@ -1,13 +1,24 @@
 const contenedor_tickets = document.querySelector("#contenedor_tickets");
 const padre = document.querySelector("#contenedor_padre_tickets");
 let ticket_en_uso = 0;
-const tickets_activos = [];
+const tickets = [];
+const carrito_test = [`melon`,`sandia`, `papaya`,`cereal`,`leche`,`galletas`,`jugo`,`sabritas`,`silla`,`mesa`]
+
+document.querySelector("#formulario").addEventListener("click", existente_codigo);
+const enter = document.querySelector("#codigo_envio");
+enter.addEventListener("keyup", (e) => {
+  if (e.keyCode === 13) {
+    existente_codigo();
+  }
+})
+
+const existente_codigo = () => alert("hola mundo");
 
 const agregar_array_tickets = () => {
-  let ultimo = tickets_activos[tickets_activos.length - 1];
+  let ultimo = tickets[tickets.length - 1];
   ultimo = ultimo + 1;
-  isNaN(ultimo) ? (ultimo = 1) : false;
-  tickets_activos.push(ultimo);
+  isNaN(ultimo) ? (ultimo = 0) : false;
+  tickets.push(ultimo);
   return ultimo;
 };
 
@@ -28,7 +39,7 @@ const crear_ticket_html = (nuevo_id) => {
 const crear_contenedor_productos = (nuevo_id) => {
   let node = document.createElement("DIV");
   node.classList.add("tab-pane");
-  if (nuevo_id === 1) node.classList.add(`active`);
+  if (nuevo_id === 0) node.classList.add(`active`);
   node.setAttribute("ID", `pre_ticket${nuevo_id}`);
   let textnode = `<table class="table table-sm mb-0">
   <thead>
