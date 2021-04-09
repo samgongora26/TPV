@@ -161,6 +161,13 @@
                                 </li>
                             </ul>
                         </li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../configuracion/configuracion.php"
+                                aria-expanded="false"><i class="fas fa-cog"></i><span
+                                    class="hide-menu">Configuración
+                                </span></a>
+                        </li>
+
 						
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
