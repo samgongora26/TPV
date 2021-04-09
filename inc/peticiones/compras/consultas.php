@@ -155,7 +155,7 @@ function completar_compra(): array
             //OBTIENE EL ULTIMO ID PEDIDO
             $sql = "SELECT * FROM `pedidos` WHERE `id_usuario` = $id AND `estado` = 0 ORDER BY (`id_pedido`) DESC LIMIT 1";
             $consulta = mysqli_query($conexion, $sql);
-            $total = mysqli_num_rows($consulta); //Guarda el numero de filas de la consulta
+            //$total = mysqli_num_rows($consulta); //Guarda el numero de filas de la consulta
             $ultimo_pedido = mysqli_fetch_assoc($consulta);//usar cuando se espera varios resultados
             $id_pedido = $ultimo_pedido['id_pedido'];
 
@@ -182,18 +182,35 @@ function completar_compra(): array
                 
             }
         
-        //4. LA LISTA DE DETALLE PEDIDO DEBE DE CAMBIAR DE ESTADO A 1
+        //4. LA LISTA DE DETALLE PEDIDO DEBE DE CAMBIAR DE ESTADO A 1 SI EL PAGO ES COMPLETO O MAYOR
             $sql = "UPDATE `detalle_pedido` SET `id_pedido`= $id_pedido, `estado`= 1 WHERE `id_usuario` = $id AND `estado` = 0";
             $consulta = mysqli_query($conexion, $sql);
         
-        //5. ACTUALIZAR EL ID DE LA VENTA. NO SE HACE HASTA AHORA POR SI HAY UN ERROR ANTERIOR
-            $sql = "UPDATE `pedidos` SET `estado`= 1 WHERE `id_pedido` =  $id_pedido";
+        //5. LA LISTA DE PEDIDO DEBE DE CAMBIAR DE ESTADO A 2 SI EL PAGO ES INCOMPLETO Y A 1 SI ES COMPLETO
+        $pago_completo = false;
+        $estado= 0;
+
+        if($pagado >= $total){
+            $pago_completo = true;
+            $estado  = 1;
+        }
+        else{
+            $estado = 2;
+        }
+
+            $sql = "UPDATE `pedidos` SET `estado`= $estado WHERE `id_pedido` =  $id_pedido";
             $consulta = mysqli_query($conexion, $sql);
+      
+        
         
         $respuesta = array(
             'respuesta' => 'correcto',
             'id_usuario' => $id,
-            'id_pedido' => $id_pedido
+            'id_pedido' => $id_pedido,
+            'estado' => $estado,
+            'pagado' => $pagado,
+            'total' => $total,
+            'pago completo' => $pago_completo
         );
 
         return $respuesta;
@@ -219,3 +236,35 @@ function actualizar_stock($id,$stockAsumar){
 TRIGGER PARA ACTUALIZAR STOCK
 CREATE TRIGGER `actualiza_stock` AFTER UPDATE ON `detalle_pedido` FOR EACH ROW UPDATE `productos_inventario` SET `cantidad_stock`= `cantidad_stock` + new.`cantidad` WHERE `id_producto` = new.`id_producto`
 */
+
+//----------HISTORIAL DE COMPRAS
+
+function compras_hoy(): array
+{
+    try {
+        require '../../../conexion.php';
+        $hoy = date('Y-m-d'); 
+        $sql = "SELECT `pedidos`.`id_pedido` ,`pedidos`.`id_usuario`, `pedidos`.`fecha`, 
+                    `pedidos`.`total`,`pedidos`.`pagado`, `pedidos`.`estado`, 
+                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario 
+                FROM `pedidos`, `usuarios` WHERE `fecha` = '$hoy' 
+                    AND `pedidos`.`id_usuario` = `usuarios`.`id_usuario`  ";
+        $consulta = mysqli_query($conexion, $sql);
+        $pedidos = [];
+        $i = 0; 
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $pedidos[$i]['id_pedido'] = $row['id_pedido'];
+            $pedidos[$i]['usuario'] = $row['usuario'];
+            $pedidos[$i]['fecha'] = $row['fecha'];
+            $pedidos[$i]['total'] = $row['total'];
+            $pedidos[$i]['pagado'] = $row['pagado'];  
+            $pedidos[$i]['estado'] = $row['estado'];
+            $i++;
+        }
+
+        return $pedidos;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

@@ -19,6 +19,14 @@ switch ($accion) {
     case "completar_compra":
         $resultado =completar_compra();
         break;
+
+    //-------HISTORIAL DE COMPRAS
+    case "compras_hoy":
+        $resultado = compras_hoy();
+        break;
+    case "compras_ayer":
+        $resultado = compras_ayer();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide
