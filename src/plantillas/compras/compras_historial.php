@@ -60,7 +60,7 @@
                                                 <div id="mensaje2"></div>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>usuario</th>
+                                                    <th>Usuario</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>
@@ -89,6 +89,7 @@
                                                 <div id="mensaje2"></div>
                                                 <tr>
                                                     <th>ID</th>
+                                                    <th>Usuario</th>
                                                     <th>Fecha y Hora</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>

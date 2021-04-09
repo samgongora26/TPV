@@ -46,7 +46,7 @@
             <div class="page-wrapper">
                 <div class="container-fluid">
                     <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                    <ol class="breadcrumb ">
+                                <ol class="breadcrumb ">
                                     <li class="breadcrumb-item"><a href="empleados_ver.php">Empleados</a></li>
                                     <li class="breadcrumb-item active">Empleado...</li>
                                 </ol>

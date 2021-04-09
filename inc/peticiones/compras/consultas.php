@@ -268,3 +268,43 @@ function compras_hoy(): array
     }
     mysqli_close($conexion);
 }
+
+function buscar_pedido(): array
+{
+    try {
+        require '../../../conexion.php';
+        $id_pedido =  $_POST['id_pedido'];
+        //Selecciona todos los productos con estado 0 y del usuario dado
+        //El estado 0 significa que aun no ha sido comprado, es decir que aun no se le agrega el id pedido
+        $sql = "SELECT `detalle_pedido`.`id_detalle_pedido`,`detalle_pedido`.`id_pedido`, 
+                `detalle_pedido`.`id_usuario` , `detalle_pedido`.`id_producto`, 
+                `detalle_pedido`.`nombre_producto` as producto, 
+                `detalle_pedido`.`cantidad`, `detalle_pedido`.`precio_compra`,`detalle_pedido`.
+                `importe`, `detalle_pedido`.`estado`, `productos_inventario`.`cantidad_stock`, `productos_inventario`.`foto`,`productos_inventario`.`codigo` 
+                FROM `detalle_pedido` , `productos_inventario` 
+                WHERE `productos_inventario`.`id_producto` = `detalle_pedido`.`id_producto` 
+                    and `productos_inventario`.`nombre_producto` = `detalle_pedido`.`nombre_producto` 
+                    and `detalle_pedido`.`id_pedido` = $id_pedido 
+                    and `detalle_pedido`.`estado` = 1";
+        $consulta = mysqli_query($conexion, $sql);
+        $detalle_pedido = [];
+        $i = 0; 
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $detalle_pedido[$i]['foto'] = $row['foto'];
+            $detalle_pedido[$i]['id_producto'] = $row['id_producto'];   
+            $detalle_pedido[$i]['nombre_producto'] = $row['producto'];
+            $detalle_pedido[$i]['stock'] = $row['cantidad_stock'];
+            $detalle_pedido[$i]['cantidad'] = $row['cantidad'];
+            $detalle_pedido[$i]['precio_compra'] = $row['precio_compra'];
+            $detalle_pedido[$i]['importe'] = $row['importe'];
+            $detalle_pedido[$i]['codigo'] = $row['codigo'];
+            $detalle_pedido[$i]['id_detalle_pedido'] = $row['id_detalle_pedido'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $detalle_pedido;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

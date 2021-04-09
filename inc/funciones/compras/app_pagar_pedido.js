@@ -1,23 +1,20 @@
 // ------------SE CARGA AL INICIAR--------
 const listado_usuario = document.querySelector("#contenido_tabla");
 document.addEventListener("DOMContentLoaded", () => {
-  mostrarServicios();
-  listado_usuario.addEventListener("click", eliminar_registro);
+  const parametrosURL = new URLSearchParams(window.location.search);
+  id_pedido = parametrosURL.get("id");
+  if (id_pedido) {
+    mostrar_detalle(id_pedido);
+  }
 });
 
-//FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
-function mostrarServicios(){
 
-  //llenado de la tabla
-  compras_hoy();
-  
-}
-
-
-//------LLENADO DE LA TABLA COMPRAS DE HOY
-async function compras_hoy() {
+//------LLENADO DE LA TABLA
+async function mostrar_detalle(id_pedido) {
   const datos = new FormData();
-  datos.append("accion", "compras_hoy");
+
+  datos.append("id_pedido", id_pedido);
+  datos.append("accion", "buscar_pedido");
 
   try {
     const URL = "../../../inc/peticiones/compras/funciones.php";
@@ -26,56 +23,34 @@ async function compras_hoy() {
       body: datos,
     });
     const db = await resultado.json();
-    //console.log(db);
     let suma = 0;
     db.forEach((servicio) => {
-      console.log(servicio);
-      const {id_pedido,usuario,fecha, total, pagado , estado } = servicio;
+      //console.log(servicio);
+      const {foto, id_producto,nombre_producto, stock, cantidad, precio_compra, importe, id_detalle_pedido,codigo} = servicio;
+      suma += parseInt(importe);
+      const listado_clientes = document.querySelector("#contenido_tabla");
       
-      let debido = total-pagado;
-      if (debido < 0){
-        debido = 0;
-      }
-      const listado_pedidos = document.querySelector("#contenido_tabla");  
-
-      if(estado == 1){
-        listado_pedidos.innerHTML += `  
+      listado_clientes.innerHTML += `  
         <tr>
-            <td>${id_pedido}</td>
-            <td>${usuario}</td>
-            <td>${fecha}</td>
-            <td>$ ${total}</td>
-            <td>$ ${pagado}</td>
-            <td>$ ${debido}</td>
-            <td><div class="badge badge-success text-wrap">Pagado</div></td>
+            <td> <img src="../../imagenes/productos/${foto}" alt="user" class="rounded-circle"
+            width="40"> </td>
+            <td scope="row">${codigo}</td>
+            <td scope="row">${nombre_producto}</td>
+            <td scope="row">${stock}</td>
+            <td>${cantidad} </td>  
+            <td>${precio_compra} </td>  
+            <td>${importe} </td>  
             <td>
-              <a type="button" href="compras_ver.php?id=${id_pedido}" class="btn btn-secondary">Ver</a>
-            </td>
+                <button type="button" class="btn eliminar" data-usuario="${id_detalle_pedido}"><i class="fas fa-trash"></i></button>
+            </td>      
         </tr>
-        `
-      }
-      else if(estado == 2){ 
-        listado_pedidos.innerHTML += `  
-        <tr>
-            <td>${id_pedido}</td>
-            <td>${usuario}</td>
-            <td>${fecha}</td>
-            <td>$ ${total}</td>
-            <td>$ ${pagado}</td>
-            <td>$ ${debido}</td>
-            <td><div class="badge badge-danger text-wrap">Pago no completado</div></td>
-            <td>
-              <a type="button" href="compras_ver.php?id=${id_pedido}" class="btn btn-secondary">Ver</a>
-              <button type="button" class="btn btn-warning"> Pagar </button>
-            </td>
-           
-        </tr>
-        `
-      }
+        `;
     });
 
     //imprime el total
     //console.log(suma);
+    document.getElementById("por_pagar").value="$" + suma;
+    document.getElementById("por_pagar2").value= suma;
 
   } catch (error) {
     console.log(error);

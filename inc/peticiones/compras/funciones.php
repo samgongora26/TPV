@@ -27,6 +27,11 @@ switch ($accion) {
     case "compras_ayer":
         $resultado = compras_ayer();
         break;
+
+    //--------DETALLE DE COMPRA ESPECIFICO
+    case "buscar_pedido":
+        $resultado = buscar_pedido();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide
