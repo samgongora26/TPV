@@ -159,18 +159,37 @@ function completar_compra(): array
             $ultimo_pedido = mysqli_fetch_assoc($consulta);//usar cuando se espera varios resultados
             $id_pedido = $ultimo_pedido['id_pedido'];
 
-        //2. LA LISTA DE DETALLE PEDIDO DEBE DE CAMBIAR DE ESTADO A 1
+        //3. ACTUALIZAR EL INVENTARIO DEL PRODUCTO INGRESADO
+            //OBTENIE LOS PRODUCTOS PARA CAMBIAR EL STOCK UNO POR UNO
+            $sql = "SELECT * FROM `detalle_pedido` WHERE `id_usuario` = $id AND `estado` = 0;";
+            $productos_pedido = mysqli_query($conexion, $sql);
+            //CONSULTA DE LOS PRODUCTOS EN DETALLE PEDIDO
+            while ($detalle_pedido = mysqli_fetch_assoc($productos_pedido)) { //usar cuando se espera varios resultadosS
+
+                $id_producto = $detalle_pedido['id_producto'];
+                $cantidad = $detalle_pedido['cantidad'];
+                //actualizar_stock($id_producto, $cantidad);
+                //CONSULTA PARA OBTENER EL STOCK DEL PRODUCTO
+                $sql = "SELECT * FROM `productos_inventario` WHERE `id_producto` = $id_producto;";
+                $producto = mysqli_query($conexion, $sql);
+                $ultimo_producto = mysqli_fetch_assoc($producto);//usar cuando se espera varios resultados
+
+                $stock = $ultimo_producto['cantidad_stock']; //Stock del producto
+                $cantidad_nueva  = $cantidad + $stock;
+
+                $consulta_stock =  "UPDATE `productos_inventario` SET `cantidad_stock`= $cantidad_nueva WHERE `id_producto` = $id_producto";
+                $consulta = mysqli_query($conexion, $consulta_stock);
+                
+            }
+        
+        //4. LA LISTA DE DETALLE PEDIDO DEBE DE CAMBIAR DE ESTADO A 1
             $sql = "UPDATE `detalle_pedido` SET `id_pedido`= $id_pedido, `estado`= 1 WHERE `id_usuario` = $id AND `estado` = 0";
             $consulta = mysqli_query($conexion, $sql);
-
-        //3. ACTUALIZAR EL ID DE LA VENTA. NO SE HACE HASTA AHORA POR SI HAY UN ERROR ANTERIOR
+        
+        //5. ACTUALIZAR EL ID DE LA VENTA. NO SE HACE HASTA AHORA POR SI HAY UN ERROR ANTERIOR
             $sql = "UPDATE `pedidos` SET `estado`= 1 WHERE `id_pedido` =  $id_pedido";
             $consulta = mysqli_query($conexion, $sql);
-
-        //4. ACTUALIZAR EL INVENTARIO DEL PRODUCTO INGRESADO
-                //$sql =  "UPDATE `productos_inventario` SET `cantidad_stock`= $cantidad_stock + $cantidad WHERE `id_producto` = $id_producto";
-                //$consulta = mysqli_query($conexion, $sql);
-
+        
         $respuesta = array(
             'respuesta' => 'correcto',
             'id_usuario' => $id,
@@ -183,3 +202,20 @@ function completar_compra(): array
     }
     mysqli_close($conexion);
 }
+
+function actualizar_stock($id,$stockAsumar){
+    //CONSULTA PARA OBTENER EL STOCK DEL PRODUCTO
+    $sql = "SELECT * FROM `productos_inventario` WHERE `id_producto` = $id;";
+    $producto = mysqli_query($conexion, $sql);
+    $ultimo_producto = mysqli_fetch_assoc($producto);//usar cuando se espera varios resultados
+
+    $stock = $ultimo_producto['cantidad_stock']; //Stock del producto
+    $cantidad_nueva  = $stock + $stockAsumar;
+
+    $consulta_stock =  "UPDATE `productos_inventario` SET `cantidad_stock`= $cantidad_nueva WHERE `id_producto` = $id_producto";
+    $consulta = mysqli_query($conexion, $consulta_stock);
+} 
+/*
+TRIGGER PARA ACTUALIZAR STOCK
+CREATE TRIGGER `actualiza_stock` AFTER UPDATE ON `detalle_pedido` FOR EACH ROW UPDATE `productos_inventario` SET `cantidad_stock`= `cantidad_stock` + new.`cantidad` WHERE `id_producto` = new.`id_producto`
+*/
