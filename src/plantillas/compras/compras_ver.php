@@ -48,7 +48,7 @@
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
                                 <ol class="breadcrumb ">
                                     <li class="breadcrumb-item"><a href="compras_historial.php">Historial de pedidos</a></li>
-                                    <li class="breadcrumb-item active">Pedido</li>
+                                    <li class="breadcrumb-item active" id="pedido">Pedido</li>
                                 </ol>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card-body bg-lighr">
@@ -87,14 +87,29 @@
                         <div class="card-footer bg-lighr">
                             <h5>La compra</h5>
                             <div class="input-group mb-3">
-                            <div id="mensaje2"></div>
+                                <div id="mensaje2"></div>
                               
-                                            <ul class="list-group ">
+                                            <ul class="list-group col-md-3 mx-auto">
                                                 <div class="input-group-prepend mx-auto ">
-                                                    <label class="input-group-text" for="inputGroupSelect01">Total de la compra</label>
-                                                    <input id="por_pagar" name="por_pagar" disabled type="text" class="form-control " aria-label="Username" aria-describedby="basic-addon1" value="$">
+                                                    <label class="input-group-text" >Total</label>
+                                                    <input id="por_pagar" name="por_pagar" disabled type="text" class="form-control ">
                                                 </div>
+                                                
                                             </ul>
+                                            <ul class="list-group col-md-3 mx-auto">
+                                            <div class="input-group-prepend mx-auto ">
+                                                    <label class="input-group-text">Pagado</label>
+                                                    <input id="pagado" name="pagado"  disabled type="text" class="form-control " >
+                                                </div>
+                                                
+                                            </ul>
+                                            <ul class="list-group col-md-3 mx-auto">
+                                            <div class="input-group-prepend mx-auto ">
+                                                    <label class="input-group-text">Debido</label>
+                                                    <input id="debido" name="debido" disabled type="text" class="form-control " >
+                                                </div>
+                                                
+                                            </ul>    
                                            
                                         </div>
                             </div>

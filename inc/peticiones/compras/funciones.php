@@ -32,6 +32,9 @@ switch ($accion) {
     case "buscar_pedido":
         $resultado = buscar_pedido();
         break;
+    case "datos_pedido":
+        $resultado = datos_pedido();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide

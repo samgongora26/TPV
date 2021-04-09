@@ -201,8 +201,6 @@ function completar_compra(): array
             $sql = "UPDATE `pedidos` SET `estado`= $estado WHERE `id_pedido` =  $id_pedido";
             $consulta = mysqli_query($conexion, $sql);
       
-        
-        
         $respuesta = array(
             'respuesta' => 'correcto',
             'id_usuario' => $id,
@@ -303,6 +301,23 @@ function buscar_pedido(): array
         }
         //var_dump($usuarios);
         return $detalle_pedido;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function datos_pedido(): array
+{
+    try {
+        require '../../../conexion.php';
+        $id_pedido =  $_POST['id_pedido'];  
+        $sql = "SELECT * FROM `pedidos` WHERE `id_pedido` = $id_pedido";
+        $consulta = mysqli_query($conexion, $sql);
+        $pedido = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
+        
+        //var_dump($usuarios);
+        return $pedido;
     } catch (\Throwable $th) {
         var_dump($th);
     }
