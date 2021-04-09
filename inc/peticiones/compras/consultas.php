@@ -267,6 +267,38 @@ function compras_hoy(): array
     mysqli_close($conexion);
 }
 
+function compras_ayer(): array
+{
+    try {
+        require '../../../conexion.php';
+        $dia = date('d')-1;
+        $hoy = date('Y-m-').$dia; 
+        $sql = "SELECT `pedidos`.`id_pedido` ,`pedidos`.`id_usuario`, `pedidos`.`fecha`, 
+                    `pedidos`.`total`,`pedidos`.`pagado`, `pedidos`.`estado`, 
+                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario 
+                FROM `pedidos`, `usuarios` WHERE `fecha` = '$hoy' 
+                    AND `pedidos`.`id_usuario` = `usuarios`.`id_usuario`  ";
+        $consulta = mysqli_query($conexion, $sql);
+        $pedidos = [];
+        $i = 0; 
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $pedidos[$i]['id_pedido'] = $row['id_pedido'];
+            $pedidos[$i]['usuario'] = $row['usuario'];
+            $pedidos[$i]['fecha'] = $row['fecha'];
+            $pedidos[$i]['total'] = $row['total'];
+            $pedidos[$i]['pagado'] = $row['pagado'];  
+            $pedidos[$i]['estado'] = $row['estado'];
+            $i++;
+        }
+
+        return $pedidos;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+//-----------------DETALLE DE UN PEDIDO EN ESPECIFICO-------
 function buscar_pedido(): array
 {
     try {
@@ -318,6 +350,36 @@ function datos_pedido(): array
         
         //var_dump($usuarios);
         return $pedido;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function buscar_fecha(): array
+{
+    try {
+        require '../../../conexion.php';
+        $hoy =  $_POST['fecha'];
+        $sql = "SELECT `pedidos`.`id_pedido` ,`pedidos`.`id_usuario`, `pedidos`.`fecha`, 
+                    `pedidos`.`total`,`pedidos`.`pagado`, `pedidos`.`estado`, 
+                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario 
+                FROM `pedidos`, `usuarios` WHERE `fecha` = '$hoy' 
+                    AND `pedidos`.`id_usuario` = `usuarios`.`id_usuario`  ";
+        $consulta = mysqli_query($conexion, $sql);
+        $pedidos = [];
+        $i = 0; 
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $pedidos[$i]['id_pedido'] = $row['id_pedido'];
+            $pedidos[$i]['usuario'] = $row['usuario'];
+            $pedidos[$i]['fecha'] = $row['fecha'];
+            $pedidos[$i]['total'] = $row['total'];
+            $pedidos[$i]['pagado'] = $row['pagado'];  
+            $pedidos[$i]['estado'] = $row['estado'];
+            $i++;
+        }
+
+        return $pedidos;
     } catch (\Throwable $th) {
         var_dump($th);
     }

@@ -30,7 +30,7 @@ async function compras_hoy() {
     //console.log(db);
     let suma = 0;
     db.forEach((servicio) => {
-      console.log(servicio);
+      //console.log(servicio);
       const {id_pedido,usuario,fecha, total, pagado , estado } = servicio;
       
       let debido = total-pagado;
@@ -98,7 +98,7 @@ async function compras_ayer() {
     //console.log(db);
     let suma = 0;
     db.forEach((servicio) => {
-      console.log(servicio);
+      //console.log(servicio);
       const {id_pedido,usuario,fecha, total, pagado , estado } = servicio;
       
       let debido = total-pagado;
@@ -151,76 +151,104 @@ async function compras_ayer() {
   }
 }
 
-//------LLENADO DE LA TABLA COMPRAS DE HOY
+//------LLENADO DE LA TABLA COMPRAS DE FECHA ELEGIDA
 async function compras_dia_especifico() {
   const datos = new FormData();
   //Se obtiene el valor del dia
-  const dia = document.getElementById("#dia").value;
-  if(dia != 0){
-
-  }
-  datos.append("accion", "compras_ayer");
-  try {
-    const URL = "../../../inc/peticiones/compras/funciones.php";
-    const resultado = await fetch(URL, {
-      method: "POST",
-      body: datos,
-    });
-    const db = await resultado.json();
-    //console.log(db);
-    let suma = 0;
-    db.forEach((servicio) => {
-      console.log(servicio);
-      const {id_pedido,usuario,fecha, total, pagado , estado } = servicio;
+  const fecha = document.querySelector("#fecha_elegida").value;
+  console.log("fecha "+fecha);
+  if(fecha != 0){
+    datos.append("fecha", fecha);
+    datos.append("accion", "buscar_fecha");
+    try {
+      const URL = "../../../inc/peticiones/compras/funciones.php";
+      const resultado = await fetch(URL, {
+        method: "POST",
+        body: datos,
+      });
+      const db = await resultado.json();
+      let mensaje =db.length;
+      console.log(mensaje);
       
-      let debido = total-pagado;
-      if (debido < 0){
-        debido = 0;
+      const listado_pedidos = document.querySelector("#contenido_fecha");  
+      listado_pedidos.innerHTML = "";
+      if (mensaje >= 1){
+        db.forEach((servicio) => {
+        console.log(servicio);
+        const {id_pedido,usuario,fecha, total, pagado , estado } = servicio;
+        
+        let debido = total-pagado;
+        if (debido < 0){
+          debido = 0;
+        }
+        
+        if(estado == 1){
+          listado_pedidos.innerHTML += `  
+          <tr>
+              <td>${id_pedido}</td>
+              <td>${usuario}</td>
+              <td>${fecha}</td>
+              <td>$ ${total}</td>
+              <td>$ ${pagado}</td>
+              <td>$ ${debido}</td>
+              <td><div class="badge badge-success text-wrap">Pagado</div></td>
+              <td>
+                <a type="button" href="compras_ver.php?id=${id_pedido}" class="btn btn-sm btn-secondary">Ver</a>
+              </td>
+          </tr>
+          `
+        }
+        else if(estado == 2){ 
+          listado_pedidos.innerHTML += `  
+          <tr>
+              <td>${id_pedido}</td>
+              <td>${usuario}</td>
+              <td>${fecha}</td>
+              <td>$ ${total}</td>
+              <td>$ ${pagado}</td>
+              <td>$ ${debido}</td>
+              <td><div class="badge badge-danger text-wrap">Pago no completado</div></td>
+              <td>
+                <a type="button" href="compras_ver.php?id=${id_pedido}" class="btn btn-sm  btn-secondary">Ver</a>
+                <button type="button" class="btn btn-warning btn-sm "> Pagar </button>
+              </td>
+            
+          </tr>
+          `
+        }
+        });
       }
-      const listado_pedidos = document.querySelector("#contenido_ayer");  
-
-      if(estado == 1){
-        listado_pedidos.innerHTML += `  
-        <tr>
-            <td>${id_pedido}</td>
-            <td>${usuario}</td>
-            <td>${fecha}</td>
-            <td>$ ${total}</td>
-            <td>$ ${pagado}</td>
-            <td>$ ${debido}</td>
-            <td><div class="badge badge-success text-wrap">Pagado</div></td>
-            <td>
-              <a type="button" href="compras_ver.php?id=${id_pedido}" class="btn btn-sm btn-secondary">Ver</a>
-            </td>
-        </tr>
-        `
+      else{
+        const mensajes = document.querySelector("#mensaje2");
+    mensajes.innerHTML += `  
+      <div class="alert alert-danger alert-dismissible bg-warning text-white border-0 fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+          <strong>¡ALERTA! </strong> No existen registros en la fecha seleccionada.
+      </div>
+      `;
       }
-      else if(estado == 2){ 
-        listado_pedidos.innerHTML += `  
-        <tr>
-            <td>${id_pedido}</td>
-            <td>${usuario}</td>
-            <td>${fecha}</td>
-            <td>$ ${total}</td>
-            <td>$ ${pagado}</td>
-            <td>$ ${debido}</td>
-            <td><div class="badge badge-danger text-wrap">Pago no completado</div></td>
-            <td>
-              <a type="button" href="compras_ver.php?id=${id_pedido}" class="btn btn-sm  btn-secondary">Ver</a>
-              <button type="button" class="btn btn-warning btn-sm "> Pagar </button>
-            </td>
-           
-        </tr>
-        `
-      }
-    });
-
-    //imprime el total
-    //console.log(suma);
-
-  } catch (error) {
-    console.log(error);
+      
+      //imprime el total
+      //console.log(suma);
+    } catch (error) {
+      console.log(error);
+    }
   }
+  else{
+    //Mensaje de alerta
+    const mensajes = document.querySelector("#mensaje2");
+    mensajes.innerHTML += `  
+      <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+          <strong>¡ERROR! </strong> No ha seleccionado una fecha.
+      </div>
+      `;
+  }
+  
 }
 
 async function eliminar_registro(e) {
