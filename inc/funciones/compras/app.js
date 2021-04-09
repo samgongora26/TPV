@@ -61,7 +61,7 @@ async function mostrar_detalle() {
     let suma = 0;
     db.forEach((servicio) => {
       //console.log(servicio);
-      const {foto, id_producto,nombre_producto, stock, cantidad, precio_venta, importe, id_detalle_pedido} = servicio;
+      const {foto, id_producto,nombre_producto, stock, cantidad, precio_compra, importe, id_detalle_pedido,codigo} = servicio;
       suma += parseInt(importe);
       const listado_clientes = document.querySelector("#contenido_tabla");
       
@@ -69,11 +69,11 @@ async function mostrar_detalle() {
         <tr>
             <td> <img src="../../imagenes/productos/${foto}" alt="user" class="rounded-circle"
             width="40"> </td>
-            <td scope="row">${id_producto}</td>
+            <td scope="row">${codigo}</td>
             <td scope="row">${nombre_producto}</td>
             <td scope="row">${stock}</td>
             <td>${cantidad} </td>  
-            <td>${precio_venta} </td>  
+            <td>${precio_compra} </td>  
             <td>${importe} </td>  
             <td>
                 <button type="button" class="btn eliminar" data-usuario="${id_detalle_pedido}"><i class="fas fa-trash"></i></button>
@@ -83,7 +83,7 @@ async function mostrar_detalle() {
     });
 
     //imprime el total
-    console.log(suma);
+    //console.log(suma);
     document.getElementById("por_pagar").value="$" + suma;
     document.getElementById("por_pagar2").value= suma;
 
@@ -112,11 +112,11 @@ async function eliminar_registro(e) {
         //MENSAJE DE EXITO AL ELIMINAR
         const mensajes = document.querySelector("#mensaje2");
         mensajes.innerHTML += `  
-          <div class="alert alert-danger alert-dismissible bg-success text-white border-0 fade show" role="alert">
+          <div class="alert alert-warning alert-dismissible bg-warning text-white border-0 fade show" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">×</span>
               </button>
-              <strong>El producto ha sido removido exitosamente </strong>
+              <strong>El producto ha sido removido</strong>
           </div>
           `;
           //e.target.parentElement.parentElement.remove();
@@ -130,44 +130,3 @@ async function eliminar_registro(e) {
   }
 }
 
-async function editar_puesto(id_necesario){
-  var id_necesario;
-  const edit_nombres = document.getElementById("edit_nombre"+id_necesario).value; 
-  const edit_estado = document.querySelector("#edit_estado"+id_necesario).value;
-
-  try {
-    const datos = new FormData();
-    datos.append("id", id_necesario);
-    datos.append("nombres", edit_nombres);
-    datos.append("estado", edit_estado);
-    datos.append("accion", "actualizar_puesto");
-
-    const res = await fetch("../../../inc/peticiones/usuarios/funciones.php", {
-      method: "POST",
-      body: datos,
-    });
-    const data = await res.json();
-    //console.log(data);
-    //mesaje de exito
-    const mensajes = document.querySelector("#mensaje2");
-    mensajes.innerHTML += `  
-      <div class="alert alert-danger alert-dismissible bg-success text-white border-0 fade show" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-          </button>
-          <strong>El usuario ha sido editado exitosamente </strong>
-      </div>
-      `;
-    //Se vacia el contenido de la tabla
-    document.getElementById("contenido_tabla").innerHTML="";
-    //se vacian los selects
-    document.getElementById("contenido_horario").innerHTML="";
-    document.getElementById("contenido_usuario").innerHTML="";
-    document.getElementById("contenido_puesto").innerHTML="";
-    //Llamada a la funcion para llenar la tabla 
-    mostrarServicios(); 
-
-  } catch (error) {
-    console.log(error);
-  }
-}
