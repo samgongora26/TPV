@@ -57,7 +57,7 @@
                                     <div class="table-responsive">
                                         <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                             <thead>
-                                                <div id="mensaje2"></div>
+                                                
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Usuario</th>
@@ -86,17 +86,16 @@
                                     <div class="table-responsive">
                                         <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                             <thead>
-                                                <div id="mensaje2"></div>
+                                                
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Usuario</th>
-                                                    <th>Fecha y Hora</th>
+                                                    <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>
                                                     <th>Debido</th>
                                                     <th>Estado</th>
-                                                    <th>Pago</th>
-                                                    <th>Ver</th>
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="contenido_ayer">
@@ -111,10 +110,16 @@
                             <div class="card">
                                 <div class="card-header bg-white">
                                     <h3 class="card-tittle ">Buscar una fecha en especifico</h3>
-                                    <div class="form-input">
-                                        <label for="">Elige una fecha</label>
-                                        <input type="date">
-                                        <button class="btn btn-sm btn-success">Buscar</button>
+                                    <div class="input-group">
+                                            
+                                        <label for="" class="mr-3">Elige una fecha</label>
+                                    
+                                        <input type="date" id="fecha_elegida" value="" class="form-control">
+                                        <button class="btn btn-sm btn-success float left" onclick="compras_dia_especifico()">Buscar</button>
+                                        
+                                  
+
+                                       
                                     </div>
                                     
                                 </div>
