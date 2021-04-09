@@ -3,51 +3,21 @@ const padre = document.querySelector("#contenedor_padre_tickets");
 let ticket_en_uso = 0;
 const tickets = [];
 let carritos = [];
-carritos = [
-  [
-    {nombre:"melon",precio:"100",cantidad:"200"},
-    {nombre:"sandia",precio:"80",cantidad:10},
-    {nombre:"papaya",precio:"3",cantidad:"200"},
-    {nombre:"fresa",precio:"20",cantidad:32},
-    {nombre:"uva",precio:"50",cantidad:"200"},
-  ],
-  [
-    {nombre:"estereo",precio:"100",cantidad:"200"},
-    {nombre:"sandia",precio:"80",cantidad:10},
-    {nombre:"papaya",precio:"3",cantidad:"200"},
-    {nombre:"fresa",precio:"20",cantidad:32},
-    {nombre:"uva",precio:"50",cantidad:"200"},
-  ],
-  [
-    {nombre:"melon",precio:"100",cantidad:"200"},
-    {nombre:"sandia",precio:"80",cantidad:10},
-    {nombre:"papaya",precio:"3",cantidad:"200"},
-    {nombre:"fresa",precio:"20",cantidad:32},
-    {nombre:"uva",precio:"50",cantidad:"200"},
-  ]
-]
 
-const carrito_test = [
-  `01010101`,
-  `sandia`,
-  `papaya`,
-  `cereal`,
-  `leche`,
-  `galletas`,
-  `jugo`,
-  `sabritas`,
-  `silla`,
-  `mesa`,
-];
 const existente_codigo = () => {
   const name = document.querySelector("#codigo_envio").value;
-  const si_existe = carritos[ticket_en_uso].findIndex((producto) => producto.nombre === name);
+  const carro_actual = carritos[ticket_en_uso];
+  const si_existe = carro_actual.findIndex((producto) => producto.nombre === name);
   if (si_existe >= 0) {
     console.log("ya existe");
   }else{
+    if(carro_actual[0] === -10){ 
+      carro_actual.shift();
+      console.log("se ha eliminado el de creado");
+    };
     console.log("nuevo producto agregado");
-    producto = {nombre:name,precio:ticket_en_uso *14};
-      carritos[ticket_en_uso].push(producto);
+    let producto = {nombre:name,precio:ticket_en_uso *14};
+    carro_actual.push(producto);
       nuevo_producto();
   }
 };
@@ -61,7 +31,6 @@ function limpiar_contenido_del_carrito() {
     limpiar_contenido_del_carrito();
     const listado_productos = document.querySelector(`#contenido_tabla_${ticket_en_uso}`);
     carritos[ticket_en_uso].forEach(carrito =>{ 
-      console.log(carrito.nombre);
       listado_productos.innerHTML += `
       <tr>
       <th scope="row">${carrito.nombre}</th>

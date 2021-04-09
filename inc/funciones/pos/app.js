@@ -6,7 +6,7 @@ const r_total = document.querySelector("#monto_total");
 const id_usuario = document.querySelector("#id_usuario").value;
 let texto_total_compra = document.querySelector("#total_compra");
 
-let carrito = [];
+let carritos = [];
 let id_venta_actual = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 async function mostrar_ticket() {
-  carrito = JSON.parse(localStorage.getItem("productos_carrito")) || [];
+  carritos = JSON.parse(localStorage.getItem("productos_carrito")) || [];
 
   const datos = new FormData();
   datos.append("id_usuario", id_usuario);
@@ -81,7 +81,7 @@ function pintar_inicio(data) {
     };
     if (id_producto === null) {
       console.log(`el ingreso de un nuevo producto al carrito${producto}`);
-      carrito.push(producto);
+      carritos.push(producto);
       mostrar_articulos_del_carrito();
     }
     mostrar_articulos_del_carrito();
@@ -93,7 +93,7 @@ function pintar_inicio(data) {
 
 function existente_codigo(e) {
   const codigo = document.querySelector("#codigo_envio").value;
-  const itemEnCarritoIndex = carrito.findIndex((producto) => producto.codigo === codigo);
+  const itemEnCarritoIndex = carritos.findIndex((producto) => producto.codigo === codigo);
   itemEnCarritoIndex >= 0 ? actualizar_carrito(codigo, +1) : buscar_producto(e);
 }
 
@@ -136,7 +136,7 @@ function pintar(data) {
       importe: importe_producto,
     };
     console.log(`se agrego un nuevo producto al carrito${producto}`);
-    carrito.push(producto);
+    carritos.push(producto);
     foto.innerHTML = `nombre del codigo :${codigo}`;
     precio.innerHTML = precio_venta;
     mostrar_articulos_del_carrito();
@@ -159,19 +159,19 @@ function opciones(e) {
 }
 function actualizar_carrito(codigo, operador) {
   let index = 0;
-  index = carrito.findIndex((producto) => producto.codigo === codigo);
-  carrito[index].cantidad = carrito[index].cantidad + operador;
-  let cantidad = carrito[index].cantidad;
-  let precio = parseInt(carrito[index].precio_v);
+  index = carritos.findIndex((producto) => producto.codigo === codigo);
+  carritos[index].cantidad = carritos[index].cantidad + operador;
+  let cantidad = carritos[index].cantidad;
+  let precio = parseInt(carritos[index].precio_v);
   let total = cantidad * precio;
-  carrito[index].importe = total;
+  carritos[index].importe = total;
   mostrar_articulos_del_carrito();
 }
 
 function cobrar_productos() {
   const total = parseFloat(texto_total_compra.innerHTML);
   const datos = new FormData();
-  const array = JSON.stringify(carrito);
+  const array = JSON.stringify(carritos);
 
   datos.append("someData", array);
   datos.append("id_venta", id_venta_actual);
@@ -218,7 +218,7 @@ async function enviar_datos(datos) {
 }
 
 function limpiar_campos_html() {
-  carrito = [];
+  carritos = [];
   //suma = 0;
   texto_total_compra.innerHTML = "";
   listado_productos.innerHTML = "";
@@ -244,7 +244,7 @@ async function envio_array(datos) {
 function mostrar_articulos_del_carrito() {
   limpiar_lista_productos();
   let suma = 0;
-  carrito.forEach((articulo) => {
+  carritos.forEach((articulo) => {
     const { id, nombre, codigo, cantidad, precio_v, importe } = articulo;
     listado_productos.innerHTML += `  
     <tr>
@@ -277,7 +277,7 @@ function mostrar_total_modal(suma, id) {
 }
 
 function sincronizar_storage() {
-  localStorage.setItem("productos_carrito", JSON.stringify(carrito));
+  localStorage.setItem("productos_carrito", JSON.stringify(carritos));
 }
 function limpiar_lista_productos() {
   listado_productos.innerHTML = "";
