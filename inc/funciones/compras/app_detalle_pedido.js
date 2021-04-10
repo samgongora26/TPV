@@ -91,11 +91,13 @@ function llenar_formulario(pedido) {
   if(debido<=0){
     debido = "saldado";
     debido_texto.setAttribute("class", "form-control  bg-success");
+    debido_texto.value = debido; 
   }
   else{
     debido_texto.setAttribute("class", "form-control  bg-danger");
+    debido_texto.value = '$'+debido; 
   }
-  debido_texto.value = '$'+debido;  
+   
 }
 
 

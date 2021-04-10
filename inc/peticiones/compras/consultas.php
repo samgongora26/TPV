@@ -385,3 +385,50 @@ function buscar_fecha(): array
     }
     mysqli_close($conexion);
 }
+
+
+function saldar_compra(): array
+{
+    try {
+        require '../../../conexion.php';
+        $hoy = date('Y-m-d'); 
+        $id_pedido = $_POST['id_pedido'];
+        $id_usuario = $_POST['id_usuario']; 
+        $total = $_POST['total']; //Lo que se debe de saldar
+        $pagado = $_POST['pagado'];
+
+        //AL ACTUALIZAR LA COMPRA
+            $sql = "UPDATE `pedidos` SET `id_usuario`= $id_usuario,`fecha`='$hoy',`pagado`= $pagado WHERE `id_pedido`= $id_pedido";
+            $consulta = mysqli_query($conexion, $sql);
+
+        //2. LA LISTA DE PEDIDO DEBE DE CAMBIAR DE ESTADO A 2 SI EL PAGO ES INCOMPLETO Y A 1 SI ES COMPLETO
+        $pago_completo = false;
+        $estado= 0;
+
+        if($pagado >= $total){
+            $pago_completo = true;
+            $estado  = 1;
+        }
+        else{
+            $estado = 2;
+        }
+
+            $sql = "UPDATE `pedidos` SET `estado`= $estado WHERE `id_pedido` =  $id_pedido";
+            $consulta = mysqli_query($conexion, $sql);
+      
+        $respuesta = array(
+            'respuesta' => 'correcto',
+            'id_usuario' => $id,
+            'id_pedido' => $id_pedido,
+            'estado' => $estado,
+            'pagado' => $pagado,
+            'total' => $total,
+            'pago completo' => $pago_completo
+        );
+
+        return $respuesta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

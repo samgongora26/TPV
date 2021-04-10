@@ -130,13 +130,13 @@
                                                 <div id="mensaje2"></div>
                                                 <tr>
                                                     <th>ID</th>
+                                                    <th>Usuario</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>
                                                     <th>Debido</th>
                                                     <th>Estado</th>
-                                                    <th>Pago</th>
-                                                    <th>Ver</th>
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="contenido_fecha">

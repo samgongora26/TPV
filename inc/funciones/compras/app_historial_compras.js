@@ -67,7 +67,7 @@ async function compras_hoy() {
             <td><div class="badge badge-danger text-wrap">Pago no completado</div></td>
             <td>
               <a type="button" href="compras_ver.php?id=${id_pedido}" class="btn btn-sm  btn-secondary">Ver</a>
-              <button type="button" class="btn btn-warning btn-sm "> Pagar </button>
+              <a type="button" href="compras_pagar.php?id=${id_pedido}" class="btn btn-sm  btn-warning">Pagar</a>
             </td>
            
         </tr>
@@ -135,7 +135,7 @@ async function compras_ayer() {
             <td><div class="badge badge-danger text-wrap">Pago no completado</div></td>
             <td>
               <a type="button" href="compras_ver.php?id=${id_pedido}" class="btn btn-sm  btn-secondary">Ver</a>
-              <button type="button" class="btn btn-warning btn-sm "> Pagar </button>
+              <a type="button" href="compras_pagar.php?id=${id_pedido}" class="btn btn-sm  btn-warning">Pagar</a>
             </td>
            
         </tr>
@@ -210,7 +210,7 @@ async function compras_dia_especifico() {
               <td><div class="badge badge-danger text-wrap">Pago no completado</div></td>
               <td>
                 <a type="button" href="compras_ver.php?id=${id_pedido}" class="btn btn-sm  btn-secondary">Ver</a>
-                <button type="button" class="btn btn-warning btn-sm "> Pagar </button>
+                <a type="button" href="compras_pagar.php?id=${id_pedido}" class="btn btn-sm  btn-warning">Pagar</a>
               </td>
             
           </tr>

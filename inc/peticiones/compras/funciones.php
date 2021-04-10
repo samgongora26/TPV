@@ -38,6 +38,9 @@ switch ($accion) {
     case "buscar_fecha":
         $resultado = buscar_fecha();
         break;
+    case "saldar_compra":
+        $resultado = saldar_compra();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide

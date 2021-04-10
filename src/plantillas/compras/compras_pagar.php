@@ -48,7 +48,7 @@
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
                                 <ol class="breadcrumb ">
                                     <li class="breadcrumb-item"><a href="compras_historial.php">Historial de pedidos</a></li>
-                                    <li class="breadcrumb-item active">Pedido</li>
+                                    <li class="breadcrumb-item active" id="pedido">Pedido</li>
                                 </ol>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card-body bg-lighr">
@@ -65,9 +65,6 @@
                                             <th scope="col">cantidad</th>
                                             <th scope="col">precio compra</th>
                                             <th scope="col">total compra</th>
-                                            <th scope="col"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash2-fill" viewBox="0 0 16 16">
-                                                <path d="M2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z" /></svg>
-                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody id="contenido_tabla">
@@ -91,23 +88,42 @@
                             <h5>Completar la compra</h5>
                             <div class="input-group mb-3">
                             <div id="mensaje2"></div>
-                                            <ul class="list-group mx-auto">
-                                                <div class="input-group-prepend">
-                                                    <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>
-                                                    <input id="monto" name="monto" type="text"  class="form-control text-white bg-dark" aria-label="Username" placeholder="$" aria-describedby="basic-addon1" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
-                                                    
-                                                </div>
-                                                
-                                            </ul>
-                                            <ul class="list-group ">
+                                            <ul class="list-group col-md-2 mx-auto">
                                                 <div class="input-group-prepend mx-auto ">
-                                                    <label class="input-group-text" for="inputGroupSelect01">Por pagar:</label>
-                                                    <input id="por_pagar" name="por_pagar" disabled type="text" class="form-control  bg-dark text-white" aria-label="Username" aria-describedby="basic-addon1" value="$">
+                                                    <label class="input-group-text" >Total</label>
+                                                    <input id="por_pagar" name="por_pagar" disabled type="text" class="form-control ">
                                                 </div>
                                                 
                                             </ul>
-                                            <input type="text" id="por_pagar2" value="" hidden>
-                                            <button class="btn btn-sm btn-success mx-auto" onclick="obtener_monto()"> Comprar <label class="fa fa-check"></label></button>
+                                            <ul class="list-group col-md-2 mx-auto">
+                                            <div class="input-group-prepend mx-auto ">
+                                                    <label class="input-group-text">Pagado</label>
+                                                    <input id="pagado" name="pagado"  disabled type="text" class="form-control " >
+                                                </div>
+                                                
+                                            </ul>
+                                            <ul class="list-group col-md-2 mx-auto">
+                                            <div class="input-group-prepend mx-auto ">
+                                                    <label class="input-group-text">Debido</label>
+                                                    <input id="debido" name="debido" disabled type="text" class="form-control " >
+                                                </div>
+                                            </ul>
+                                            <ul class="list-group col-md-5 mx-auto">
+                                            <div class="input-group-prepend mx-auto ">
+                                                    <label class="input-group-text">Monto</label>
+                                                    <input id="monto" name="debido" type="text" class="form-control "  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                    <input type="text" id="por_pagar2" value="" hidden>
+                                                    <input type="text" id="id_pedido" value="" hidden>
+                                                    <input type="text" id="debido2" value="" hidden>
+                                                    <input type="text" id="usuario" value="<?php echo $usr["id_usuario"] ?>" hidden>
+                                                    <button class="btn btn-sm btn-success mx-auto" onclick="obtener_monto()"> Pagar </button>
+                                                </div>
+                                            </ul>   
+                                            
+
+                                            
+                                        
+                                               
                                         </div>
                             </div>
                     </div> 
