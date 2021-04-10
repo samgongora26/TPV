@@ -68,7 +68,7 @@ async function mostrar_promociones() {
             <td>%${promocion_porcentaje} </td>  
             <td>
                 <!--button type="button" class="btn btn-sm" data-toggle="modal" data-target="#modal_editar${id_producto}"><i class="icon-pencil"></i></button-->
-                <button type="button" class="btn  btn-sm" data-usuario="${id_producto}"><i class="fas fa-trash eliminar"></i></button>
+                <button type="button" class="btn  btn-sm" ><i class="fas fa-trash eliminar" data-usuario="${id_producto}"></i></button>
 
             </td>      
         </tr>
@@ -115,13 +115,13 @@ async function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
     idEliminar = Number(e.target.dataset.usuario);
-    const confirmar = confirm('¿Deseas remover el producto? ');
+    const confirmar = confirm('¿Deseas eliminar la promoción? ');
     if(confirmar){
       try {
         console.log(idEliminar);
         const datos = new FormData();
         datos.append("id", idEliminar);
-        datos.append("accion", "remover_producto");
+        datos.append("accion", "remover_promocion");
   
         const res = await fetch("../../../inc/peticiones/promociones/funciones.php", {
           method: "POST",
