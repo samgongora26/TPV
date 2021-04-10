@@ -79,9 +79,10 @@
                                 <h4 class="card-title">Promociones</h4>
                             </div>
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" id="contenido_tabla">
                                     <thead>
                                         <tr>
+                                            <th>Foto</th>
                                             <th>Producto</th>
                                             <th>Codigo</th>
                                             <th>descuento</th>
@@ -89,15 +90,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_editar"><i class="icon-pencil"></i></button>
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_eliminar"><i class="icon-trash"></i></button>
-                                            </td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -107,36 +100,9 @@
 
                 <!--MODALS-->
                 <!--MODAL EDITAR-->
-                <div id="modal_editar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="form-group mb-4">
-                                                    <label class="mr-sm-2" for="inlineFormCustomSelect">Tipo de Promocion</label>
-                                                    <select class="custom-select mr-sm-2" id="promociones_editar">
-                                                            <option selected value="5">5%</option>
-                                                            <option value="2">10%</option>
-                                                            <option value="2">15%</option>
-                                                            <option value="1">20%</option>
-                                                            <option value="2">30%</option>
-                                                            <option value="2">40%</option>
-                                                            <option value="2">50%</option>   
-                                                        </select><p></p>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
-                                                <button type="button" class="btn btn-success">Guardar cambios</button>
-                                            </div>
-                                        </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                </div>
+               
                 <!--MODAL ELIMINAR-->
-                <div id="modal_eliminar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                <!--div id="modal_eliminar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -150,9 +116,9 @@
                                                 <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
                                                 <button type="button" class="btn btn-success">Guardar cambios</button>
                                             </div>
-                                        </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                </div>
+                                        </div><
+                                    </div>
+                </div-->
                 
                 
             </div>
@@ -167,6 +133,8 @@
     <?php
     include '../../../componentes/scripts.php';
     ?>
+    <script src="../../../inc/funciones/promociones/app.js"></script>
+    <!--script src="../../../inc/funciones/promociones/guardar_promocion.js"></script-->
     <!-- FIN DE SCRIPTS -->
 </body>
 
