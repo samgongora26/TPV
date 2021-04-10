@@ -1,27 +1,24 @@
-const listado_productos = document.querySelector("#contenido_tabla");
 const texto_venta_actual = document.querySelector("#texto_venta_actual");
 const foto = document.querySelector("#actual_foto");
 const precio = document.querySelector("#actual_precio");
 const r_total = document.querySelector("#monto_total");
 const id_usuario = document.querySelector("#id_usuario").value;
 let texto_total_compra = document.querySelector("#total_compra");
-
-let carritos = [];
 let id_venta_actual = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrar_ticket();
+  contenedor_tickets.addEventListener("click", recuperar_ticket_o_crear_nuevo);
   document.querySelector("#formulario").addEventListener("click", existente_codigo);
   document.querySelector("#cobrar").addEventListener("click", cobrar_productos);
   document.querySelector("#eliminar").addEventListener("click", eliminar_ticket);
   document.querySelector("#btn_crear_ticket").addEventListener("click", crear_nuevo_ticket);
-  listado_productos.addEventListener("click", opciones);
-  const enter = document.querySelector("#codigo_envio");
+  padre.addEventListener("click", opciones);
+   const enter = document.querySelector("#codigo_envio");
   enter.addEventListener("keyup", (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
-      existente_codigo(e);
-    }
+      existente_codigo(e);    }
   });
   //sacar el cambio del cierre de venta
   const r_recibo = document.querySelector("#monto_recibido").addEventListener("keyup", (e) => {
@@ -45,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 async function mostrar_ticket() {
-  carritos = JSON.parse(localStorage.getItem("productos_carrito")) || [];
+  //carritos = JSON.parse(localStorage.getItem("carrito")) || [];
+  tickets =  JSON.parse(localStorage.getItem("tickets")) || [];
 
   const datos = new FormData();
   datos.append("id_usuario", id_usuario);
@@ -82,20 +80,19 @@ function pintar_inicio(data) {
     if (id_producto === null) {
       console.log(`el ingreso de un nuevo producto al carrito${producto}`);
       carritos.push(producto);
-      mostrar_articulos_del_carrito();
     }
-    mostrar_articulos_del_carrito();
+    mostrar_todos_los_tickets();
     texto_venta_actual.innerHTML = `id de la venta actual ${id_venta}`;
     id_venta_actual = id_venta;
   });
 }
 
-
+/*
 function existente_codigo(e) {
   const codigo = document.querySelector("#codigo_envio").value;
   const itemEnCarritoIndex = carritos.findIndex((producto) => producto.codigo === codigo);
   itemEnCarritoIndex >= 0 ? actualizar_carrito(codigo, +1) : buscar_producto(e);
-}
+}*/
 
 function buscar_producto(e) {
   e.preventDefault();
@@ -136,13 +133,13 @@ function pintar(data) {
       importe: importe_producto,
     };
     console.log(`se agrego un nuevo producto al carrito${producto}`);
-    carritos.push(producto);
+    carritos[ticket_en_uso].push(producto); 
     foto.innerHTML = `nombre del codigo :${codigo}`;
     precio.innerHTML = precio_venta;
-    mostrar_articulos_del_carrito();
   } else {
     alert("no existe el producto");
   }
+  mostrar_articulos_de_un_carrito();
 }
 
 function opciones(e) {
@@ -159,19 +156,19 @@ function opciones(e) {
 }
 function actualizar_carrito(codigo, operador) {
   let index = 0;
-  index = carritos.findIndex((producto) => producto.codigo === codigo);
-  carritos[index].cantidad = carritos[index].cantidad + operador;
-  let cantidad = carritos[index].cantidad;
-  let precio = parseInt(carritos[index].precio_v);
+  index = carritos[ticket_en_uso].findIndex((producto) => producto.codigo === codigo);
+  carritos[ticket_en_uso][index].cantidad = carritos[ticket_en_uso][index].cantidad + operador;
+  let cantidad = carritos[ticket_en_uso][index].cantidad;
+  let precio = parseInt(carritos[ticket_en_uso][index].precio_v);
   let total = cantidad * precio;
-  carritos[index].importe = total;
-  mostrar_articulos_del_carrito();
+  carritos[ticket_en_uso][index].importe = total;
+  mostrar_articulos_de_un_carrito();
 }
 
 function cobrar_productos() {
   const total = parseFloat(texto_total_compra.innerHTML);
   const datos = new FormData();
-  const array = JSON.stringify(carritos);
+  const array = JSON.stringify(carritos[ticket_en_uso]);
 
   datos.append("someData", array);
   datos.append("id_venta", id_venta_actual);
@@ -184,6 +181,7 @@ function cobrar_productos() {
     const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${res.id}`);
   });
 
+  limpiar_contenido_del_carrito();
   limpiar_campos_html();
 
   alert("se ha registrado el cobro correctamente");
@@ -199,6 +197,7 @@ function eliminar_ticket() {
     texto_venta_actual.innerHTML = `id de la venta actual : ${res.id_nueva_venta}`;
     id_venta_actual = res.id_nueva_venta;
   });
+  limpiar_contenido_del_carrito();
   limpiar_campos_html();
   alert("se ha eliminado correctamente");
 }
@@ -218,10 +217,9 @@ async function enviar_datos(datos) {
 }
 
 function limpiar_campos_html() {
-  carritos = [];
+  carritos[ticket_en_uso] = [];
   //suma = 0;
   texto_total_compra.innerHTML = "";
-  listado_productos.innerHTML = "";
   const r_total = (document.querySelector("#monto_total").innerHTML = ` `);
   const r_id = (document.querySelector("#modal_id").innerHTML = ``);
   sincronizar_storage();
@@ -241,12 +239,12 @@ async function envio_array(datos) {
   }
 }
 
-function mostrar_articulos_del_carrito() {
-  limpiar_lista_productos();
+/*function mostrar_articulos_de_un_carrito() {
+  limpiar_lista_productos();////////////
   let suma = 0;
   carritos.forEach((articulo) => {
     const { id, nombre, codigo, cantidad, precio_v, importe } = articulo;
-    listado_productos.innerHTML += `  
+    padre.innerHTML += `  
     <tr>
         <th scope="row">${cantidad}</th>
         <td id="codigo">${codigo}</td>
@@ -267,7 +265,7 @@ function mostrar_articulos_del_carrito() {
 
   mostrar_total_modal(suma, id_venta_actual);
   sincronizar_storage();
-}
+}*/
 
 function mostrar_total_modal(suma, id) {
   // la cantidad monetaria actual en el modal
@@ -277,10 +275,10 @@ function mostrar_total_modal(suma, id) {
 }
 
 function sincronizar_storage() {
-  localStorage.setItem("productos_carrito", JSON.stringify(carritos));
+  localStorage.setItem(`tickets`, JSON.stringify(tickets));
 }
 function limpiar_lista_productos() {
-  listado_productos.innerHTML = "";
+  padre.innerHTML = "";
 }
 
 /////////////////////generacio de tickets dentro de un mismmo dom
