@@ -9,6 +9,9 @@ switch ($accion) {
     case "mostrar_promociones":
         $resultado = mostrar_promociones();
         break;
+    case "remover_promocion":
+        $resultado = remover_promocion();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide
