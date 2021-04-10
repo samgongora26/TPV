@@ -3,8 +3,8 @@ $accion = $_POST['accion'];
 require 'consultas.php';
 
 switch ($accion) {
-    case "registrar":
-        $resultado = registrar_compra();
+    case "registrar_promocion":
+        $resultado = registrar_promocion();
         break;
     case "mostrar_promociones":
         $resultado = mostrar_promociones();

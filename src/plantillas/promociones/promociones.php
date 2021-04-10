@@ -49,26 +49,32 @@
                     <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Agregar promoción</h4>
-
-                                    <div class="form-group mb-4">
-                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Tipo de Promocion</label>
-                                        <select class="custom-select mr-sm-2" id="promociones">
-                                            <option selected value="5">5%</option>
-                                            <option value="2">10%</option>
-                                            <option value="2">15%</option>
-                                            <option value="1">20%</option>
-                                            <option value="2">30%</option>
-                                            <option value="2">40%</option>
-                                            <option value="2">50%</option>   
-                                        </select><p></p>
-                                        <label>Producto en Promocion</label>
-                                        <input placeholder="codigo" type="text" class="form-control"><p></p>
-                                        <!--label>Nombre de la Promocion</label>
-                                        <input placeholder="Nombre" type="text" class="form-control"><p></p-->
-                                    </div>
-                                    <button type="submit" class="btn btn-block btn-success">Agregar Promocion</button>
-
+                                <form id="formulario" class="mt-4">
+                                            <div class="form-group">
+                                                <h4 class="card-title">Agregar promoción o actualizar</h4>
+                                                <div id="mensaje"></div>
+                                                <div class="form-group mb-4">
+                                                    <label class="mr-sm-2" for="inlineFormCustomSelect">Tipo de Promocion</label>
+                                                    <select class="custom-select mr-sm-2" id="promociones">
+                                                        <option selected value="5">5%</option>
+                                                        <option value="10">10%</option>
+                                                        <option value="15">15%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="30">30%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="50">50%</option>   
+                                                    </select><p></p>
+                                                    <label>Producto en Promocion</label>
+                                                    <input id="codigo" placeholder="codigo" type="text" class="form-control"><p></p>
+                                                    <!--label>Nombre de la Promocion</label>
+                                                    <input placeholder="Nombre" type="text" class="form-control"><p></p-->
+                                                </div>
+                                                
+                                                <div class="text-right mt-3">
+                                                    <button type="submit" class="btn btn-block btn-success">Guardar</button>
+                                                </div>
+                                            </div>
+                                </form>
                                 </div>
                             </div>
                     </div>
@@ -80,6 +86,7 @@
                             </div>
                             <div class="table-responsive">
                                 <table class="table" id="contenido_tabla">
+                                    <div id="mensaje2"></div>
                                     <thead>
                                         <tr>
                                             <th>Foto</th>
@@ -90,7 +97,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+                                        <!--AQUI SON INSERTADOS LOS DATOS DE LAS PROMOCIONES-->
                                     </tbody>
                                 </table>
                             </div>
@@ -134,7 +141,7 @@
     include '../../../componentes/scripts.php';
     ?>
     <script src="../../../inc/funciones/promociones/app.js"></script>
-    <!--script src="../../../inc/funciones/promociones/guardar_promocion.js"></script-->
+    <script src="../../../inc/funciones/promociones/guardar_promocion.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 

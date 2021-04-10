@@ -67,8 +67,8 @@ async function mostrar_promociones() {
             <td scope="row">${codigo}</td>
             <td>%${promocion_porcentaje} </td>  
             <td>
-                <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#modal_editar${id_producto}"><i class="icon-pencil"></i></button>
-                <button type="button" class="btn eliminar btn-sm" data-usuario="${id_producto}"><i class="fas fa-trash"></i></button>
+                <!--button type="button" class="btn btn-sm" data-toggle="modal" data-target="#modal_editar${id_producto}"><i class="icon-pencil"></i></button-->
+                <button type="button" class="btn  btn-sm" data-usuario="${id_producto}"><i class="fas fa-trash eliminar"></i></button>
 
             </td>      
         </tr>
@@ -84,14 +84,14 @@ async function mostrar_promociones() {
                 <div class="modal-body">
                     <div class="form-group mb-4">
                         <label class="mr-sm-2" for="inlineFormCustomSelect">Tipo de Promocion</label>
-                        <select class="custom-select mr-sm-2" id="promociones_editar${id_producto}">
+                          <select class="custom-select mr-sm-2" id="promociones_editar${id_producto}">
                                 <option selected value="5">5%</option>
-                                <option value="2">10%</option>
-                                <option value="2">15%</option>
-                                <option value="1">20%</option>
-                                <option value="2">30%</option>
-                                <option value="2">40%</option>
-                                <option value="2">50%</option>   
+                                <option value="10">10%</option>
+                                <option value="15">15%</option>
+                                <option value="20">20%</option>
+                                <option value="30">30%</option>
+                                <option value="40">40%</option>
+                                <option value="50">50%</option>   
                             </select><p></p>
                     </div>
                 </div>
