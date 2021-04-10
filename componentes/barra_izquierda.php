@@ -9,7 +9,7 @@
                                     class="hide-menu">PTV</span></a></li>
                         <li class="list-divider"></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link" href="../ventas/tpv.php"
+                        <li class="sidebar-item"> <a class="sidebar-link" href="../ventas/ini.php"
                                 aria-expanded="false"><i class="fas fa-tag"></i><span
                                     class="hide-menu">Ventas
                                 </span></a>
