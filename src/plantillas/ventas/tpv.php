@@ -73,13 +73,15 @@
                                             <!-- se imprimen aqui todos-->
                                     </div>
                                 </div>
+                                
+                            </div>
                         </div> 
                     </div>
                     <!---------------------COLUMNA DERECHA-------------------->
                     <div class="col-md-3">
                         <!-----------------TARJETA DE DESCRIPCION DEL PRODUCTO--------->
                             <div class="card">
-                                <img class="col-md-3 mx-auto mt-3" src="../../assets/images/product/iwatch.png" alt="product">
+                                <img class="col-md-3 mx-auto mt-3" src="../../../src/../src/assets/images/product/ipad.png" alt="product">
                                 <div class="card-body text-center">
                                     <h4 class="card-title" id="actual_foto"></h4>
                                     <p class="card-text" id="actual_precio"></p>
@@ -161,6 +163,7 @@
         include '../../../componentes/scripts.php';
     ?>
      <script src="../../../inc/funciones/pos/app.js"></script>
+     <script src = "../../../inc/funciones/pos/testing.js"> </script> 
     <!-- FIN DE SCRIPTS -->
 </body>
 
