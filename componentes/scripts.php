@@ -23,3 +23,16 @@
     <script src="../../assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="../../assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
     <script src="../../dist/js/pages/dashboards/dashboard1.min.js"></script>
+
+    <!-- datatables JS -->
+    <script type="text/javascript" src="../../assets/extra-libs/pdf/datatables/datatables.min.js"></script>    
+     
+    <!-- para usar botones en datatables JS -->  
+    <script src="../../assets/extra-libs/pdf/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>  
+    <script src="../../assets/extra-libs/pdf/datatables/JSZip-2.5.0/jszip.min.js"></script>    
+    <script src="../../assets/extra-libs/pdf/datatables/pdfmake-0.1.36/pdfmake.min.js"></script>    
+    <script src="../../assets/extra-libs/pdf/datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="../../assets/extra-libs/pdf/datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
+     
+    <!-- código JS propìo-->
+    <script type="text/javascript" src="../../assets/extra-libs/pdf/pdf.js"></script>  
