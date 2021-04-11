@@ -51,7 +51,7 @@ async function enviar_async(cliente) {
     console.log(data);
     console.log("acceso "+data.accedio);
     if (data.accedio){
-      //window.location="tpv.php";
+      window.location="../home/home.php";
     }
     else{
       const mensajes = document.querySelector("#mensaje2");

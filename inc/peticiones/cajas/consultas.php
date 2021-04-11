@@ -146,7 +146,7 @@ function cerrar_caja(): array
         $respuesta = array(
             'mensaje' => $mensaje,
             'accedio' => $accedio,
-            'caja abierta' => $caja_abierta,
+            'caja_abierta' => $caja_abierta,
             'total_ventas' => $total_ventas,
             'user' => $user,
             'id_usaurio' => $id_usuario,

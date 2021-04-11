@@ -56,7 +56,7 @@
                                 
                                 <div class="col-sm-6 col-md-6 col-lg-6">
                                     <div class="card btn bg-primary">
-                                        <a href="../ventas/tpv.php">
+                                        <a href="../ventas/ini.php">
                                             <div class="text-white">
                                                 <i class="fas fa-tag"></i><p></p>
                                                 <h4>Ventas</h4>
