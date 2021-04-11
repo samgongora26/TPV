@@ -5,14 +5,18 @@ const r_total = document.querySelector("#monto_total");
 const id_usuario = document.querySelector("#id_usuario").value;
 let texto_total_compra = document.querySelector("#total_compra");
 let id_venta_actual = 0;
+let tickets = [];
+let carritos = [];
+
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrar_ticket();
+
   contenedor_tickets.addEventListener("click", recuperar_ticket_o_crear_nuevo);
   document.querySelector("#formulario").addEventListener("click", existente_codigo);
   document.querySelector("#cobrar").addEventListener("click", cobrar_productos);
   document.querySelector("#eliminar").addEventListener("click", eliminar_ticket);
-  document.querySelector("#btn_crear_ticket").addEventListener("click", crear_nuevo_ticket);
+  //document.querySelector("#btn_crear_ticket").addEventListener("click", crear_nuevo_ticket);
   padre.addEventListener("click", opciones);
    const enter = document.querySelector("#codigo_envio");
   enter.addEventListener("keyup", (e) => {
@@ -31,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const monto = parseFloat(recibido);
         const total = parseFloat(texto_total_compra.innerHTML);
         const operacion = monto - total;
-        const se_puede_pagar = operacion > 0;
+        const se_puede_pagar = operacion >= 0;
         document.getElementById("cobrar").disabled = !(se_puede_pagar);
        // btn_cobrar.disabled = se_puede_pagar; // indica si se bloquea o no el boton
 
@@ -42,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 async function mostrar_ticket() {
-  //carritos = JSON.parse(localStorage.getItem("carrito")) || [];
+  carritos = JSON.parse(localStorage.getItem("carritos")) || [];
   tickets =  JSON.parse(localStorage.getItem("tickets")) || [];
 
   const datos = new FormData();
@@ -84,6 +88,10 @@ function pintar_inicio(data) {
     mostrar_todos_los_tickets();
     texto_venta_actual.innerHTML = `id de la venta actual ${id_venta}`;
     id_venta_actual = id_venta;
+    if (tickets.length === 0){
+      const resultado = agregar_array_tickets();
+      creacion_de_nuevo_contenedor(resultado);
+    }; 
   });
 }
 
@@ -224,6 +232,7 @@ async function enviar_datos(datos) {
 
 function limpiar_campos_html() {
   carritos[ticket_en_uso] = [];
+  tickets[ticket_en_uso] = [];
   //suma = 0;
   texto_total_compra.innerHTML = "";
   const r_total = (document.querySelector("#monto_total").innerHTML = ` `);
@@ -281,6 +290,7 @@ function mostrar_total_modal(suma, id) {
 }
 
 function sincronizar_storage() {
+  localStorage.setItem(`carritos`, JSON.stringify(carritos));
   localStorage.setItem(`tickets`, JSON.stringify(tickets));
 }
 function limpiar_lista_productos() {
@@ -289,8 +299,8 @@ function limpiar_lista_productos() {
 
 /////////////////////generacio de tickets dentro de un mismmo dom
 
-function crear_nuevo_ticket() {
+/*function crear_nuevo_ticket() {
   console.log("estas en nuevo ticket");
   const ids = [...document.querySelectorAll('.ticket')].map(el => el.id);
   console.log(ids)
-}
+}*/

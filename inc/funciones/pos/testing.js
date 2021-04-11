@@ -1,8 +1,6 @@
 const contenedor_tickets = document.querySelector("#contenedor_tickets");
 const padre = document.querySelector("#contenedor_padre_tickets");
 let ticket_en_uso = 0;
-let tickets = [];
-let carritos = [];
 
 /*document.addEventListener("DOMContentLoaded", () => {
   contenedor_tickets.addEventListener("click", recuperar_ticket_o_crear_nuevo);
@@ -24,6 +22,7 @@ function recuperar_ticket_o_crear_nuevo(e) {
     creacion_de_nuevo_contenedor(resultado);
   } else {
     ticket_en_uso = id_del_ticket_seleccionado;
+    mostrar_articulos_de_un_carrito();
   }
 };
 
