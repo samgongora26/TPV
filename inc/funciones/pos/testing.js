@@ -56,7 +56,7 @@ function limpiar_contenido_del_carrito() {
     let suma = 0;
     const listado_productos = document.querySelector(`#contenido_tabla_${ticket_en_uso}`);
     carritos[ticket_en_uso].forEach(carrito => {
-      const { id, nombre, codigo, cantidad, precio_v, importe } = carrito;
+      const { id, nombre, codigo, cantidad, precio_v, importe, descuento} = carrito;
       listado_productos.innerHTML += `  
       <tr>
           <th scope="row">${cantidad}</th>
@@ -64,7 +64,7 @@ function limpiar_contenido_del_carrito() {
           <input type="hidden" value="${codigo}" id="codigo${id}">
           <td>${nombre}</td>
           <td>${precio_v}</td>
-          <td>0</td>
+          <td>${descuento}%</td>
           <td>${importe}</td>
           <td>
           <button data-cliente="${codigo}" type="button" class="btn btn-sm btn-light disminuir"><i data-cliente="${codigo}" class="fa fa-minus disminuir"></i></button>

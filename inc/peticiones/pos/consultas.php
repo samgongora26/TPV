@@ -18,6 +18,7 @@ function buscar_producto(): array
             $precio_venta = $row['precio_venta'];
             $nombre = $row['nombre_producto'];
             $estado = true;
+            $promocion_porcentaje = $row["promocion_porcentaje"];
         }
 
         $respuesta = array(
@@ -27,11 +28,11 @@ function buscar_producto(): array
             'descripcion' => $descripcion,
             'precio_venta' => $precio_venta,
             'foto' => $foto,
-            'cantidad' => 1
+            'cantidad' => 1,
+            'promocion_porcentaje' => $promocion_porcentaje
         );
 
         return $respuesta;
-
 
         //  return $arreglo;
 

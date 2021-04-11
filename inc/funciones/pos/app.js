@@ -120,10 +120,14 @@ function pintar(data) {
     precio_venta,
     cantidad,
     id_insertado,
+    promocion_porcentaje
   } = data;
 
   if (!(id_producto === null)) {
     let importe_producto = parseInt(cantidad) * precio_venta;
+    if(promocion_porcentaje != 0){
+      importe_producto = parseFloat(importe_producto - ((importe_producto * parseFloat(promocion_porcentaje))/100));
+    }
     producto = {
       id: id_producto,
       nombre,
@@ -131,11 +135,13 @@ function pintar(data) {
       precio_v: precio_venta,
       cantidad: parseInt(cantidad),
       importe: importe_producto,
+      descuento : promocion_porcentaje
     };
     console.log(`se agrego un nuevo producto al carrito${producto}`);
     carritos[ticket_en_uso].push(producto); 
     foto.innerHTML = `nombre del codigo :${codigo}`;
     precio.innerHTML = precio_venta;
+
   } else {
     alert("no existe el producto");
   }
