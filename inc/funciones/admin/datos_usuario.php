@@ -9,10 +9,16 @@
     //echo $usr["usuario"];
     //echo $usr["fotografia"]
     //echo $usr["estado"]
-    mysqli_close($conexion);
+   
     //La fecha tiene un dia de más, asi que se le resta 1
     //$dia = date('d')-1;
     //Hoy es el dia/mes/año  $dia.'/'.
     $hoy = date('d/m/Y'); 
 
+    //DETECCION DE UNA CAJA ABIERTA 
+    $cajas = mysqli_query($conexion, "SELECT * FROM `cajas` WHERE `id_usuario` = '$id_user' AND `corte` = 0 ");                                     
+    $caja=mysqli_fetch_array($cajas);
+
+
+    mysqli_close($conexion);
 ?>

@@ -11,6 +11,10 @@ switch ($accion) {
     case "verificar_caja_abierta":
         $resultado = verificar_caja_abierta();
         break;
+    
+    case "cerrar_caja":
+        $resultado = cerrar_caja();
+        break;
 
 }
 

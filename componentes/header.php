@@ -112,7 +112,7 @@
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
                                         class="svg-icon mr-2 ml-1"></i>
-                                    Mi perfil</a>
+                                    Mi punto de ventas</a>
                                 
                                 <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
                                         class="svg-icon mr-2 ml-1"></i>
@@ -122,11 +122,22 @@
                                     <i class="fas fa-download"></i>
                                     <span class="hide-menu">Instalar</span>
                                 </button>
+
+                                <?php
+                                    if($caja["id_caja"] > 0){
+                                        echo '
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="../../../src/plantillas/ventas/fin.php"><i
+                                                    class="fas fa-lock"></i>
+                                                Cerrar caja</a>
+                                        ';
+                                    }
+                                ?>
                       
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../../../inc/funciones/admin/logout.php"><i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>
-                                    Logout</a>
+                                    Cerrar sesión</a>
                             </div>
                         </li>
                         <!-- ============================================================== -->
