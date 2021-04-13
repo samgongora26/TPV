@@ -24,7 +24,8 @@
     </div>
 
 
-    <!-- DIV PRINCIPAL DE BODY -->
+    <!-- DIV PRINCIPAL DE BODY     
+    SELECT usuarios.nombres FROM usuarios,ventas,empleados WHERE empleados.id_usuario = usuarios.id_usuario AND ventas.id_empleado = empleados.id_empleado; -->
     <!-- ============================================================== -->
     <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
@@ -67,33 +68,25 @@
                                             <h4 class="card-title">Empleados con más Ventas</h4>
                                             <div class="table-responsive">
                                                 <table id="tabla1" class="table table-success">
-                                                    <thead class="bg-success text-white">
+                                                    <thead class="bg-success text-white text-center">
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>First Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>Ventas</th>
+                                                            <th>Nombre</th>
+                                                            <th>Apellido</th>
+                                                            <th>N° Ventas</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody id="contenido_tabla" class="text-center">
+                                                        <!--
                                                         <tr>
                                                             <td>1</td>
                                                             <td>Nigam</td>
                                                             <td>Eichmann</td>
-                                                            <td>58</td>
+                                                            <td>###</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Deshmukh</td>
-                                                            <td>Prohaska</td>
-                                                            <td>39</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Roshan</td>
-                                                            <td>Rogahn</td>
-                                                            <td>19</td>
-                                                        </tr>
+                                                        -->
+                                                        
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -276,6 +269,7 @@
     <?php
     include '../../../componentes/scripts.php';
     ?>
+    <script src="../../../inc/funciones/finanzas/app.js"></script>
 
 </body>
 
