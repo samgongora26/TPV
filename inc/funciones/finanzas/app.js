@@ -32,16 +32,16 @@ function mostrarServicios() {
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const {nombre} = datos;
+      const {id, nombre, apellido, contador} = datos;
 
       const listado1 = document.querySelector("#contenido_tabla");
 
       listado1.innerHTML += `  
         <tr>
-            <td>1</td>
+            <td>${id}</td>
             <td>${nombre}</td>
-            <td>LAST NAME</td>
-            <td>##</td>
+            <td>${apellido}</td>
+            <td>${contador}</td>
         </tr>
         `;
     });
