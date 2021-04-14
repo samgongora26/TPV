@@ -64,9 +64,13 @@
                                     </div-->
                                     <div class="row">
                                             <div class="col-md-8">
-                                                <div class="form-group">
-                                                    <label>Codigo del producto</label>
+                                            <label>Codigo del producto</label>
+                                                <div class="input-group">
+                                                    
                                                     <input type="text" id="codigo" class="form-control" placeholder="codigo">
+                                                    <button id="" class="btn btn-secondary" data-toggle="modal" data-target="#busqueda_producto">Buscar producto
+                                                        <i class="fa fa-search"></i> 
+                                                    </button>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -77,7 +81,7 @@
                                             </div>
                                     </div>
                                     <input type="text" id="usuario" value="<?php echo $usr["id_usuario"] ?>" hidden>
-                                    <button type="submit" class="btn btn-success btn-block"> Agregar a la lista</button>
+                                    <button type="" id="btn_agregar" class="btn btn-success btn-block"> Agregar a la lista</button>
                                 </form>
                             </div>
                         </div>
@@ -153,7 +157,9 @@
         </div>
         <!--FIN CONTENEDOR -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
+  <!----MODAL DE BUSQUEDA DE PRODUCTO---->
+  <?php include "../modal_productos/modal_productos.php"; ?>
+                        
         <!-- TODOS LOS ENLACES DE SCRIPTS -->
         <?php
             include '../../../componentes/scripts.php';

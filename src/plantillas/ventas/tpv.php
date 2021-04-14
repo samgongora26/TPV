@@ -45,16 +45,19 @@
                             <h2 id="texto_venta_actual">id de la venta actual</h2>
                                 <div class="row">
                                     <div class="col-md-6">
-                                                <input type="text" class="form-control" id="codigo_envio" aria-describedby="name" placeholder="Codigo">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="codigo_envio" aria-describedby="name" placeholder="Codigo">
+                                            <button id="formulario" class="btn btn-secondary" data-toggle="modal" data-target="#bs-example-modal-lg">Agregar    
+                                            </button>
+                                        </div>
+                                                
                                                 <!--small id="name" class="form-text text-muted">Codigo</small-->
                                         
                                      
                                     </div>
-                                    <div class="col-md-3 float-right">
-                                        <button id="formulario" class="btn btn-secondary btn-rounded" data-toggle="modal" data-target="#bs-example-modal-lg">Buscar producto
-                                            <i class="fa fa-search"></i> 
-                                        </button>
-                                        <button id="" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#busqueda_producto">Buscar producto plantilla
+                                    <div class="float-right">
+                                        
+                                        <button id="" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#busqueda_producto">Buscar productos
                                             <i class="fa fa-search"></i> 
                                         </button>
 

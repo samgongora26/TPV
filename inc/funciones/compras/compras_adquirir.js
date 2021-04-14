@@ -1,8 +1,8 @@
-eventListeners();
+const btn_agregar = document.querySelector("#btn_agregar");
 function eventListeners() {
   document
     .querySelector("#formulario")
-    .addEventListener("submit", obtener_datos);
+    btn_agregar.addEventListener("submit", obtener_datos);
 }
 function obtener_datos(e) {
   e.preventDefault();

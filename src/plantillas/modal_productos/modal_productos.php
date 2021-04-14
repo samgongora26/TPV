@@ -23,7 +23,7 @@
                 <hr>
                 <div class="row mt-2">
                 <div class="table-responsive">
-                <div id="mensaje2"></div>
+                    <div id="mensaje2"></div>
                                 <table class="table">
                                     <thead class="text-center">
                                         <tr>
@@ -73,3 +73,7 @@
     </div><!-- /.modal-dialog -->
 </div>
 
+<!---PARA USAR EL MODAL ES NECESARIO TENER EL BOTON:-->
+<!--button id="" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#busqueda_producto">Buscar producto
+    <i class="fa fa-search"></i> 
+</button-->
