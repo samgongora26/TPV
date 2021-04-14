@@ -155,8 +155,9 @@ function registrar_venta(): array
         $id_venta = $_POST['id_venta'];
         $total = $_POST['total_venta'];
         $id_empleado = $_POST['id_usuario'];
+        $id_cliente = $_POST['id_cliente'];
 
-        $sql1 = "update ventas set importe = $total, id_cliente = 1, id_empleado = $id_empleado,estado = 1 where ventas.id_venta = $id_venta";
+        $sql1 = "update ventas set importe = $total, id_cliente = $id_cliente, id_empleado = $id_empleado,estado = 1 where ventas.id_venta = $id_venta";
         $consulta1 = mysqli_query($conexion, $sql1);
 
         $stmt = $conexion->prepare("INSERT INTO detalle_venta (id_venta, id_producto, precio_venta, cantidad, importe) VALUES (?, ?, ?, ?, ?)");

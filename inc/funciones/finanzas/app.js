@@ -1,11 +1,13 @@
 const listado1 = document.querySelector("#contenido_tabla1");
 const listado2 = document.querySelector("#contenido_tabla2");
+const listado3 = document.querySelector("#contenido_tabla3");
 const btn_buscar = document.querySelector("#buscar");
 let id_necesario = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarTabla1();
   mostrarTabla2();
+  mostrarTabla3();
   //listado_proveedores.addEventListener("click", obtener_datos_unitarios);
 });
 
@@ -72,3 +74,26 @@ function mostrarTabla2() {
   });
 }
 
+function mostrarTabla3() {
+  const datos = new FormData();
+  datos.append("accion", "tabla3");
+
+  llamado(datos).then((res) => {
+    res.forEach((datos) => {
+      console.log(datos);
+      const {id, nombre, contador, codigo, precio} = datos;
+
+      const listado3 = document.querySelector("#contenido_tabla3");
+
+      listado3.innerHTML += `  
+        <tr>
+            <td>${id}</td>
+            <td>${codigo}</td>
+            <td>${nombre}</td>
+            <td>${precio}</td>
+            <td>${contador}</td>
+        </tr>
+        `;
+    });
+  });
+}

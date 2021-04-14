@@ -124,12 +124,16 @@
                                             <div class="modal-body">
                                                 <h3 id="monto_total" class="mx-auto">TOTAL: $500</h3>
                                                 <div class="form-group">
+                                                <small id="name" class="form-text text-muted">Monto</small>
                                                     <input type="text" class="form-control" id="monto_recibido" aria-describedby="name" placeholder="Name">
-                                                    <small id="name" class="form-text text-muted">Monto</small>
                                                 </div>
                                                 <div class="form-group">
+                                                <small id="name" class="form-text text-muted">Cambio</small>
                                                     <input type="text" class="form-control" id="monto_devuelto" aria-describedby="name" placeholder="Name" disabled>
-                                                    <small id="name" class="form-text text-muted">Cambio</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <small id="name" class="form-text text-muted">cliente</small>
+                                                    <input type="text" class="form-control" id="cliente" aria-describedby="name" placeholder="numero cliente" >
                                                 </div>
                                             </div>
                                             <div class="modal-footer"> 
