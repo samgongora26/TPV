@@ -7,6 +7,7 @@ let texto_total_compra = document.querySelector("#total_compra");
 let id_venta_actual = 0;
 let tickets = [];
 let carritos = [];
+let id_cliente = 0;
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -40,6 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
        // btn_cobrar.disabled = se_puede_pagar; // indica si se bloquea o no el boton
 
         const r_cambio = (document.querySelector("#monto_devuelto").value = operacion);
+      }
+    });
+    //obtener el cliente
+    const cliente_recibido = document.querySelector("#cliente").addEventListener("keyup", (e) =>{
+      if (e.keyCode === 13) {
+        e.preventDefault();
+        id_cliente = document.querySelector("#cliente").value;
+        console.log(id_cliente);
       }
     });
 });
@@ -184,8 +193,10 @@ function cobrar_productos() {
   const datos = new FormData();
   const array = JSON.stringify(carritos[ticket_en_uso]);
 
+  console.log(cliente);
   datos.append("someData", array);
   datos.append("id_venta", id_venta_actual);
+  datos.append("id_cliente", id_cliente);
   datos.append("id_usuario", id_usuario);
   datos.append("total_venta", total);
   datos.append("accion", "registrar_venta");
@@ -199,6 +210,10 @@ function cobrar_productos() {
   limpiar_campos_html();
 
   alert("se ha registrado el cobro correctamente");
+}
+
+function buscar_si_existe_el_cliente() {
+  
 }
 
 function eliminar_ticket() {
