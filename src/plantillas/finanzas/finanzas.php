@@ -129,33 +129,22 @@
                                             <h4 class="card-title">Producto más Vendido</h4>
                                             <div class="table-responsive">
                                                 <table id="tabla3" class="table table-success">
-                                                    <thead class="bg-success text-white">
+                                                    <thead class="bg-success text-white text-center">
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>First Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>Ventas</th>
+                                                            <th>Codigo</th>
+                                                            <th>Producto</th>
+                                                            <th>Precio Venta</th>
+                                                            <th>Nº de Ventas</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
+                                                    <tbody id="contenido_tabla3" class="text-center">
+                                                        <!--<tr>
                                                             <td>1</td>
                                                             <td>Nigam</td>
                                                             <td>Eichmann</td>
                                                             <td>58</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Deshmukh</td>
-                                                            <td>Prohaska</td>
-                                                            <td>39</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Roshan</td>
-                                                            <td>Rogahn</td>
-                                                            <td>19</td>
-                                                        </tr>
+                                                        </tr>-->
                                                     </tbody>
                                                 </table>
                                             </div>
