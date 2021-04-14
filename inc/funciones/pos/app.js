@@ -208,7 +208,7 @@ function cobrar_productos() {
 
   limpiar_contenido_del_carrito();
   limpiar_campos_html();
-
+  mostrar_todos_los_tickets();
   alert("se ha registrado el cobro correctamente");
 }
 
@@ -228,6 +228,7 @@ function eliminar_ticket() {
   });
   limpiar_contenido_del_carrito();
   limpiar_campos_html();
+  mostrar_todos_los_tickets();
   alert("se ha eliminado correctamente");
 }
 
@@ -246,8 +247,8 @@ async function enviar_datos(datos) {
 }
 
 function limpiar_campos_html() {
-  carritos[ticket_en_uso] = [];
-  tickets[ticket_en_uso] = [];
+  const remover_carrito = carritos.splice(ticket_en_uso, 1);
+  const remover_ticket = tickets.splice(ticket_en_uso,1);
   //suma = 0;
   texto_total_compra.innerHTML = "";
   const r_total = (document.querySelector("#monto_total").innerHTML = ` `);

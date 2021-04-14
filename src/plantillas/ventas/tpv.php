@@ -51,10 +51,10 @@
                                      
                                     </div>
                                     <div class="col-md-3 float-right">
-                                        <!--button id="formulario" class="btn btn-secondary btn-rounded" data-toggle="modal" data-target="#bs-example-modal-lg">Buscar producto
+                                        <button id="formulario" class="btn btn-secondary btn-rounded" data-toggle="modal" data-target="#bs-example-modal-lg">Buscar producto
                                             <i class="fa fa-search"></i> 
-                                        </button-->
-                                        <button id="" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#busqueda_producto">Buscar producto
+                                        </button>
+                                        <button id="" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#busqueda_producto">Buscar producto plantilla
                                             <i class="fa fa-search"></i> 
                                         </button>
 
