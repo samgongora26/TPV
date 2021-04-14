@@ -57,23 +57,23 @@
                             <div align="center" class="card-header bg-secondary">
                                 <h4 class="mb-0 text-withe" id="nombre">Empresa Chida</h4>
                             </div>
-                            <div class="card-body">
-                                <div align="center"><img style="border-radius: 50px; color: black;" src="../../imagenes/proveedores/logosabritas.jpg" width="100" height="100" ></div><br>
-                                <div class="row">
+                            <div class="card-body" id="contenidoconfig">
+                                <!--<div align="center"><img style="border-radius: 50px; color: black;" src="../../imagenes/proveedores/logosabritas.jpg" width="100" height="100" ></div><br>
+                                <div class="row" >
                                     <div class="col-md-5">
-                                        <h3>Razón Social: </h3>
+                                        <h3 id="razon">Razón Social: </h3>
                                     </div>
                                     <div class="col-md-5">
-                                        <h3>Nombre Fiscal: </h3>
+                                        <h3 id="nombref">Nombre Fiscal: </h3>
                                     </div>
                                     <div class="col-md-5">
-                                        <h3>Telefono de contacto: </h3>
+                                        <h3 id="telefono">Telefono de contacto: </h3>
                                     </div>
                                     <div class="col-md-5">
-                                        <h3>E-mail: </h3>
+                                        <h3 id="email">E-mail: </h3>
                                     </div>
                                     <div class="col-md-5">
-                                        <h3>Dirección: </h3>
+                                        <h3 id="direccion">Dirección: </h3>
                                     </div>
                                 </div>
                                 <br>
@@ -83,7 +83,7 @@
                                         <a href="javascript:void(0)" class="btn btn-primary">Editar información de la empresa <i class="fas fa-edit"></i></a>
                                     </div>
                                 </div>
-
+                                -->
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
     <?php
         include '../../../componentes/scripts.php';
     ?>
-           <script src="../../../inc/funciones/proveedores/proveedor_ver.js"></script>
+    <script src="../../../inc/funciones/configuracion/app.js"></script>
     <!-- FIN DE SCRIPTS -->
 </body>
 
