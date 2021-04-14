@@ -51,9 +51,13 @@
                                      
                                     </div>
                                     <div class="col-md-3 float-right">
-                                        <button id="formulario" class="btn btn-info btn-rounded">Buscar producto
+                                        <!--button id="formulario" class="btn btn-secondary btn-rounded" data-toggle="modal" data-target="#bs-example-modal-lg">Buscar producto
+                                            <i class="fa fa-search"></i> 
+                                        </button-->
+                                        <button id="" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#busqueda_producto">Buscar producto
                                             <i class="fa fa-search"></i> 
                                         </button>
+
                                     </div>
                                 </div>
                                 
@@ -138,8 +142,10 @@
                                 </div><!-- /.modal -->
                     
                             
-                    </div>
+                        </div>
 
+                        <!----MODAL DE BUSQUEDA DE PRODUCTO---->
+                        <?php include "../modal_productos/modal_productos.php"; ?>
                         
                     
                 </div>
@@ -164,6 +170,8 @@
     ?>
      <script src="../../../inc/funciones/pos/app.js"></script>
      <script src = "../../../inc/funciones/pos/testing.js"> </script> 
+     <script src = "../../../inc/funciones/modal_productos/app_modal_productos.js"> </script> 
+
     <!-- FIN DE SCRIPTS -->
 </body>
 
