@@ -76,7 +76,7 @@
                                                             <th>N° Ventas</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody id="contenido_tabla" class="text-center">
+                                                    <tbody id="contenido_tabla1" class="text-center">
                                                         <!--
                                                         <tr>
                                                             <td>1</td>
@@ -101,33 +101,20 @@
                                             <h4 class="card-title">Cliente con más Compras</h4>
                                             <div class="table-responsive">
                                                 <table id="tabla2" class="table table-success">
-                                                    <thead class="bg-success text-white">
+                                                    <thead class="bg-success text-white text-center">
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>First Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>Compras</th>
+                                                            <th>Nombre</th>
+                                                            <th>Nº de Compras</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
+                                                    <tbody id="contenido_tabla2" class="text-center">
+                                                        <!--<tr>
                                                             <td>1</td>
                                                             <td>Nigam</td>
                                                             <td>Eichmann</td>
                                                             <td>58</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Deshmukh</td>
-                                                            <td>Prohaska</td>
-                                                            <td>39</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Roshan</td>
-                                                            <td>Rogahn</td>
-                                                            <td>19</td>
-                                                        </tr>
+                                                        </tr>-->
                                                     </tbody>
                                                 </table>
                                             </div>
