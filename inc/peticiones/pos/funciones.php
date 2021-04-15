@@ -11,7 +11,11 @@ switch ($accion) {
     case "eliminar_venta":
         $resultado = eliminar_venta();
         break;
-        case "registrar_venta":
+    case "registrar_venta":
         $resultado = registrar_venta();
+        break;
+    case "buscar_cliente":
+        $resultado = buscar_cliente();
+        break;
 }
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide

@@ -9,7 +9,6 @@ let tickets = [];
 let carritos = [];
 let id_cliente = 0;
 
-
 document.addEventListener("DOMContentLoaded", () => {
   mostrar_ticket();
 
@@ -49,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         id_cliente = document.querySelector("#cliente").value;
         console.log(id_cliente);
+        buscar_si_existe_el_cliente(id_cliente);
       }
     });
 });
@@ -104,12 +104,6 @@ function pintar_inicio(data) {
   });
 }
 
-/*
-function existente_codigo(e) {
-  const codigo = document.querySelector("#codigo_envio").value;
-  const itemEnCarritoIndex = carritos.findIndex((producto) => producto.codigo === codigo);
-  itemEnCarritoIndex >= 0 ? actualizar_carrito(codigo, +1) : buscar_producto(e);
-}*/
 
 function buscar_producto(e) {
   e.preventDefault();
@@ -124,6 +118,11 @@ function buscar_producto(e) {
   } else {
     console.log("error envio de campos vacios");
   }
+}
+function descuento_en_producto(precio,cantidad,descuento) {
+  const importe_total = parseInt(cantidad) * precio;
+ const cantidad_con_descuento = parseFloat(importe_total - ((importe_total * parseFloat(descuento))/100));
+ return cantidad_con_descuento;
 }
 
 function pintar(data) {
@@ -143,7 +142,9 @@ function pintar(data) {
   if (!(id_producto === null)) {
     let importe_producto = parseInt(cantidad) * precio_venta;
     if(promocion_porcentaje != 0){
-      importe_producto = parseFloat(importe_producto - ((importe_producto * parseFloat(promocion_porcentaje))/100));
+
+      importe_producto = descuento_en_producto(precio_venta,cantidad,promocion_porcentaje);
+      //importe_producto = parseFloat(importe_producto - ((importe_producto * parseFloat(promocion_porcentaje))/100));
     }
     producto = {
       id: id_producto,
@@ -183,7 +184,9 @@ function actualizar_carrito(codigo, operador) {
   carritos[ticket_en_uso][index].cantidad = carritos[ticket_en_uso][index].cantidad + operador;
   let cantidad = carritos[ticket_en_uso][index].cantidad;
   let precio = parseInt(carritos[ticket_en_uso][index].precio_v);
-  let total = cantidad * precio;
+  let descuento = parseInt(carritos[ticket_en_uso][index].descuento);
+  let total = descuento_en_producto(precio,cantidad,descuento);
+ // let total = cantidad * precio;
   carritos[ticket_en_uso][index].importe = total;
   mostrar_articulos_de_un_carrito();
 }
@@ -192,7 +195,7 @@ function cobrar_productos() {
   const total = parseFloat(texto_total_compra.innerHTML);
   const datos = new FormData();
   const array = JSON.stringify(carritos[ticket_en_uso]);
-
+console.log("desde cobrar")
   console.log(cliente);
   datos.append("someData", array);
   datos.append("id_venta", id_venta_actual);
@@ -201,23 +204,39 @@ function cobrar_productos() {
   datos.append("total_venta", total);
   datos.append("accion", "registrar_venta");
   envio_array(datos).then((res) => {
+    console.log(res);
     texto_venta_actual.innerHTML = `id de la venta actual : ${res.id}`;
     id_venta_actual = res.id;
     const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${res.id}`);
   });
-
-  limpiar_contenido_del_carrito();
-  limpiar_campos_html();
-  mostrar_todos_los_tickets();
+  tickets.forEach((ticket,index) => ticket = index);
+pintado_inicial_carritos();
   alert("se ha registrado el cobro correctamente");
 }
 
-function buscar_si_existe_el_cliente() {
-  
+function buscar_si_existe_el_cliente(valor_recibido) {
+console.log("desde la busqueda del cliente")
+  const datos = new FormData();
+  datos.append("telefono_cliente",valor_recibido);
+  datos.append("accion","buscar_cliente");
+  enviar_datos(datos).then((resd) =>{
+
+    if (resd.existe) alert("existe");
+    else document.querySelector("#cliente").value = 0;
+    id_cliente = resd.id;
+  });
+}
+
+function pintado_inicial_carritos() {
+  tickets.forEach((val,index) => val = index);
+  limpiar_contenido_del_carrito();
+  limpiar_campos_html();
+  sincronizar_storage();
+  mostrar_todos_los_tickets();
 }
 
 function eliminar_ticket() {
-  console.log("desde eliminar ticket");
+  console.log("desde eliminar ticket");/*
   console.log(id_venta_actual);
   const datos = new FormData();
   datos.append("id", id_venta_actual);
@@ -225,10 +244,8 @@ function eliminar_ticket() {
   enviar_datos(datos).then((res) => {
     texto_venta_actual.innerHTML = `id de la venta actual : ${res.id_nueva_venta}`;
     id_venta_actual = res.id_nueva_venta;
-  });
-  limpiar_contenido_del_carrito();
-  limpiar_campos_html();
-  mostrar_todos_los_tickets();
+  });*/
+pintado_inicial_carritos();
   alert("se ha eliminado correctamente");
 }
 
@@ -270,34 +287,6 @@ async function envio_array(datos) {
   }
 }
 
-/*function mostrar_articulos_de_un_carrito() {
-  limpiar_lista_productos();////////////
-  let suma = 0;
-  carritos.forEach((articulo) => {
-    const { id, nombre, codigo, cantidad, precio_v, importe } = articulo;
-    padre.innerHTML += `  
-    <tr>
-        <th scope="row">${cantidad}</th>
-        <td id="codigo">${codigo}</td>
-        <input type="hidden" value="${codigo}" id="codigo${id}">
-        <td>${nombre}</td>
-        <td>${precio_v}</td>
-        <td>0</td>
-        <td>${importe}</td>
-        <td>
-        <button data-cliente="${codigo}" type="button" class="btn btn-sm btn-light disminuir"><i data-cliente="${codigo}" class="fa fa-minus disminuir"></i></button>
-        <button data-cliente="${codigo}" type="button" class="btn btn-sm btn-dark aumentar">  <i data-cliente="${codigo}" class="fa fa-plus aumentar"></i></button>  
-        </td>
-    </tr>
-    `;
-
-    suma = suma + importe;
-  });
-
-  mostrar_total_modal(suma, id_venta_actual);
-  sincronizar_storage();
-}*/
-
 function mostrar_total_modal(suma, id) {
   // la cantidad monetaria actual en el modal
   document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${id}`;
@@ -306,17 +295,11 @@ function mostrar_total_modal(suma, id) {
 }
 
 function sincronizar_storage() {
+
+   console.log("quien es mas rapido");
   localStorage.setItem(`carritos`, JSON.stringify(carritos));
   localStorage.setItem(`tickets`, JSON.stringify(tickets));
 }
 function limpiar_lista_productos() {
   padre.innerHTML = "";
 }
-
-/////////////////////generacio de tickets dentro de un mismmo dom
-
-/*function crear_nuevo_ticket() {
-  console.log("estas en nuevo ticket");
-  const ids = [...document.querySelectorAll('.ticket')].map(el => el.id);
-  console.log(ids)
-}*/
