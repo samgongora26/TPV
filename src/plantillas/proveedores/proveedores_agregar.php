@@ -58,6 +58,7 @@
                                     <h4 class="card-title">Agregar Nuevo Proveedor</h4>
                                     <h6 class="card-subtitle">Rellena los campos para agregar un nuevo proveedor</h6>
                                     <form id="formulario" class="mt-4">
+                                    <div id="mensaje"></div>
                                         <div class="form-group">
                                             <label>Clave</label>
                                             <input id="clave" name="clave" type="text" class="form-control" required>
@@ -68,23 +69,23 @@
                                             <label>Dirección</label>
                                             <input id="direccion" name="direccion" type="text" class="form-control" required>
                                             <label>Telefono</label>
-                                            <input id="telefono" name="telefono" type="text" class="form-control" required>
+                                            <input id="telefono" name="telefono" type="text" class="form-control" required onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                                             <br>
 
-                                            <label>Telefono</label>
+                                            <!--label>Telefono</label>
                                             <br>
                                             <label>
                                                 (<input name="tel1" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit area code" size="2"/>)-
                                                 <input name="tel2" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit prefix" size="2"/> -
                                                 <input name="tel3" type="tel" pattern="[0-9]{4}" placeholder="####" aria-label="4-digit number" size="3"/>
                                             </label>
-                                            <br>
+                                            <br-->
 
 
                                             <label>RFC</label>
                                             <input id="rfc" name="rfc" type="text" class="form-control" required>
                                             <label>Correo</label>
-                                            <input id="correo" name="correo" type="text" class="form-control" required>
+                                            <input id="correo" name="correo" type="email" class="form-control" required>
                                             <label>Estado</label>
                                             <input id="estado" name="estado" type="text" class="form-control" required>
                                             <label>Ciudad</label>
