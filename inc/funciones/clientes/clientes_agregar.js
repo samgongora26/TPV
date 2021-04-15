@@ -42,10 +42,25 @@ async function envio(datos) {
     });
     const data = await res.json();
     //console.log(data);
-    alert("se ha realizado correctamente");
+    const mensajes = document.querySelector("#mensaje");
+        mensajes.innerHTML += `  
+          <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>El cliente ha sido agregado correctamente </strong>
+          </div>
+          `;
 
   } catch (error) {
-    alert("problemas al enviar los datos, vuelva a intentarlo");
+    mensajes.innerHTML += `  
+    <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+        <strong>¡ERROR!</strong> problemas al enviar los datos, vuelva a intentarlo
+    </div>
+    `;
     console.log(error);
   }
 }

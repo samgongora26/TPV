@@ -46,12 +46,100 @@
         <!-- CONTENEDOR -->
         <div class="page-wrapper">
             <div class="container-fluid">
+            
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
                 <h4 class=" pl-2 mt-3 ">Me alegra que estés aquí de nuevo <b><?php echo $usr["nombres"] .'  '.$usr["apellidos"]?></b> veamos que sucede por aquí...</h4>
+                <?php
+                try {
+                    require '../../../conexion.php';
+            
+                    //VENTAS DE LA SEMANA
+                    $sql = "SELECT sum(`monto_final`) as venta_semana FROM `cajas` WHERE `fecha_cierre` BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE() ORDER by `fecha_cierre` DESC ";
+                    $consulta = mysqli_query($conexion, $sql);
+                    $ventas = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
+                    $ventas_semana = $ventas["venta_semana"]; 
+
+                    //VENTAS DE AYER
+                    $fecha_actual = date('Y-m-d');
+                    $sql = "SELECT sum(`monto_final`) as venta_hoy FROM `cajas` WHERE `fecha_cierre`= '$fecha_actual' ";
+                    $consulta = mysqli_query($conexion, $sql);
+                    $ventas = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
+                    $ventas_hoy = $ventas["venta_hoy"]; 
+
+                    $sql = "SELECT COUNT(`id_producto`) as productos FROM `productos_inventario` ";
+                    $consulta = mysqli_query($conexion, $sql);
+                    $productos = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
+                    $productos = $productos["productos"]; 
+
+
+            
+                } catch (\Throwable $th) {
+                    var_dump($th);
+                }
                 
+                mysqli_close($conexion);
+                echo '
+                <div class="card-group col-md-12 " style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); border-radius: 15px;" >
+                    <div class=" ml-3">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <div class="d-inline-flex align-items-center">
+                                        <h2 class="text-dark mb-1 font-weight-medium"><sup class="set-doller">$</sup>'.$ventas_semana.'</h2>
+                                    </div>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Ventas de la semana</h6>
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i class="fas fa-calendar-check"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" ml-3">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup class="set-doller">$</sup>'.$ventas_hoy.'</h2>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Ventas de hoy
+                                    </h6>
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" ml-3">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <div class="d-inline-flex align-items-center">
+                                        <h2 class="text-dark mb-1 font-weight-medium">'.$productos.'</h2>
+                                        
+                                    </div>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Productos en inventario</h6>
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i class="fas fa-boxes"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class=" col-md-3 mt-3 mb-3" >
+                      
+                            <img class="card-img-top img-fluid" src="../../../src/assets/images/dashboard1.svg" alt="Card image cap">
+                      
+                    </div>
+                </div>';
+                ?>
+                <!-- Card -->
+                
+                <!-- Card -->
                 <!-- Links de los botones-->
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="card">
+                <div class="col-sm-12 col-md-12 col-lg-12" >
+                    <div class="card" style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); border-radius: 15px;">
                         <div class="card-body">
                             
                             
@@ -151,6 +239,10 @@
                 </div>
                 <!-- Final de los -->
             </div>
+
+            <footer class="footer text-center text-muted">
+                All Rights Reserved. Designed and Developed by <a target="_blank"  href="https://github.com/samgongora26">  Saúl Góngora   </a>,<a target="_blank"  href="https://github.com/satswere">  Luis Tzun   </a>,<a target="_blank"  href="https://github.com/Feltydany">    Daniel Gónzalez </a> y <a target="_blank"  href="https://github.com/silvercrow185">  Osly Donovan    </a>
+            </footer>
         </div>
         <!--FIN CONTENEDOR -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

@@ -37,7 +37,7 @@
                                             
                                         </tr>
                                     </thead>
-                                    <tbody id="contenido_tabla" class="text-center">
+                                    <tbody id="contenido_busqueda_producto" class="text-center">
                                         <!--<tr id="ver_productos_">
                                             <th scope="row">1</th>
                                             <td>Cell</td>

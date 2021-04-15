@@ -27,6 +27,9 @@ switch ($accion) {
     case "compras_ayer":
         $resultado = compras_ayer();
         break;
+    case "compras_debidas":
+        $resultado = compras_debidas();
+        break;
 
     //--------DETALLE DE COMPRA ESPECIFICO
     case "buscar_pedido":

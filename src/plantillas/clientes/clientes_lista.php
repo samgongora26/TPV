@@ -73,6 +73,7 @@
                             </div>
                             <div class="table-responsive">
                                 <table class="table">
+                                <div id="mensaje"></div>
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>

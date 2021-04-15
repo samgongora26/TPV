@@ -1,4 +1,4 @@
-const listado_productos = document.querySelector("#contenido_tabla");
+const listado_productos = document.querySelector("#contenido_busqueda_producto");
 const modal = document.querySelector("#form-modal-edit");
 const btn_buscar = document.querySelector("#buscar");
 //const barra_buscar = document.querySelector("#valor_busqueda");
@@ -23,7 +23,7 @@ function busqueda_especifica(e) {
       console.log(datos);
       const { id, nombre, codigo, precio_costo, precio_venta, stock, marca } = datos;
 
-      const listado_productos = document.querySelector("#contenido_tabla");
+      const listado_productos = document.querySelector("#contenido_busqueda_producto");
 
       listado_productos.innerHTML += `  
       <tr id="ver_productos_${id}">

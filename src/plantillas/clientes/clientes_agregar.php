@@ -52,6 +52,7 @@
                                 <!-- Input de Crear Nuevo Cliente -->
                                 <div class="card">
                                     <div class="card-body">
+                                    <div id="mensaje"></div>
                                         <h4 class="card-title">Agregar Nuevo Cliente</h4>
                                         <h6 class="card-subtitle">Rellena los campos para agregar un nuevo cliente</h6>
                                         <form id="formulario" class="mt-4">

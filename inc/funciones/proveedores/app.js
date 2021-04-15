@@ -28,24 +28,28 @@ function busqueda_especifica(e) {
       const listado_proveedores = document.querySelector("#contenido_tabla");
 
       listado_proveedores.innerHTML += `  
-      <tr id="ver_registro_${id}">
-          <th scope="row">${id}</th>
-          <td>${folio}</td>
-          <td>${nombre}</td>
-          <td>${razon}</td>
-          <td>${direccion}</td>
-          <td>${telefono}</td>
-          <td>${rfc}</td>
-          <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
-          <td><a href="proveedor_ver.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
-          <td>
-          <button type="button" class="btn btn-primary" data-toggle="modal"
-          data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></button>
-          </td>
-          <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
-      </tr>
-      `;
+        <tr id="ver_registro_${id}">
+            <th scope="row">${id}</th>
+            <td>${folio}</td>
+            <td>${nombre}</td>
+            <td>${razon}</td>
+            <td>
+              <a href="proveedor_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
+              <i class="" data-toggle="modal" data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></i>
+              <i data-cliente="${id}" class="fas fa-trash eliminar"></i>
+            </td>
+        </tr>
+        `;
     });
+    const mensajes = document.querySelector("#mensaje");
+    mensajes.innerHTML += `  
+          <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>Esto es lo que he encontrado </strong>
+          </div>
+          `;
   });
 }
 
@@ -82,16 +86,11 @@ function mostrarServicios() {
             <td>${folio}</td>
             <td>${nombre}</td>
             <td>${razon}</td>
-            <td>${direccion}</td>
-            <td>${telefono}</td>
-            <td>${rfc}</td>
-            <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
-            <td><a href="proveedor_ver.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
             <td>
-            <button type="button" class="btn btn-primary" data-toggle="modal"
-            data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></button>
+              <a href="proveedor_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
+              <i class="" data-toggle="modal" data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></i>
+              <i data-cliente="${id}" class="fas fa-trash eliminar"></i>
             </td>
-            <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
         </tr>
         `;
     });
@@ -111,6 +110,15 @@ function eliminar_registro(e) {
       llamado(datos).then((res) =>
         e.target.parentElement.parentElement.remove()
       );
+       const mensajes = document.querySelector("#mensaje");
+       mensajes.innerHTML += `  
+       <div class="alert alert-success alert-dismissible bg-warning text-white border-0 fade show" role="alert">
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">×</span>
+           </button>
+           <strong>El proveedor ha sido eliminado correctamente </strong>
+       </div>
+       `;
     }
   }
 }
@@ -186,6 +194,14 @@ function editar_registro(e) {
     </td>
     <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
     `;
-    // console.log(registro_contenido);
+    const mensajes = document.querySelector("#mensaje");
+    mensajes.innerHTML += `  
+          <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>El proveedor ha sido editado correctamente </strong>
+          </div>
+          `;
   });
 }

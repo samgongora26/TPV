@@ -61,9 +61,18 @@ function eliminar_registro(e) {
       const datos = new FormData();
       datos.append("id", idEliminar);
       datos.append("accion", "eliminar");
+      const mensajes = document.querySelector("#mensaje");
       peticion(datos).then((res) =>
         e.target.parentElement.parentElement.remove()
       );
+      mensajes.innerHTML += `  
+          <div class="alert alert-success alert-dismissible bg-warning text-white border-0 fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>El cliente ha sido eliminado correctamente </strong>
+          </div>
+          `;
     }
   }
 }
@@ -88,6 +97,7 @@ function obtener_datos_unitarios(e) {
         res.direccion);
       const edit_telefono = (document.querySelector("#edit_telefono").value =
         res.telefono);
+        
     });
   }
 }
@@ -126,6 +136,15 @@ function editar_registro(e) {
     </td>
     <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
     `;
+    const mensajes = document.querySelector("#mensaje");
+    mensajes.innerHTML += `  
+          <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>El cliente ha sido editado correctamente </strong>
+          </div>
+          `;
   });
 }
 
@@ -160,5 +179,14 @@ function busqueda_especifica(e) {
         </tr>
         `;
     });
+    const mensajes = document.querySelector("#mensaje");
+    mensajes.innerHTML += `  
+          <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>Esto es lo que he encontrado </strong>
+          </div>
+          `;
   });
 }

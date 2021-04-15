@@ -146,6 +146,35 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Historial de compras. Debidos-->
+                            <div class="card">
+                                <div class="card-header bg-warning text-white">
+                                    <h3 class="card-tittle ">Cuentas por pagar. Total <strong id="debido_total"></strong></h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                            <thead>
+                                                <div id="mensaje2"></div>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Usuario</th>
+                                                    <th>Fecha</th>
+                                                    <th>Total</th>
+                                                    <th>Pagado</th>
+                                                    <th>Debido</th>
+                                                    <th>Estado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="contenido_debido">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                     
                 </div>
             </div>

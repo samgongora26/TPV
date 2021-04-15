@@ -146,6 +146,37 @@ function eliminar_venta(): array
         return $respuesta;
     }
 }
+function buscar_cliente(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $telefono_cliente = (int) $_POST['telefono_cliente'];
+
+        $sql = "SELECT * FROM clientes WHERE telefono = $telefono_cliente";
+        $consulta = mysqli_query($conexion, $sql);
+        $es_cliente = mysqli_num_rows($consulta);
+        $resultado = mysqli_fetch_assoc($consulta);
+
+        if ($es_cliente > 0) {
+
+            $variable = array(
+                'existe' => true,
+                'id' => $resultado['id_cliente']
+            );
+        } else {
+            $variable = array(
+                'existe' => false,
+                'id' => 0
+            );
+        }
+
+        return $variable;
+    } catch (\Throwable $th) {
+        //throw $th;
+    }
+    mysqli_close($conexion);
+}
 
 function registrar_venta(): array
 {
@@ -192,4 +223,5 @@ function registrar_venta(): array
        );
        return $respuesta;
     }
+    mysqli_close($conexion);
 }
