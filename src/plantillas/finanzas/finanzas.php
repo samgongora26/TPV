@@ -59,6 +59,10 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
+                                            <button class="btn bg-danger">
+                                                <i class="far fa-file-pdf">
+                                                </i>
+                                            </button>
                                             <h4 class="card-title">Empleados con más Ventas</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-success">
