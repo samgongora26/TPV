@@ -152,6 +152,7 @@
                                 </div>
                                 
                                 <!-- tabla -->
+                                <!--
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
@@ -173,26 +174,16 @@
                                                             <td>Eichmann</td>
                                                             <td>58</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Deshmukh</td>
-                                                            <td>Prohaska</td>
-                                                            <td>39</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Roshan</td>
-                                                            <td>Rogahn</td>
-                                                            <td>19</td>
-                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                -->
 
-                                <!-- column -->
+
+                                <!-- column 
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
@@ -202,9 +193,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
-                                <!-- column -->
+                                <!-- column 
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
@@ -214,9 +205,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 
-                                <!-- column -->
+                                <!-- column 
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
@@ -226,7 +217,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
                             </div>
 

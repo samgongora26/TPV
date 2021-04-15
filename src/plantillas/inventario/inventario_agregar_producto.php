@@ -57,7 +57,8 @@
                                     <h6 class="card-subtitle">Rellena los campos para agregar un nuevo producto</h6>
                                     <form id="formulario" class="mt-4">
                                         <div class="form-group">
-
+                                        
+                                            <!--
                                             <label>Imagen</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -67,7 +68,9 @@
                                                     <input type="file" class="custom-file-input" id="inputGroupFile03">
                                                     <label class="custom-file-label" for="inputGroupFile03">Imagen a seleccionar para el producto</label>
                                                 </div>
-                                            </div>
+                                            </div>-->
+
+
                                             <label>Nombre</label>
                                             <input id="nombre" name="nombre" placeholder="Nombre de Producto" type="text" class="form-control" required>
                                             <label>Codigo de Barras</label>

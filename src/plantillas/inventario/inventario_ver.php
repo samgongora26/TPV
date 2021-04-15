@@ -51,10 +51,12 @@
                 <!-- Row de tarjetas superiores -->
                 <div class="row">
                     <!--Tarjeta de proveedor-->
+                    <h4 class="mb-0 text-white" id="nombre">NAME</h4>
+                    <!--
                     <div class="col-md-12">
                         <div class="card text-white bg-dark">
                             <div align="center" class="card-header">
-                                <h4 class="mb-0 text-white" id="nombre">NAME<!-- se inyecta el nombre--></h4>
+                                <h4 class="mb-0 text-white" id="nombre">NAME</h4>
                             </div>
                             <div class="card-body">
                                 <div align="center"><img style="border-radius: 50px; color: black;" src="../../imagenes/proveedores/logosabritas.jpg" width="100" height="100" ></div><br>
@@ -71,6 +73,7 @@
                             </div>
                         </div>
                     </div>
+                    -->
                     <!--Fin Tarjeta de proveedor-->
 
                     <!--Tarjeta de contacto-->
@@ -195,6 +198,7 @@
                 <!--Fin Row de tarjetas superiores -->
 
                 <!--Tarjeta de Balance-->
+                <!--
                 <div class="row">
                     <div class="col-md-3"></div>
                     <div class="col-md-12">
@@ -209,7 +213,7 @@
                         </div>
                     </div>
                     <div class="col-md-3"></div>
-                </div>
+                </div>-->
                 <!-- Fin Tarjeta Balance-->
 
 

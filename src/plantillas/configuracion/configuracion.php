@@ -55,7 +55,7 @@
                     <div class="p-3 mb-2 bg-dark text-white" align="center">INFORMACIÓN DEL NEGOCIO</div>
                         <div class="card text-white bg-dark">
                             <div align="center" class="card-header bg-secondary">
-                                <h4 class="mb-0 text-withe" id="nombre">Empresa Chida</h4>
+                                <h4 class="mb-0 text-withe" id="nombre">PUNTO DE VENTAS</h4>
                             </div>
                             <div class="card-body" id="contenidoconfig">
                                 <!--<div align="center"><img style="border-radius: 50px; color: black;" src="../../imagenes/proveedores/logosabritas.jpg" width="100" height="100" ></div><br>
@@ -84,6 +84,64 @@
                                     </div>
                                 </div>
                                 -->
+
+                                <!-- Modal editar -->
+                                <div id="edit-modal" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                            <div class="modal-body">
+
+                                                <form class="pl-3 pr-3" action="#" id="form-modal-edit" name="for-modal-edit">
+
+                                                    <div class="form-group">
+                                                        <label>Razon Social</label>
+                                                        <input class="form-control" type="text" id="edit_razon" name="edit_razon"
+                                                            required="" placeholder="Razon Social">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Nombre Fiscal</label>
+                                                        <input class="form-control" type="text" id="edit_nombre" name="edit_nombre"
+                                                            required="" placeholder="Nombre Fiscal">
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <label>Telefono</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_telefono" name="edit_telefono" placeholder="Numero de Telefono">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>E-mail</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_email" name="edit_email" placeholder="Direccion de Correo Electronico">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Dirección</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_direccion" name="edit_direccion" placeholder="Direccion del Negocio">
+                                                    </div>
+
+                                                    <div class="form-group text-center">
+                                                        <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+                                <!-- Fin modal editar -->
+
+
+
+
+
                             </div>
                         </div>
                     </div>
