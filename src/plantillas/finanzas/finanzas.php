@@ -52,6 +52,7 @@
         <div class="page-wrapper">
             <div class="container-fluid">
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
+                <!--
                 <div class="card-group">
                     <div class="card border-right">
                         <div class="card-body">
@@ -113,6 +114,10 @@
                         </div>
                     </div>
                 </div>
+                -->
+
+
+
                 <!-- EMPIEZA -->
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
@@ -213,6 +218,7 @@
                                 </div>
                                 
                                 <!-- tabla -->
+                                <!--
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
@@ -234,26 +240,16 @@
                                                             <td>Eichmann</td>
                                                             <td>58</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Deshmukh</td>
-                                                            <td>Prohaska</td>
-                                                            <td>39</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Roshan</td>
-                                                            <td>Rogahn</td>
-                                                            <td>19</td>
-                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                -->
 
-                                <!-- column -->
+
+                                <!-- column 
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
@@ -263,9 +259,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
-                                <!-- column -->
+                                <!-- column 
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
@@ -275,9 +271,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 
-                                <!-- column -->
+                                <!-- column 
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
@@ -287,7 +283,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
                             </div>
 

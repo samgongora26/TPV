@@ -47,9 +47,11 @@ function busqueda_especifica(e) {
             <button type="button" class="btn btn-primary editar" data-toggle="modal"
             data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
           </td>
+          <!--
           <td>
               <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
           </td>
+          -->
           <td>
               <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
           </td>
@@ -108,9 +110,11 @@ async function llamado(datos) {
             <button type="button" class="btn btn-primary editar" data-toggle="modal"
             data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
           </td>
+          <!--
           <td>
               <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
           </td>
+          -->
           <td>
               <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
           </td>
