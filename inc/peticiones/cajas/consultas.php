@@ -10,6 +10,7 @@ function abrir_caja(): array
         $pass = $_POST["pass"];
         $monto = $_POST["monto"];
         $fecha_hora_actual = date('Y-m-d H:i:s');
+        $fecha_actual = date('Y-m-d');
         $accedio = false;
         
         $sql = "SELECT * FROM `usuarios` WHERE `usuario` = '$user' and `contrasenia` = '$pass' and `estado` = 1 ";
@@ -21,8 +22,8 @@ function abrir_caja(): array
             //SI EL USUARIO EXISTE Y SON LOS MISMOS
             if($id_usuario > 0){
                 $mensaje = $mensaje . " el id es mayor a 0";
-                $sql = "INSERT INTO `cajas`(`id_usuario`, `fecha_abertura`, `fecha_cierre`, `monto_inicial`, `monto_final`, `corte`) 
-                        VALUES ($id_usuario, '$fecha_hora_actual' , '', '$monto', '', 0)";
+                $sql = "INSERT INTO `cajas`(`id_usuario`, `fecha_abertura`, `fecha_y_hora_abertura`, `monto_inicial`, `corte`) 
+                        VALUES ($id_usuario, '$fecha_actual' , '$fecha_hora_actual', '$monto', 0)";
                 $consulta = mysqli_query($conexion, $sql);
                 //header("location: ../../../src/plantillas/ventas/tpv.php");
                 $accedio = true;
@@ -95,6 +96,7 @@ function cerrar_caja(): array
         $pass = $_POST["pass"];
         $monto = $_POST["monto"];
         $fecha_hora_actual = date('Y-m-d H:i:s');
+        $fecha_actual = date('Y-m-d');
         $accedio = false;
         $caja_abierta = false;
         //VALIDACION DE QUE EL USUARIO QUE ESTA CERRANDO CAJA SEA EL MISMO QUE ESTÁ LOGGUEADO
@@ -127,7 +129,7 @@ function cerrar_caja(): array
                         $consulta = mysqli_query($conexion, $sql);
                         
                     //3. ACTUALIZAR LA CAJA A ESTADO 1 DE CERRADO Y AGREGAR EL MONTO REAL Y EL DEL CAJERO
-                        $sql = "UPDATE `cajas` SET `fecha_cierre`= '$fecha_hora_actual',`monto_final`='$monto',`monto_final_ventas`='$total_ventas',`corte`=1 WHERE `id_caja` =  $id_caja";
+                        $sql = "UPDATE `cajas` SET `fecha_cierre`= '$fecha_hora_actual', `fecha_y_hora_cierre`= '$fecha_hora_actual',`monto_final`='$monto',`monto_final_ventas`='$total_ventas',`corte`=1 WHERE `id_caja` =  $id_caja";
                         $consulta = mysqli_query($conexion, $sql);
                 }
                 else{
