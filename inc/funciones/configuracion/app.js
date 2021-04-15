@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function llamado(datos) {
   try {
     const res = await fetch(
-      "../../../inc/peticiones/finanzas/funciones.php",
+      "../../../inc/peticiones/configuracion/funciones.php",
       {
         method: "POST",
         body: datos,
@@ -32,7 +32,7 @@ function mostrarTabla1() {
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const {} = datos;
+      const {direccion, razon, nombre, telefono, email} = datos;
 
       const listado1 = document.querySelector("#contenidoconfig");
 
@@ -40,19 +40,19 @@ function mostrarTabla1() {
         <div align="center"><img style="border-radius: 50px; color: black;" src="../../imagenes/proveedores/logosabritas.jpg" width="100" height="100" ></div><br>
         <div class="row" >
             <div class="col-md-5">
-                <h3>Razón Social: </h3>
+                <h3>Razón Social: ${razon} </h3>
             </div>
             <div class="col-md-5">
-                <h3>Nombre Fiscal: </h3>
+                <h3>Nombre Fiscal: ${nombre} </h3>
             </div>
             <div class="col-md-5">
-                <h3>Telefono de contacto: </h3>
+                <h3>Telefono de contacto: ${telefono}</h3>
             </div>
             <div class="col-md-5">
-                <h3>E-mail: </h3>
+                <h3>E-mail: ${email}</h3>
             </div>
             <div class="col-md-5">
-                <h3>Dirección: </h3>
+                <h3>Dirección: ${direccion}</h3>
             </div>
         </div>
         <br>
