@@ -67,10 +67,10 @@
                                             <label>Codigo del producto</label>
                                                 <div class="input-group">
                                                     
-                                                    <input type="text" id="codigo" class="form-control" placeholder="codigo">
-                                                    <button id="" class="btn btn-secondary" data-toggle="modal" data-target="#busqueda_producto">Buscar producto
+                                                    <input type="text" id="codigo_envio" class="form-control" placeholder="codigo">
+                                                    <label id="" class="btn btn-secondary" data-toggle="modal" data-target="#busqueda_producto">Buscar producto
                                                         <i class="fa fa-search"></i> 
-                                                    </button>
+                                                    </label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -166,6 +166,8 @@
         ?>
             <script src="../../../inc/funciones/compras/app.js"></script>
             <script src="../../../inc/funciones/compras/compras_adquirir.js"></script>
+            <script src="../../../inc/funciones/modal_productos/app_modal_productos.js"></script>
+
         <!-- FIN DE SCRIPTS -->
     </body>
     
