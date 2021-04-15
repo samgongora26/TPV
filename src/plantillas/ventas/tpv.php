@@ -5,6 +5,7 @@
     <?php
         include '../../../componentes/head.php';
     ?>
+    <link href="../../assets/css/calculadora.css" rel="stylesheet">
 </head>
 
 <body>
@@ -44,7 +45,7 @@
                             <div class="card-body">
                             <h2 id="texto_venta_actual">id de la venta actual</h2>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-8">
                                         <div class="input-group">
                                             <input type="text" class="form-control" id="codigo_envio" aria-describedby="name" placeholder="Codigo">
                                             <button id="formulario" class="btn btn-secondary" data-toggle="modal" data-target="#bs-example-modal-lg">Agregar    
@@ -55,12 +56,13 @@
                                         
                                      
                                     </div>
-                                    <div class="float-right">
-                                        
-                                        <button id="" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#busqueda_producto">Buscar productos
+                                    <div class="col-md-2 ml-auto float-right">
+                                        <button id="" class="btn btn-outline-info btn-circle" data-toggle="modal" data-target="#busqueda_producto">
                                             <i class="fa fa-search"></i> 
                                         </button>
-
+                                        <button type="button" class="btn btn-outline-info btn-circle" data-toggle="modal" data-target="#calculadora_modal">
+                                            <i class="fas fa-calculator"></i> 
+                                        </button>
                                     </div>
                                 </div>
                                 
@@ -114,7 +116,7 @@
 
                         <!----------------MODAL DE VENTA--------------------->
                         <!-- Warning Header Modal -->
-                        <div id="warning-header-modal" class="modal fade" tabindex="-1" role="dialog"
+                                <div id="warning-header-modal" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="warning-header-modalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -149,8 +151,47 @@
                                 </div><!-- /.modal -->
                     
                             
-                        </div>
+                                <div class="modal fade" id="calculadora_modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" style="display: none;" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
 
+                                                
+                                           
+                                            <div class="modal-body bg-dark">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <div id = "Principal">  
+                                                    <div id= "Calculadora">         
+                                                        <input id="Pantalla" type="textbox" class="textbox">
+                                                        <div id= "Teclado" class="buttons">
+                                                            <button class="button" value="AC">AC</button>
+                                                            <button class="button" value="CE">CE</button>
+                                                            <button class="button" value="%">%</button>
+                                                            <button class="button" value="/">/</button><br>
+                                                            <button class="button" value="7">7</button>
+                                                            <button class="button" value="8">8</button>
+                                                            <button class="button" value="9">9</button>
+                                                            <button class="button" value="*">*</button><br>
+                                                            <button class="button" value="4">4</button>
+                                                            <button class="button" value="5">5</button>
+                                                            <button class="button" value="6">6</button>
+                                                            <button class="button" value="-">-</button><br>
+                                                            <button class="button" value="1">1</button>
+                                                            <button class="button" value="2">2</button>
+                                                            <button class="button" value="3">3</button>
+                                                            <button class="button" value="+">+</button><br>
+                                                            <button class="button" value=".">.</button>
+                                                            <button class="button" value="0">0</button>
+                                                            <button class="button" value="Ans">Ans</button>
+                                                            <button class="button" value="=">=</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+                        
                         <!----MODAL DE BUSQUEDA DE PRODUCTO---->
                         <?php include "../modal_productos/modal_productos.php"; ?>
                         
@@ -160,7 +201,7 @@
             </div>
         </div>
 
-
+                                                
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
