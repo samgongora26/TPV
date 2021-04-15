@@ -5,11 +5,6 @@
     <?php
     include '../../../componentes/head.php';
     ?>
-
-    <!--font awesome con CDN-->  
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
-      
-
 </head>
 
 <body>
@@ -127,7 +122,7 @@
                                         <div class="card-body">
                                             <h4 class="card-title">Empleados con más Ventas</h4>
                                             <div class="table-responsive">
-                                                <table id="tabla1" class="table table-success">
+                                                <table class="table table-success">
                                                     <thead class="bg-success text-white text-center">
                                                         <tr>
                                                             <th>#</th>
@@ -160,7 +155,7 @@
                                         <div class="card-body">
                                             <h4 class="card-title">Cliente con más Compras</h4>
                                             <div class="table-responsive">
-                                                <table id="tabla2" class="table table-success">
+                                                <table class="table table-success">
                                                     <thead class="bg-success text-white text-center">
                                                         <tr>
                                                             <th>#</th>
@@ -188,7 +183,7 @@
                                         <div class="card-body">
                                             <h4 class="card-title">Producto más Vendido</h4>
                                             <div class="table-responsive">
-                                                <table id="tabla3" class="table table-success">
+                                                <table class="table table-success">
                                                     <thead class="bg-success text-white text-center">
                                                         <tr>
                                                             <th>#</th>
@@ -218,7 +213,7 @@
                                         <div class="card-body">
                                             <h4 class="card-title">Adeudos con Proveedores</h4>
                                             <div class="table-responsive">
-                                                <table id="tabla4" class="table table-success">
+                                                <table class="table table-success">
                                                     <thead class="bg-success text-white">
                                                         <tr>
                                                             <th>#</th>
