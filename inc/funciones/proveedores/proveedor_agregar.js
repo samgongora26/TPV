@@ -54,8 +54,18 @@ async function enviar_async(cliente) {
       }
     );
     const data = await res.json();
-alert("correcto, datos ingresados");
-    console.log(data);
+    //alert("correcto, datos ingresados");
+    const mensajes = document.querySelector("#mensaje");
+        mensajes.innerHTML += `  
+          <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>El proveedor ha sido agregado correctamente </strong>
+          </div>
+          `;
+
+    //console.log(data);
     limpiar();
   } catch (error) {
     console.log(error);
