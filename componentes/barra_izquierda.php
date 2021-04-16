@@ -150,7 +150,7 @@
                         </li>
 
                         
-                        <!-- Links a compras del menu
+                        <!-- Links a compras del menu-->
                         <li class="sidebar-item"> 
                             <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
                                 <i class="fas fa-donate"></i><span class="hide-menu">Compras</span>
@@ -168,20 +168,13 @@
                                 </li>
                             </ul>
                         </li>
-                        fin de links a compras del menu -->
-                        
-
-
+                        <!--fin de links a compras del menu -->
                         <!--REPORTES
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
                                 aria-expanded="false"><i class="fas fa-clipboard-list"></i><span
                                     class="hide-menu">Reportes
                                 </span></a>
                         </li>-->
-
-
-                        
-
                         <!--CONFIGURACION-->
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../configuracion/configuracion.php"
                                 aria-expanded="false"><i class="fas fa-cog"></i><span

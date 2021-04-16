@@ -113,6 +113,7 @@
                                                     <label class="input-group-text">Monto</label>
                                                     <input id="monto" name="debido" type="text" class="form-control "  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                                                     <input type="text" id="por_pagar2" value="" hidden>
+                                                    <input type="text" id="pagado2" value="" hidden>
                                                     <input type="text" id="id_pedido" value="" hidden>
                                                     <input type="text" id="debido2" value="" hidden>
                                                     <input type="text" id="usuario" value="<?php echo $usr["id_usuario"] ?>" hidden>
