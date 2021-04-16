@@ -23,7 +23,7 @@ function busqueda_especifica(e) {
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const { id, id_categoria, nombre} = datos;
+      const { id, estado, nombre} = datos;
 
       const listado_marcas = document.querySelector("#contenido_tabla");
 
@@ -31,7 +31,7 @@ function busqueda_especifica(e) {
           <tr id="ver_marcas_${id}">
             <th scope="row">${id}</th>
             <td>${nombre}</td>
-            <td>${id_categoria}</td>
+            <td>${estado}</td>
             <td>
                 <button type="button" class="btn btn-primary editar" data-toggle="modal"
                 data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
@@ -68,7 +68,7 @@ async function llamado(datos) {
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const { id, id_categoria, nombre} = datos;
+      const { id, estado, nombre} = datos;
 
       const listado_marcas = document.querySelector("#contenido_tabla");
 
@@ -76,7 +76,7 @@ async function llamado(datos) {
           <tr id="ver_marcas_${id}">
             <th scope="row">${id}</th>
             <td>${nombre}</td>
-            <td>${id_categoria}</td>
+            <td>${estado}</td>
             <td>
                 <button type="button" class="btn btn-primary editar" data-toggle="modal"
                 data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
@@ -122,8 +122,8 @@ function obtener_datos_unitarios(e) {
       console.log(res);
       const edit_marca = (document.querySelector("#edit_marca").value =
         res.nombre);
-      const edit_estado = (document.querySelector("#edit_categoria").value =
-        res.id_categoria);
+      const estado = (document.querySelector("#estado").value =
+        res.estado);
     });
   }
 }
@@ -131,12 +131,12 @@ function obtener_datos_unitarios(e) {
  function editar_registro(e) {
   e.preventDefault();
   const edit_marca = document.querySelector("#edit_marca").value;
-  const edit_categoria = document.querySelector("#edit_categoria").value;
+  const estado = document.querySelector("#edit_estado").value;
 
   const datos = new FormData();
   datos.append("id", id_necesario);
   datos.append("nombre", edit_marca);
-  datos.append("categoria", edit_categoria);
+  datos.append("estado", estado);
   datos.append("accion", "actualizarm");
 
   /*const peticion = await llamado(datos);
@@ -149,11 +149,11 @@ function obtener_datos_unitarios(e) {
       `#ver_marcas_${id_necesario}`
     );
 
-    const { id, id_categoria, nombre } = res;
+    const { id, estado, nombre } = res;
     registro_contenido.innerHTML = `
     <th scope="row">${id}</th>
         <td>${nombre}</td>
-        <td>${id_categoria}</td>
+        <td>${estado}</td>
         <td>
             <button type="button" class="btn btn-primary editar" data-toggle="modal"
             data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
