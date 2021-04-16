@@ -80,6 +80,7 @@
                                     <h6 class="card-subtitle">Resultado de proveedores</h6>
                                 </div>
                                 <div class="table-responsive">
+                                    <div id="mensaje"></div>
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -87,13 +88,7 @@
                                                 <th scope="col">Clave</th>
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Razón Social</th>
-                                                <th scope="col">Dirección</th>
-                                                <th scope="col">Telefono</th>
-                                                <th scope="col">RFC</th>
-                                                <th scope="col">Estado</th>
-                                                <th scope="col">Ver</th>
-                                                <th scope="col">Editar</th>
-                                                <th scope="col">Eliminar</th>
+                                                <th scope="col">Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody id="contenido_tabla" class="text-center">
