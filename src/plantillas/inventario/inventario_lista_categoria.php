@@ -83,8 +83,8 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Nombre Categoria</th>
-                                            <th scope="col">Estado</th>
                                             <th scope="col">Detalles</th>
+                                            <th scope="col">Marca</th>
                                             <th scope="col">Editar</th>
                                             <th scope="col">Eliminar</th>
                                         </tr>

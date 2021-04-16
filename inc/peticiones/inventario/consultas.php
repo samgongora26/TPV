@@ -228,7 +228,7 @@ function todo_categorias(): array
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $usuarios[$i]['id'] = $row['id_categoria'];
             $usuarios[$i]['nombre_categoria'] = $row['nombre_categoria'];
-            $usuarios[$i]['estado'] = $row['estado'];
+            $usuarios[$i]['id_marca'] = $row['id_marca'];
             $usuarios[$i]['detalles'] = $row['detalles'];
             $i++;
         }
@@ -309,8 +309,8 @@ function todo_marcas(): array
         $i = 0;
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $usuarios[$i]['id'] = $row['id_marcas'];
-            $usuarios[$i]['id_categoria'] = $row['id_categoria'];
             $usuarios[$i]['nombre'] = $row['nombre'];
+            $usuarios[$i]['estado'] = $row['estado'];
             $i++;
         }
         //var_dump($usuarios);
@@ -430,7 +430,7 @@ function filtro_marcas(): array
         $i = 0;
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $usuarios[$i]['id'] = $row['id_marcas'];
-            $usuarios[$i]['id_categoria'] = $row['id_categoria'];
+            $usuarios[$i]['estado'] = $row['estado'];
             $usuarios[$i]['nombre'] = $row['nombre'];
             $i++;
         }
@@ -459,7 +459,7 @@ function filtro_categorias(): array
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $usuarios[$i]['id'] = $row['id_categoria'];
             $usuarios[$i]['nombre_categoria'] = $row['nombre_categoria'];
-            $usuarios[$i]['estado'] = $row['estado'];
+            $usuarios[$i]['id_marca'] = $row['id_marca'];
             $usuarios[$i]['detalles'] = $row['detalles'];
             $i++;
         }

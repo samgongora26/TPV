@@ -119,13 +119,14 @@
                                                         <input class="form-control" type="text" id="edit_marca" name="edit_categoria"
                                                             required="" placeholder="Nombre de Marca">
                                                     </div>
+                                                    
 
 
                                                         <div class="form-group mb-4">
-                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
-                                                            <select class="custom-select mr-sm-2" id="edit_categoria">
-                                                                <option selected value="1">Marca1</option>
-                                                                <option value="2">Marca2</option>
+                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
+                                                            <select class="custom-select mr-sm-2" id="edit_estado">
+                                                                <!--<option selected value="1">Marca1</option>
+                                                                <option value="2">Marca2</option>-->
                                                             </select>
                                                         </div>
 

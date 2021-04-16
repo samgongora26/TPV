@@ -76,7 +76,3 @@ function copiar_codigo(id){
 }
 
 
-
-
-
-
