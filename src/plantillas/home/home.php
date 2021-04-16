@@ -61,7 +61,7 @@
 
                     //VENTAS DE AYER
                     $fecha_actual = date('Y-m-d');
-                    $sql = "SELECT sum(`monto_final`) as venta_hoy FROM `cajas` WHERE `fecha_cierre`= '$fecha_actual' ";
+                    $sql = "SELECT sum(`monto_final_ventas`) as venta_hoy FROM `cajas` WHERE `fecha_cierre`= '$fecha_actual' ";
                     $consulta = mysqli_query($conexion, $sql);
                     $ventas = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
                     $ventas_hoy = $ventas["venta_hoy"]; 
