@@ -59,7 +59,7 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <button class="btn bg-danger">
+                                            <button id="pdf_empleado" class="btn bg-danger">
                                                 <i class="far fa-file-pdf"></i>
                                             </button>
                                             <p></p>
