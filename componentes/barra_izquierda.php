@@ -108,6 +108,49 @@
                         </li>
 
 
+                        <!--PROMOCIONES-->
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../promociones/promociones.php"
+                                aria-expanded="false"><i class="fas fa-gift"></i><span
+                                    class="hide-menu">Promociones</span></a>
+                        </li>
+                        <!--fin de links a compras del menu -->
+                        <!--REPORTES
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
+                                aria-expanded="false"><i class="fas fa-clipboard-list"></i><span
+                                    class="hide-menu">Reportes
+                                </span></a>
+                        </li>-->
+                        
+                        <!-- Links a compras del menu-->
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fas fa-donate"></i><span class="hide-menu">Compras</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="../compras/compras_adquirir.php" class="sidebar-link">
+                                        <span class="hide-menu"><i class="fas fa-dollar-sign"></i>Comprar Productos</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="../compras/compras_historial.php" class="sidebar-link">
+                                        <spanclass="hide-menu"><i class="fas fa-tasks"></i> Historial de Compras</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--Historial de venttas-->
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../ventas/ventas_historial.php"
+                                aria-expanded="false"><i class="fas fa-copy"></i><span
+                                    class="hide-menu">Historial de tickets
+                                </span></a>
+                        </li>
+                        <!--Historial de cajas-->
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../cajas/cajas_historial.php"
+                                aria-expanded="false"><i class="fas fa-shopping-basket"></i><span
+                                    class="hide-menu">Historial de cajas
+                                </span></a>
+                        </li>
 
                         <!--USUARIOS-->
                         <li class="sidebar-item"> 
@@ -142,58 +185,24 @@
                             </ul>
                         </li>
 
-
-                        <!--PROMOCIONES-->
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../promociones/promociones.php"
-                                aria-expanded="false"><i class="fas fa-gift"></i><span
-                                    class="hide-menu">Promociones</span></a>
-                        </li>
-
                         
-                        <!-- Links a compras del menu-->
-                        <li class="sidebar-item"> 
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                                <i class="fas fa-donate"></i><span class="hide-menu">Compras</span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="../compras/compras_adquirir.php" class="sidebar-link">
-                                        <span class="hide-menu"><i class="fas fa-dollar-sign"></i>Comprar Productos</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="../compras/compras_historial.php" class="sidebar-link">
-                                        <spanclass="hide-menu"><i class="fas fa-tasks"></i> Historial de Compras</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!--fin de links a compras del menu -->
-                        <!--REPORTES
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
-                                aria-expanded="false"><i class="fas fa-clipboard-list"></i><span
-                                    class="hide-menu">Reportes
-                                </span></a>
-                        </li>-->
-                        <!--CONFIGURACION-->
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../configuracion/configuracion.php"
-                                aria-expanded="false"><i class="fas fa-cog"></i><span
-                                    class="hide-menu">Configuración
-                                </span></a>
-                        </li>
 
 						<!--EXTRAS-->
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
 
+                        <!--CONFIGURACION-->
+                       <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../configuracion/configuracion.php"
+                                aria-expanded="false"><i class="fas fa-cog"></i><span
+                                    class="hide-menu">Configuración
+                                </span></a>
+                        </li>
+
                         <!--DOCUMENTACION-->
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
                                 aria-expanded="false"><i class="fas fa-pencil-alt"></i><span
-                                    class="hide-menu">Documentation</span></a></li>
-                        <!--LOGOUT-->
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
-                                aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
-                                    class="hide-menu">Logout</span></a></li>
+                                    class="hide-menu">Guía de usuario</span></a></li>
+                       
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
