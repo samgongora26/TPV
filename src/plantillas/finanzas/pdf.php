@@ -1,4 +1,8 @@
 <?php
+
+
+function tabla_empleado(): array
+
 require('../../assets/extra-libs/pdf/fpdf.php');
 
 class PDF extends FPDF
