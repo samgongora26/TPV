@@ -59,10 +59,10 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <button class="btn bg-danger">
-                                                <i class="far fa-file-pdf">
-                                                </i>
+                                            <button id="pdf_empleado" class="btn bg-danger">
+                                                <i class="far fa-file-pdf"></i>
                                             </button>
+                                            <p></p>
                                             <h4 class="card-title">Empleados con más Ventas</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-success">
@@ -96,6 +96,10 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
+                                            <button class="btn bg-danger">
+                                                <i class="far fa-file-pdf"></i>
+                                            </button>
+                                            <p></p>
                                             <h4 class="card-title">Cliente con más Compras</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-success">
@@ -124,6 +128,10 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
+                                            <button class="btn bg-danger">
+                                                <i class="far fa-file-pdf"></i>
+                                            </button>
+                                            <p></p>
                                             <h4 class="card-title">Producto más Vendido</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-success">

@@ -1,6 +1,6 @@
 <?php
 
-    require('../../assets/extra-libs/pdf/fpdf.php');
+    require('../../../src/assets/extra-libs/pdf/fpdf.php');
 
     class PDF extends FPDF
     {
