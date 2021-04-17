@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
 <meta charset="utf-8">
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -5,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <script src="../../../inc/funciones/admin/conexion.js"></script>
     <!-- Favicon icon -->
     <link rel="icon" type="../image/png"  sizes="16x16" href="../../assets/images/favicon.png" >
     <title>TPV</title>
@@ -24,3 +27,37 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     
 <![endif]-->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body class="bg-dark" >
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- CONTENEDOR -->
+        <div class="page-wrapper " >
+            <div class="container-fluid bg-dark "style=" height: 100vh;">
+                <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
+                <div class="col-sm-10 col-md-6 col-lg-6 mx-auto ">
+                    <div class=" mt-3 bg-dark">
+                        
+                            <img src="../../assets/images/undraw_Location_search_re_ttoj.svg" style="height:350px" alt="" >
+                            <br>
+                            <br>
+                            <h1 class="text-white"><strong>Parece que no tienes conexión a internet</strong></h1>
+                        
+                    </div>        
+                </div>
+            </div>
+        </div>
+
+
+        <!--FIN CONTENEDOR -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <!-- TODOS LOS ENLACES DE SCRIPTS -->
+    <?php
+    include '../../../componentes/scripts.php';
+    ?>
+    <!-- FIN DE SCRIPTS -->
+</body>
+
+</html>
