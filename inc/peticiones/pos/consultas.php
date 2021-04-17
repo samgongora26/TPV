@@ -292,3 +292,43 @@ function buscar_folio(): array
     }
     mysqli_close($conexion);
 }
+
+//-----------------DETALLE DE UN PEDIDO EN ESPECIFICO-------
+function buscar_venta(): array
+{
+    try {
+        require '../../../conexion.php';
+        $id_venta =  $_POST['id_venta'];
+        //Selecciona todos los productos con estado 0 y del usuario dado
+        //El estado 0 significa que aun no ha sido comprado, es decir que aun no se le agrega el id pedido
+        $sql = "SELECT `detalle_venta`.`id_detalle_venta`, `detalle_venta`.`id_venta`,
+                `detalle_venta`.`id_producto`, `detalle_venta`.`precio_venta`,
+                `detalle_venta`.`cantidad`, `detalle_venta`.`importe`,
+                `productos_inventario`.`foto`,`productos_inventario`.`codigo`,
+                `productos_inventario`.`nombre_producto` as producto 
+                FROM `detalle_venta`, `productos_inventario`, `ventas` 
+                WHERE `productos_inventario`.`id_producto` = `detalle_venta`.`id_producto` and 
+                    `ventas`.`id_venta` = `detalle_venta`.`id_venta` and 
+                    `detalle_venta`.`id_venta` = $id_venta
+                    and `ventas`.`estado` = 1 ";
+        $consulta = mysqli_query($conexion, $sql);
+        $detalle_venta = [];
+        $i = 0; 
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $detalle_venta[$i]['foto'] = $row['foto'];
+            $detalle_venta[$i]['id_producto'] = $row['id_producto'];   
+            $detalle_venta[$i]['nombre_producto'] = $row['producto'];
+            $detalle_venta[$i]['precio_venta'] = $row['precio_venta'];
+            $detalle_venta[$i]['cantidad'] = $row['cantidad'];
+            $detalle_venta[$i]['importe'] = $row['importe'];
+            $detalle_venta[$i]['codigo'] = $row['codigo'];
+            $detalle_venta[$i]['id_detalle_pedido'] = $row['id_detalle_pedido'];
+            $i++;
+        }
+        //var_dump($usuarios);
+        return $detalle_venta;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

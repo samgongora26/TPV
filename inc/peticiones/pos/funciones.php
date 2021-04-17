@@ -25,5 +25,8 @@ switch ($accion) {
     case "buscar_folio":
         $resultado = buscar_folio();
         break;
+    case "buscar_venta":
+        $resultado = buscar_venta();
+        break;
 }
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide
