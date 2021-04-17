@@ -69,13 +69,19 @@
                                                         <option value="50">50%</option>   
                                                     </select><p></p>
                                                     <label>Producto en Promocion</label>
-                                                    <input id="codigo" placeholder="codigo" type="text" class="form-control"><p></p>
+                                                    <div class="input-group">
+                                                        <input id="codigo" placeholder="codigo" type="text" class="form-control">
+                                                        <i id="" class="btn btn-outline-info " data-toggle="modal" data-target="#busqueda_producto">
+                                                            <i class="fa fa-search"></i> 
+                                                        </i>
+                                                    </div>
+                                                    
                                                     <!--label>Nombre de la Promocion</label>
                                                     <input placeholder="Nombre" type="text" class="form-control"><p></p-->
                                                 </div>
                                                 
                                                 <div class="text-right mt-3">
-                                                    <button type="submit" class="btn btn-block btn-success">Guardar</button>
+                                                    <button type=""id="btn_agregar"  class="btn btn-block btn-success">Guardar</button>
                                                 </div>
                                             </div>
                                 </form>
@@ -135,7 +141,8 @@
             </div>
         </div>
 
-
+        <!----MODAL DE BUSQUEDA DE PRODUCTO---->
+  <?php include "../modal_productos/modal_productos.php"; ?>
         <!--FIN CONTENEDOR -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     </div>
@@ -146,6 +153,7 @@
     ?>
     <script src="../../../inc/funciones/promociones/app.js"></script>
     <script src="../../../inc/funciones/promociones/guardar_promocion.js"></script>
+    <script src = "../../../inc/funciones/modal_productos/app_modal_productos.js"> </script>
     <!-- FIN DE SCRIPTS -->
 </body>
 

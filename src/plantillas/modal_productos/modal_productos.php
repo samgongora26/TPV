@@ -77,3 +77,4 @@
 <!--button id="" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#busqueda_producto">Buscar producto
     <i class="fa fa-search"></i> 
 </button-->
+<!--script src = "../../../inc/funciones/modal_productos/app_modal_productos.js"> </script-->

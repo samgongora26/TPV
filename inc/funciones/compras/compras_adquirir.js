@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   btn_agregar.addEventListener("click", obtener_datos);
 });
 
-
 function obtener_datos(e) {
   e.preventDefault();
   //Se obtienen los datos de los input de la interfaz

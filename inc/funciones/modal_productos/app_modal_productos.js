@@ -36,7 +36,7 @@ function busqueda_especifica(e) {
           <button type="button" class="btn" onclick="copiar_codigo(${id})"> <i class="fas fa-clone"></i> </button>
           </td>
           <td>
-            <a href="inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
+            <a href="../inventario/inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
           </td>
       </tr>
       `;
