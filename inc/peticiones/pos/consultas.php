@@ -225,3 +225,70 @@ function registrar_venta(): array
     }
     mysqli_close($conexion);
 }
+
+function buscar_fecha(): array
+{
+    try {
+        require '../../../conexion.php';
+        $hoy =  $_POST['fecha'];
+        $sql = "SELECT `ventas`.`id_venta`, `ventas`.`id_cliente`, `ventas`.`id_empleado`,
+                `ventas`.`importe`, `ventas`.`estado`, `ventas`.`corte`, `ventas`.`fecha`, 
+                `ventas`.`hora` , CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario,
+                `clientes`.`nombres` as cliente 
+                FROM `ventas`, `usuarios`,`clientes`  
+                WHERE  `ventas`.`id_empleado` = `usuarios`.`id_usuario` and 
+                    `clientes`.`id_cliente` = `ventas`.`id_cliente` and 
+                    `ventas`.`fecha` = '$hoy'";
+        $consulta = mysqli_query($conexion, $sql);
+        $ventas = [];
+        $i = 0; 
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $ventas[$i]['id_venta'] = $row['id_venta'];
+            $ventas[$i]['cliente'] = $row['cliente'];
+            $ventas[$i]['usuario'] = $row['usuario'];
+            $ventas[$i]['hora'] = $row['hora'];
+            $ventas[$i]['importe'] = $row['importe'];  
+            $ventas[$i]['corte'] = $row['corte'];
+            $i++;
+        }
+
+        return $ventas;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+
+function buscar_folio(): array
+{
+    try {
+        require '../../../conexion.php';
+        $folio =  $_POST['folio'];
+        $sql = "SELECT `ventas`.`id_venta`, `ventas`.`id_cliente`, `ventas`.`id_empleado`,
+                `ventas`.`importe`, `ventas`.`estado`, `ventas`.`corte`, `ventas`.`fecha`, 
+                `ventas`.`hora` , CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario,
+                `clientes`.`nombres` as cliente 
+                FROM `ventas`, `usuarios`,`clientes`  
+                WHERE  `ventas`.`id_empleado` = `usuarios`.`id_usuario` and 
+                    `clientes`.`id_cliente` = `ventas`.`id_cliente` and 
+                    `ventas`.`id_venta` = '$folio'";
+        $consulta = mysqli_query($conexion, $sql);
+        $ventas = [];
+        $i = 0; 
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $ventas[$i]['id_venta'] = $row['id_venta'];
+            $ventas[$i]['cliente'] = $row['cliente'];
+            $ventas[$i]['usuario'] = $row['usuario'];
+            $ventas[$i]['hora'] = $row['hora'];
+            $ventas[$i]['importe'] = $row['importe'];  
+            $ventas[$i]['corte'] = $row['corte'];
+            $i++;
+        }
+
+        return $ventas;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}

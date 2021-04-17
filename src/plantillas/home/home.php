@@ -54,7 +54,7 @@
                     require '../../../conexion.php';
             
                     //VENTAS DE LA SEMANA
-                    $sql = "SELECT sum(`monto_final`) as venta_semana FROM `cajas` WHERE `fecha_cierre` BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE() ORDER by `fecha_cierre` DESC ";
+                    $sql = "SELECT sum(`monto_final_ventas`) as venta_semana FROM `cajas` WHERE `fecha_cierre` BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE() ORDER by `fecha_cierre` DESC ";
                     $consulta = mysqli_query($conexion, $sql);
                     $ventas = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
                     $ventas_semana = $ventas["venta_semana"]; 

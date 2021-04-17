@@ -47,58 +47,61 @@
             <div class="page-wrapper">
                 <div class="container-fluid">
                     <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                    
-                        <!-- Historial de compras-->
-                            <div class="card">
-                                <div class="card-header bg-white">
-                                    <h3 class="card-tittle ">Historial de compras de hoy</h3>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                            <thead>
-                                                
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Usuario</th>
-                                                    <th>Fecha</th>
-                                                    <th>Total</th>
-                                                    <th>Pagado</th>
-                                                    <th>Debido</th>
-                                                    <th>Estado</th>
-                                                    <th>Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="contenido_tabla">
-                                                
-                                            </tbody>
-                                        </table>
+                    <!--div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                    <div class="card ">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <i  class="fas fa-address-book fa-5x"  ></i>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis corporis omnis nemo, numquam, vel autem harum dolor non, consequuntur architecto molestias velit voluptatibus tempore ratione officia? Doloribus repellat obcaecati error.</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-md-2">
+                                                    <i  class="fas fa-address-book fa-5x"  ></i>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis corporis omnis nemo, numquam, vel autem harum dolor non, consequuntur architecto molestias velit voluptatibus tempore ratione officia? Doloribus repellat obcaecati error.</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
                             </div>
-
-                        <!-- Historial de compras-->
-                            <div class="card">
+                        </div>
+                    </div-->
+                             <!-- Historial de compras-->
+                             <div class="card">
                                 <div class="card-header bg-white">
-                                    <h3 class="card-tittle ">Compras de ayer</h3>
+                                    <h3 class="card-tittle ">Buscar por folio de ticket</h3>
+                                    <div class="input-group">
+                                            
+                                        <label for="" class="mr-3">Escribe el ticket</label>
+                                    
+                                        <input type="text" id="codigo_elegido" value="" class="form-control">
+                                        <button class="btn btn-sm btn-success float left" onclick="venta_folio_especifico()">Buscar</button>
+                                    </div>
+                                    
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                             <thead>
-                                                
+                                                <div id="mensaje2"></div>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Usuario</th>
+                                                    <th>Folio</th>
+                                                    <th>Cajero</th>
+                                                    <th>Cliente</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
-                                                    <th>Pagado</th>
-                                                    <th>Debido</th>
-                                                    <th>Estado</th>
-                                                    <th>Acciones</th>
+                                                    <th>Corte</th>
+                                                    <th>Detalle</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="contenido_ayer">
+                                            <tbody id="contenido_folio">
 
                                             </tbody>
                                         </table>
@@ -115,11 +118,8 @@
                                         <label for="" class="mr-3">Elige una fecha</label>
                                     
                                         <input type="date" id="fecha_elegida" value="" class="form-control">
-                                        <button class="btn btn-sm btn-success float left" onclick="compras_dia_especifico()">Buscar</button>
-                                        
-                                  
+                                        <button class="btn btn-sm btn-success float left" onclick="venta_fecha_especifico()">Buscar</button>
 
-                                       
                                     </div>
                                     
                                 </div>
@@ -129,14 +129,13 @@
                                             <thead>
                                                 <div id="mensaje2"></div>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Usuario</th>
+                                                    <th>Folio</th>
+                                                    <th>Cajero</th>
+                                                    <th>Cliente</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
-                                                    <th>Pagado</th>
-                                                    <th>Debido</th>
-                                                    <th>Estado</th>
-                                                    <th>Acciones</th>
+                                                    <th>Corte</th>
+                                                    <th>Detalle</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="contenido_fecha">
@@ -147,34 +146,8 @@
                                 </div>
                             </div>
 
-                            <!-- Historial de compras. Debidos-->
-                            <div class="card">
-                                <div class="card-header bg-warning text-white">
-                                    <h3 class="card-tittle ">Cuentas por pagar. Total <strong id="debido_total"></strong></h3>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                            <thead>
-                                                <div id="mensaje2"></div>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Usuario</th>
-                                                    <th>Fecha</th>
-                                                    <th>Total</th>
-                                                    <th>Pagado</th>
-                                                    <th>Debido</th>
-                                                    <th>Estado</th>
-                                                    <th>Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="contenido_debido">
+                       
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
                     
                 </div>
             </div>
@@ -187,7 +160,7 @@
             include '../../../componentes/scripts.php';
         ?>
         <!-- FIN DE SCRIPTS -->
-        <script src="../../../inc/funciones/compras/app_historial_compras.js"></script>
+        <script src="../../../inc/funciones/pos/app_historial_ventas.js"></script>
     </body>
 
 </html>
