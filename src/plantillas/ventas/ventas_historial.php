@@ -127,7 +127,7 @@
                                     <div class="table-responsive">
                                         <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                             <thead>
-                                                <div id="mensaje2"></div>
+                                                <div id="mensaje"></div>
                                                 <tr>
                                                     <th>Folio</th>
                                                     <th>Cajero</th>

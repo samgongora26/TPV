@@ -70,7 +70,7 @@ async function venta_fecha_especifico() {
         });
       }
       else{
-        const mensajes = document.querySelector("#mensaje2");
+        const mensajes = document.querySelector("#mensaje");
     mensajes.innerHTML += `  
       <div class="alert alert-danger alert-dismissible bg-warning text-white border-0 fade show" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -89,7 +89,7 @@ async function venta_fecha_especifico() {
   }
   else{
     //Mensaje de alerta
-    const mensajes = document.querySelector("#mensaje2");
+    const mensajes = document.querySelector("#mensaje");
     mensajes.innerHTML += `  
       <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -167,7 +167,7 @@ async function venta_folio_especifico() {
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">×</span>
           </button>
-          <strong>¡ALERTA! </strong> No existen registros en la fecha seleccionada.
+          <strong>¡ALERTA! </strong> No existen registros de el folio seleccionado.
       </div>
       `;
       }
@@ -186,7 +186,7 @@ async function venta_folio_especifico() {
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">×</span>
           </button>
-          <strong>¡ERROR! </strong> No ha seleccionado una fecha.
+          <strong>¡ERROR! </strong> No ha seleccionado un folio.
       </div>
       `;
   }
