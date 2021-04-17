@@ -1,6 +1,6 @@
 <?php
     //se hace llamado a la sesión
-    include("../../../inc/funciones/admin/sesion.php");
+    //include("../../../inc/funciones/admin/sesion.php");
     //Se obtienen los datos del usuario si existe la sesión
     include("../../../inc/funciones/admin/datos_usuario.php")
     //Ejemplos de como usar los datos:
