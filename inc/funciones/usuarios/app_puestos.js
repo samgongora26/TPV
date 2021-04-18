@@ -17,7 +17,18 @@ async function mostrarServicios() {
 
       const listado_clientes = document.querySelector("#contenido_tabla");
 
-     
+      if (nombre_puesto == 'administrador'){
+        listado_clientes.innerHTML += `  
+      <tr>
+          <td scope="row">${id_puesto}</td>
+          <td scope="row">${nombre_puesto}</td>
+          <td>
+            <label> Este puesto no puede ser modificado </label>
+          </td>      
+      </tr>            
+        `;
+      }
+      else{
       listado_clientes.innerHTML += `  
       <tr>
           <td scope="row">${id_puesto}</td>
@@ -57,6 +68,7 @@ async function mostrarServicios() {
                           <!-- Fin modal editar -->
                         
         `;
+      }
     });
   } catch (error) {
     console.log(error);
