@@ -58,14 +58,6 @@
                             <div class="card-body">
                                 <h4 class="card-title">Agregar producto a la lista  </h4>
                                 <form class="mt-4" id="formulario">
-                                    <!--div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">Proveedor</label>
-                                        </div>
-                                        <select class="custom-select" name="contenido_proveedores" id="contenido_proveedores">
-                                            <!AQUI SON INSERTADOS LOS DATOS DE LOS PROVEEDORES>
-                                        </select>
-                                    </div-->
                                     <div class="row">
                                             <div class="col-md-8">
                                             <label>Codigo del producto</label>
@@ -134,6 +126,14 @@
                             <h5>Completar la compra</h5>
                             <div class="input-group mb-3">
                             <div id="mensaje2"></div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">Proveedor</label>
+                                        </div>
+                                        <select class="custom-select" name="contenido_proveedores" id="contenido_proveedores">
+                                            <!AQUI SON INSERTADOS LOS DATOS DE LOS PROVEEDORES>
+                                        </select>
+                                    </div>
                                             <ul class="list-group mx-auto">
                                                 <div class="input-group-prepend">
                                                     <label class="input-group-text" for="inputGroupSelect01">monto de pago</label>

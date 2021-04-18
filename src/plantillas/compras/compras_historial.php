@@ -65,6 +65,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Usuario</th>
+                                                    <th>Proveedor</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>
@@ -94,6 +95,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Usuario</th>
+                                                    <th>Proveedor</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>
@@ -135,6 +137,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Usuario</th>
+                                                    <th>Proveedor</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>
@@ -164,6 +167,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Usuario</th>
+                                                    <th>Proveedor</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>

@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
 //FUNCIONES QUE SE DEBEN DE CARGAR AL INICIO
 function mostrarServicios(){
   //llenado de los select
-  //select_proveedores();
+  select_proveedores();
 
   //llenado de la tabla
   mostrar_detalle();
   
 }
 
-/*---------SELECT DE PROVEDORES----------
+//---------SELECT DE PROVEDORES----------
 async function select_proveedores() {
   const datos = new FormData();
   datos.append("accion", "select_proveedores");
@@ -41,7 +41,6 @@ async function select_proveedores() {
     console.log(error);
   }
 }
-*/
 
 //------LLENADO DE LA TABLA
 async function mostrar_detalle() {

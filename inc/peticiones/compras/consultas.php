@@ -4,7 +4,6 @@ function registrar_compra(): array
     try {
         require '../../../conexion.php';
         //Datos que llegan del front 
-        //$proveedor = $_POST['proveedor'];
         $codigo = $_POST['codigo'];
         $cantidad = $_POST['cantidad'];
         $id_usuario =  $_POST['usuario'];
@@ -99,7 +98,8 @@ function select_proveedores(): array
     try {
         require '../../../conexion.php';
 
-        $sql = "SELECT `id_proveedor`,`nombre` FROM `proveedores` WHERE `estado_proveedor` = 1 ";
+        //$sql = "SELECT `id_proveedor`,`nombre` FROM `proveedores` WHERE `estado_proveedor` = 1 ";
+        $sql = "SELECT `id_proveedor`,`nombre` FROM `proveedores`";
         $consulta = mysqli_query($conexion, $sql);
         $proveedores = [];
         $i = 0;
@@ -143,12 +143,14 @@ function completar_compra(): array
     try {
         require '../../../conexion.php';
         $hoy = date('Y-m-d'); 
+        $proveedor = $_POST['proveedor'];
         $id = $_POST['id'];
         $total = $_POST['total'];
         $pagado = $_POST['pagado'];
         //AL TERMINAR LA COMPRA
         //1. REGISTRO DE UN ID PEDIDO vacio con estado 0
-            $sql = "INSERT INTO `pedidos`(`id_usuario`, `fecha`,`total`, `pagado`, `estado`) VALUES ($id,'$hoy', $total, $pagado, '0')";
+            $sql = "INSERT INTO `pedidos`(`id_usuario`, `id_proveedor`, `fecha`,`total`, `pagado`, `estado`) 
+                    VALUES ($id, $proveedor ,'$hoy', $total, $pagado, '0')";
             $consulta = mysqli_query($conexion, $sql);
 
         //2. BUSCAR EL ID DE VENTA NUEVO
@@ -244,15 +246,18 @@ function compras_hoy(): array
         $hoy = date('Y-m-d'); 
         $sql = "SELECT `pedidos`.`id_pedido` ,`pedidos`.`id_usuario`, `pedidos`.`fecha`, 
                     `pedidos`.`total`,`pedidos`.`pagado`, `pedidos`.`estado`, 
-                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario 
-                FROM `pedidos`, `usuarios` WHERE `fecha` = '$hoy' 
-                    AND `pedidos`.`id_usuario` = `usuarios`.`id_usuario`  ";
+                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario, 
+                    `proveedores`.`nombre` as proveedor
+                FROM `pedidos`, `usuarios`, `proveedores` WHERE `fecha` = '$hoy' 
+                    AND `pedidos`.`id_usuario` = `usuarios`.`id_usuario`
+                    AND `proveedores`.`id_proveedor` = `pedidos`.`id_proveedor`  ";
         $consulta = mysqli_query($conexion, $sql);
         $pedidos = [];
         $i = 0; 
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $pedidos[$i]['id_pedido'] = $row['id_pedido'];
             $pedidos[$i]['usuario'] = $row['usuario'];
+            $pedidos[$i]['proveedor'] = $row['proveedor'];
             $pedidos[$i]['fecha'] = $row['fecha'];
             $pedidos[$i]['total'] = $row['total'];
             $pedidos[$i]['pagado'] = $row['pagado'];  
@@ -275,15 +280,18 @@ function compras_ayer(): array
         $hoy = date('Y-m-').$dia; 
         $sql = "SELECT `pedidos`.`id_pedido` ,`pedidos`.`id_usuario`, `pedidos`.`fecha`, 
                     `pedidos`.`total`,`pedidos`.`pagado`, `pedidos`.`estado`, 
-                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario 
-                FROM `pedidos`, `usuarios` WHERE `fecha` = '$hoy' 
-                    AND `pedidos`.`id_usuario` = `usuarios`.`id_usuario`  ";
+                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario, 
+                    `proveedores`.`nombre` as proveedor
+                FROM `pedidos`, `usuarios`, `proveedores` WHERE `fecha` = '$hoy' 
+                    AND `pedidos`.`id_usuario` = `usuarios`.`id_usuario`
+                    AND `proveedores`.`id_proveedor` = `pedidos`.`id_proveedor`  ";
         $consulta = mysqli_query($conexion, $sql);
         $pedidos = [];
         $i = 0; 
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $pedidos[$i]['id_pedido'] = $row['id_pedido'];
             $pedidos[$i]['usuario'] = $row['usuario'];
+            $pedidos[$i]['proveedor'] = $row['proveedor'];
             $pedidos[$i]['fecha'] = $row['fecha'];
             $pedidos[$i]['total'] = $row['total'];
             $pedidos[$i]['pagado'] = $row['pagado'];  
@@ -304,14 +312,19 @@ function compras_debidas(): array
         require '../../../conexion.php';
         $sql = "SELECT `pedidos`.`id_pedido` ,`pedidos`.`id_usuario`, `pedidos`.`fecha`, 
                     `pedidos`.`total`,`pedidos`.`pagado`, `pedidos`.`estado`, 
-                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario 
-                FROM `pedidos`, `usuarios` WHERE `pedidos`.`id_usuario` = `usuarios`.`id_usuario`  and `pedidos`.`estado`=2";
+                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario,
+                    `proveedores`.`nombre` as proveedor
+                FROM `pedidos`, `usuarios`, `proveedores`
+                WHERE `pedidos`.`id_usuario` = `usuarios`.`id_usuario`  
+                    AND `proveedores`.`id_proveedor` = `pedidos`.`id_proveedor`
+                    and `pedidos`.`estado`=2";
         $consulta = mysqli_query($conexion, $sql);
         $pedidos = [];
         $i = 0; 
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $pedidos[$i]['id_pedido'] = $row['id_pedido'];
             $pedidos[$i]['usuario'] = $row['usuario'];
+            $pedidos[$i]['proveedor'] = $row['proveedor'];
             $pedidos[$i]['fecha'] = $row['fecha'];
             $pedidos[$i]['total'] = $row['total'];
             $pedidos[$i]['pagado'] = $row['pagado'];  
@@ -392,21 +405,25 @@ function buscar_fecha(): array
         $hoy =  $_POST['fecha'];
         $sql = "SELECT `pedidos`.`id_pedido` ,`pedidos`.`id_usuario`, `pedidos`.`fecha`, 
                     `pedidos`.`total`,`pedidos`.`pagado`, `pedidos`.`estado`, 
-                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario 
-                FROM `pedidos`, `usuarios` WHERE `fecha` = '$hoy' 
-                    AND `pedidos`.`id_usuario` = `usuarios`.`id_usuario`  ";
+                    CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario, 
+                    `proveedores`.`nombre` as proveedor
+                FROM `pedidos`, `usuarios`, `proveedores` WHERE `fecha` = '$hoy' 
+                    AND `pedidos`.`id_usuario` = `usuarios`.`id_usuario`
+                    AND `proveedores`.`id_proveedor` = `pedidos`.`id_proveedor`  ";
         $consulta = mysqli_query($conexion, $sql);
         $pedidos = [];
         $i = 0; 
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $pedidos[$i]['id_pedido'] = $row['id_pedido'];
             $pedidos[$i]['usuario'] = $row['usuario'];
+            $pedidos[$i]['proveedor'] = $row['proveedor'];
             $pedidos[$i]['fecha'] = $row['fecha'];
             $pedidos[$i]['total'] = $row['total'];
             $pedidos[$i]['pagado'] = $row['pagado'];  
             $pedidos[$i]['estado'] = $row['estado'];
             $i++;
         }
+            
 
         return $pedidos;
     } catch (\Throwable $th) {

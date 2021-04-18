@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function obtener_datos(e) {
   e.preventDefault();
   //Se obtienen los datos de los input de la interfaz
-  //const proveedor = document.getElementById("contenido_proveedores").value; 
   const codigo = document.querySelector("#codigo_envio").value;
   const cantidad = document.querySelector("#cantidad").value;
   const usuario = document.querySelector("#usuario").value;
@@ -113,19 +112,21 @@ async function enviar_async(cliente) {
 //----------------------OBTENER MONTO. TERMINO DEL PEDIDO--------------
 function obtener_monto() {
   //Se obtienen los datos de los input de la interfaz
+  const proveedor = document.getElementById("contenido_proveedores").value; 
   const monto = document.querySelector("#monto").value;
   const usuario = document.querySelector("#usuario").value;
   const por_pagar = document.getElementById("por_pagar2").value;
   console.log(
     monto,
     usuario,
-    por_pagar
+    por_pagar,
+    proveedor
   );
   //Validación de campos vacios
   if(monto != "" ){
     //encapsulamiento de los datos para envio
     const datos1 = new FormData(); 
-    //datos.append("proveedor", proveedor);
+    datos1.append("proveedor", proveedor);
     datos1.append("total", por_pagar);
     datos1.append("pagado", monto);
     datos1.append("id", usuario);
