@@ -70,7 +70,7 @@
                                                     </select><p></p>
                                                     <label>Producto en Promocion</label>
                                                     <div class="input-group">
-                                                        <input id="codigo" placeholder="codigo" type="text" class="form-control">
+                                                        <input id="codigo_envio" placeholder="codigo" type="text" class="form-control">
                                                         <i id="" class="btn btn-outline-info " data-toggle="modal" data-target="#busqueda_producto">
                                                             <i class="fa fa-search"></i> 
                                                         </i>

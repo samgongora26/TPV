@@ -7,7 +7,7 @@ function obtener_datos(e) {
   e.preventDefault();
   //Se obtienen los datos de los input de la interfaz
   //const proveedor = document.getElementById("contenido_proveedores").value; 
-  const codigo = document.querySelector("#codigo").value;
+  const codigo = document.querySelector("#codigo_envio").value;
   const promocion = document.querySelector("#promociones").value;
   
  //Validación de campos vacios
