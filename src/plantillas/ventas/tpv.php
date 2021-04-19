@@ -223,7 +223,7 @@
      <script src="../../../inc/funciones/pos/app.js"></script>
      <script src = "../../../inc/funciones/pos/testing.js"> </script> 
      <script src = "../../../inc/funciones/pos/calculadora.js"> </script>
-     <script src = "../../../inc/funciones/modal_productos/app_modal_productos.js"> </script> 
+     <script src = "../../../inc/funciones/pos/app_modal_productos.js"> </script> 
 
     <!-- FIN DE SCRIPTS -->
 </body>
