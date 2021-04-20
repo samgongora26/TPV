@@ -87,11 +87,8 @@
                                             <th scope="col">#</th>
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Codigo de Barras</th>
-                                            <th scope="col">Precio Costo</th>
                                             <th scope="col">Precio Venta</th>
                                             <th scope="col">Stock</th>
-                                            <th scope="col">Marca</th>
-                                            <th scope="col">Estado</th>
                                             <th scope="col">Ver</th>
                                             <th scope="col">Editar</th>
                                             <!--<th scope="col">Imprimir codigo de Barras</th>-->
@@ -99,32 +96,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="contenido_tabla" class="text-center">
-                                        <!--<tr id="ver_productos_">
-                                            <th scope="row">1</th>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>
-                                             <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#estado-modal"><i class="icon-note"></i></button>    
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn btn-primary boton_ver"><i class="icon-eye"></i></button>
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#edit-modal"><i class="icon-pencil"></i></button>
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn btn-primary boton_imprimir"><i class="icon-printer"></i></button>    
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn btn-primary"><i class="icon-trash"></i></button>
-                                            </td>
-                                        </tr>-->
+                                        <!-- Cosos en app.js :v -->
                                     </tbody>
                                 </table>
 

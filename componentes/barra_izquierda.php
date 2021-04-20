@@ -35,9 +35,9 @@
                                 <li class="sidebar-item"><a href="../inventario/inventario_agregar_producto.php" class="sidebar-link"><span
                                             class="hide-menu"><i class="fas fa-dolly"></i>Agregar Producto</span></a>
                                 </li>
-                                <li class="sidebar-item"><a href="../inventario/inventario_cbarras.php" class="sidebar-link"><span
+                                <!--<li class="sidebar-item"><a href="../inventario/inventario_cbarras.php" class="sidebar-link"><span
                                             class="hide-menu"><i class="fas fa-barcode"></i>Codigo de Barras</span></a>
-                                </li>
+                                </li>-->
                                 <li class="sidebar-item"><a href="../inventario/inventario_agregar_categoria.php" class="sidebar-link"><span
                                             class="hide-menu"><i class="fas fa-clone"></i>Agregar Categoria</span></a>
                                 </li>
@@ -83,7 +83,24 @@
                                 </span></a>
                         </li>
 
-
+                        <!--COMPRAS-->
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fas fa-donate"></i><span class="hide-menu">Compras</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="../compras/compras_adquirir.php" class="sidebar-link">
+                                        <span class="hide-menu"><i class="fas fa-dollar-sign"></i>Comprar Productos</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="../compras/compras_historial.php" class="sidebar-link">
+                                        <spanclass="hide-menu"><i class="fas fa-tasks"></i> Historial de Compras</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
                         <!--CLIENTES-->
                         <li class="sidebar-item"> 
@@ -185,6 +202,15 @@
                             </ul>
                         </li>
 
+
+                        <!--PROMOCIONES-->
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../promociones/promociones.php"
+                                aria-expanded="false"><i class="fas fa-gift"></i><span
+                                    class="hide-menu">Promociones</span></a>
+                        </li>
+
+                        
+                        
                         
 
 						<!--EXTRAS-->

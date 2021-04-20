@@ -64,10 +64,8 @@ function todo_inventario(): array
             $usuarios[$i]['id'] = $row['id_producto'];
             $usuarios[$i]['nombre'] = $row['nombre_producto'];
             $usuarios[$i]['codigo'] = $row['codigo'];
-            $usuarios[$i]['precio_costo'] = $row['precio_costo'];
             $usuarios[$i]['precio_venta'] = $row['precio_venta'];
             $usuarios[$i]['stock'] = $row['cantidad_stock'];
-            $usuarios[$i]['marca'] = $row['id_marca'];
             $i++;
         }
         //var_dump($usuarios);
@@ -400,10 +398,8 @@ function filtro_productos(): array
             $usuarios[$i]['id'] = $row['id_producto'];
             $usuarios[$i]['nombre'] = $row['nombre_producto'];
             $usuarios[$i]['codigo'] = $row['codigo'];
-            $usuarios[$i]['precio_costo'] = $row['precio_costo'];
             $usuarios[$i]['precio_venta'] = $row['precio_venta'];
             $usuarios[$i]['stock'] = $row['cantidad_stock'];
-            $usuarios[$i]['marca'] = $row['id_marca'];
             $i++;
         }
         //var_dump($usuarios);

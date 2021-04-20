@@ -74,6 +74,7 @@ function copiar_codigo(id){
     </div>
     `;
     existente_codigo_sin_evento();
+    cerrar_modal_buscar();
 }
 
 

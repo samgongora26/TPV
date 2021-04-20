@@ -232,6 +232,7 @@ console.log("desde cobrar")
   });
   tickets.forEach((ticket,index) => ticket = index);
 pintado_inicial_todo();
+cerrar_modal_venta();
   alert("se ha registrado el cobro correctamente");
 }
 
@@ -323,4 +324,15 @@ function sincronizar_storage() {
 }
 function limpiar_lista_productos() {
   padre.innerHTML = "";
+}
+
+
+
+//cerrar modals
+function cerrar_modal_venta(){
+  $('#warning-header-modal').modal('hide');
+}
+
+function cerrar_modal_buscar() {
+  $('#busqueda_producto').modal('hide');
 }
