@@ -11,18 +11,17 @@ function registrar_usuario(): array
         $usuario = $_POST['usuario'];
         $contrasenia = $_POST['contrasenia'];
         
-        //Nombre de la imagen
-        $nombre_imagen = $_FILES['fotografia']['name'];
+        $ruta_carpeta = "imagenes/";
+        $nombre_imagen = "imagen_".date("dHis") .".". pathinfo($_FILES["fotografia"]["name"],PATHINFO_EXTENSION).'png';
+        $tipo = $_FILES["fotografia"]["type"];
+        $ruta_guardar_archivo = $ruta_carpeta . $nombre_imagen;
 
-        //El archivo, es decir, la imagen
-        $archivo = $_FILES['fotografia']['tmp_name'];
-
-        $ruta = '';
-        $ruta = $ruta."/".$nombre_imagen;
-
-        move_uploaded_file($archivo,$ruta);
-
-
+        if(move_uploaded_file($_FILES["fotografia"]["tmp_name"],$ruta_guardar_archivo)){
+            $mensaje =  "imagen cargada";
+        }else{
+            $mensaje = "no se pudo cargar";
+        }
+        
         //COMPROBACIÓN DE USUARIOS REPETIDOS
         $sql = "SELECT * FROM `usuarios`;";
         $consulta = mysqli_query($conexion, $sql);
@@ -42,8 +41,10 @@ function registrar_usuario(): array
         }
 
         $respuesta = array(
+            'mensaje' => $mensaje,
             'repetido' => $usuario_repetido,
-            'ruta' => $ruta,
+            'ruta' => $ruta_guardar_archivo,
+            'tipo' => $tipo,
             'nombre_imagen' => $nombre_imagen
         );
         return $respuesta;
