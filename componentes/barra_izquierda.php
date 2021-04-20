@@ -199,7 +199,7 @@
                         </li>
 
                         <!--DOCUMENTACION-->
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../carpeta/plantilla.php"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../../doc/tpv_doc/tpv_doc.php"
                                 aria-expanded="false"><i class="fas fa-pencil-alt"></i><span
                                     class="hide-menu">Guía de usuario</span></a></li>
                        
