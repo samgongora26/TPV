@@ -1,3 +1,8 @@
+<?php 
+    //Se hace llamado a la sesion
+    include("../../../inc/funciones/admin/sesion.php");
+    include("../../../inc/funciones/admin/rol_admin.php");
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 

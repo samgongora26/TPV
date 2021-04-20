@@ -119,6 +119,21 @@ function buscar_producto(e) {
     console.log("error envio de campos vacios");
   }
 }
+
+function buscar_producto_sin_evento() {
+  const codigo = document.querySelector("#codigo_envio").value;
+  if (codigo != "") {
+    const datos = new FormData();
+    datos.append("codigo", codigo);
+    datos.append("id_usuario", id_usuario);
+    datos.append("accion", "buscar_producto");
+    console.log("entro a buscar los productos");
+    enviar_datos(datos).then((res) => pintar(res));
+  } else {
+    console.log("error envio de campos vacios");
+  }
+}
+
 function descuento_en_producto(precio,cantidad,descuento) {
   const importe_total = parseInt(cantidad) * precio;
  const cantidad_con_descuento = parseFloat(importe_total - ((importe_total * parseFloat(descuento))/100));
@@ -181,13 +196,19 @@ function opciones(e) {
 function actualizar_carrito(codigo, operador) {
   let index = 0;
   index = carritos[ticket_en_uso].findIndex((producto) => producto.codigo === codigo);
-  carritos[ticket_en_uso][index].cantidad = carritos[ticket_en_uso][index].cantidad + operador;
-  let cantidad = carritos[ticket_en_uso][index].cantidad;
-  let precio = parseInt(carritos[ticket_en_uso][index].precio_v);
-  let descuento = parseInt(carritos[ticket_en_uso][index].descuento);
-  let total = descuento_en_producto(precio,cantidad,descuento);
- // let total = cantidad * precio;
-  carritos[ticket_en_uso][index].importe = total;
+  const nueva_cantidad = carritos[ticket_en_uso][index].cantidad + operador;
+  if (nueva_cantidad > 0) {
+    console.log("cambio")
+    carritos[ticket_en_uso][index].cantidad = nueva_cantidad;
+    let cantidad = carritos[ticket_en_uso][index].cantidad;
+    let precio = parseInt(carritos[ticket_en_uso][index].precio_v);
+    let descuento = parseInt(carritos[ticket_en_uso][index].descuento);
+    let total = descuento_en_producto(precio,cantidad,descuento);
+    carritos[ticket_en_uso][index].importe = total;
+  }else{
+    console.log("tenemos que borrarte");
+    const remover_carrito = carritos[ticket_en_uso].splice(index, 1);
+  }
   mostrar_articulos_de_un_carrito();
 }
 
@@ -210,7 +231,8 @@ console.log("desde cobrar")
     const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${res.id}`);
   });
   tickets.forEach((ticket,index) => ticket = index);
-pintado_inicial_carritos();
+pintado_inicial_todo();
+cerrar_modal_venta();
   alert("se ha registrado el cobro correctamente");
 }
 
@@ -227,7 +249,7 @@ console.log("desde la busqueda del cliente")
   });
 }
 
-function pintado_inicial_carritos() {
+function pintado_inicial_todo() {
   tickets.forEach((val,index) => val = index);
   limpiar_contenido_del_carrito();
   limpiar_campos_html();
@@ -245,7 +267,7 @@ function eliminar_ticket() {
     texto_venta_actual.innerHTML = `id de la venta actual : ${res.id_nueva_venta}`;
     id_venta_actual = res.id_nueva_venta;
   });*/
-pintado_inicial_carritos();
+pintado_inicial_todo();
   alert("se ha eliminado correctamente");
 }
 
@@ -302,4 +324,15 @@ function sincronizar_storage() {
 }
 function limpiar_lista_productos() {
   padre.innerHTML = "";
+}
+
+
+
+//cerrar modals
+function cerrar_modal_venta(){
+  $('#warning-header-modal').modal('hide');
+}
+
+function cerrar_modal_buscar() {
+  $('#busqueda_producto').modal('hide');
 }

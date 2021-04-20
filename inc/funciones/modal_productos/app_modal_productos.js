@@ -1,12 +1,12 @@
 const listado_productos = document.querySelector("#contenido_busqueda_producto");
 const modal = document.querySelector("#form-modal-edit");
 const btn_buscar = document.querySelector("#buscar");
-//const barra_buscar = document.querySelector("#valor_busqueda");
+const barra_buscar = document.querySelector("#valor_busqueda");
 let id_necesario = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
-  btn_buscar.addEventListener("click", busqueda_especifica);
-  //barra_buscar.addEventListener("keypress", busqueda_especifica);
+  //btn_buscar.addEventListener("click", busqueda_especifica);
+  barra_buscar.addEventListener("keyup", busqueda_especifica);
 });
 
 function busqueda_especifica(e) {
@@ -36,7 +36,7 @@ function busqueda_especifica(e) {
           <button type="button" class="btn" onclick="copiar_codigo(${id})"> <i class="fas fa-clone"></i> </button>
           </td>
           <td>
-            <a href="inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
+            <a href="../inventario/inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
           </td>
       </tr>
       `;

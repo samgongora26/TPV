@@ -16,6 +16,17 @@ switch ($accion) {
         $resultado = cerrar_caja();
         break;
 
+    //-----HISTORIAL DE CAJAS------
+    case "cajas_hoy":
+        $resultado = cajas_hoy();
+        break;
+    case "cajas_ayer":
+        $resultado = cajas_ayer();
+        break;
+    case "buscar_fecha":
+        $resultado = buscar_fecha();
+        break;
+
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide

@@ -1,14 +1,13 @@
-eventListeners();
-function eventListeners() {
-  document
-    .querySelector("#formulario")
-    .addEventListener("submit", obtener_datos);
-}
+const btn_agregar = document.querySelector("#btn_agregar");
+document.addEventListener("DOMContentLoaded", () => {
+  btn_agregar.addEventListener("click", obtener_datos);
+});
+
 function obtener_datos(e) {
   e.preventDefault();
   //Se obtienen los datos de los input de la interfaz
   //const proveedor = document.getElementById("contenido_proveedores").value; 
-  const codigo = document.querySelector("#codigo").value;
+  const codigo = document.querySelector("#codigo_envio").value;
   const promocion = document.querySelector("#promociones").value;
   
  //Validación de campos vacios

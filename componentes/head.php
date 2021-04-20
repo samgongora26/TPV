@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="../../../inc/funciones/admin/conexion.js"></script>
     <!-- Favicon icon -->
     <link rel="icon" type="../image/png"  sizes="16x16" href="../../assets/images/favicon.png" >
     <title>TPV</title>

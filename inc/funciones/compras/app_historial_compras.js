@@ -31,7 +31,7 @@ async function compras_hoy() {
     let suma = 0;
     db.forEach((servicio) => {
       //console.log(servicio);
-      const {id_pedido,usuario,fecha, total, pagado , estado } = servicio;
+      const {id_pedido,usuario,proveedor,fecha, total, pagado , estado } = servicio;
       
       let debido = total-pagado;
       if (debido < 0){
@@ -45,6 +45,7 @@ async function compras_hoy() {
             <td>${id_pedido}</td>
             <td>${usuario}</td>
             <td>${fecha}</td>
+            <td>${proveedor}</td>
             <td>$ ${total}</td>
             <td>$ ${pagado}</td>
             <td>$ ${debido}</td>
@@ -60,6 +61,7 @@ async function compras_hoy() {
         <tr>
             <td>${id_pedido}</td>
             <td>${usuario}</td>
+            <td>${proveedor}</td>
             <td>${fecha}</td>
             <td>$ ${total}</td>
             <td>$ ${pagado}</td>
@@ -99,7 +101,7 @@ async function compras_ayer() {
     let suma = 0;
     db.forEach((servicio) => {
       //console.log(servicio);
-      const {id_pedido,usuario,fecha, total, pagado , estado } = servicio;
+      const {id_pedido,usuario,proveedor,fecha, total, pagado , estado } = servicio;
       
       let debido = total-pagado;
       if (debido < 0){
@@ -112,6 +114,7 @@ async function compras_ayer() {
         <tr>
             <td>${id_pedido}</td>
             <td>${usuario}</td>
+            <td>${proveedor}</td>
             <td>${fecha}</td>
             <td>$ ${total}</td>
             <td>$ ${pagado}</td>
@@ -128,6 +131,7 @@ async function compras_ayer() {
         <tr>
             <td>${id_pedido}</td>
             <td>${usuario}</td>
+            <td>${proveedor}</td>
             <td>${fecha}</td>
             <td>$ ${total}</td>
             <td>$ ${pagado}</td>
@@ -175,7 +179,7 @@ async function compras_dia_especifico() {
       if (mensaje >= 1){
         db.forEach((servicio) => {
         console.log(servicio);
-        const {id_pedido,usuario,fecha, total, pagado , estado } = servicio;
+        const {id_pedido,usuario, proveedor,fecha, total, pagado , estado } = servicio;
         
         let debido = total-pagado;
         if (debido < 0){
@@ -187,6 +191,7 @@ async function compras_dia_especifico() {
           <tr>
               <td>${id_pedido}</td>
               <td>${usuario}</td>
+              <td>${proveedor}</td>
               <td>${fecha}</td>
               <td>$ ${total}</td>
               <td>$ ${pagado}</td>
@@ -203,6 +208,7 @@ async function compras_dia_especifico() {
           <tr>
               <td>${id_pedido}</td>
               <td>${usuario}</td>
+              <td>${proveedor}</td>
               <td>${fecha}</td>
               <td>$ ${total}</td>
               <td>$ ${pagado}</td>
@@ -267,7 +273,7 @@ async function compras_debidas() {
     let suma = 0;
     db.forEach((servicio) => {
       //console.log(servicio);
-      const {id_pedido,usuario,fecha, total, pagado , estado } = servicio;
+      const {id_pedido,usuario,proveedor,fecha, total, pagado , estado } = servicio;
       
       let debido = total-pagado;
       if (debido < 0){
@@ -280,6 +286,7 @@ async function compras_debidas() {
         <tr>
             <td>${id_pedido}</td>
             <td>${usuario}</td>
+            <td>${proveedor}</td>
             <td>${fecha}</td>
             <td>$ ${total}</td>
             <td>$ ${pagado}</td>
@@ -296,6 +303,7 @@ async function compras_debidas() {
         <tr>
             <td>${id_pedido}</td>
             <td>${usuario}</td>
+            <td>${proveedor}</td>
             <td>${fecha}</td>
             <td>$ ${total}</td>
             <td>$ ${pagado}</td>

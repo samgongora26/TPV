@@ -1,3 +1,7 @@
+<?php 
+    //Se hace llamado a la sesion
+    include("../../../inc/funciones/admin/sesion.php");
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -219,7 +223,7 @@
      <script src="../../../inc/funciones/pos/app.js"></script>
      <script src = "../../../inc/funciones/pos/testing.js"> </script> 
      <script src = "../../../inc/funciones/pos/calculadora.js"> </script>
-     <script src = "../../../inc/funciones/modal_productos/app_modal_productos.js"> </script> 
+     <script src = "../../../inc/funciones/pos/app_modal_productos.js"> </script> 
 
     <!-- FIN DE SCRIPTS -->
 </body>

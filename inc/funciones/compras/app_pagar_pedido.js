@@ -82,6 +82,7 @@ function llenar_formulario(pedido) {
   const pedido_texto = document.querySelector("#pedido");
   //const total = document.querySelector("#por_pagar");
   const pagado_texto = document.querySelector("#pagado");
+  const pagado2 = document.querySelector("#pagado2");
   const debido_texto = document.querySelector("#debido");
 
   const { id_pedido, fecha , total, pagado, estado } = pedido;
@@ -102,6 +103,7 @@ function llenar_formulario(pedido) {
   
   document.getElementById("id_pedido").value= id_pedido;
   document.getElementById("debido2").value= debido;
+  pagado2.value= pagado;
 
   
 }
@@ -115,8 +117,9 @@ function obtener_monto() {
   const por_pagar = parseInt(document.getElementById("por_pagar2").value);
   const id_pedido = document.getElementById("id_pedido").value;
   const debido = document.getElementById("debido2").value;
+  const pagado = document.getElementById("pagado2").value;
   
-  monto = parseInt(monto) + parseInt(debido);
+  monto = parseInt(monto) + parseInt(pagado);
   console.log(
     monto,
     usuario,

@@ -1,3 +1,7 @@
+<?php 
+    //Se hace llamado a la sesion
+    include("../../../inc/funciones/admin/sesion.php");
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -61,6 +65,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Usuario</th>
+                                                    <th>Proveedor</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>
@@ -90,6 +95,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Usuario</th>
+                                                    <th>Proveedor</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>
@@ -131,6 +137,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Usuario</th>
+                                                    <th>Proveedor</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>
@@ -160,6 +167,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Usuario</th>
+                                                    <th>Proveedor</th>
                                                     <th>Fecha</th>
                                                     <th>Total</th>
                                                     <th>Pagado</th>

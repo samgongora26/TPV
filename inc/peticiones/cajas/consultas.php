@@ -164,3 +164,107 @@ function cerrar_caja(): array
     }
     mysqli_close($conexion);
 }
+
+//-----------HISTORIAL DE LAS CAJAS
+function cajas_hoy(): array
+{
+    try {
+        require '../../../conexion.php';
+        $hoy = date('Y-m-d'); 
+        $sql = "SELECT CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario, 
+                `cajas`.`id_caja`, `cajas`.`fecha_y_hora_abertura`, `cajas`.`fecha_y_hora_cierre` ,
+                `cajas`.`monto_inicial`, `cajas`.`monto_final` ,`cajas`.`monto_final_ventas` ,
+                `cajas`.`corte`, `cajas`.`fecha_abertura`, `cajas`.`fecha_cierre` 
+                FROM `cajas` , `usuarios` 
+                WHERE (`cajas`.`fecha_cierre` = '$hoy' or `cajas`.`fecha_abertura`= '$hoy') 
+                    and `usuarios`.`id_usuario` = `cajas`.`id_usuario` ";
+        $consulta = mysqli_query($conexion, $sql);
+        $cajas = [];
+        $i = 0; 
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $cajas[$i]['id_caja'] = $row['id_caja'];
+            $cajas[$i]['usuario'] = $row['usuario'];
+            $cajas[$i]['fecha_y_hora_abertura'] = $row['fecha_y_hora_abertura'];
+            $cajas[$i]['fecha_y_hora_cierre'] = $row['fecha_y_hora_cierre'];
+            $cajas[$i]['monto_inicial'] = $row['monto_inicial'];  
+            $cajas[$i]['monto_final'] = $row['monto_final'];
+            $cajas[$i]['monto_final_ventas'] = $row['monto_final_ventas'];
+            $cajas[$i]['corte'] = $row['corte'];
+            $i++;
+        }
+
+        return $cajas;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function cajas_ayer(): array
+{
+    try {
+        require '../../../conexion.php';
+        $dia = date('d')-1;
+        $hoy = date('Y-m-').$dia; 
+        $sql = "SELECT CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario, 
+                `cajas`.`id_caja`, `cajas`.`fecha_y_hora_abertura`, `cajas`.`fecha_y_hora_cierre` ,
+                `cajas`.`monto_inicial`, `cajas`.`monto_final` ,`cajas`.`monto_final_ventas` ,
+                `cajas`.`corte`, `cajas`.`fecha_abertura`, `cajas`.`fecha_cierre` 
+                FROM `cajas` , `usuarios` 
+                WHERE (`cajas`.`fecha_cierre` = '$hoy' or `cajas`.`fecha_abertura`= '$hoy') 
+                    and `usuarios`.`id_usuario` = `cajas`.`id_usuario` ";
+        $consulta = mysqli_query($conexion, $sql);
+        $cajas = [];
+        $i = 0; 
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $cajas[$i]['id_caja'] = $row['id_caja'];
+            $cajas[$i]['usuario'] = $row['usuario'];
+            $cajas[$i]['fecha_y_hora_abertura'] = $row['fecha_y_hora_abertura'];
+            $cajas[$i]['fecha_y_hora_cierre'] = $row['fecha_y_hora_cierre'];
+            $cajas[$i]['monto_inicial'] = $row['monto_inicial'];  
+            $cajas[$i]['monto_final'] = $row['monto_final'];
+            $cajas[$i]['monto_final_ventas'] = $row['monto_final_ventas'];
+            $cajas[$i]['corte'] = $row['corte'];
+            $i++;
+        }
+
+        return $cajas;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
+function buscar_fecha(): array
+{
+    try {
+        require '../../../conexion.php';
+        $hoy =  $_POST['fecha'];
+        $sql = "SELECT CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario, 
+        `cajas`.`id_caja`, `cajas`.`fecha_y_hora_abertura`, `cajas`.`fecha_y_hora_cierre` ,
+        `cajas`.`monto_inicial`, `cajas`.`monto_final` ,`cajas`.`monto_final_ventas` ,
+        `cajas`.`corte`, `cajas`.`fecha_abertura`, `cajas`.`fecha_cierre` 
+        FROM `cajas` , `usuarios` 
+        WHERE (`cajas`.`fecha_cierre` = '$hoy' or `cajas`.`fecha_abertura`= '$hoy') 
+            and `usuarios`.`id_usuario` = `cajas`.`id_usuario`";
+        $consulta = mysqli_query($conexion, $sql);
+        $cajas = [];
+        $i = 0; 
+        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+            $cajas[$i]['id_caja'] = $row['id_caja'];
+            $cajas[$i]['usuario'] = $row['usuario'];
+            $cajas[$i]['fecha_y_hora_abertura'] = $row['fecha_y_hora_abertura'];
+            $cajas[$i]['fecha_y_hora_cierre'] = $row['fecha_y_hora_cierre'];
+            $cajas[$i]['monto_inicial'] = $row['monto_inicial'];  
+            $cajas[$i]['monto_final'] = $row['monto_final'];
+            $cajas[$i]['monto_final_ventas'] = $row['monto_final_ventas'];
+            $cajas[$i]['corte'] = $row['corte'];
+            $i++;
+        }
+
+        return $cajas;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
