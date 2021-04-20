@@ -23,7 +23,7 @@ function busqueda_especifica(e) {
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const { id, nombre, codigo, precio_costo, precio_venta, stock, marca } = datos;
+      const { id, nombre, codigo,  precio_venta, stock } = datos;
 
       const listado_productos = document.querySelector("#contenido_tabla");
 
@@ -32,21 +32,19 @@ function busqueda_especifica(e) {
           <th scope="row">${id}</th>
           <td>${nombre}</td>
           <td>${codigo}</td>
-          <td>${precio_costo}</td>
           <td>${precio_venta}</td>
           <td>${stock}</td>
-          <td>${marca}</td>
-          <td>
+          <!--<td>
           <button type="button" class="btn btn-primary" data-toggle="modal"
               data-target="#estado-modal"><i data-cliente="${id}" class="icon-note"></i></button>    
-          </td>
+          </td>-->
           <td>
             <a href="inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
           </td>
-          <td>
+          <!--<td>
             <button type="button" class="btn btn-primary editar" data-toggle="modal"
             data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
-          </td>
+          </td>-->
           <!--
           <td>
               <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
@@ -84,40 +82,38 @@ async function llamado(datos) {
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const { id, nombre, codigo, precio_costo, precio_venta, stock, marca } = datos;
+      const { id, nombre, codigo, precio_venta, stock} = datos;
 
       const listado_productos = document.querySelector("#contenido_tabla");
 
 
 
       listado_productos.innerHTML +=`
-          <tr id="ver_productos_${id}">
-          <th scope="row">${id}</th>
-          <td>${nombre}</td>
-          <td>${codigo}</td>
-          <td>${precio_costo}</td>
-          <td>${precio_venta}</td>
-          <td>${stock}</td>
-          <td>${marca}</td>
-          <td>
-          <button type="button" class="btn btn-primary" data-toggle="modal"
-              data-target="#estado-modal"><i data-cliente="${id}" class="icon-note"></i></button>    
-          </td>
-          <td>
-            <a href="inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
-          </td>
-          <td>
-            <button type="button" class="btn btn-primary editar" data-toggle="modal"
-            data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
-          </td>
-          <!--
-          <td>
-              <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
-          </td>
-          -->
-          <td>
-              <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
-          </td>
+      <tr id="ver_productos_${id}">
+        <th scope="row">${id}</th>
+        <td>${nombre}</td>
+        <td>${codigo}</td>
+        <td>${precio_venta}</td>
+        <td>${stock}</td>
+        <td>
+        <button type="button" class="btn btn-primary" data-toggle="modal"
+            data-target="#estado-modal"><i data-cliente="${id}" class="icon-note"></i></button>    
+        </td>
+        <td>
+          <a href="inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
+        </td>
+        <!--<td>
+          <button type="button" class="btn btn-primary editar" data-toggle="modal"
+          data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
+        </td>-->
+        <!--
+        <td>
+            <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
+        </td>
+        -->
+        <td>
+            <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
+        </td>
       </tr>
       `;
     });
@@ -196,24 +192,22 @@ function obtener_datos_unitarios(e) {
       `#ver_producto_${id_necesario}`
     );
 
-    const { id, nombre, codigo, precio_costo, precio_venta, stock, marca } = res;
+    const { id, nombre, codigo,  precio_venta, stock, marca } = res;
     registro_contenido.innerHTML = `
-    <th scope="row">${id}</th>
-    <td>${nombre}</td>
-    <td>${codigo}</td>
-    <td>${precio_costo}</td>
-    <td>${precio_venta}</td>
-    <td>${stock}</td>
-    <td>${marca}</td>
-    <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
-    <td><a href="inventario_lista.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
-    <td>
-      <button type="button" class="btn btn-primary editar" data-toggle="modal"
-      data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
-    </td>
-    <td>
-      <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
-    </td>
+      <th scope="row">${id}</th>
+      <td>${nombre}</td>
+      <td>${codigo}</td>
+      <td>${precio_venta}</td>
+      <td>${stock}</td>
+      <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
+      <td><a href="inventario_lista.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
+      <td>
+        <button type="button" class="btn btn-primary editar" data-toggle="modal"
+        data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
+      </td>
     `;
     // console.log(registro_contenido);
   });
