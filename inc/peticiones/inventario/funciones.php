@@ -30,6 +30,9 @@ switch ($accion) {
     case "buscarm":
         $resultado = buscar_marca();
         break;
+    case "buscarver":
+        $resultado = buscar_ver();
+        break;
     case "eliminar":
         $resultado = eliminar_producto();
         break;
