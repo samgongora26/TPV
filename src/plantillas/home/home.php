@@ -1,7 +1,6 @@
 <?php 
     //Se hace llamado a la sesion
     include("../../../inc/funciones/admin/sesion.php");
-    include("../../../inc/funciones/admin/rol_admin.php");
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -55,6 +54,31 @@
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
                 <h4 class=" pl-2 mt-3 ">Me alegra que estés aquí de nuevo <b><?php echo $usr["nombres"] .'  '.$usr["apellidos"]?></b> veamos que sucede por aquí...</h4>
                 <?php
+                if(!$id_user == ""){ //si la variable de sesión no está vacia entonces entra a verificacion
+                    //header("location: ../../../index.html");
+                    try {
+                        require '../../../conexion.php';
+                        $sql = "SELECT `puestos`.`nombre_puesto` 
+                                FROM `empleados`,`puestos` 
+                                WHERE `puestos`.`nombre_puesto` = 'administrador' 
+                                    and `puestos`.`id_puesto` = `empleados`.`id_puesto`
+                                    and `empleados`.`id_usuario` = $id_user";
+                        $consulta = mysqli_query($conexion, $sql);
+                        $puestos = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
+                        $puesto = $puestos["nombre_puesto"]; 
+                        $acceso = false;
+                        if($puesto == 'administrador'){
+                            $acceso = true;
+                        }
+                        
+                
+                    } catch (\Throwable $th) {
+                        var_dump($th);
+                    }
+                    
+                    mysqli_close($conexion);
+                }
+                
                 if($acceso){
                     try {
                         require '../../../conexion.php';

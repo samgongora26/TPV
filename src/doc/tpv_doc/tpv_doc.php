@@ -43,10 +43,39 @@
 
             <div class="container-fluid">
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                        
+
                         <div class="col-md-11 mx-auto">
+                            <div class="col-12 mt-4">
+                                <h2>Adaptable, confiable y seguro...</h2>
+                                <div class="card-deck">
+                                    <div class="card">
+                                        <img class="card-img-top img-fluid" src="../../assets/images/big/storage.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Control de inventario</h4>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img class="card-img-top img-fluid" src="../../assets/images/big/cashier2.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Gestión de turnos y horarios</h4>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <img class="card-img-top img-fluid" src="../../assets/images/big/pos.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Multiticket y multi caja</h4>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!---INTRODUCCION ---->
+                        <div class="col-md-11 mx-auto mt-3">
                         
-                                    <div class="card ">
+                                    <div class="card mt-3">
                                         <div class="card-body">
                                             <h1>Introducción</h1>
                                             <hr>    
@@ -73,9 +102,10 @@
                                                          
                         </div>
 
-                        <div class="row ">
+
+                        <div class="row mt-3">
                         
-                                <div class="col-md-6 mx-auto" >
+                                <div class="col-md-6 mx-auto mt-3" >
                                     <div class="card "style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
                                         <div class="card-body text-center">
                                             <h3 class="">Desarrolladores</h3>
@@ -106,7 +136,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 mx-auto">
+                                <div class="col-md-3 mx-auto mt-3">
                                     <div class="card ">
                                         <div class="card-body">
                                             <h2>Contacto</h2>
