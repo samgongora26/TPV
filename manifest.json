@@ -1,7 +1,7 @@
 {
     "short_name":   "TPV",
     "name":         "Terminal Punto de Ventas",
-    "start_url":    "/TPV/index.html",
+    "start_url":    "index.html",
     "display":      "fullscreen",
     "background_color": "white",
     "description": "PWA de un terminal de punto de ventas",

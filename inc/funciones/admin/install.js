@@ -1,5 +1,5 @@
 
-navigator.serviceWorker.register("sw.js");
+navigator.serviceWorker.register("../../../inc/funciones/admin/sw.js");
 //console.log("entro en instalar");
 //document.getElementById('boton_instalar').hidden = false;
 
