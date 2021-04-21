@@ -43,10 +43,9 @@
 
             <div class="container-fluid">
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                    
+                        
                         <div class="col-md-11 mx-auto">
-                            <div class="row">
-                                <div class="col-md-9">
+                        
                                     <div class="card ">
                                         <div class="card-body">
                                             <h1>Introducción</h1>
@@ -71,9 +70,44 @@
                                             </div-->
                                         </div>
                                     </div>
+                                                         
+                        </div>
+
+                        <div class="row ">
+                        
+                                <div class="col-md-6 mx-auto" >
+                                    <div class="card "style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
+                                        <div class="card-body text-center">
+                                            <h3 class="">Desarrolladores</h3>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <a class="" target="_blank" href="https://github.com/samgongora26" >
+                                                        <img src="../../assets/images/saul.jpg" alt="user" class="rounded-circle" width="120">
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <a class="" target="_blank" href="https://github.com/satswere" >
+                                                        <img src="../../assets/images/luis.jpeg" alt="user" class="rounded-circle" width="120">
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <a class="" target="_blank"  href="https://github.com/Feltydany" >
+                                                        <img src="../../assets/images/daniel.jpg" alt="user" class="rounded-circle" width="120">
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <a class="" target="_blank"  href="https://github.com/silvercrow185" >
+                                                        <img src="../../assets/images/osly.jpg" alt="user" class="rounded-circle" width="120">
+                                                    </a>
+                                                </div>
+                                            </div>    
+                                            
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-3">
-                                <div class="card ">
+                                <div class="col-md-3 mx-auto">
+                                    <div class="card ">
                                         <div class="card-body">
                                             <h2>Contacto</h2>
                                             <hr>    
@@ -108,44 +142,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                                    
-                                    
-                           
                         </div>
-                        <div class="col-md-12">
-                                    <div class="card ">
-                                        <div class="card-body">
-                                            <h1 class="mx-auto">Desarrolladores</h1>
-                                            <hr>
-                                            <div class="row mx-auto">
-                                                <div class="col-md-1 mr-3">
-                                                    <a class="" href="" >
-                                                        <img src="../../assets/images/saul.jpg" alt="user" class="rounded-circle" width="100">
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-1 mr-3">
-                                                    <a class="" href="" >
-                                                        <img src="../../assets/images/saul.jpg" alt="user" class="rounded-circle" width="100">
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-1 mr-3">
-                                                    <a class="" href="" >
-                                                        <img src="../../assets/images/saul.jpg" alt="user" class="rounded-circle" width="100">
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-1 mr-3">
-                                                    <a class="" href="" >
-                                                        <img src="../../assets/images/saul.jpg" alt="user" class="rounded-circle" width="100">
-                                                    </a>
-                                                </div>
-                                            </div>    
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-
 
                         <!---------------SOPORTE----------------------->
                         <div class="col-md-11 mx-auto">
