@@ -6,8 +6,6 @@
         //header("location: ../../../index.html");
         try {
             require '../../../conexion.php';
-    
-            //VENTAS DE LA SEMANA
             $sql = "SELECT `puestos`.`nombre_puesto` 
                     FROM `empleados`,`puestos` 
                     WHERE `puestos`.`nombre_puesto` = 'administrador' 
