@@ -195,6 +195,10 @@ function registrar_venta(): array
         $stmt->bind_param("iiiii", $venta, $producto, $precio, $cantidad, $importe);
         $contador = 0;
 
+        //consultas de inventario
+        $consulta_inventario = $conexion->prepare("UPDATE productos_inventario SET cantidad_stock =cantidad_stock - ? WHERE productos_inventario.id_producto = ?");
+        $consulta_inventario->bind_param('ii', $cantidad_inventario, $id_inventario);
+
         if (isset($_POST['someData'])) {
             $array = json_decode($_POST['someData']);
             foreach ($array as $key => $value) {
@@ -205,6 +209,10 @@ function registrar_venta(): array
                 $importe = $value->importe;
                 $contador++;
                 $stmt->execute();
+
+                $cantidad_inventario =$value->cantidad;
+                $id_inventario =(int) $value->id;
+                $consulta_inventario->execute();
             }
         }
         $sql = " INSERT INTO ventas (id_venta, id_cliente, id_empleado, importe,estado) VALUES (NULL, '1', '$id_empleado', '0',0);";
