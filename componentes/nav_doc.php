@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-            <a class="nav-link" href="">Guía de usuario <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../tpv_doc/tpv_doc.php">Guía de usuario <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="../starter/starter.php">Empezando</a>
