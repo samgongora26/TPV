@@ -11,7 +11,7 @@ function registrar_usuario(): array
         $usuario = $_POST['usuario'];
         $contrasenia = $_POST['contrasenia'];
         
-        $ruta_carpeta = "imagenes/";
+       /* $ruta_carpeta = "imagenes/";
         $nombre_imagen = "imagen_".date("dHis") .".". pathinfo($_FILES["fotografia"]["name"],PATHINFO_EXTENSION).'png';
         $tipo = $_FILES["fotografia"]["type"];
         $ruta_guardar_archivo = $ruta_carpeta . $nombre_imagen;
@@ -20,7 +20,7 @@ function registrar_usuario(): array
             $mensaje =  "imagen cargada";
         }else{
             $mensaje = "no se pudo cargar";
-        }
+        }*/
         
         //COMPROBACIÓN DE USUARIOS REPETIDOS
         $sql = "SELECT * FROM `usuarios`;";
@@ -35,7 +35,7 @@ function registrar_usuario(): array
         
         if(!$usuario_repetido){
             $sql =  "INSERT INTO `usuarios`( `nombres`, `apellidos`, `telefono`, `correo`, `usuario`, `contrasenia`, `fotografia`, `estado`)
-            VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','$nombre_imagen',0)";
+            VALUES ('$nombres','$apellidos','$telefono','$correo','$usuario','$contrasenia','1.jpg',0)";
             $consulta = mysqli_query($conexion, $sql);
             
         }

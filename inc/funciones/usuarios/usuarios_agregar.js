@@ -12,18 +12,18 @@ function obtener_datos(e) {
   const correo = document.querySelector("#correo").value;
   const usuario = document.querySelector("#usuario").value;
   const contrasenia = document.querySelector("#contrasenia").value;
-  const fotografia = document.querySelector("#fotografia").value;
+  //const fotografia = document.querySelector("#fotografia").value;
   
   //Validación de campos vacios
-  if(nombres != "" & apellidos != "" & telefono != "" & correo != "" & usuario != "" & contrasenia != "" & fotografia != ""){
+  if(nombres != "" & apellidos != "" & telefono != "" & correo != "" & usuario != "" & contrasenia != "" ){
     console.log(
       nombres,
       apellidos,
       telefono,
       correo,
       usuario,
-      contrasenia,
-      fotografia
+      contrasenia
+      //fotografia
     );
     const datos = new FormData(); //encapsulamiento de los datos para envio
     datos.append("nombres", nombres);
@@ -32,7 +32,7 @@ function obtener_datos(e) {
     datos.append("correo", correo);
     datos.append("usuario", usuario);
     datos.append("contrasenia", contrasenia);
-    datos.append("fotografia", fotografia);
+    //datos.append("fotografia", fotografia);
     datos.append("accion", "registrar");
 
     enviar_async(datos); //enviar a una funcion
