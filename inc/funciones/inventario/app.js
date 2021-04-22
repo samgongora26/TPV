@@ -34,22 +34,12 @@ function busqueda_especifica(e) {
           <td>${codigo}</td>
           <td>${precio_venta}</td>
           <td>${stock}</td>
-          <!--<td>
-          <button type="button" class="btn btn-primary" data-toggle="modal"
-              data-target="#estado-modal"><i data-cliente="${id}" class="icon-note"></i></button>    
-          </td>-->
+          
           <td>
             <a href="inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
           </td>
-          <!--<td>
-            <button type="button" class="btn btn-primary editar" data-toggle="modal"
-            data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
-          </td>-->
-          <!--
-          <td>
-              <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
-          </td>
-          -->
+         
+          
           <td>
               <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
           </td>
@@ -90,30 +80,20 @@ async function llamado(datos) {
 
       listado_productos.innerHTML +=`
       <tr id="ver_productos_${id}">
-        <th scope="row">${id}</th>
-        <td>${nombre}</td>
-        <td>${codigo}</td>
-        <td>${precio_venta}</td>
-        <td>${stock}</td>
-        <td>
-        <button type="button" class="btn btn-primary" data-toggle="modal"
-            data-target="#estado-modal"><i data-cliente="${id}" class="icon-note"></i></button>    
-        </td>
-        <td>
-          <a href="inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
-        </td>
-        <!--<td>
-          <button type="button" class="btn btn-primary editar" data-toggle="modal"
-          data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
-        </td>-->
-        <!--
-        <td>
-            <button type="button" class="btn btn-primary boton_imprimir"><i data-cliente="${id}" class="icon-printer"></i></button>    
-        </td>
-        -->
-        <td>
-            <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
-        </td>
+          <th scope="row">${id}</th>
+          <td>${nombre}</td>
+          <td>${codigo}</td>
+          <td>${precio_venta}</td>
+          <td>${stock}</td>
+          
+          <td>
+            <a href="inventario_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
+          </td>
+         
+          
+          <td>
+              <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
+          </td>
       </tr>
       `;
     });
@@ -163,7 +143,8 @@ function obtener_datos_unitarios(e) {
     });
   }
 }
-/*<button type="button" class="btn btn-primary boton_ver"><i href="inventario_ver.php?id=${id}" class="icon-eye"></i></button>*/
+
+
  function editar_registro(e) {
   e.preventDefault();
   //console.log("Haaaaaaaaaaaa");
@@ -199,12 +180,9 @@ function obtener_datos_unitarios(e) {
       <td>${codigo}</td>
       <td>${precio_venta}</td>
       <td>${stock}</td>
-      <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
+      
       <td><a href="inventario_lista.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
-      <td>
-        <button type="button" class="btn btn-primary editar" data-toggle="modal"
-        data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
-      </td>
+      
       <td>
         <button type="button" class="btn btn-primary"><i data-cliente="${id}" class="icon-trash eliminar"></i></button>
       </td>

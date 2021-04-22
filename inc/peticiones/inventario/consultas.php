@@ -142,6 +142,24 @@ function buscar_producto(): array
     mysqli_close($conexion);
 }
 
+function buscar_ver(): array
+{
+    try {
+        require '../../../conexion.php';
+
+        $id = $_POST['id'];
+        $sql = " SELECT productos_inventario.nombre_producto, productos_inventario.descripcion, productos_inventario.codigo, productos_inventario.precio_costo, productos_inventario.precio_venta, productos_inventario.precio_mayoreo, productos_inventario.unidad, productos_inventario.cantidad_stock, productos_inventario.stock_min, productos_inventario.stock_max, productos_inventario.fecha_caducidad, marcas.nombre AS marca, productos_inventario.estado FROM productos_inventario, marcas WHERE id_producto = $id AND productos_inventario.id_marca = marcas.id_marcas";
+        $consulta = mysqli_query($conexion, $sql);
+
+        $row = mysqli_fetch_assoc($consulta); //recibir el resultado de la consulta cuando solo es 1
+
+        return $row;
+    } catch (\Throwable $th) {
+        var_dump($th);
+    }
+    mysqli_close($conexion);
+}
+
 function registrar_categoria(): array
 {
     

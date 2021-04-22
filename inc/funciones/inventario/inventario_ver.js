@@ -15,6 +15,7 @@ const estado_text = document.querySelector("#estado");
 const formulario = document.querySelector("#formulario");
 
 document.addEventListener("DOMContentLoaded", () => {
+  modal.addEventListener("submit", editar_registro);
   const parametrosURL = new URLSearchParams(window.location.search);
   idCliente = parametrosURL.get("id");
   if (idCliente) {
@@ -33,7 +34,7 @@ async function obtener_cliente(id) {
   const datos = new FormData();
 
   datos.append("id", id);
-  datos.append("accion", "buscar");
+  datos.append("accion", "buscarver");
 
   try {
     direccion = "../../../inc/peticiones/inventario/funciones.php";
@@ -50,7 +51,7 @@ async function obtener_cliente(id) {
 }
 
 function llenar_formulario(cliente) {
-  const { nombre_producto, descripcion,codigo ,precio_costo, precio_venta, precio_mayoreo, unidad, cantidad_stock, stock_min, stock_max, fecha_caducidad, id_marca, estado} = cliente;
+  const { nombre_producto, descripcion,codigo ,precio_costo, precio_venta, precio_mayoreo, unidad, cantidad_stock, stock_min, stock_max, fecha_caducidad, marca, estado} = cliente;
 
   nombre_text.innerHTML = nombre_producto;
   descripcion_text.innerHTML = descripcion;
@@ -63,6 +64,33 @@ function llenar_formulario(cliente) {
   stockmin_text.innerHTML = stock_min;
   stockmax_text.innerHTML = stock_max;
   caducidad_text.innerHTML = fecha_caducidad;
-  marca_text.innerHTML = id_marca;
+  marca_text.innerHTML = marca;
   estado_text.innerHTML = estado;
 } 
+
+
+function obtener_datos_unitarios(e) {
+  let idEliminar = null;
+  if (e.target.classList.contains("editar")) {
+    console.log("Entro a editar");
+    idEliminar = Number(e.target.dataset.cliente);
+    id_necesario = idEliminar;
+    console.log(id_necesario);
+    const datos = new FormData();
+    datos.append("id", id_necesario);
+    datos.append("accion", "buscarver");
+    llamado(datos).then((res) => {
+      console.log(res);
+      const edit_barras = (document.querySelector("#edit_barras").value =
+        res.codigo);
+      const edit_nombre = (document.querySelector("#edit_nombre").value =
+        res.nombre_producto);
+      const edit_stock = (document.querySelector("#edit_stock").value =
+        res.cantidad_stock);
+      const edit_precio_compra = (document.querySelector("#edit_precio_compra").value = 
+      res.precio_costo);
+      const edit_precio_venta = (document.querySelector("#edit_precio_venta").value =
+        res.precio_venta);
+    });
+  }
+}

@@ -90,7 +90,6 @@
                                             <th scope="col">Precio Venta</th>
                                             <th scope="col">Stock</th>
                                             <th scope="col">Ver</th>
-                                            <th scope="col">Editar</th>
                                             <!--<th scope="col">Imprimir codigo de Barras</th>-->
                                             <th scope="col">Eliminar</th>
                                         </tr>
