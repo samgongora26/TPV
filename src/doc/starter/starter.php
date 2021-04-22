@@ -78,8 +78,9 @@
                                                     <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-usuario" role="tab" aria-controls="home" aria-selected="true">Usuarios</a>
                                                     <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-proveedores" role="tab" aria-controls="profile" aria-selected="false">Proveedores</a>
                                                     <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-inventario" role="tab" aria-controls="messages" aria-selected="false">Inventario</a>
-                                                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages" aria-selected="false">Clientes</a>
-                                                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages" aria-selected="false">Compras</a>
+                                                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-compras" role="tab" aria-controls="messages" aria-selected="false">Compras</a>
+                                                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-clientes" role="tab" aria-controls="messages" aria-selected="false">Cientes</a>
+                                                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-ventas" role="tab" aria-controls="messages" aria-selected="false">Ventas</a>
                                                 </div>
                                             </div>
                                             <div class="col-8">
@@ -94,10 +95,7 @@
                                                     </div>
                                                     <div class="tab-pane fade" id="list-proveedores">
                                                         <ul style="list-style: none;">
-                                                            <li> <span class="fas fa-check"></span> Haber creado las marcas </li>
-                                                            <li> <span class="fas fa-check"></span> Haber creado las categorias </li>
-                                                            <li> <span class="fas fa-check"></span> Haber creado los productos con los datos necesarios</li>
-                                                            
+                                                            <li> <span class="fas fa-check"></span> Haber creado los proveedores </li>
                                                         </ul>
                                                     </div>
                                                     <div class="tab-pane fade" id="list-inventario" >
@@ -107,12 +105,32 @@
                                                             <li> <span class="fas fa-check"></span> Haber creado los productos con los datos necesarios</li>
                                                         </ul>
                                                     </div>
+                                                    <div class="tab-pane fade" id="list-compras" >
+                                                        <ul style="list-style: none;">
+                                                            <li> <span class="fas fa-check"></span> Haber creado los productos en inventario </li>
+                                                            <li> <span class="fas fa-check"></span> Haber creado alguna compra para ingresar productos al inventario </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="list-clientes" >
+                                                        <ul style="list-style: none;">
+                                                            <li> <span class="fas fa-check"></span> Haber creado los clientes </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="list-ventas" >
+                                                        <ul style="list-style: none;">
+                                                            <li> <span class="fas fa-check"></span> Haber concluido todo lo anterior </li>
+                                                        </ul>
+                                                        <ul style="list-style: none;">
+                                                            <li> <span class="fas fa-check"></span> Abrir una caja con un empleado que esté activo </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                     </div>
                 </div>
                 <hr>
+
                 <!--USUARIOS-->
                 <div class="row mt-4">  
                     <div class="col-xl-12">
@@ -237,15 +255,15 @@
                                 <div class="row">
                                     <div class="col-md-2 col-sm-3 mb-2 mb-sm-0">
                                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                            <a class="nav-link active show" id="v-pills-home-tab" data-toggle="pill" href="#abrir" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                            <a class="nav-link active show" id="v-pills-home-tab" data-toggle="pill" href="#abrir" role="tab" aria-controls="v-pills-abrir" aria-selected="true">
                                                 <i class="mdi mdi-home-variant d-lg-none d-block mr-1"></i>
                                                 <span class="d-none d-lg-block">Abrir caja</span>
                                             </a>
-                                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#cerrar" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#cerrar" role="tab" aria-controls="v-pills-cerrar" aria-selected="false">
                                                 <i class="mdi mdi-account-circle d-lg-none d-block mr-1"></i>
                                                 <span class="d-none d-lg-block">Cerrar caja</span>
                                             </a>
-                                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#historial" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#historial" role="tab" aria-controls="v-pills-historial" aria-selected="false">
                                                 <i class="mdi mdi-settings-outline d-lg-none d-block mr-1"></i>
                                                 <span class="d-none d-lg-block">Historial</span>
                                             </a>
@@ -257,43 +275,100 @@
                                             <div class="tab-pane fade active show" id="abrir" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <p class="mb-0">Cillum ad ut irure tempor velit nostrud occaecat ullamco
-                                                        aliqua anim Leggings sint. Veniam sint duis incididunt
-                                                        do esse magna mollit excepteur laborum qui. Id id reprehenderit sit
-                                                        est eu aliqua occaecat quis et velit
-                                                        excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat
-                                                        commodo et voluptate minim reprehenderit
-                                                        mollit pariatur. Deserunt non laborum enim et cillum eu deserunt
-                                                        excepteur ea incididunt minim occaecat.</p>
+                                                        <p class="mb-0">Para comenzar a vender es necesario 
+                                                        que haya registrado productos, clientes y a el empleado 
+                                                        que será el cajero, este empleado debe de tener un 
+                                                        estado <i>"activo" </i> en la lista de usuarios. Después de todo ello
+                                                        se puede ingresar al la caja con el usuario y contraseña</p>
+                                                        <div class="alert alert-light bg-light text-dark border-0" role="alert">
+                                                            <strong>Nota. </strong> Es necesario ingresar con el mismo usuario y contraseña del usuaio que ingresó al sistema
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/doc2.png" alt="Card image cap">
+                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/cajas1.png" alt="Card image cap">
                                                     </div>
                                                 </div>
                                                 
                                             </div>
                                             <div class="tab-pane fade" id="cerrar" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                                <p class="mb-0">Culpa dolor voluptate do laboris laboris irure
-                                                    reprehenderit id incididunt duis pariatur mollit aute magna
-                                                    pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo
-                                                    et minim in quis laboris ipsum velit
-                                                    id veniam. Quis ut consectetur adipisicing officia excepteur non
-                                                    sit. Ut et elit aliquip labore Leggings
-                                                    enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui
-                                                    esse anim eiusmod do sint minim consectetur
-                                                    qui.</p>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="mb-0">Para poder cerrar la caja es necesario hacer el registro 
+                                                        con el mismo usuario y contraseña y el monto final que hay en la caja</p>
+                                                        <div class="alert alert-light bg-light text-dark border-0" role="alert">
+                                                            <strong>Nota. </strong> Es necesario ingresar con el mismo usuario y contraseña del usuaio que ingresó al sistema
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/cajas1.png" alt="Card image cap">
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="tab-pane fade" id="historial" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                                <p class="mb-0">Food truck quinoa dolor sit amet, consectetuer
-                                                    adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-                                                    sociis
-                                                    natoque penatibus et magnis dis parturient montes, nascetur
-                                                    ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-                                                    eu, pretium quis, sem. Nulla consequat massa quis enim. Cillum ad ut
-                                                    irure tempor velit nostrud occaecat ullamco
-                                                    aliqua anim Leggings sint. Veniam sint duis incididunt do esse magna
-                                                    mollit excepteur laborum qui.</p>
-                                                    
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="mb-0">En el historial de cajas se encuentran el registro de las
+                                                        cajas abiertas y cerradas con el monto inicial del cajero, junto con el monto final del cajero
+                                                        y el monto final de las ventas. Este modulo se divide en el historial de cajas de hoy, de ayer y de la fecha 
+                                                        que se desee saber haciendo una busqueda en el apartado de busqueda por fecha</p>
+                                                        <div class="alert alert-light bg-warning text-dark border-0" role="alert">
+                                                            <strong>Precaución. </strong> El sistema no toma en cuenta el monto inicial para el monto final real, solo toma en cuenta las ventas totales 
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/cajas3.png" alt="Card image cap">
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div> <!-- end tab-content-->
+                                    </div> <!-- end col-->
+                                    
+                                </div>
+                                <!-- end row-->
+                            </div> <!-- end card-body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+                </div>
+
+                <!---CLIENTES-->
+                <hr>
+                <div class="row mt-3">  
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                            <h4 class="card-title mb-3">Clientes</h4>
+                            </div>
+                            <div class="card-body ">
+
+                                
+
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-3 mb-2 mb-sm-0">
+                                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                            <a class="nav-link active show" id="v-pills-home-tab" data-toggle="pill" href="#clientes" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                                <i class="mdi mdi-home-variant d-lg-none d-block mr-1"></i>
+                                                <span class="d-none d-lg-block">Clientes</span>
+                                            </a>
+                                        </div>
+                                    </div> <!-- end col-->
+
+                                    <div class="col-sm-9 md-9">
+                                        <div class="tab-content" id="clientes">
+                                            <div class="tab-pane fade active show" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="mb-0">Después de haber completado el formulario de agregar cliente
+                                                        en el apartado de ver clientes ahí está disponible las acciones para los clientes,
+                                                        acciones como de editar, eliminar y ver</p>
+                                                        <div class="alert alert-light bg-warning text-dark border-0" role="alert">
+                                                            <strong>Precaución. </strong> Es importante tener clientes y no modificar el primer cliente que es el cliente general para las ventas futuras 
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/clientes1.png" alt="Card image cap">
+                                                    </div>
+                                                </div>  
+                                                
                                             </div>
                                         </div> <!-- end tab-content-->
                                     </div> <!-- end col-->
@@ -340,46 +415,85 @@
                                     </div> <!-- end col-->
 
                                     <div class="col-sm-9 md-9">
-                                        <div class="tab-content" id="tickets">
-                                            <div class="tab-pane fade active show" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                        <div class="tab-content" id="">
+                                            <div class="tab-pane fade active show" id="tickets" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <p class="mb-0">Cillum ad ut irure tempor velit nostrud occaecat ullamco
-                                                        aliqua anim Leggings sint. Veniam sint duis incididunt
-                                                        do esse magna mollit excepteur laborum qui. Id id reprehenderit sit
-                                                        est eu aliqua occaecat quis et velit
-                                                        excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat
-                                                        commodo et voluptate minim reprehenderit
-                                                        mollit pariatur. Deserunt non laborum enim et cillum eu deserunt
-                                                        excepteur ea incididunt minim occaecat.</p>
+                                                        <p class="mb-0">El sistema es multi tickets, lo que quiere decir que se puede
+                                                        tener un ticket en pausa mientras se cobra con otros tickets, los necesarios, pues no hay límite.
+                                                        Al iniciar lo primero que se debe de hacer es crear un ticket o seleccionar el ticket 0, cuando se habilite
+                                                        se pueden empezar a ingresar los productos</p>
+                                                        <div class="alert alert-light bg-light text-dark border-0" role="alert">
+                                                            <strong>Nota. </strong> Si no se agregan productos, intente agregando un ticket primero
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/doc2.png" alt="Card image cap">
+                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/ventas1.png" alt="Card image cap">
+                                                        
+                                                        <div class="alert alert-light bg-light text-dark border-0" role="alert">
+                                                            <strong>Nota. </strong> Para agregar tickets se da click al simbolo de "+"
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 
                                             </div>
-                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                                <p class="mb-0">Culpa dolor voluptate do laboris laboris irure
-                                                    reprehenderit id incididunt duis pariatur mollit aute magna
-                                                    pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo
-                                                    et minim in quis laboris ipsum velit
-                                                    id veniam. Quis ut consectetur adipisicing officia excepteur non
-                                                    sit. Ut et elit aliquip labore Leggings
-                                                    enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui
-                                                    esse anim eiusmod do sint minim consectetur
-                                                    qui.</p>
+                                            <div class="tab-pane fade" id="agregar" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="mb-0">Hay dos formas de agregar productos, con el 
+                                                            codigo (usando un escaner o el teclado) o con el boton de buscar productos,
+                                                            en el primero es necesario ingresar el codigo del producto y con el boton 
+                                                            de ayuda despliega una ventana de busqueda de productos, ahi mismo se puede seleccionar
+                                                            un producto y será agregado al ticket automaticamente</p>
+                                                        <div class="alert alert-light bg-light text-dark border-0" role="alert">
+                                                            <strong>Nota. </strong> Si no se agregan productos, intente agregando un ticket primero
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        Por código
+                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/ventas2.png" alt="Card image cap">
+                                                        Por ventana de búsqueda
+                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/ventas3.png" alt="Card image cap">
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                                <p class="mb-0">Food truck quinoa dolor sit amet, consectetuer
-                                                    adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-                                                    sociis
-                                                    natoque penatibus et magnis dis parturient montes, nascetur
-                                                    ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-                                                    eu, pretium quis, sem. Nulla consequat massa quis enim. Cillum ad ut
-                                                    irure tempor velit nostrud occaecat ullamco
-                                                    aliqua anim Leggings sint. Veniam sint duis incididunt do esse magna
-                                                    mollit excepteur laborum qui.</p>
+                                            <div class="tab-pane fade" id="cobrar" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="mb-0">La forma en la que se debe de cerrar la venta para cobrar es ubicar 
+                                                        el cuadro verde en el cual está el total y un botón de "cobrar" al dar click en el 
+                                                        despliega una ventana en el cual muestra el total y tiene un entrada en el cual va 
+                                                        la cantidad con la que pagarán, al dar enter muestra cuanto dar de cambio.</p>
+                                                        <p>Otro aspecto importante es el cliente, ahí se introduce el número telefonico del cliente
+                                                        si este está registrado, si no, solo lo guardará en cliente general</p>
+                                                        <div class="alert alert-light bg-light text-dark border-0" role="alert">
+                                                            <strong>Nota. </strong> Si no es ingresado un cliente la venta es guardada en <i>"Cliente general"</i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/ventas4.png" style="width: 200px;" alt="Card image cap">
+                                                    
+                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/ventas5.png" style="width: 200px;" alt="Card image cap">
+                                                    </div>
+                                                </div>
+                                                    
+                                            </div>
+                                            <div class="tab-pane fade" id="historial_tickets" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="mb-0">Es muy común después de haber hecho una venta buscarla, por si 
+                                                        surgió un error, o por alguna otra razón, es por ello, que en el apartado de historial 
+                                                        de tickets se tiene cubierto esa parte. Se tiene que situar en el apartado de <i>Historial de tickets</i>
+                                                        después se puede hacer una búesqueda por el folio del ticket o por la fecha en la que se realizó la venta.</p>
+                                                        <p>Si se desea ver el detalle de esa venta al encontrarla, darle click al botón de ver detalle venta</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        <img class="card-img-top img-fluid" src="../../assets/images/doc/ventas6.png" alt="Card image cap">
+                                                    
+                                                    </div>
+                                                </div>
                                                     
                                             </div>
                                         </div> <!-- end tab-content-->

@@ -118,9 +118,9 @@
                                 <li class="sidebar-item"><a href="../clientes/clientes_lista.php" class="sidebar-link"><span
                                             class="hide-menu"><i class="fas fa-id-card"></i>Lista de Clientes</span></a>
                                 </li>
-                                <li class="sidebar-item"><a href="../clientes/clientes_historial.php" class="sidebar-link"><span
+                                <!--li class="sidebar-item"><a href="../clientes/clientes_historial.php" class="sidebar-link"><span
                                             class="hide-menu"><i class="fas fa-id-badge"></i>Historial de Clientes</span></a>
-                                </li>
+                                </li-->
                             </ul>
                         </li>
 

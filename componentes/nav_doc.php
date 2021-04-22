@@ -11,9 +11,9 @@
             <li class="nav-item">
             <a class="nav-link" href="../starter/starter.php">Empezando</a>
             </li>
-            <li class="nav-item">
+            <!--li class="nav-item">
             <a class="nav-link" href="#">Preguntas frecuentes</a>
-            </li>
+            </li-->
         </ul>
         <form class="form-inline">
         
