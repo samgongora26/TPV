@@ -108,6 +108,30 @@
             $tickets = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
             $tickets_semana = $tickets["tickets_semana"]; 
 
+            //TOTAL DE COMPRAS EN LA SEMANA
+            //SELECT sum(`pedidos`.`pagado`) as compras FROM `pedidos` WHERE `fecha` BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE() ORDER by `fecha` 
+            $sql = "SELECT sum(`pedidos`.`pagado`) as compras FROM `pedidos` WHERE `fecha` BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE() ORDER by `fecha` ";
+            $consulta = mysqli_query($conexion, $sql);
+            $compras = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
+            $compras_semana = $compras["compras"]; 
+
+            //TOTAL DE COMPRAS EN EL DIA
+            //SELECT sum(`pedidos`.`pagado`) as compras FROM `pedidos` WHERE `fecha` BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE() ORDER by `fecha` 
+            $sql = "SELECT sum(`pedidos`.`pagado`) as compras FROM `pedidos` WHERE `fecha` = '$fecha_actual' ";
+            $consulta = mysqli_query($conexion, $sql);
+            $compras = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
+            $compras_hoy = $compras["compras"]; 
+            
+            //CONSULTAS QUE HICE PERO QUE NO HICIERON LO QUE QUERIA, PERO PUEDEN RESULTAR UTILES DESPUÉS....
+            
+            
+            //NUMERO DE COMPRAS EN LA SEMANA
+            //SELECT count(`pedidos`.`id_pedido`) as compras FROM `pedidos` WHERE `fecha` BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE() ORDER by `fecha` 
+            /*$sql = "SELECT count(`pedidos`.`id_pedido`) as compras FROM `pedidos` WHERE `fecha` BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE() ORDER by `fecha`";
+            $consulta = mysqli_query($conexion, $sql);
+            $compras = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
+            $compras_semana = $compras["compras"]; 
+            */
             //El MEJOR VENDEDOR DEL DIA
             /*$sql = "SELECT CONCAT(`usuarios`.`nombres`, ' ', `usuarios`.`apellidos`) as usuario, COUNT( `cajas`.`id_usuario` ) AS total
                 FROM  `cajas`, `usuarios` WHERE `cajas`.`id_usuario` = `usuarios`.`id_usuario`AND `fecha_cierre` = '$fecha_actual'
@@ -117,16 +141,15 @@
             $productos = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
             $productos = $productos["productos"]; 
 
-            //PRODUCTOS PRODUCTO MAS VENDIDO
+            //PRODUCTO MAS VENDIDO
             $sql = "SELECT `detalle_venta`.`id_producto` as producto, COUNT( `detalle_venta`.`id_producto` ) AS total FROM `ventas` INNER JOIN `detalle_venta` on `ventas`.`id_venta` = `detalle_venta`.`id_venta` GROUP BY producto ORDER by total DESC LIMIT 1  ";
             $consulta = mysqli_query($conexion, $sql);
             $productos = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
             $productos = $productos["productos"]; */
-
-            //SELECT COUNT( `detalle_venta`.`id_producto` ) AS total FROM `ventas` INNER JOIN `detalle_venta` on `ventas`.`id_venta` = `detalle_venta`.`id_venta` 
-            /* Cantidad de productos vendidos en un ticket
-                SELECT SUM(`detalle_venta`.`cantidad`) as total FROM `ventas` INNER JOIN `detalle_venta` on `ventas`.`id_venta` = `detalle_venta`.`id_venta` AND `ventas`.`id_venta`= 188
-            */
+            
+            //Cantidad de productos vendidos en un ticket
+            //SELECT SUM(`detalle_venta`.`cantidad`) as total FROM `ventas` INNER JOIN `detalle_venta` on `ventas`.`id_venta` = `detalle_venta`.`id_venta` AND `ventas`.`id_venta`= 188
+            
         } catch (\Throwable $th) {
             var_dump($th);
         }
@@ -275,7 +298,7 @@
                     <div class="col-md-6">
                         <div class="card text-white">
                             <div class="card-body bg-success">
-                                <h3 class="card-title text-white"> $ <?php echo $ventas_hoy ?></h3>
+                                <h3 class="card-title text-white"> $ <?php echo $ventas_hoy; ?></h3>
                                 <p class="card-text">Total de ventas de hoy</p>
                                 <p class="text-white"> <i>Entradas</i> </p>
                             </div>
@@ -284,7 +307,7 @@
                     <div class="col-md-6">
                         <div class="card text-white">
                             <div class="card-body bg-danger">
-                                <h3 class="card-title text-white">- $0000</h3>
+                                <h3 class="card-title text-white">- $<?php echo $compras_hoy; ?></h3>
                                 <p class="card-text">Total de compras de hoy</p>
                                 <p class="text-white"> <i>Salidas</i> </p>
                             </div>
@@ -297,7 +320,7 @@
                     <div class="col-md-6">
                         <div class="card text-white">
                             <div class="card-body bg-success">
-                                <h3 class="card-title text-white"> $ 0000</h3>
+                                <h3 class="card-title text-white"> $ <?php echo $ventas_semana; ?></h3>
                                 <p class="card-text">Total de ventas de la semana</p>
                                 <p class="text-white"> <i>Entradas</i> </p>
                             </div>
@@ -306,7 +329,7 @@
                     <div class="col-md-6">
                         <div class="card text-white">
                             <div class="card-body bg-danger">
-                                <h3 class="card-title text-white">- $0000</h3>
+                                <h3 class="card-title text-white">- $<?php echo $compras_semana; ?></h3>
                                 <p class="card-text">Total de compras de la semana</p>
                                 <p class="text-white"> <i>Salidas</i> </p>
                             </div>
