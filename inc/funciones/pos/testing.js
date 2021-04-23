@@ -33,12 +33,10 @@ function creacion_del_primer_ticket() {
 function existente_codigo_sin_evento()  {
   const codigo_recuperado = document.querySelector("#codigo_envio").value;
   const si_existe = carritos[ticket_en_uso].findIndex((producto) => producto.codigo === codigo_recuperado);
-  console.log(si_existe);
   if (si_existe >= 0) {
     actualizar_carrito(codigo_recuperado, +1);
   }else{
     if(carritos[ticket_en_uso][0] === -10)carritos[ticket_en_uso].shift(); //primer articulo agregado
-    console.log("nuevo producto agregado");
     buscar_producto_sin_evento();
   }
 };
@@ -46,18 +44,15 @@ function existente_codigo_sin_evento()  {
 function existente_codigo(e)  {
   const codigo_recuperado = document.querySelector("#codigo_envio").value;
   const si_existe = carritos[ticket_en_uso].findIndex((producto) => producto.codigo === codigo_recuperado);
-  console.log(si_existe);
   if (si_existe >= 0) {
     actualizar_carrito(codigo_recuperado, +1);
   }else{
     if(carritos[ticket_en_uso][0] === -10)carritos[ticket_en_uso].shift(); //primer articulo agregado
-    console.log("nuevo producto agregado");
     agregar_nuevo_articulo(e);
   }
 };
 
  function agregar_nuevo_articulo(e) {
-   console.log("si aqui entro");
 buscar_producto(e);
 
 }

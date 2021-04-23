@@ -20,7 +20,6 @@ function busqueda_especifica(e) {
 
   llamado(datos).then((res) => {
     res.forEach((datos) => {
-      console.log(datos);
       const { id, nombre, codigo, precio_costo, precio_venta, stock, marca } = datos;
 
       const listado_productos = document.querySelector("#contenido_busqueda_producto");
@@ -60,7 +59,7 @@ async function llamado(datos) {
   }
 }
 
-function copiar_codigo(id){
+function copiar_codigo(id){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
   let codigo = document.querySelector("#codigo_producto" +id).innerHTML;
   document.querySelector("#codigo_envio").value = codigo;
 

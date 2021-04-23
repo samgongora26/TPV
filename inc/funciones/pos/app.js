@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const r_recibo = document.querySelector("#monto_recibido").addEventListener("keyup", (e) => {
       if (e.keyCode === 13) {
         e.preventDefault();
-        console.log("envio para el cambio");
 
         const recibido = document.querySelector("#monto_recibido").value;
         const btn_cobrar = document.getElementById("cobrar").disabled;
@@ -47,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.keyCode === 13) {
         e.preventDefault();
         id_cliente = document.querySelector("#cliente").value;
-        console.log(id_cliente);
         buscar_si_existe_el_cliente(id_cliente);
       }
     });
@@ -91,7 +89,6 @@ function pintar_inicio(data) {
       importe: importe_producto,
     };
     if (id_producto === null) {
-      console.log(`el ingreso de un nuevo producto al carrito${producto}`);
       carritos.push(producto);
     }
     mostrar_todos_los_tickets();
@@ -110,7 +107,6 @@ function buscar_producto(e) {
     datos.append("codigo", codigo);
     datos.append("id_usuario", id_usuario);
     datos.append("accion", "buscar_producto");
-    console.log("entro a buscar los productos");
     enviar_datos(datos).then((res) => pintar(res));
   } else {
     console.log("error envio de campos vacios");
@@ -124,7 +120,6 @@ function buscar_producto_sin_evento() {
     datos.append("codigo", codigo);
     datos.append("id_usuario", id_usuario);
     datos.append("accion", "buscar_producto");
-    console.log("entro a buscar los productos");
     enviar_datos(datos).then((res) => pintar(res));
   } else {
     console.log("error envio de campos vacios");
@@ -138,7 +133,6 @@ function descuento_en_producto(precio,cantidad,descuento) {
 }
 
 function pintar(data) {
-  console.log(data);
   const {
     id_producto,
     nombre,
@@ -167,7 +161,6 @@ function pintar(data) {
       importe: importe_producto,
       descuento : promocion_porcentaje
     };
-    console.log(`se agrego un nuevo producto al carrito${producto}`);
     carritos[ticket_en_uso].push(producto); 
     foto.innerHTML = `nombre del codigo :${codigo}`;
     precio.innerHTML = precio_venta;
@@ -195,7 +188,6 @@ function actualizar_carrito(codigo, operador) {
   index = carritos[ticket_en_uso].findIndex((producto) => producto.codigo === codigo);
   const nueva_cantidad = carritos[ticket_en_uso][index].cantidad + operador;
   if (nueva_cantidad > 0) {
-    console.log("cambio")
     carritos[ticket_en_uso][index].cantidad = nueva_cantidad;
     let cantidad = carritos[ticket_en_uso][index].cantidad;
     let precio = parseInt(carritos[ticket_en_uso][index].precio_v);
@@ -203,7 +195,6 @@ function actualizar_carrito(codigo, operador) {
     let total = descuento_en_producto(precio,cantidad,descuento);
     carritos[ticket_en_uso][index].importe = total;
   }else{
-    console.log("tenemos que borrarte");
     const remover_carrito = carritos[ticket_en_uso].splice(index, 1);
   }
   mostrar_articulos_de_un_carrito();
@@ -213,8 +204,6 @@ function cobrar_productos() {
   const total = parseFloat(texto_total_compra.innerHTML);
   const datos = new FormData();
   const array = JSON.stringify(carritos[ticket_en_uso]);
-console.log("desde cobrar")
-  console.log(cliente);
   datos.append("someData", array);
   datos.append("id_venta", id_venta_actual);
   datos.append("id_cliente", id_cliente);
@@ -222,7 +211,6 @@ console.log("desde cobrar")
   datos.append("total_venta", total);
   datos.append("accion", "registrar_venta");
   envio_array(datos).then((res) => {
-    console.log(res);
     texto_venta_actual.innerHTML = `id de la venta actual : ${res.id}`;
     id_venta_actual = res.id;
     const r_id = (document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${res.id}`);
@@ -230,20 +218,18 @@ console.log("desde cobrar")
   tickets.forEach((ticket,index) => ticket = index);
 pintado_inicial_todo();
 cerrar_modal_venta();
-  alert("se ha registrado el cobro correctamente");
   if (tickets.length === 0){
     creacion_del_primer_ticket();
    }
 }
 
 function buscar_si_existe_el_cliente(valor_recibido) {
-console.log("desde la busqueda del cliente")
   const datos = new FormData();
   datos.append("telefono_cliente",valor_recibido);
   datos.append("accion","buscar_cliente");
   enviar_datos(datos).then((resd) =>{
 
-    if (resd.existe) alert("existe");
+    if (resd.existe) alert("cliente encontrado");
     else document.querySelector("#cliente").value = 1;
     id_cliente = resd.id;
   });
@@ -265,10 +251,7 @@ function sincronizacion_de_tickets() {
 }
 
 function eliminar_ticket() {
-  console.log("desde eliminar ticket");
-
   pintado_inicial_todo();
-  alert("se ha eliminado correctamente");
   if (tickets.length === 0) {
     creacion_del_primer_ticket();
   }
