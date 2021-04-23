@@ -4,14 +4,6 @@ const listado3 = document.querySelector("#contenido_tabla3");
 const btn_buscar = document.querySelector("#buscar");
 let id_necesario = 0;
 
-const btn_ventas = document.querySelector("#pdf_empleado").addEventListener("click",generar_pdf_1);
-
-function generar_pdf_1(e) {
-  e.preventdefault();
-  window.location("../../peticiones/finanzas/pdf_empleado_ventas.php");
-}
-
-
 document.addEventListener("DOMContentLoaded", () => {
   mostrarTabla1();
   mostrarTabla2();
