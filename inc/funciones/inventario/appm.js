@@ -128,6 +128,9 @@ function obtener_datos_unitarios(e) {
   }
 }
 
+
+function actualizar(){location.reload(true);}
+
  function editar_registro(e) {
   e.preventDefault();
   const edit_marca = document.querySelector("#edit_marca").value;
@@ -138,6 +141,10 @@ function obtener_datos_unitarios(e) {
   datos.append("nombre", edit_marca);
   datos.append("estado", estado);
   datos.append("accion", "actualizarm");
+
+
+  alert('Marca Actualizada')
+  setInterval("actualizar()",1000);
 
   /*const peticion = await llamado(datos);
   console.log(peticion);

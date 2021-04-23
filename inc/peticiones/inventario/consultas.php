@@ -393,9 +393,9 @@ function actualizar_marca(): array
         require '../../../conexion.php';
         $id = $_POST['id'];
         $nombre = $_POST['nombre'];
-        $categoria = $_POST['categoria'];
+        $estado = $_POST['estado'];
 
-        $sql = "UPDATE `marcas` SET `id_categoria` = '$categoria', `nombre` = '$nombre' WHERE `marcas`.`id_marcas` = $id;";
+        $sql = "UPDATE `marcas` SET `nombre` = '$nombre', `estado` = '$estado' WHERE `marcas`.`id_marcas` = $id;";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
