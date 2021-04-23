@@ -202,8 +202,8 @@
 
                                 <div class="card border-dark">
                                     <div align="center" class="card-header bg-dark">
-                                        <div class="col-md-5">
-                                            <button  class="btn btn-light">Editar Información del Producto <i class="fas fa-edit"></i></button>
+                                        <div id="boton" class="col-md-5">
+                                            <button type="button" data-toggle="modal"  data-target="#edit-modal" class="btn btn-light">Editar Información del Producto <i class="fas fa-edit"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +239,7 @@
                                                     <div class="form-group">
                                                         <label>Precio de Venta</label>
                                                         <input class="form-control" type="text" required=""
-                                                            id="edit_precioventa" name="edit_venta">
+                                                            id="edit_venta" name="edit_venta">
                                                     </div>
 
                                                     <div class="form-group">
