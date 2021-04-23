@@ -87,7 +87,7 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Nombre Marca</th>
-                                            <th scope="col">Categoria</th>
+                                            <th scope="col">Estado</th>
                                             <th scope="col">Editar</th>
                                             <th scope="col">Eliminar</th>
                                         </tr>
@@ -124,15 +124,13 @@
                                                             required="" placeholder="Nombre de Marca">
                                                     </div>
                                                     
-
-
-                                                        <div class="form-group mb-4">
-                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
-                                                            <select class="custom-select mr-sm-2" id="edit_estado">
-                                                                <!--<option selected value="1">Marca1</option>
-                                                                <option value="2">Marca2</option>-->
-                                                            </select>
-                                                        </div>
+                                                    <div class="form-group mb-4">
+                                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
+                                                        <select class="custom-select mr-sm-2" id="edit_estado">
+                                                            <option selected value="0">Inactivo</option>
+                                                            <option value="1">Activo</option>
+                                                        </select>
+                                                    </div>
 
                                                     <div class="form-group text-center">
                                                         <button class="btn btn-primary" type="submit">Guardar Cambios</button>
