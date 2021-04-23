@@ -44,8 +44,8 @@ async function compras_hoy() {
         <tr>
             <td>${id_pedido}</td>
             <td>${usuario}</td>
-            <td>${fecha}</td>
             <td>${proveedor}</td>
+            <td>${fecha}</td>
             <td>$ ${total}</td>
             <td>$ ${pagado}</td>
             <td>$ ${debido}</td>

@@ -33,8 +33,7 @@ async function mostrar_detalle(id_venta) {
       
       listado_clientes.innerHTML += `  
         <tr>
-            <td> <img src="../../imagenes/productos/${foto}" alt="user" class="rounded-circle"
-            width="40"> </td>
+            
             <td scope="row">${codigo}</td>
             <td scope="row">${nombre_producto}</td>
             <td>${cantidad} </td>  

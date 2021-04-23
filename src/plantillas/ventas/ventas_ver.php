@@ -62,7 +62,6 @@
                                     <thead>
                                         <div id="mensaje2"></div>
                                         <tr>
-                                            <th scope="col">foto</th>
                                             <th scope="col">codigo</th>
                                             <th scope="col">producto</th>
                                             <th scope="col">cantidad</th>

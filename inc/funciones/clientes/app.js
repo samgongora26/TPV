@@ -34,7 +34,22 @@ async function mostrarServicios() {
     res.forEach((servicio) => {
       // console.log(servicio);
       const { id, clave, nombre, telefono, direccion } = servicio;
-      listado_clientes.innerHTML += `  
+      if(nombre == "Cliente general"){
+        listado_clientes.innerHTML += `  
+        <tr id="ver_registro_${id}">
+              <th scope="row">${id}</th>
+              <td> ${clave}</td>
+              <td>${nombre}</td>
+              <td>${direccion}</td>
+              <td>${telefono}</td>
+              <td>
+                <i> Este cliente no puede ser modificado </i>
+              </td>
+          </tr>
+          `;
+      }
+      else{
+        listado_clientes.innerHTML += `  
       <tr id="ver_registro_${id}">
               <th scope="row">${id}</th>
               <td> ${clave}</td>
@@ -47,7 +62,9 @@ async function mostrarServicios() {
               </td>
               <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
           </tr>
-          `;
+          `;  
+      }
+      
     });
   });
 }
