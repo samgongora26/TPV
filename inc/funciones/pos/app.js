@@ -233,8 +233,6 @@ cerrar_modal_venta();
   alert("se ha registrado el cobro correctamente");
   if (tickets.length === 0){
     creacion_del_primer_ticket();
-   }else{
-   // pintar(res);
    }
 }
 
@@ -273,8 +271,6 @@ function eliminar_ticket() {
   alert("se ha eliminado correctamente");
   if (tickets.length === 0) {
     creacion_del_primer_ticket();
-  } else {
-    pintar(res);
   }
 }
 
