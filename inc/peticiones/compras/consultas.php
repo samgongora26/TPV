@@ -10,7 +10,7 @@ function registrar_compra(): array
         //PARA PODER AGREGAR UNA COLUMNA EN DETALLE_COMPRA SE DEBE
         //1. BUSCAR EL CODIGO EN LOS PRODUCTOS
             //COMPROBACIÓN DE LA EXISTENCIA DEL PRODUCTO
-            $sql = "SELECT * FROM `productos_inventario` WHERE `codigo` = $codigo;";
+            $sql = "SELECT * FROM `productos_inventario` WHERE `codigo` = '$codigo';";
             $consulta = mysqli_query($conexion, $sql);
             $total = mysqli_num_rows($consulta); //Guarda el numero de filas de la consulta
             $mensaje = 0;
