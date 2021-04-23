@@ -107,10 +107,10 @@ function actualizar_categoria(): array
         require '../../../conexion.php';
         $id = $_POST['id'];
         $nombre = $_POST['nombre'];
-        $estado = $_POST['estado'];
+        $marca = $_POST['marca'];
         $detalles = $_POST['detalles'];
 
-              $sql = "UPDATE `categorias` SET `nombre_categoria` = '$nombre', `estado` = '$estado', `detalles` = '$detalles' WHERE `categorias`.`id_categoria` = $id;";
+        $sql = "UPDATE `categorias` SET `nombre_categoria` = '$nombre', `detalles` = '$detalles' WHERE `categorias`.`id_categoria` = $id;";
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
@@ -238,15 +238,15 @@ function todo_categorias(): array
     try {
         require '../../../conexion.php';
 
-        $sql = "select * from categorias;";
+        $sql = "SELECT marcas.nombre AS marca, categorias.id_categoria, categorias.nombre_categoria, categorias.detalles FROM marcas, categorias WHERE categorias.id_marca = marcas.id_marcas";
         $consulta = mysqli_query($conexion, $sql);
 
         $usuarios = [];
         $i = 0;
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $usuarios[$i]['id'] = $row['id_categoria'];
+            $usuarios[$i]['marca'] = $row['marca'];
             $usuarios[$i]['nombre_categoria'] = $row['nombre_categoria'];
-            $usuarios[$i]['id_marca'] = $row['id_marca'];
             $usuarios[$i]['detalles'] = $row['detalles'];
             $i++;
         }
@@ -475,7 +475,7 @@ function filtro_categorias(): array
 
         $nombre = $_POST['nombre'];
 
-        $sql = "SELECT * FROM `categorias` WHERE nombre_categoria LIKE '%$nombre%';";
+        $sql = "SELECT categorias.id_categoria, marcas.nombre AS marca, categorias.nombre_categoria, categorias.detalles FROM `categorias`, `marcas`  WHERE categorias.nombre_categoria LIKE '%$nombre%' AND categorias.id_marca = marcas.id_marcas;";
         $consulta = mysqli_query($conexion, $sql);
 
         $usuarios = [];
@@ -483,7 +483,7 @@ function filtro_categorias(): array
         while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
             $usuarios[$i]['id'] = $row['id_categoria'];
             $usuarios[$i]['nombre_categoria'] = $row['nombre_categoria'];
-            $usuarios[$i]['id_marca'] = $row['id_marca'];
+            $usuarios[$i]['marca'] = $row['marca'];
             $usuarios[$i]['detalles'] = $row['detalles'];
             $i++;
         }
