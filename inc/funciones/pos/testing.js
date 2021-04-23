@@ -18,13 +18,17 @@ function recuperar_ticket_o_crear_nuevo(e) {
   const esnuevo = id_del_ticket_seleccionado ?? "nuevo";
 
   if (esnuevo === "nuevo" && clase ==="ticket") {
-    const resultado = agregar_array_tickets();
-    creacion_de_nuevo_contenedor(resultado);
+    creacion_del_primer_ticket();
   } else {
     ticket_en_uso = id_del_ticket_seleccionado;
     mostrar_articulos_de_un_carrito();
   }
 };
+
+function creacion_del_primer_ticket() {
+  const resultado = agregar_array_tickets();
+  creacion_de_nuevo_contenedor(resultado);
+}
 
 function existente_codigo_sin_evento()  {
   const codigo_recuperado = document.querySelector("#codigo_envio").value;

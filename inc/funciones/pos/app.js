@@ -97,11 +97,8 @@ function pintar_inicio(data) {
     mostrar_todos_los_tickets();
     texto_venta_actual.innerHTML = `id de la venta actual ${id_venta}`;
     id_venta_actual = id_venta;
-    if (tickets.length === 0){
-      const resultado = agregar_array_tickets();
-      creacion_de_nuevo_contenedor(resultado);
-    }; 
-  });
+    if (tickets.length === 0) creacion_del_primer_ticket(); 
+});
 }
 
 
@@ -234,6 +231,11 @@ console.log("desde cobrar")
 pintado_inicial_todo();
 cerrar_modal_venta();
   alert("se ha registrado el cobro correctamente");
+  if (tickets.length === 0){
+    creacion_del_primer_ticket();
+   }else{
+   // pintar(res);
+   }
 }
 
 function buscar_si_existe_el_cliente(valor_recibido) {
@@ -249,26 +251,31 @@ console.log("desde la busqueda del cliente")
   });
 }
 
-function pintado_inicial_todo() {
-  tickets.forEach((val,index) => val = index);
+ function pintado_inicial_todo() {
   limpiar_contenido_del_carrito();
   limpiar_campos_html();
+  sincronizacion_de_tickets();
   sincronizar_storage();
   mostrar_todos_los_tickets();
 }
 
+function sincronizacion_de_tickets() {
+  console.table(tickets);
+  const reemplazo = tickets.map((val,index) => val = index);
+  tickets = reemplazo;
+  console.table(tickets);
+}
+
 function eliminar_ticket() {
-  console.log("desde eliminar ticket");/*
-  console.log(id_venta_actual);
-  const datos = new FormData();
-  datos.append("id", id_venta_actual);
-  datos.append("accion", "eliminar_venta");
-  enviar_datos(datos).then((res) => {
-    texto_venta_actual.innerHTML = `id de la venta actual : ${res.id_nueva_venta}`;
-    id_venta_actual = res.id_nueva_venta;
-  });*/
-pintado_inicial_todo();
+  console.log("desde eliminar ticket");
+
+  pintado_inicial_todo();
   alert("se ha eliminado correctamente");
+  if (tickets.length === 0) {
+    creacion_del_primer_ticket();
+  } else {
+    pintar(res);
+  }
 }
 
 //funciones globales
@@ -285,17 +292,6 @@ async function enviar_datos(datos) {
   }
 }
 
-function limpiar_campos_html() {
-  const remover_carrito = carritos.splice(ticket_en_uso, 1);
-  const remover_ticket = tickets.splice(ticket_en_uso,1);
-  //suma = 0;
-  texto_total_compra.innerHTML = "";
-  const r_total = (document.querySelector("#monto_total").innerHTML = ` `);
-  const r_id = (document.querySelector("#modal_id").innerHTML = ``);
-  sincronizar_storage();
-
-}
-
 async function envio_array(datos) {
   try {
     const res = await fetch("../../../inc/peticiones/pos/funciones.php", {
@@ -309,6 +305,22 @@ async function envio_array(datos) {
   }
 }
 
+function limpiar_campos_html() {
+  const remover_carrito = carritos.splice(ticket_en_uso, 1);
+  const remover_ticket = tickets.splice(ticket_en_uso, 1);
+  texto_total_compra.innerHTML = "";
+
+  const r_id = (document.querySelector("#modal_id").innerHTML = ``);
+
+  //secciones del modal
+  document.getElementById("cobrar").disabled = true;
+  document.querySelector("#monto_recibido").value = ` `;
+  document.querySelector("#monto_devuelto").value = ` `;
+  document.querySelector("#monto_total").innerHTML = ` `;
+
+  sincronizar_storage();
+}
+
 function mostrar_total_modal(suma, id) {
   // la cantidad monetaria actual en el modal
   document.querySelector("#modal_id").innerHTML = `Cobrar el ticket ${id}`;
@@ -318,15 +330,13 @@ function mostrar_total_modal(suma, id) {
 
 function sincronizar_storage() {
 
-   console.log("quien es mas rapido");
   localStorage.setItem(`carritos`, JSON.stringify(carritos));
   localStorage.setItem(`tickets`, JSON.stringify(tickets));
 }
+
 function limpiar_lista_productos() {
   padre.innerHTML = "";
 }
-
-
 
 //cerrar modals
 function cerrar_modal_venta(){
