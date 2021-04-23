@@ -81,7 +81,7 @@ function llenar_formulario(cliente) {
 
 
 
-} 
+}
 
 
 function llenar_modal(cliente){
@@ -101,13 +101,13 @@ function llenar_modal(cliente){
   //const estado_text = document.querySelector("#estado_edit");
 }
 
-
+ function actualizar(){location.reload(true);}
 
 async function editar_registro(cliente) {
-  
+
   cliente.preventDefault();
   console.log("Entro A Editar Registro");
-  
+
   const nombre_edit = document.querySelector("#edit_nombre").value;
   const descripcion_edit = document.querySelector("#edit_descripcion").value;
   const codigo_edit = document.querySelector("#edit_codigo").value;
@@ -140,6 +140,8 @@ async function editar_registro(cliente) {
   //datos.append("estado", estado_text);
   datos.append("accion", "actualizar");
 
+  alert('Articulo Actualizado')
+  setInterval("actualizar()",1000);
 
   try {
     direccion = "../../../inc/peticiones/inventario/funciones.php";
@@ -153,7 +155,7 @@ async function editar_registro(cliente) {
   } catch (error) {
     console.log(error);
   }
-  
+
   //llenar_formulario(cliente);
 
 }

@@ -23,7 +23,7 @@ function busqueda_especifica(e) {
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const { id, nombre_categoria, id_marca, detalles} = datos;
+      const { id, nombre_categoria, marca, detalles} = datos;
 
       const listado_categoria = document.querySelector("#contenido_tabla");
 
@@ -31,8 +31,8 @@ function busqueda_especifica(e) {
           <tr id="ver_categorias_${id}">
             <th scope="row">${id}</th>
             <td>${nombre_categoria}</td>
-            <td>${id_marca}</td>
             <td>${detalles}</td>
+            <td>${marca}</td>
             <td>
                 <button type="button" class="btn btn-primary editar" data-toggle="modal"
                 data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
@@ -44,6 +44,7 @@ function busqueda_especifica(e) {
       `;
     });
   });
+  //setInterval("actualizar()",1000);
 }
 
 async function llamado(datos) {
@@ -69,7 +70,7 @@ async function llamado(datos) {
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const { id, nombre_categoria, id_marca, detalles} = datos;
+      const { id, nombre_categoria, marca, detalles} = datos;
 
       const listado_categoria = document.querySelector("#contenido_tabla");
 
@@ -78,7 +79,7 @@ async function llamado(datos) {
             <th scope="row">${id}</th>
             <td>${nombre_categoria}</td>
             <td>${detalles}</td>
-            <td>${id_marca}</td>
+            <td>${marca}</td>
             <td>
                 <button type="button" class="btn btn-primary editar" data-toggle="modal"
                 data-target="#edit-modal"><i data-cliente="${id}" class="icon-pencil editar"></i></button>
@@ -108,7 +109,7 @@ function eliminar_registro(e) {
     }
   }
 }
-
+function actualizar(){location.reload(true);}
 
 function obtener_datos_unitarios(e) {
   let idEliminar = null;
@@ -135,7 +136,7 @@ function obtener_datos_unitarios(e) {
  function editar_registro(e) {
   e.preventDefault();
   const edit_categoria = document.querySelector("#edit_categoria").value;
-  const edit_marca = document.querySelector("#edit_estado").value;
+  const edit_marca = document.querySelector("#edit_marca").value;
   const edit_detalles = document.querySelector("#edit_detalles").value;
 
   const datos = new FormData();
@@ -144,6 +145,9 @@ function obtener_datos_unitarios(e) {
   datos.append("marca", edit_marca);
   datos.append("detalles", edit_detalles);
   datos.append("accion", "actualizarc");
+ 
+  alert('Categoria Actualizada');
+  setInterval("actualizar()",1000);
 
   /*const peticion = await llamado(datos);
   console.log(peticion);

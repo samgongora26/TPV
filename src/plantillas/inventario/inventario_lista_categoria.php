@@ -120,26 +120,27 @@
 
                                                 <form class="pl-3 pr-3" action="#" id="form-modal-edit" name="for-modal-edit">
 
+
+                                                    <div class="form-group mb-4 invisible">
+                                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Marca</label>
+                                                        <select class="custom-select mr-sm-2" id="edit_marca">
+                                                            <!--<option selected value="1">Marca 1</option>
+                                                            <option value="0">Marca2</option>-->
+                                                        </select>
+                                                    </div>
+
                                                     <div class="form-group">
                                                         <label>Nombre Categoria</label>
                                                         <input class="form-control" type="text" id="edit_categoria" name="edit_categoria"
                                                             required="" placeholder="Nombre de Categoria">
                                                     </div>
 
-
-                                                        <div class="form-group mb-4">
-                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Estado</label>
-                                                            <select class="custom-select mr-sm-2" id="edit_estado">
-                                                                <option selected value="1">Activo</option>
-                                                                <option value="0">Inactivo</option>
-                                                            </select>
-                                                        </div>
-
                                                     <div class="form-group">
                                                         <label>Detalles</label>
                                                         <input class="form-control" type="text" required=""
                                                             id="edit_detalles" name="edit_detalles" placeholder="Detalles">
                                                     </div>
+
 
                                                     <div class="form-group text-center">
                                                         <button class="btn btn-primary" type="submit">Guardar Cambios</button>
