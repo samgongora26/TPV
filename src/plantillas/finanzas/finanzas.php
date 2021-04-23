@@ -65,7 +65,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <a href="../../../inc/peticiones/finanzas/pdf_empleado_ventas.php" target="_blank">
-                                                <button id="pdf_producto" class="btn bg-danger">
+                                                <button id="pdf_producto" class="btn bg-light">
                                                     <i class="far fa-file-pdf"></i>        
                                                 </button>
                                             <a/>
@@ -104,7 +104,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <a href="../../../inc/peticiones/finanzas/pdf_cliente_compra.php" target="_blank">
-                                                <button id="pdf_producto" class="btn bg-danger">
+                                                <button id="pdf_producto" class="btn bg-light">
                                                     <i class="far fa-file-pdf"></i>        
                                                 </button>
                                             <a/>
@@ -134,11 +134,11 @@
                                 </div>
 
                                 <!-- tabla -->
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <a href="../../../inc/peticiones/finanzas/pdf_producto_vendido.php" target="_blank">
-                                                <button id="pdf_producto" class="btn bg-danger">
+                                                <button id="pdf_producto" class="btn bg-light">
                                                     <i class="far fa-file-pdf"></i>        
                                                 </button>
                                             <a/>

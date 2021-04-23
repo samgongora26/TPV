@@ -28,7 +28,7 @@ async function mostrar_detalle(id_pedido) {
     db.forEach((servicio) => {
       //console.log(servicio);
       const { id_producto,nombre_producto, stock, cantidad, precio_compra, importe, id_detalle_pedido,codigo} = servicio;
-      suma += parseInt(importe);
+      suma += parseFloat(importe);
       const listado_clientes = document.querySelector("#contenido_tabla");
       
       listado_clientes.innerHTML += `  

@@ -6,7 +6,7 @@ function buscar_producto(): array
 
         $codigo = $_POST['codigo'];
 
-        $sql = "select * from productos_inventario where codigo=$codigo;";
+        $sql = "select * from productos_inventario where codigo= '$codigo';";
         $consulta = mysqli_query($conexion, $sql);
 
         $estado = false;
@@ -167,7 +167,7 @@ function buscar_cliente(): array
         } else {
             $variable = array(
                 'existe' => false,
-                'id' => 0
+                'id' => 1
             );
         }
 
@@ -192,7 +192,7 @@ function registrar_venta(): array
         $consulta1 = mysqli_query($conexion, $sql1);
 
         $stmt = $conexion->prepare("INSERT INTO detalle_venta (id_venta, id_producto, precio_venta, cantidad, importe) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("iiiii", $venta, $producto, $precio, $cantidad, $importe);
+        $stmt->bind_param("iidid", $venta, $producto, $precio, $cantidad, $importe);
         $contador = 0;
 
         //consultas de inventario
