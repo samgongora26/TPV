@@ -64,9 +64,11 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <button id="pdf_empleado" class="btn bg-danger">
-                                                <i class="far fa-file-pdf"></i>
-                                            </button>
+                                            <a href="../../../inc/peticiones/finanzas/pdf_empleado_ventas.php" target="_blank">
+                                                <button id="pdf_producto" class="btn bg-danger">
+                                                    <i class="far fa-file-pdf"></i>        
+                                                </button>
+                                            <a/>
                                             <p></p>
                                             <h4 class="card-title">Empleados con más Ventas</h4>
                                             <div class="table-responsive">
@@ -101,9 +103,11 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <button class="btn bg-danger">
-                                                <i class="far fa-file-pdf"></i>
-                                            </button>
+                                            <a href="../../../inc/peticiones/finanzas/pdf_cliente_compra.php" target="_blank">
+                                                <button id="pdf_producto" class="btn bg-danger">
+                                                    <i class="far fa-file-pdf"></i>        
+                                                </button>
+                                            <a/>
                                             <p></p>
                                             <h4 class="card-title">Cliente con más Compras</h4>
                                             <div class="table-responsive">
@@ -133,9 +137,11 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <button class="btn bg-danger">
-                                                <i class="far fa-file-pdf"></i>
-                                            </button>
+                                            <a href="../../../inc/peticiones/finanzas/pdf_producto_vendido.php" target="_blank">
+                                                <button id="pdf_producto" class="btn bg-danger">
+                                                    <i class="far fa-file-pdf"></i>        
+                                                </button>
+                                            <a/>
                                             <p></p>
                                             <h4 class="card-title">Producto más Vendido</h4>
                                             <div class="table-responsive">
