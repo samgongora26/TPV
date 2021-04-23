@@ -51,6 +51,9 @@ switch ($accion) {
     case "actualizarm":
         $resultado = actualizar_marca();
         break;
+    case "actualizarver":
+        $resultado = actualizar_ver();
+        break;
     case "filtro":
         $resultado = filtro_productos();
         break;
