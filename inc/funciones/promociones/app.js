@@ -57,12 +57,11 @@ async function mostrar_promociones() {
     const db = await resultado.json();
     db.forEach((servicio) => {
       //console.log(servicio);
-      const {id_producto, foto,nombre_producto,codigo, promocion_porcentaje} = servicio;
+      const {id_producto,nombre_producto,codigo, promocion_porcentaje} = servicio;
       const listado_clientes = document.querySelector("#contenido_tabla");
       listado_clientes.innerHTML += `  
         <tr>
-            <td> <img src="../../imagenes/productos/${foto}" alt="user" class="rounded-circle"
-            width="40"> </td>
+            
             <td scope="row">${nombre_producto}</td>
             <td scope="row">${codigo}</td>
             <td>%${promocion_porcentaje} </td>  

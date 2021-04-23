@@ -99,7 +99,6 @@
                                     <div id="mensaje2"></div>
                                     <thead>
                                         <tr>
-                                            <th>Foto</th>
                                             <th>Producto</th>
                                             <th>Codigo</th>
                                             <th>descuento</th>

@@ -42,8 +42,8 @@ async function mostrarServicios() {
               <td>${direccion}</td>
               <td>${telefono}</td>
               <td>
-              <button type="button" class="btn btn-primary" data-toggle="modal"
-              data-target="#edit-modal"> <i data-cliente="${id}" class="icon-pencil editar"></i></button>
+              <button type="button" class="btn " data-toggle="modal"
+              data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></button>
               </td>
               <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
           </tr>
@@ -131,8 +131,8 @@ function editar_registro(e) {
     <td>${direccion}</td>
     <td>${telefono}</td>
     <td>
-    <button type="button" class="btn btn-primary" data-toggle="modal"
-    data-target="#edit-modal"> <i data-cliente="${id}" class="icon-pencil editar"></i></button>
+    <button type="button" class="btn" data-toggle="modal"
+    data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></button>
     </td>
     <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
     `;
