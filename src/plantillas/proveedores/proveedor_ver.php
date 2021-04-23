@@ -57,16 +57,16 @@
                                 </ol>
                 <!-- Row de tarjetas superiores -->
                 <div class="row">
-                    <!--Tarjeta de proveedor-->
+                    <!--Tarjeta de proveedor
                     <div class="col-md-3">
                         <div class="card text-white bg-dark">
                             <div align="center" class="card-header">
-                                <h4 class="mb-0 text-white" id="nombre"><!-- se inyecta el nombre--></h4>
+                                <h4 class="mb-0 text-white" id="nombre"></h4>
                             </div>
                             <div class="card-body">
                                 <div id="img_proveedor"></div>
                                 
-                                <!--div class="row">
+                                <div class="row">
                                     <div class="col-md-3">
                                         <a href="javascript:void(0)" class="btn btn-primary">Facturas</a>
                                     </div>
@@ -76,15 +76,15 @@
                                     <div class="col-md-5">
                                         <a href="javascript:void(0)" class="btn btn-primary">Editar Proveedor <i class="fas fa-edit"></i></a>
                                     </div>
-                                </div-->
+                                </div>
 
                             </div>
                         </div>
                     </div>
-                    <!--Fin Tarjeta de proveedor-->
+                    Fin Tarjeta de proveedor-->
 
                     <!--Tarjeta de contacto-->
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         <div class="card border-dark">
                             <div align="center" class="card-header bg-dark">
                                 <h4 class="mb-0 text-white">Contacto</h4>

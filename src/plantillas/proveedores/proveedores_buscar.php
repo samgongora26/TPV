@@ -88,7 +88,7 @@
                                     <div id="mensaje"></div>
                                     <table class="table">
                                         <thead>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <th scope="col">#</th>
                                                 <th scope="col">Clave</th>
                                                 <th scope="col">Nombre</th>

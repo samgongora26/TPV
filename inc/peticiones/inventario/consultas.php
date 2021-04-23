@@ -50,6 +50,8 @@ function registrar_producto(): array
     mysqli_close($conexion);
 }
 
+
+
 function todo_inventario(): array
 {
     try {
