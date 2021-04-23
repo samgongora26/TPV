@@ -8,7 +8,7 @@ const btn_ventas = document.querySelector("#pdf_empleado").addEventListener("cli
 
 function generar_pdf_1(e) {
   e.preventdefault();
-  window.location("../peticiones/finanzas/pdf_empleado_ventas.php");
+  window.location("../../peticiones/finanzas/pdf_empleado_ventas.php");
 }
 
 
