@@ -18,11 +18,26 @@
                                 </span></a>
                         </li>
 
-                        <!--FINANZAS-->
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../finanzas/finanzas.php"
-                                aria-expanded="false"><i class="fas fa-chart-line"></i><span
-                                    class="hide-menu">Reportes y Finanzas
-                                </span></a>
+                        
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fas fa-chart-line"></i>
+                                <span class="hide-menu">Reportes y Finanzas</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="../finanzas/estadisticas_generales.php" class="sidebar-link">
+                                        <span class="hide-menu">
+                                        <i class="fas fa-chart-line"></i>Estadísticas</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item"><a href="../finanzas/estadisticas_dia.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-calendar"></i>Estadísticas día</span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="../finanzas/finanzas.php" class="sidebar-link"><span
+                                            class="hide-menu"><i class="fas fa-file-alt"></i>Reportes</span></a>
+                                </li>
+                            </ul>
                         </li>
 
                         <!--INVENTARIO-->
