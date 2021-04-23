@@ -263,18 +263,26 @@ function actualizar_producto(): array
     try {
         require '../../../conexion.php';
         $id = $_POST['id'];
-        $barra = $_POST['barra'];
+        $barra = $_POST['codigo'];
         $nombre = $_POST['nombre'];
-        $venta = $_POST['precio_venta'];
-        $stock = $_POST['stock'];
-        $costo = $_POST['precio_compra'];
+        $descripcion = $_POST['descripcion'];
+        $costo = $_POST['preciocosto'];
+        $venta = $_POST['precioventa'];
+        $mayoreo = $_POST['preciomayoreo'];
+        $stock = $_POST['stockactual'];
+        $stockmin = $_POST['stockmin'];
+        $stockmax = $_POST['stockmax'];
 
-              $sql = "UPDATE `productos_inventario` SET `nombre_producto` = '$nombre', `codigo` = '$barra', `precio_costo` = '$costo', `precio_venta` = '$venta', `cantidad_stock` = '$stock' WHERE `productos_inventario`.`id_producto` = $id;";
+       $sql = "UPDATE `productos_inventario` SET `nombre_producto` = '$nombre', `descripcion` = '$descripcion' ,`codigo` = '$barra', `precio_costo` = '$costo', `precio_venta` = '$venta', `precio_mayoreo` = '$mayoreo', `cantidad_stock` = '$stock', `stock_min` = '$stockmin', `stock_max` = '$stockmax' WHERE `productos_inventario`.`id_producto` = $id;";
+
         $consulta = mysqli_query($conexion, $sql);
 
         $respuesta = array(
             'respuesta' => 'correcto',
-            'id' => $id
+            'id' => $id,
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
+            'codigo' => $barra
         );
 
         return $respuesta;
