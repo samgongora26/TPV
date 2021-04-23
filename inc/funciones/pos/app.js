@@ -244,7 +244,7 @@ console.log("desde la busqueda del cliente")
   enviar_datos(datos).then((resd) =>{
 
     if (resd.existe) alert("existe");
-    else document.querySelector("#cliente").value = 0;
+    else document.querySelector("#cliente").value = 1;
     id_cliente = resd.id;
   });
 }

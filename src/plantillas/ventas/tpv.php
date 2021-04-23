@@ -142,7 +142,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <small id="name" class="form-text text-muted">cliente</small>
-                                                    <input type="text" class="form-control" id="cliente" aria-describedby="name" placeholder="numero cliente" >
+                                                    <input type="text" class="form-control" id="cliente" aria-describedby="name" placeholder="numero cliente" value=1 >
                                                 </div>
                                             </div>
                                             <div class="modal-footer"> 
