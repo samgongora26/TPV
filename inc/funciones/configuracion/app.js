@@ -1,12 +1,14 @@
 const listado1 = document.querySelector("#contenidoconfig");
 const modal = document.querySelector("#form-modal-edit");
+const modall = document.querySelector("#edit-modal");
 
 let id_necesario = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrarTabla1();
   modal.addEventListener("submit", editar_registro);
-  listado_productos.addEventListener("click", obtener_datos_unitarios);
+
+  //listado_productos.addEventListener("click", obtener_datos_unitarios);
 });
 
 
@@ -31,10 +33,12 @@ function mostrarTabla1() {
   const datos = new FormData();
   datos.append("accion", "busqueda");
 
+ 
+
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);
-      const {id, direccion, razon, nombre, telefono, email} = datos;
+      const {direccion, razon, nombre, telefono, email} = datos;
 
       const listado1 = document.querySelector("#contenidoconfig");
 
@@ -61,22 +65,23 @@ function mostrarTabla1() {
         <div class="row">
             
             <div class="col-md-5">
-              <button type="button" class="btn btn-primary editar" data-toggle="modal"
-              data-target="#edit-modal">Editar Informacion de la Empresa <i data-cliente="${id}" class="fas fa-edit editar"></i></button>
+            <button type="button" data-toggle="modal"  data-target="#edit-modal" class="btn btn-light">Editar Información del Producto <i class="fas fa-edit"></i></button>
             </div>
         </div>
         `;
     });
   });
+  llenar_modal(datos);
 }
 
+/*
 function obtener_datos_unitarios(e) {
   //let idEliminar = null;
   if (e.target.classList.contains("editar")) {
     console.log("Entro a editar");
-    /*idEliminar = Number(e.target.dataset.cliente);
+    idEliminar = Number(e.target.dataset.cliente);
     id_necesario = idEliminar;
-    console.log(id_necesario);*/
+    console.log(id_necesario);
     const datos = new FormData();
     //datos.append("id", id_necesario);
     datos.append("accion", "busqueda");
@@ -94,10 +99,21 @@ function obtener_datos_unitarios(e) {
         res.direccion);
     });
   }
+}*/
+
+function llenar_modal(datos){
+  const {direccion, razon, nombre, telefono, email} = datos;
+
+  document.querySelector("#edit_razon").value = razon;
+  document.querySelector("#edit_nombre").value = nombre;
+  document.querySelector("#edit_telefono").value = telefono;
+  document.querySelector("#edit_email").value = email;
+  document.querySelector("#edit_direccion").value = direccion;
+
 }
 
 
- function editar_registro(e) {
+ async function editar_registro(e) {
   e.preventDefault();
   console.log("Haaaaaaaaaaaa");
   const edit_razon = document.querySelector("#edit_razon").value;
@@ -115,9 +131,27 @@ function obtener_datos_unitarios(e) {
   datos.append("direccion", edit_direccion);
   datos.append("accion", "actualizar");
 
-  /*const peticion = await llamado(datos);
+
+  try {
+    direccion = "../../../inc/peticiones/configuracion/funciones.php";
+    const peticion = await fetch(direccion, {
+      method: "POST",
+      body: datos,
+    });
+    const resultado = await peticion.json();
+    console.log(resultado);
+    editar_registro(resultado);
+  } catch (error) {
+    console.log(error);
+  }
+
+  
+}
+
+
+/*const peticion = await llamado(datos);
   console.log(peticion);
-  alert("los datos se han cambiado correctamente");*/
+  alert("los datos se han cambiado correctamente");
 
   llamado(datos).then((res) => {
     console.log(res);
@@ -153,5 +187,4 @@ function obtener_datos_unitarios(e) {
       </div>
     `;
     // console.log(registro_contenido);
-  });
-}
+  });*/

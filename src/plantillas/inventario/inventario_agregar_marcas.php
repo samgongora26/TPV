@@ -61,8 +61,8 @@
                                     <h6 class="card-subtitle">Rellena los campos para agregar una nueva marca</h6>
                                     <form id="formulario_agregar_marca" class="mt-4">
                                         <div class="form-group">
-                                            <label>Imagen</label>
-                                            <input id="imagen" name="imagen" type="file" class="form-control">
+                                            <!--<label>Imagen</label>
+                                            <input id="imagen" name="imagen" type="file" class="form-control">-->
                                             <label>Nombre Marca:</label>
                                             <input id="nombre_marca" name="nombre_categoria" type="text" class="form-control" required>
 
