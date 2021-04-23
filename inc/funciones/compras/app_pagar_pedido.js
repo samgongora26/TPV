@@ -114,12 +114,12 @@ function obtener_monto() {
   //Se obtienen los datos de los input de la interfaz
   let monto = document.querySelector("#monto").value;
   const usuario = document.querySelector("#usuario").value;   
-  const por_pagar = parseInt(document.getElementById("por_pagar2").value);
+  const por_pagar = parseFloat(document.getElementById("por_pagar2").value);
   const id_pedido = document.getElementById("id_pedido").value;
   const debido = document.getElementById("debido2").value;
   const pagado = document.getElementById("pagado2").value;
   
-  monto = parseInt(monto) + parseInt(pagado);
+  monto = parseFloat(monto) + parseFloat(pagado);
   console.log(
     monto,
     usuario,
