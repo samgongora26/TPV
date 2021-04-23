@@ -12,6 +12,9 @@ switch ($accion) {
     case "tabla3":
         $resultado = mejores_productos();
         break;
+    case "buscar_fecha":
+        $resultado = buscar_fecha();
+        break;
 }
 
 echo json_encode(($resultado));// envio el retorno del array a donde se me pide

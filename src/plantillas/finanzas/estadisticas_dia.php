@@ -60,8 +60,8 @@
                                             
                                         <label for="" class="mr-3">Búsca un día</label>
                                     
-                                        <input type="date" id="codigo_elegido" value="" class="form-control">
-                                        <button class="btn btn-sm btn-success float left" onclick="venta_folio_especifico()">Buscar</button>
+                                        <input type="date" id="fecha_elegida" value="" class="form-control">
+                                        <button class="btn btn-sm btn-success float left" onclick="finanzas_dia()">Buscar</button>
                                     </div>
                                     <div id="mensaje2"></div> 
                                 </div>
@@ -72,7 +72,7 @@
                                 <div class="d-flex d-lg-flex d-md-block align-items-center">
                                     <div>
                                         <div class="d-inline-flex align-items-center">
-                                            <h2 class="text-dark mb-1 font-weight-medium">000</h2>
+                                            <h2 class="text-dark mb-1 font-weight-medium" id="articulos_vendidos">000</h2>
                                         </div>
                                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Articulos vendidos</h6>
                                     </div>
@@ -86,7 +86,7 @@
                             <div class="card-body">
                                 <div class="d-flex d-lg-flex d-md-block align-items-center">
                                     <div>
-                                        <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup class="set-doller">$</sup>000</h2>
+                                        <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium" id="ventas"><sup class="set-doller">$</sup>000</h2>
                                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Ventas
                                         </h6>
                                     </div>
@@ -101,7 +101,7 @@
                                 <div class="d-flex d-lg-flex d-md-block align-items-center">
                                     <div>
                                         <div class="d-inline-flex align-items-center">
-                                            <h2 class="text-dark mb-1 font-weight-medium"><sup class="set-doller">$</sup>000</h2>
+                                            <h2 class="text-dark mb-1 font-weight-medium" id="promedio_ventas"><sup class="set-doller">$</sup>000</h2>
                                             
                                         </div>
                                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Promedio de ventas</h6>
@@ -117,7 +117,7 @@
                                 <div class="d-flex d-lg-flex d-md-block align-items-center">
                                     <div>
                                         <div class="d-inline-flex align-items-center">
-                                            <h2 class="text-dark mb-1 font-weight-medium">000</h2>
+                                            <h2 class="text-dark mb-1 font-weight-medium" id="tickets_vendidos">000</h2>
                                             
                                         </div>
                                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Tickets vendidos</h6>
@@ -137,7 +137,7 @@
                     <div class="col-md-6">
                         <div class="card text-white">
                             <div class="card-body bg-success">
-                                <h3 class="card-title text-white"> $ 0000</h3>
+                                <h3 class="card-title text-white" id="ventas_hoy2"> $ 0000</h3>
                                 <p class="card-text">Total de ventas de hoy</p>
                                 <p class="text-white"> <i>Entradas</i> </p>
                             </div>
@@ -146,7 +146,7 @@
                     <div class="col-md-6">
                         <div class="card text-white">
                             <div class="card-body bg-danger">
-                                <h3 class="card-title text-white">- $0000</h3>
+                                <h3 class="card-title text-white" id="compras_hoy">- $0000</h3>
                                 <p class="card-text">Total de compras de hoy</p>
                                 <p class="text-white"> <i>Salidas</i> </p>
                             </div>
@@ -167,7 +167,7 @@
     <?php
     include '../../../componentes/scripts.php';
     ?>
-    <script src="../../../inc/funciones/finanzas/app.js"></script>
+    <script src="../../../inc/funciones/finanzas/app_historial_finanzas.js"></script>
 
 </body>
 

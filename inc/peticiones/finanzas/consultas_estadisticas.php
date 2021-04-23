@@ -73,7 +73,6 @@ try {
     
     //CONSULTAS QUE HICE PERO QUE NO HICIERON LO QUE QUERIA, PERO PUEDEN RESULTAR UTILES DESPUÉS....
     
-    
     //NUMERO DE COMPRAS EN LA SEMANA
     //SELECT count(`pedidos`.`id_pedido`) as compras FROM `pedidos` WHERE `fecha` BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE() ORDER by `fecha` 
     /*$sql = "SELECT count(`pedidos`.`id_pedido`) as compras FROM `pedidos` WHERE `fecha` BETWEEN CURRENT_DATE()-7 AND CURRENT_DATE() ORDER by `fecha`";
