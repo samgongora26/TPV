@@ -312,9 +312,23 @@
                                         <div class="col-md-10">
                                             <h3>Articulos que están en stock minimo</h3>
                                             <ul style="list-style: none;">
-                                                <li>1: coca </li>
-                                                <li>2: si<li>
-                                                <li>3: no</li>
+                                                <?php 
+                                                    try {
+                                                        require '../../../conexion.php'; 
+                                                        $sql = "SELECT `nombre_producto` FROM `productos_inventario` WHERE `cantidad_stock` <= `stock_min` ";
+                                                        $consulta = mysqli_query($conexion, $sql);
+                                                        
+                                                        $i = 1; 
+                                                        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+                                                            echo '<li>'.$i.': '.$row['nombre_producto'].' </li>' ;
+                                                            $i++;
+                                                        }
+                                                
+                                                        
+                                                    } catch (\Throwable $th) {
+                                                        var_dump($th);
+                                                    }
+                                                ?>
                                             </ul>
                                         </div>
                                     </div>
@@ -325,9 +339,23 @@
                                         <div class="col-md-10">
                                         <h3>Productos agotados</h3>
                                             <ul style="list-style: none;">
-                                                <li>1: coca </li>
-                                                <li>2: si<li>
-                                                <li>3: no</li>
+                                                <?php 
+                                                    try {
+                                                        require '../../../conexion.php'; 
+                                                        $sql = "SELECT `nombre_producto` FROM `productos_inventario` WHERE `cantidad_stock` <= 0 ";
+                                                        $consulta = mysqli_query($conexion, $sql);
+                                                        
+                                                        $i = 1; 
+                                                        while ($row = mysqli_fetch_assoc($consulta)) { //usar cuando se espera varios resultadosS
+                                                            echo '<li>'.$i.': '.$row['nombre_producto'].' </li>' ;
+                                                            $i++;
+                                                        }
+                                                
+                                                        
+                                                    } catch (\Throwable $th) {
+                                                        var_dump($th);
+                                                    }
+                                                ?>
                                             </ul>
                                         </div>
                                     </div>
