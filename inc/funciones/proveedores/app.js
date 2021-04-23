@@ -101,7 +101,7 @@ function eliminar_registro(e) {
   let idEliminar = null;
   if (e.target.classList.contains("eliminar")) {
     idEliminar = Number(e.target.dataset.cliente);
-    const confirmar = confirm("Deseas eliminar este cliente?");
+    const confirmar = confirm("¿Deseas eliminar este proveedor?");
     if (confirmar) {
       //  console.log(idEliminar);
       const datos = new FormData();
@@ -177,22 +177,22 @@ function editar_registro(e) {
       `#ver_registro_${id_necesario}`
     );
 
-    const { id, clave, nombre, direccion, telefono, razon, rfc } = res;
+    const { id, clave, folio, nombre, direccion, telefono, razon, rfc } = res;
     registro_contenido.innerHTML = `
+
+    <tr id="ver_registro_${id}">
     <th scope="row">${id}</th>
-    <td>${clave}</td>
+    <td>${folio}</td>
     <td>${nombre}</td>
     <td>${razon}</td>
-    <td>${direccion}</td>
-    <td>${telefono}</td>
-    <td>${rfc}</td>
-    <td><a href="google.com.mx"><i class="fas fa-check-circle"></i> </a></td>
-    <td><a href="proveedor_ver.php?id=${id}"><i class="fas fa-eye"></i> </a></td>            
     <td>
-    <button type="button" class="btn btn-primary" data-toggle="modal"
-    data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></button>
+      <a href="proveedor_ver.php?id=${id}"><i class="fas fa-eye"></i> </a>
+      <i class="" data-toggle="modal" data-target="#edit-modal"> <i data-cliente="${id}" class="fas fa-edit editar"></i></i>
+      <i data-cliente="${id}" class="fas fa-trash eliminar"></i>
     </td>
-    <td><i data-cliente="${id}" class="fas fa-trash eliminar"></i></td>
+</tr>
+
+
     `;
     const mensajes = document.querySelector("#mensaje");
     mensajes.innerHTML += `  

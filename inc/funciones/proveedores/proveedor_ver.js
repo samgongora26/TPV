@@ -7,7 +7,7 @@ const direccion_text = document.querySelector("#direccion");
 const fecha_registro_text = document.querySelector("#fecha_registro");
 const rfc_text = document.querySelector("#rfc");
 const razon_text = document.querySelector("#razon");
-const img_proveedor = document.querySelector("#img_proveedor");
+//const img_proveedor = document.querySelector("#img_proveedor");
 
 const formulario = document.querySelector("#formulario");
 
@@ -58,7 +58,7 @@ function llenar_formulario(cliente) {
   fecha_registro_text.innerHTML = fecha_registro;
   rfc_text.innerHTML = rfc;
   razon_text.innerHTML = razon_social;
-  img_proveedor.innerHTML = `
-  <div align="center"><img style="border-radius: 50px; color: black;" src="../../imagenes/proveedores/${fotografia}" width="100" height="100" ></div><br></br>
-  `;
+  //img_proveedor.innerHTML = `
+  //<div align="center"><img style="border-radius: 50px; color: black;" src="../../imagenes/proveedores/${fotografia}" width="100" height="100" ></div><br></br>
+  //`;
 }
