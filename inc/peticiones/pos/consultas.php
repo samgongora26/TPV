@@ -6,7 +6,7 @@ function buscar_producto(): array
 
         $codigo = $_POST['codigo'];
 
-        $sql = "select * from productos_inventario where codigo=$codigo;";
+        $sql = "select * from productos_inventario where codigo= '$codigo';";
         $consulta = mysqli_query($conexion, $sql);
 
         $estado = false;
