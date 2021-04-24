@@ -6,7 +6,7 @@ function buscar_producto(): array
 
         $codigo = $_POST['codigo'];
 
-        $sql = "select * from productos_inventario where codigo= '$codigo';";
+        $sql = "select * from productos_inventario where codigo= '$codigo' and cantidad_stock > 0 ;";
         $consulta = mysqli_query($conexion, $sql);
 
         $estado = false;
@@ -29,7 +29,8 @@ function buscar_producto(): array
             'precio_venta' => $precio_venta,
             'foto' => $foto,
             'cantidad' => 1,
-            'promocion_porcentaje' => $promocion_porcentaje
+            'promocion_porcentaje' => $promocion_porcentaje,
+            'estado' => $estado
         );
 
         return $respuesta;
@@ -182,13 +183,14 @@ function registrar_venta(): array
 {
     try {
         require '../../../conexion.php';
+        $hoy = date('Y-m-d');
 
         $id_venta = $_POST['id_venta'];
         $total = $_POST['total_venta'];
         $id_empleado = $_POST['id_usuario'];
         $id_cliente = $_POST['id_cliente'];
 
-        $sql1 = "update ventas set importe = $total, id_cliente = $id_cliente, id_empleado = $id_empleado,estado = 1 where ventas.id_venta = $id_venta";
+        $sql1 = "update ventas set importe = $total, id_cliente = $id_cliente, id_empleado = $id_empleado,fecha = $hoy, estado = 1 where ventas.id_venta = $id_venta";
         $consulta1 = mysqli_query($conexion, $sql1);
 
         $stmt = $conexion->prepare("INSERT INTO detalle_venta (id_venta, id_producto, precio_venta, cantidad, importe) VALUES (?, ?, ?, ?, ?)");

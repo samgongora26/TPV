@@ -107,7 +107,11 @@ function buscar_producto(e) {
     datos.append("codigo", codigo);
     datos.append("id_usuario", id_usuario);
     datos.append("accion", "buscar_producto");
-    enviar_datos(datos).then((res) => pintar(res));
+    enviar_datos(datos).then((res) =>{
+      if(res.estado === true){
+        pintar(res);
+      }
+    } );
   } else {
     console.log("error envio de campos vacios");
   }
@@ -120,7 +124,11 @@ function buscar_producto_sin_evento() {
     datos.append("codigo", codigo);
     datos.append("id_usuario", id_usuario);
     datos.append("accion", "buscar_producto");
-    enviar_datos(datos).then((res) => pintar(res));
+    enviar_datos(datos).then((res) =>{
+      if(res.estado === true){
+        pintar(res);
+      }
+    } );
   } else {
     console.log("error envio de campos vacios");
   }
@@ -146,7 +154,7 @@ function pintar(data) {
   } = data;
 
   if (!(id_producto === null)) {
-    let importe_producto = parseInt(cantidad) * precio_venta;
+    let importe_producto = parseFloat(cantidad) * precio_venta;
     if(promocion_porcentaje != 0){
 
       importe_producto = descuento_en_producto(precio_venta,cantidad,promocion_porcentaje);
@@ -162,8 +170,8 @@ function pintar(data) {
       descuento : promocion_porcentaje
     };
     carritos[ticket_en_uso].push(producto); 
-    foto.innerHTML = `nombre del codigo :${codigo}`;
-    precio.innerHTML = precio_venta;
+    foto.innerHTML = `Nombre del producto :${nombre} `;
+    precio.innerHTML = `Precio :${precio_venta}`;
 
   } else {
     alert("no existe el producto");
@@ -190,8 +198,8 @@ function actualizar_carrito(codigo, operador) {
   if (nueva_cantidad > 0) {
     carritos[ticket_en_uso][index].cantidad = nueva_cantidad;
     let cantidad = carritos[ticket_en_uso][index].cantidad;
-    let precio = parseInt(carritos[ticket_en_uso][index].precio_v);
-    let descuento = parseInt(carritos[ticket_en_uso][index].descuento);
+    let precio = parseFloat(carritos[ticket_en_uso][index].precio_v);
+    let descuento = parseFloat(carritos[ticket_en_uso][index].descuento);
     let total = descuento_en_producto(precio,cantidad,descuento);
     carritos[ticket_en_uso][index].importe = total;
   }else{
