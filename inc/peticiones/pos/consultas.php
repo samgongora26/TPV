@@ -190,6 +190,10 @@ function registrar_venta(): array
         $id_empleado = $_POST['id_usuario'];
         $id_cliente = $_POST['id_cliente'];
 
+        if($id_cliente == 0 or $id_cliente  == ""){
+           $id_cliente = 1; 
+        }
+
         $sql1 = "update ventas set importe = $total, id_cliente = $id_cliente, id_empleado = $id_empleado,fecha = '$hoy', estado = 1 where ventas.id_venta = $id_venta";
         $consulta1 = mysqli_query($conexion, $sql1);
 

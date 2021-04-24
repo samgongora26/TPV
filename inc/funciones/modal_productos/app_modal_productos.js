@@ -17,7 +17,8 @@ function busqueda_especifica(e) {
   const datos = new FormData();
   datos.append("nombre", texto_buscar);
   datos.append("accion", "filtro");
-
+  const listado_productos = document.querySelector("#contenido_busqueda_producto");
+  listado_productos = "";
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);

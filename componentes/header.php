@@ -110,13 +110,13 @@
                                         class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
+                                <a class="dropdown-item" href="../../../src/plantillas/configuracion/configuracion.php"><i data-feather="user"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Mi punto de ventas</a>
                                 
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
+                                <!--a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
                                         class="svg-icon mr-2 ml-1"></i>
-                                    Account Setting</a>
+                                    Account Setting</a-->
                                 
                                 <button id="boton_instalar" name="boton_instalar" hidden class="dropdown-item" aria-expanded="false">
                                     <i class="fas fa-download"></i>

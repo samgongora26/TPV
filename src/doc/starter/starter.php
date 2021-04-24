@@ -131,6 +131,7 @@
                 </div>
                 <hr>
 
+                <h1>Cómo usar los modulos</h1>
                 <!--USUARIOS-->
                 <div class="row mt-4">  
                     <div class="col-xl-12">

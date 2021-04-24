@@ -88,6 +88,7 @@
                         $consulta = mysqli_query($conexion, $sql);
                         $ventas = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
                         $ventas_semana = $ventas["venta_semana"]; 
+                        $ventas_semana = floor(($ventas_semana*1000))/1000;
 
                         //VENTAS DE AYER
                         $fecha_actual = date('Y-m-d');
@@ -95,6 +96,7 @@
                         $consulta = mysqli_query($conexion, $sql);
                         $ventas = mysqli_fetch_assoc($consulta); //usar cuando se espera varios resultadosS
                         $ventas_hoy = $ventas["venta_hoy"]; 
+                        $ventas_hoy = floor(($ventas_hoy*1000))/1000;
 
                         $sql = "SELECT COUNT(`id_producto`) as productos FROM `productos_inventario` ";
                         $consulta = mysqli_query($conexion, $sql);
