@@ -7,7 +7,7 @@ let texto_total_compra = document.querySelector("#total_compra");
 let id_venta_actual = 0;
 let tickets = [];
 let carritos = [];
-let id_cliente = 0;
+let id_cliente = 1;
 
 document.addEventListener("DOMContentLoaded", () => {
   mostrar_ticket();
