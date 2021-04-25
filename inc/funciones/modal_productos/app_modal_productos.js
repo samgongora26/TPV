@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function busqueda_especifica(e) {
-  listado_productos.innerHTML = "";
+  //listado_productos.innerHTML = "";
   e.preventDefault();
   const texto_buscar = document.querySelector("#valor_busqueda").value;
 
@@ -18,7 +18,7 @@ function busqueda_especifica(e) {
   datos.append("nombre", texto_buscar);
   datos.append("accion", "filtro");
   const listado_productos = document.querySelector("#contenido_busqueda_producto");
-  listado_productos = "";
+  //listado_productos = "";
   llamado(datos).then((res) => {
     res.forEach((datos) => {
       console.log(datos);

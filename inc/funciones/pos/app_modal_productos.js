@@ -1,4 +1,4 @@
-const listado_productos = document.querySelector("#contenido_busqueda_producto");
+//const listado_productos = document.querySelector("#contenido_busqueda_producto");
 const modal = document.querySelector("#form-modal-edit");
 const btn_buscar = document.querySelector("#buscar");
 const barra_buscar = document.querySelector("#valor_busqueda");
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function busqueda_especifica(e) {
-  listado_productos.innerHTML = "";
+  //listado_productos.innerHTML = "";
   e.preventDefault();
   const texto_buscar = document.querySelector("#valor_busqueda").value;
 
