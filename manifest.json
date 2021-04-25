@@ -1,0 +1,21 @@
+{
+    "short_name":   "TPV",
+    "name":         "Terminal Punto de Ventas",
+    "start_url":    "index.html",
+    "display":      "fullscreen",
+    "background_color": "white",
+    "description": "PWA de un terminal de punto de ventas",
+    "icons":[
+        {
+            "src":  "src/assets/images/logo-icon192.png",
+            "sizes":"192x192",
+            "type": "image/png"
+        },
+        {
+            "src":  "src/assets/images/logo-icon512.png",
+            "sizes":"512x512",
+            "type": "image/png" 
+        }
+    ]
+}
+

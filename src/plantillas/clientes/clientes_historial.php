@@ -1,3 +1,7 @@
+<?php 
+    //Se hace llamado a la sesion
+    include("../../../inc/funciones/admin/sesion.php");
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -45,16 +49,15 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
         <div class="page-wrapper">
-            <div class="conteiner-fluid">
+            <div class="container-fluid">
             <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-            <div class="container">
-            <div class="row">
+            
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <!--Tabla de Historial Clientes-->
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Historial de Compras</h4>
+                                <h4 class="card-title">Historial de Clientes</h4>
                                 <h6 class="card-subtitle">Historial...</h6>
                             </div>
                             <div class="row">
@@ -72,11 +75,12 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">fecha</th>
+                                            <th scope="col">Fecha</th>
                                             <th scope="col">Cantidad</th>
                                             <th scope="col">Producto</th>
                                             <th scope="col">Precio Unitario</th>
                                             <th scope="col">Total</th>
+                                            <th scope="col">Editar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -87,32 +91,71 @@
                                             <td>Cell</td>
                                             <td>Cell</td>
                                             <td>Cell</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
-                                            <td>Cell</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#edit-modal"><i class="icon-pencil"></i></button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
+
+                                <!-- MODALS -->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!-- Modal editar -->
+                                <div id="edit-modal" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                            <div class="modal-body">
+
+                                                <form class="pl-3 pr-3" action="#" id="form-modal-edit" name="for-modal-edit">
+
+                                                    <div class="form-group">
+                                                        <label>Fecha</label>
+                                                        <input class="form-control" type="text" id="edit_fecha" name="edit_fecha"
+                                                            required="" placeholder="Fecha">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Cantidad</label>
+                                                        <input class="form-control" type="text" id="edit_cantidad" name="edit_cantidad"
+                                                            required="" placeholder="Cantidad">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Producto</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_producto" name="edit_producto" placeholder="Producto">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Precio Unitario</label>
+                                                        <input class="form-control" type="text" required=""
+                                                            id="edit_precio" name="edit_precio" placeholder="Precio Unitario">
+                                                    </div>
+
+                                                    <div class="form-group text-center">
+                                                        <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+                                <!-- Fin modal editar -->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!-- FIN MODALS -->
+
+
                             </div>
                         </div>
                     </div>
                     <!-- Fin Tabla de Historial Clientes-->
                 </div>
-            </div>
-        </div>
+            
 
             </div>
         </div>

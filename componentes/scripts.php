@@ -1,4 +1,7 @@
-<script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+    <!--SCRIPT DE INSTALACION-->
+    <script src="../../../inc/funciones/admin/install.js"></script>
+
+    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- apps -->
@@ -9,6 +12,9 @@
     <script src="../../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../../dist/js/custom.min.js"></script>
+    <script src="../../dist/js/pages/chartjs/chartjs.init.js"></script>
+    <script src="../../dist/js/pages/chartjs/chartjs.init.min.js"></script>
+    <script src="../../assets/libs/chart.js/dist/Chart.min.js"></script>
     <!--This page JavaScript -->
     <script src="../../assets/extra-libs/c3/d3.min.js"></script>
     <script src="../../assets/extra-libs/c3/c3.min.js"></script>

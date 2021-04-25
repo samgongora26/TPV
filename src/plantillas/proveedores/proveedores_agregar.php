@@ -1,3 +1,8 @@
+<?php 
+    //Se hace llamado a la sesion
+    include("../../../inc/funciones/admin/sesion.php");
+    include("../../../inc/funciones/admin/rol_admin.php");
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -44,11 +49,11 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
         <div class="page-wrapper">
-            <div class="conteiner-fluid">
+            <div class="container-fluid">
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                <div class="container">
+                
                     <div class="row">
-                        <div class="col-sm-1 col-md-1 col-lg-1"></div>
+                     
                         <div class="col-sm-11 col-md-11 col-lg-11">
 
 
@@ -58,27 +63,38 @@
                                     <h4 class="card-title">Agregar Nuevo Proveedor</h4>
                                     <h6 class="card-subtitle">Rellena los campos para agregar un nuevo proveedor</h6>
                                     <form id="formulario" class="mt-4">
+                                    <div id="mensaje"></div>
                                         <div class="form-group">
                                             <label>Clave</label>
-                                            <input id="clave" name="clave" type="text" class="form-control">
+                                            <input id="clave" name="clave" type="text" class="form-control" required>
                                             <label>Nombre</label>
-                                            <input id="nombre" name="nombre" type="text" class="form-control">
+                                            <input id="nombre" name="nombre" type="text" class="form-control" required>
                                             <label>Razón Social</label>
-                                            <input id="razon_social" name="razon_social" type="text" class="form-control">
+                                            <input id="razon_social" name="razon_social" type="text" class="form-control" required>
                                             <label>Dirección</label>
-                                            <input id="direccion" name="direccion" type="text" class="form-control">
+                                            <input id="direccion" name="direccion" type="text" class="form-control" required>
                                             <label>Telefono</label>
-                                            <input id="telefono" name="telefono" type="text" class="form-control">
+                                            <input id="telefono" name="telefono" type="text" class="form-control" required onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                            <br>
+
+                                            <!--label>Telefono</label>
+                                            <br>
+                                            <label>
+                                                (<input name="tel1" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit area code" size="2"/>)-
+                                                <input name="tel2" type="tel" pattern="[0-9]{3}" placeholder="###" aria-label="3-digit prefix" size="2"/> -
+                                                <input name="tel3" type="tel" pattern="[0-9]{4}" placeholder="####" aria-label="4-digit number" size="3"/>
+                                            </label>
+                                            <br-->
+
+
                                             <label>RFC</label>
-                                            <input id="rfc" name="rfc" type="text" class="form-control">
+                                            <input id="rfc" name="rfc" type="text" class="form-control" required>
                                             <label>Correo</label>
-                                            <input id="correo" name="correo" type="text" class="form-control">
-                                            <label>País</label>
-                                            <input id="pais" name="pais" type="text" class="form-control">
+                                            <input id="correo" name="correo" type="email" class="form-control" required>
                                             <label>Estado</label>
-                                            <input id="estado" name="estado" type="text" class="form-control">
+                                            <input id="estado" name="estado" type="text" class="form-control" required>
                                             <label>Ciudad</label>
-                                            <input id="ciudad" name="ciudad" type="text" class="form-control">
+                                            <input id="ciudad" name="ciudad" type="text" class="form-control" required>
                                             <br>
                                             <h4 class="card-title">Detalles</h4>
                                             <form class="mt-3">
@@ -99,7 +115,7 @@
 
                         </div>
                     </div>
-                </div>
+                
 
 
 

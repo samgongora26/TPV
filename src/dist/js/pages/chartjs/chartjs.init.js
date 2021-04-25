@@ -1,15 +1,15 @@
 $(function () {
     "use strict";
-	// Bar chart
+	// Bar chart del dia
 	new Chart(document.getElementById("bar-chart"), {
 		type: 'bar',
 		data: {
-		  labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+		  labels: ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"],
 		  datasets: [
 			{
-			  label: "Population (millions)",
+			  label: "Clientes",
 			  backgroundColor: ["#6174d5", "#5f76e8", "#768bf4", "#7385df", "#b1bdfa"],
-			  data: [8478,6267,5734,4784,1833]
+			  data: [24,38,17,46,23]
 			}
 		  ]
 		},
@@ -17,7 +17,7 @@ $(function () {
 		  legend: { display: false },
 		  title: {
 			display: true, 
-			text: 'Predicted world population (millions) in 2050'
+			text: ''
 		  }
 		}
 	});

@@ -1,3 +1,7 @@
+<?php 
+    //Se hace llamado a la sesion
+    include("../../../inc/funciones/admin/sesion.php");
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -41,26 +45,28 @@
         <!-- FON BARRA IZQUIERDA  -->
         <!-- ============================================================== -->
 
-        
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        
-        <div class="page-wrapper">
-            <div class="conteiner-fluid">
-            <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
 
-            <!-- CONTENEDOR -->
-            <div class="container">
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+            <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
+            <ol class="breadcrumb ">
+                                    <li class="breadcrumb-item"><a href="proveedores_buscar.php">Proveedores</a></li>
+                                    <li class="breadcrumb-item active" id="pedido">Proveedor</li>
+                                </ol>
                 <!-- Row de tarjetas superiores -->
                 <div class="row">
                     <!--Tarjeta de proveedor-->
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="card text-white bg-dark">
                             <div align="center" class="card-header">
+                                <h2>Proveedor: </h2>
                                 <h4 class="mb-0 text-white" id="nombre"><!-- se inyecta el nombre--></h4>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title text-white">Razon Social</h5>
-                                <div align="center"><img style="border-radius: 50px; color: black;" src="../../imagenes/proveedores/logosabritas.jpg" width="100" height="100" ></div><br>
+                            <!--div class="card-body">
+                                <div id="img_proveedor"></div>
+                                
                                 <div class="row">
                                     <div class="col-md-3">
                                         <a href="javascript:void(0)" class="btn btn-primary">Facturas</a>
@@ -70,45 +76,108 @@
                                     </div>
                                     <div class="col-md-5">
                                         <a href="javascript:void(0)" class="btn btn-primary">Editar Proveedor <i class="fas fa-edit"></i></a>
-                                    </div>                         
+                                    </div>
                                 </div>
-                                
-                            </div>
+
+                            </div-->
                         </div>
                     </div>
                     <!--Fin Tarjeta de proveedor-->
 
                     <!--Tarjeta de contacto-->
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                         <div class="card border-dark">
                             <div align="center" class="card-header bg-dark">
                                 <h4 class="mb-0 text-white">Contacto</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-3">
-                                        <h3>Telefono: </h3>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Folio: </h5>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="folio"><!--se inyecta el telefono --></p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <p id="telefono"><!--se inyecta el telefono --></p>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Estado y municipio: </h5>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="estado"><!--se inyecta el telefono --></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Localidad y dirección: </h5>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="direccion"><!--se inyecta el telefono --></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Telefono: </h5>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="telefono"><!--se inyecta el telefono --></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Correo: </h5>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="email"><!--se inyecta el correo--></p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Fecha de registro </h5>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="fecha_registro"><!-- se inyecta la direccion--></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>RFC: </h5>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p id="rfc"><!--se inyecta el telefono --></p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Razón social: </h5>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <p id="razon"><!--se inyecta el correo--></p>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h3>Correo: </h3>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p id="email"><!--se inyecta el correo--></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h3>Dirección: </h3>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <p id="direccion"><!-- se inyecta la direccion--></p>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -117,7 +186,7 @@
                 <!--Fin Row de tarjetas superiores -->
 
                 <!--Tarjeta de Balance-->
-                <div class="row">
+                <!--div class="row">
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
                         <div class="card border-success">
@@ -131,11 +200,11 @@
                         </div>
                     </div>
                     <div class="col-md-3"></div>
-                </div>
+                </div-->
                 <!-- Fin Tarjeta Balance-->
 
                 <!--Tabla de facturas de compra-->
-                <div class="row">
+                <!--div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -170,12 +239,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div-->
 
                 <!--Fin Tabla de facturas de compra-->
 
-            </div>
-            <!--FIN CONTENEDOR -->
+
 
             </div>
         </div>

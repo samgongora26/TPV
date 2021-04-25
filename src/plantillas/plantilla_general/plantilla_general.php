@@ -1,3 +1,7 @@
+<?php 
+    //Se hace llamado a la sesion
+    include("../../../inc/funciones/admin/sesion.php");
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -44,11 +48,8 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- CONTENEDOR -->
         <div class="page-wrapper">
-            <div class="conteiner-fluid">
+            <div class="container-fluid">
                 <!-- AQUI EMPEZAMOS A AGREGAR DISEÑO DEL CENTRO -->
-                
-
-
 
             </div>
         </div>
