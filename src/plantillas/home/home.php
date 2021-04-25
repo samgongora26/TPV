@@ -178,12 +178,12 @@
                             
                             <div class="row">
                                 
-                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="col-sm-6 col-md-6 col-lg-7">
                                     <div class="card btn btn-lg bg-primary">
                                         <a href="../ventas/ini.php">
                                             <div class="text-white">
                                                 <p></p>
-                                                <i class="fas fa-tag"></i>
+                                                <i class="fas fa-tag fa-2x"></i>
                                                 <p></p>
                                                 <h4>Ventas</h4>
                                                 <p></p>
@@ -192,33 +192,33 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                <div class="col-sm-4 col-md-3 col-lg-5">
                                     <div class="card btn bg-secondary">
                                         <a href="../finanzas/finanzas.php">
                                             <div class="text-white">
-                                                <p></p><i class="fas fa-clipboard-list"></i><p></p>
+                                                <p></p><i class="fas fa-clipboard-list fa-3x"></i><p></p>
                                                 <h4>Reportes</h4>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
 
-                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                <div class="col-sm-4 col-md-3 col-lg-4">
                                     <div class="card btn bg-success">
                                         <a href="../finanzas/estadisticas_generales.php">
                                             <div class="text-white">
-                                                <p></p><i class="fas fa-chart-line"></i><p></p>
+                                                <p></p><i class="fas fa-chart-line fa-3x"></i><p></p>
                                                 <h4>Finanzas</h4>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
 
-                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                <div class="col-sm-4 col-md-3 col-lg-4">
                                     <div class="card btn bg-info">
-                                        <a href="../inventario/inventario.php">
+                                        <a href="../inventario/inventario_lista.php">
                                             <div class="text-white">
-                                                <p></p><i class="fas fa-pallet"></i><p></p>
+                                                <p></p><i class="fas fa-pallet fa-3x"></i><p></p>
                                                 <h4>Inventario</h4>
                                             </div>
                                         </a>
@@ -229,7 +229,7 @@
                                     <div class="card btn bg-warning">
                                         <a href="../promociones/promociones.php">
                                             <div class="text-white">
-                                                <p></p><i class="fas fa-gift"></i><p></p>
+                                                <p></p><i class="fas fa-gift fa-3x"></i><p></p>
                                                 <h4>Promociones</h4>
                                             </div>
                                         </a>
@@ -240,7 +240,7 @@
                                     <div class="card btn bg-danger">
                                         <a href="../proveedores/proveedores_buscar.php">
                                             <div class="text-white">
-                                                <p></p><i class="fas fa-truck-moving"></i><p></p>
+                                                <p></p><i class="fas fa-truck-moving fa-2x"></i><p></p>
                                                 <h4>Proveedores</h4>
                                             </div>
                                         </a>
@@ -249,9 +249,9 @@
 
                                 <div class="col-sm-4 col-md-4 col-lg-4">
                                     <div class="card btn bg-light">
-                                        <a href="../clientes/clientes.php">
-                                            <div class="text-white">
-                                                <p></p><i class="fas fa-users"></i><p></p>
+                                        <a href="../clientes/clientes_lista.php">
+                                            <div class="text-dark">
+                                                <p></p><i class="fas fa-users fa-2x"></i><p></p>
                                                 <h4>Clientes</h4>
                                             </div>
                                         </a>

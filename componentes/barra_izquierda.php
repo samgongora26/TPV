@@ -7,7 +7,7 @@
                         <!--HOME-->
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../home/home.php"
                                 aria-expanded="false"><i class="fas fa-home"></i><span
-                                    class="hide-menu">PTV</span></a></li>
+                                    class="hide-menu">Mi punto de ventas</span></a></li>
                         <li class="list-divider"></li>
                         
                         
